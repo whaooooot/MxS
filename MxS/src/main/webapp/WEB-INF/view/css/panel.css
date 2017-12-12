@@ -1,0 +1,48 @@
+        .bs-twrapper{
+    height:260px;
+    overflow-x:scroll;
+    overflow-x:hidden;
+    border-bottom:solid 2px #353535;
+    padding-top:39px;
+}
+
+table{
+    position: relative;
+    margin: 10px auto;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table > thead.sticky{
+    height:42px;
+    position:fixed;
+    background:#fff;
+    width:100% !important;
+    margin-top:-40px;
+}
+
+table > thead.sticky > tr{
+    width:500% !important;
+}
+
+table > thead th:nth-of-type(odd) {
+   width:10%;
+}
+table > thead th:nth-of-type(even) {
+   width:80%;
+}
+
+table > tbody td:nth-of-type(odd) {
+   width:10%;
+}
+table > tbody td:nth-of-type(even) {
+   width:80%;
+}
+
+tbody.scroll{
+    width:100%;
+    
+}
