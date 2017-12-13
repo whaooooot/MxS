@@ -70,8 +70,8 @@
 			 
 			 <div class="navbar-header">
 		        	<!-- Mobile Toggle Menu Button -->
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		          	<a class="navbar-brand" href="main.jsp">MXS</a> 
+					<a href="index" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		          	<a class="navbar-brand" href="index">MXS</a> 
 		        </div>
 		        
 		        
@@ -112,8 +112,8 @@
 		          <ul class="nav navbar-nav navbar-left">
 		            <li class="active"><a href="#" data-nav-section="home"><span>영화</span></a></li>
 		            <li><a href="moviebook" data-nav-section=""><span>빠른예매</span></a></li>
-		            <li><a href="#" data-nav-section=""><span>극장</span></a></li>
-		             <li><a href="#" data-nav-section=""><span>스토어</span></a></li>
+		            <li><a href="" data-nav-section=""><span>극장</span></a></li>
+		             <li><a href="store" data-nav-section=""><span>스토어</span></a></li>
 		            <li><a href="#" data-nav-section=""><span>이벤트</span></a></li>		           
 		          </ul>
 		          

@@ -11,9 +11,15 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link href="../css/payment.css" rel="stylesheet" type="text/css">
+    <link href="./css/payment.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
+	
+
 <div class="container wrapper">
             <div class="row cart-head">
                 <div class="container">
@@ -28,7 +34,7 @@
             </div>    
             
             <div class="row cart-body">
-                <form class="form-horizontal" method="post" action="">
+                <form class="form-horizontal" method="get" action="store">
              
                     
                      <!--CREDIT CART PAYMENT-->
@@ -94,7 +100,7 @@
                            
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn btn-error btn-submit-fix">창닫기</button>
+                                    <button type="submit" class="btn btn-error btn-submit-fix">쇼핑 계속하기</button>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +110,10 @@
             </div>      
                 </div>
                 
-              
+               <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
+	
            
   
 <script type="text/javascript">

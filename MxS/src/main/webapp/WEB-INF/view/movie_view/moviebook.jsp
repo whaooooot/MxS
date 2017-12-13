@@ -15,7 +15,15 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
+
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
 <body>
+
+ 	
+   
+   
 	<div class="container">
 		<div class="row">
 			<div class="bs-twrapper">
@@ -204,7 +212,10 @@
 
 
 
-
+	  <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
+	
 
 </body>
 

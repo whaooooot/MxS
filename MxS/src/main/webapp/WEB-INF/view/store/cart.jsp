@@ -13,6 +13,10 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -28,7 +32,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                
+                
                     <tr>
+                    	<td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="checkbox" class="form-control" value="true">
+                        </td>
+                    
+                    
+                    
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
                             <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg" style="width: 72px; height: 72px;"> </a>
@@ -49,6 +61,10 @@
                         </button></td>
                     </tr>
                     <tr>
+                    		<td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="checkbox" class="form-control" value="true">
+                        </td>
+                    
                         <td class="col-md-6">
                         <div class="media">
                             <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://maniaczone.com/web/product/medium/201601/5780_shop1_772902.jpg" style="width: 72px; height: 72px;"> </a>
@@ -81,13 +97,18 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                       <a href="javascript:history.back();"> <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> 쇼핑 계속하기
-                        </button></td>
+                        </button></a></td>
                         <td>
-                        <button type="button" class="btn btn-success">
+                                              <form action="payment" method="post">
+                        
+                        <button type="submit" class="btn btn-success">
                             	결제 <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        </button>
+                        </form>
+                        
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -97,5 +118,9 @@
 <script type="text/javascript">
 
 </script>
+
+     <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 </body>
 </html>

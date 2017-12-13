@@ -54,9 +54,18 @@
 
 
 	<tr>
-	  		<td><div>
-                    <button class="btn btn-sq btn-danger"> ◀ <br/> <h4><strong>좌석선택</strong> </h4> </button>                 
-     		</div></td>
+	
+	
+	  		<td>
+	  		
+	  		
+	  				<form action="moviebookseat" method="post">
+
+                    <button type="submit"class="btn btn-sq btn-danger"> ◀ <br/> <h4><strong>좌석선택</strong> </h4> </button>                    
+     	
+	  		</form>
+	  		
+	  	</td>
 	
 		<td>
                     <img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image">
@@ -96,9 +105,14 @@
 	
 		<td>
 		
+		
+					<form action="moviebookresult" method="post">
 		<div class="bright">
-                    <button class="btn btn-sq btn-danger"> √ <br/><h4><strong>결제하기</strong> </h4></button>         
+                    <button type="submit"class="btn btn-sq btn-danger"> √ <br/><h4><strong>결제하기</strong> </h4></button>                     
      		</div>
+	  		</form>
+	  		
+	
 		</td>
 	</tr>
 	

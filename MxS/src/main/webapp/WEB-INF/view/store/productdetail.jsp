@@ -10,14 +10,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-<link href="../css/productdetail.css?ver=1" rel="stylesheet" type="text/css">
+<link href="./css/productdetail.css?ver=1" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/productdetail.js"></script>
+<script type="text/javascript" src="./js/productdetail.js"></script>
 </head>
 <body>
 
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
+	
 
 	<div class="container">
 		<div class="row">
@@ -75,17 +79,20 @@
 
 							<!-- Botones de compra -->
 							<div class="section" style="padding-bottom: 20px;">
+								<form action="payment" method="post">
 								<button class="btn btn-success">
 									<span style="margin-right: 20px"
 										class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 									구매하기
 								</button>
+							</form>
+
 
 								<h6>
-									<a href="#"><span class="glyphicon glyphicon-heart-empty"
+									<a href="cart"><span class="glyphicon glyphicon-heart-empty"
 										style="cursor: pointer;"></span> 장바구니담기</a>
 								</h6>
-								<button class="btn btn-default">목록으로</button>
+								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
 							</div>
 			
 
@@ -122,8 +129,14 @@
 			</div>
 		</div>
 	</div>
+	
+	 <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
+	
+	
 </body>
-</html>
 
 
 </html>
+

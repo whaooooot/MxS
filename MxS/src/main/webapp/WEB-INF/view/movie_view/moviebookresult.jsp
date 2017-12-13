@@ -7,18 +7,21 @@
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 <title>예매페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 
 
 
 </style>
-<link href="../css/storebook.css?ver=2" rel="stylesheet" type="text/css">
+<link href="./css/storebook.css?ver=2" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
 	<div class="container">
 		<div class="row">
 			<div class="bs-twrapper">
@@ -111,7 +114,9 @@
 	</div>
 
 
-
+ <div id="header">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 
 
 </body>
