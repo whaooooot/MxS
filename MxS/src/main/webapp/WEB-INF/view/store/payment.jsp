@@ -8,10 +8,10 @@
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>보안 결제페이지</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link href="./css/payment.css?ver=1" rel="stylesheet" type="text/css">
+    <link href="./css/payment.css?ver=2" rel="stylesheet" type="text/css">
 </head>
 <body>
  <div id="header">
@@ -30,7 +30,7 @@
            
                 </div>
                 </div>
-            </div>    
+            </div>     
             
             <div class="row cart-body">
                 <form class="form-horizontal" method="post" action="productresult">
@@ -38,7 +38,7 @@
                     
                      <!--CREDIT CART PAYMENT-->
                     <div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> 보안 결제</div>
+                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span>보안 결제</div>
                         <div class="panel-body">
                             <div class="form-group">
                             	<div class="col-md-12"><strong>사용할 포인트 선택</strong>   	<hr/></div>
