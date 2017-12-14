@@ -30,8 +30,9 @@
 				<br />
 				<div class="bright">
 					<input class="btn btn-bordered-primary" type="button" value="상영시간표" />
-					<input class="btn btn-bordered-success" type="button"
-						value="예매다시하기" />
+					
+					<a href="javascript:location.reload();" class="btn btn-bordered-success">예매 다시하기</a>
+		
 				</div>
 
 				<table class="table table-bordered">

@@ -103,16 +103,17 @@
 			</table>
 
 
-
-
-			<div class="col-xs-9">
-				<ul class="menu-items">
-					<li class="active">상세설명</li>
-					<li>주의사항</li>
-					<li>이용방법</li>
-					<li>상품후기</li>
-				</ul>
-				<div style="width: 100%; border-top: 1px solid silver">
+	
+	<div class="tabbable">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab" title="선택된 탭메뉴">상세설명</a></li>
+            <li class=""><a href="#tab2" data-toggle="tab">주의사항</a></li>
+            <li class=""><a href="#tab3" data-toggle="tab">이용방법</a></li>
+            <li class=""><a href="#tab4" data-toggle="tab">상품후기</a></li>
+         </ul>
+         <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+            <div style="width: 100%; border-top: 1px solid silver">
 					<p style="padding: 15px;">
 						<small> 상세설명들~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 							ㄴ어랴ㅐㅁ너ㅑㅐ러ㅐㅑㄷ저랴ㅐㅓ날니ㅏ러너리ㅏ너라ㅣ닝러ㅣ넝ㄹ 냐ㅐㄹㄷㅈ머ㅐㅑ러ㅑ너랴ㅓ내ㅑ러ㅐㅑ너야러ㅏㅣ너ㅣ라ㅓ나라너란멀
@@ -126,9 +127,18 @@
 						</ul>
 					</small>
 				</div>
-			</div>
-		</div>
-	</div>
+               
+               
+            </div>
+            <div class="tab-pane" id="tab2">주의사항</div>
+            <div class="tab-pane" id="tab3">이용방법</div>
+            <div class="tab-pane" id="tab4">상품후기</div>
+
+         </div>
+      </div>
+
+	
+	</div><!-- container end -->
 	
 	 <div id="footer">
       <jsp:include page="../footer.jsp" flush="false" />

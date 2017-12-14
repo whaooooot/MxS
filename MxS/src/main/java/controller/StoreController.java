@@ -34,6 +34,16 @@ public class StoreController {
 		return "store/cart";
 	}
 	
+	@RequestMapping(value = "/storeadmin", method = RequestMethod.GET)
+	public String store6(Model model) {
+		return "store/storeadmin";
+	}
+	
+	@RequestMapping(value = "/storeupload", method = RequestMethod.GET)
+	public String store7(Model model) {
+		return "store/storeupload";
+	}
+	
 	
 
 

@@ -8,11 +8,11 @@
 <title>예매페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
-	href="../css/bootstrap.min.css"
+	href="./css/bootstrap.min.css"
 	rel="stylesheet">
 <style type="text/css">
 </style>
- <link href="../css/storebook.css?ver=2" rel="stylesheet" type="text/css">
+ <link href="./css/storebook.css?ver=2" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -26,7 +26,7 @@
 			<div class="bs-twrapper">
 			<br/>
 			<div class="bright">
-						<input  class="btn btn-bordered-success" type="button"value="예매다시하기"/>
+								<a href="javascript:location.reload();" class="btn btn-bordered-success">예매 다시하기</a>
 					</div>
 					
 				<table class="table table-bordered">

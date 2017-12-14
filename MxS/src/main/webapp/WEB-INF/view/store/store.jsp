@@ -201,7 +201,7 @@
 
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<a class="thumbnail" href="#"><img alt=""
 					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
 				<h3>어밴져스 텀블러</h3>
@@ -210,7 +210,7 @@
 					<a href="#" class="btn btn-primary btn-block">Open</a>
 				</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<a class="thumbnail" href="#"><img alt=""
 					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
 				<h3>어밴져스 텀블러</h3>
@@ -219,10 +219,19 @@
 					<a href="#" class="btn btn-primary btn-block">Open</a>
 				</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<a class="thumbnail" href="#"><img alt=""
 					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
 				<h3>어밴져스 텀블러</h3>
+				<p>가격:30000원</p>
+				<p align="center">
+					<a href="#" class="btn btn-primary btn-block">Open</a>
+				</p>
+			</div>
+			<div class="col-md-3">
+				<a class="thumbnail" href="#"><img alt=""
+					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
+				<h3>어밴져스 텀블러2</h3>
 				<p>가격:30000원</p>
 				<p align="center">
 					<a href="#" class="btn btn-primary btn-block">Open</a>

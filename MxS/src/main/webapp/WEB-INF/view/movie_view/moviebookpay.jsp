@@ -36,7 +36,7 @@
   background: #161616;
 }
 </style>
- <link href="../css/storebook.css?ver=2" rel="stylesheet" type="text/css">
+ <link href="./css/storebook.css?ver=2" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -51,7 +51,7 @@
 			<div class="bs-twrapper">
 			<br/>
 			<div class="bright">
-						<input  class="btn btn-bordered-success" type="button"value="전체다시하기"/>
+								<a href="javascript:location.reload();" class="btn btn-bordered-success">전체 다시하기</a>
 					</div>
 					
 				<table class="table table-bordered">

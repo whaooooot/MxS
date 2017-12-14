@@ -15,7 +15,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
-<link href="../css/store.css?ver=1" rel="stylesheet" type="text/css">
+<link href="./css/store.css?ver=1" rel="stylesheet" type="text/css">
 
 
 
@@ -27,6 +27,11 @@
 
 
 <body>
+
+	 <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
+   
 	<div class="container">
 		<div class="row">
 			<h1>스토어관리자상단</h1>
@@ -204,7 +209,7 @@
 
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<!-- check -->
 				<div class="squaredChk">
 					<input type="checkbox" value="0" id="squaredChk"
@@ -219,7 +224,7 @@
 					<a href="#" class="btn btn-primary btn-block">Open</a>
 				</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<!-- check -->
 				<div class="squaredChk">
 					<input type="checkbox" value="1" id="squaredChk"
@@ -234,7 +239,7 @@
 					<a href="#" class="btn btn-primary btn-block">Open</a>
 				</p>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<!-- check -->
 				<div class="squaredChk">
 					<input type="checkbox" value="2" id="squaredChk"
@@ -249,23 +254,45 @@
 					<a href="#" class="btn btn-primary btn-block">Open</a>
 				</p>
 			</div>
+			<div class="col-md-3">
+				<!-- check -->
+				<div class="squaredChk">
+					<input type="checkbox" value="2" id="squaredChk"
+						name="DonationNumber" /> <label for="squaredChk"></label>
+				</div>
+				<!-- check -->
+				<a class="thumbnail" href="#"><img alt=""
+					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
+				<h3>어밴져스 텀블러2</h3>
+				<p>가격:30000원</p>
+				<p align="center">
+					<a href="#" class="btn btn-primary btn-block">Open</a>
+				</p>
+			</div>
+			
 		</div>
-
+	<br/>
+		<hr/>
+<div class="bright">
 	<div class="row">
 		<div class="col-md-4">
-			<input type="button" class="btn btn-warning btn-block" value="등록" />
+			
 		</div>
 		<div class="col-md-4">
-			<input type="button" class="btn btn-warning btn-block" value="수정" />
+	
 		</div>
 		<div class="col-md-4">		
-			<input type="button" class="btn btn-warning btn-block" value="삭제"
-				width="10px" />
+			<a href="storeupload" ><input type="button" class="btn btn-warning" value="등록" /></a>
+					<input type="button" class="btn btn-warning" value="수정" />
+			<input type="button" class="btn btn-warning" value="삭제" />
 		</div>
+</div>
 </div>
 
 
-
+ <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 
 
 

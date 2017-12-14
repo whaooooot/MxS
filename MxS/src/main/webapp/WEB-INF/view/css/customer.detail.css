@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+/* ===========================================
+    qna / notice 공통
+============================================ */
+#scrollContent{
+    height:186px;
+   overflow:auto;
+   position:relative;
+}
+
+ 
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(66, 139, 202, 0.75);
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:8;
+}
+
+a {
+   text-decoration: none;
+   color: #666;
+}
+
+ul, ol {
+   list-style: none;
+}
+
+li{
+   display: inline;
+}
+
+.col-detail {
+   font-style: normal; 
+   font-size: 14px; 
+   color: #666;
+   width: 900px;
+}
+
+/* 검색 */
+.inblack {
+   display: inline;
+}
+
+.qu_txt {
+   display: inline;
+   font-size: 12px;
+   font-weight: bold;
+   margin-left: 10px;
+}
+.qu_txt em{
+   font-style: normal;
+}
+.qu_txt span{
+   padding: 0px 10px 0px 5px;
+   border-right: solid 1px #000;
+   border-spacing: 10px;
+}
+
+.search_order li {
+   font-size: 18px; 
+   font-weight: bold;
+   }
+   
+.tabbable{
+   padding: 30px 0 30px 0;
+}
+
+.nav{
+   width: 864px;
+}
+
+
+/* contents */
+
+.tab-pane{
+   margin-top: 10px;
+}
+
+.search_result{
+   margin-top: 20px;
+   font-size: 12px;
+}
+.search_result span{
+   font-weight: bold;   
+}
+
+.tbl_area{
+   font-size: 12px;
+   width: 863px;
+   border-bottom: solid 1px #bbb;
+   margin-top: 0px;
+}
+table{
+   width: 863px;
+   border-collapse: separate;
+   border-spacing: 20px;
+}
+
+caption{
+   visibility: hidden;
+}
+
+/* footer 문의 */
+.search_order{
+   width: 863px;
+   border-top: solid 2px #000;
+   border-bottom: solid 1px #ddd;
+   padding: 25px 0 15px 0;
+}
+
+
+/* ===========================================
+    email
+============================================ */
+fieldset{
+   border: none;
+}
+
+legend{
+   visibility: hidden;
+}
+
+.tbl_area_e{
+   width: 863px;
+   border-top: solid 1px #bbb;
+   border-bottom: solid 1px #bbb;
+}
+
+.tbl_info_txt{
+   float: right;
+}

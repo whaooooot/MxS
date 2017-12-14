@@ -208,7 +208,7 @@
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="images/iphone-2.png" alt="Free HTML5 Template by FREEHTML5.co"></div>
+					    	<div class="iphone to-animate-2"><img src="https://cdn.pixabay.com/photo/2014/04/03/10/02/fir-tree-309681_960_720.png" alt="크리스마스트리"></div>
 					    </div>
 
 		    		</div>
