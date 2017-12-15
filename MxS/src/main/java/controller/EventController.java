@@ -26,8 +26,14 @@ public class EventController {
 	}
 	
 	
-	@RequestMapping(value = "/eventend", method = RequestMethod.GET)
+	@RequestMapping(value = "/eventprizeadmin", method = RequestMethod.GET)
 	public String event4(Model model) {
+		return "event/eventprizeadmin";
+	}
+	
+	
+	@RequestMapping(value = "/eventend", method = RequestMethod.GET)
+	public String event5(Model model) {
 		return "event/eventend";
 	}
 	

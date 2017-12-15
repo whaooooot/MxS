@@ -9,36 +9,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MovieController {
-	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String mxsindex(Model model) {
-		return "index";
-	}
 
-	@RequestMapping(value = "/moviebook", method = RequestMethod.GET)
-	public String mxs(Model model) {
+	@RequestMapping(value = "/MovieChartPage", method = RequestMethod.GET)
+	public String movie(Model model) {
 
-		return "movie_view/moviebook";
+		return "movie_view/MovieChartPage";
 	}
 	
-	@RequestMapping(value = "/moviebookseat", method = RequestMethod.POST)
-	public String mxs2(Model model) {
+	@RequestMapping(value = "/MovieDetail", method = RequestMethod.GET)
+	public String movie2(Model model) {
 
-		return "movie_view/moviebookseat";
+		return "movie_view/MovieDetail";
 	}
 	
-	@RequestMapping(value = "/moviebookpay", method = RequestMethod.POST)
-	public String mxs3(Model model) {
+	@RequestMapping(value = "/Trailer", method = RequestMethod.GET)
+	public String movie3(Model model) {
 
-		return "movie_view/moviebookpay";
+		return "movie_view/Trailer";
 	}
+
 	
-	@RequestMapping(value = "/moviebookresult", method = RequestMethod.POST)
-	public String mxs4(Model model) {
-
-		return "movie_view/moviebookresult";
-	}
-
 
 	
 		

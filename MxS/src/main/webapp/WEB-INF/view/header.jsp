@@ -10,12 +10,8 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	 
 	
-	
-	
-
-
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/boothead.css">
 	
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 	
@@ -50,7 +46,7 @@
 			<!-- 로그임 Start -->
 <div class="row row1">
             <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">로그인</a></li>
+                <li class="upper-links"><a class="links" href="login">로그인</a></li>
                 <li class="upper-links"><a class="links" href="https://campusbox.org/">회원가입</a></li>
                 <li class="upper-links"><a class="links" href="http://clashhacks.in/">My MXS</a></li>
                 <li class="upper-links"><a class="links" href="customer_service">고객센터</a></li>
@@ -82,11 +78,12 @@
 		        
 		        <div id="navbar" class="navbar-collapse collapse"> 
 		          <ul class="nav navbar-nav navbar-left">
-		            <li class="active"><a href="#" data-nav-section="home"><span>영화</span></a></li>
+		          	 <li class="active"><a href="index" data-nav-section="home"><span>홈</span></a></li>
+		            <li><a href="MovieChartPage" data-nav-section=""><span>영화</span></a></li>
 		            <li><a href="moviebook" data-nav-section=""><span>빠른예매</span></a></li>
 		            <li><a href="" data-nav-section=""><span>극장</span></a></li>
 		             <li><a href="store" data-nav-section=""><span>스토어</span></a></li>
-		            <li><a href="#" data-nav-section=""><span>이벤트</span></a></li>		           
+		            <li><a href="event" data-nav-section=""><span>이벤트</span></a></li>		           
 		          </ul>
 		          
 		

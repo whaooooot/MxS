@@ -17,6 +17,9 @@
         <!-- 웹 스타일 css --> 
         
 </head>
+ <div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
 
 <body>
 <div class="container">
@@ -26,7 +29,7 @@
         <h1>EVENT</h1>
         <div class="submenu" align="right">
         <a href="eventprize" class="round red on"><i>당첨자 발표</i></a>
-        <a href="#" class="round red on"><i>종료된 이벤트</i></a>
+        <a href="eventend" class="round red on"><i>종료된 이벤트</i></a>
        </div>
    </div>
     
@@ -235,6 +238,10 @@
 
 </div><!-- /.container -->
 
+
+ <div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 
 <script type="text/javascript">
 // Carousel Auto-Cycle

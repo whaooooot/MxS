@@ -1,0 +1,685 @@
+@charset "UTF-8";
+
+/* 무바차트 */
+
+.wrap-movie-chart .box-contents {
+	height: 93px;
+}
+
+
+[class|="wrap-movie"][class*="chart"] .sect-movie-chart {
+	margin-top: 30px;
+}
+
+/* 영화차트 리스트 */
+[class|="sect"][class*="chart"] {
+	position: relative;
+	overflow: hidden;
+}
+
+[class|="sect"][class*="chart"]>ol {
+	list-style: none;
+	padding-top: 30px;
+	margin-left: -64px;
+	border-bottom: 3px solid #241d1e;
+	zoom: 1;
+}
+
+[class|="sect"][class*="chart"]>ol:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+[class|="sect"][class*="chart"]>h4 {
+	margin-top: 30px;
+	color: #222222;
+	font-size: 21px;
+	font-family: 'NanumBarunGothicBold';
+}
+
+[class|="sect"][class*="chart"]>h4+ol {
+	padding-top: 20px;
+}
+
+[class|="sect"][class*="chart"]>h3:first-child+ol, [class|="sect"][class*="chart"]>h4:first-child+ol
+	{
+	padding-top: 0;
+}
+
+[class|="sect"][class*="chart"]>h3:first-child+ol .rank, [class|="sect"][class*="chart"]>h4:first-child+ol .rank,
+	[class|="sect"][class*="chart"]>.spec+ol .rank {
+	background: #e71a0f;
+}
+
+[class|="sect"][class*="chart"]>h3 {
+	margin-top: 30px;
+	color: #222222;
+	font-size: 21px;
+	font-family: 'NanumBarunGothicBold';
+}
+
+[class|="sect"][class*="chart"]>h3+ol {
+	padding-top: 20px;
+}
+
+[class|="sect"][class*="chart"]>ol>li {
+	float: left;
+	width: 197px;
+	margin-left: 64px;
+	padding-bottom: 30px;
+}
+
+[class|="sect"][class*="chart"]>h4+ol>li:first-child .title, [class|="sect"][class*="chart"]>h3+ol>li:first-child .title
+	{
+	width: 90%;
+}
+
+[class|="sect"][class*="chart"] .chart-ad {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+[class|="sect"][class*="chart"] .btn-more-fontbold {
+	float: right;
+	margin-top: 10px;
+}
+
+[class|="sect"][class*="chart"] .box-image {
+	position: relative;
+	width: 197px;
+	min-height: 272px;
+	margin-bottom: 10px;
+}
+/* [class|="sect"][class*="chart"] .thumb-image{  border: 6px solid #000000;} */
+[class|="sect"][class*="chart"] .thumb-image>img {
+	height: 260px;
+}
+
+/* Sorting Css */
+.sect-sorting {
+	position: relative;
+	margin-top: 20px;
+	text-align: right;
+}
+
+.sect-sorting .nowshow {
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.sect-sorting>select {
+	padding: 3px 10px;
+}
+
+.sect-sorting>select option {
+	height: 23px;
+	line-height: 23px;
+}
+
+/* Heading Css (combo) */
+.tit-heading-wrap {
+	position: relative;
+	height: 51px;
+	margin-top: 30px;
+	border-bottom: 3px solid #241d1e;
+}
+
+.tit-heading-wrap>h3 {
+	display: inline-block;
+	position: relative;
+	height: inherit;
+	margin: 0;
+	background-image: none;
+	color: #222;
+	font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+	font-size: 38px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+*+html .tit-heading-wrap>h3 {
+	display: inline;
+}
+
+.tit-heading-wrap>h3+a {
+	display: inline-block;
+}
+
+.tit-heading-wrap>.submenu {
+	position: absolute;
+	top: 18px;
+	right: 0;
+}
+
+.tit-heading-wrap>.submenu>ul {
+	list-style: none;
+	overflow: hidden;
+}
+
+.tit-heading-wrap>.submenu>ul:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.tit-heading-wrap>.submenu>ul>li {
+	float: left;
+	margin-left: 15px;
+}
+
+.tit-heading-wrap>.submenu>ul>li:first-child {
+	margin-left: 0;
+}
+
+.tit-heading-wrap>.submenu>ul>li>a {
+	display: inline-block;
+	padding-left: 13px;
+	font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+	font-size: 15px;
+}
+
+.tit-heading-wrap>.submenu>ul>li.on>a, .tit-heading-wrap>.submenu>ul>li>a:hover,
+	.tit-heading-wrap>.submenu>ul>li>a:focus {
+	background: url(../images/common/ico/ico_arrow07.png) no-repeat 0 3px;
+	color: #e40000;
+}
+
+.tit-heading-wrap .sect-sorting {
+	display: inline-block;
+	margin-top: 0;
+}
+
+/* Sorting Css */
+.sect-sorting {
+	position: relative;
+	margin-top: 20px;
+	text-align: right;
+}
+
+.sect-sorting .nowshow {
+	position: absolute;
+	left: 0;
+	top: 0
+}
+
+.sect-sorting>select {
+	padding: 3px 10px;
+}
+
+.sect-sorting>select option {
+	height: 23px;
+	line-height: 23px;
+}
+
+/* + 정사각형 더보기 버튼 */
+.link-more {
+	display: inline-block;
+	width: 20px;
+	height: 19px;
+	background: url('../images/sprite/sprite_btn.png') -50px -62px no-repeat;
+	vertical-align: middle;
+	font: 0/0 a;
+	zoom: 1;
+}}
+
+
+
+/* 상세페이지 */
+
+
+
+/* 영화상세 - 기본정보  */
+.state {
+	border: 1px solid blue;
+}
+
+.title p {
+	font-size: 12px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+
+.wrap-movie-detail .cols-content {
+	margin-top: 30px;
+}
+
+.sect-base-movie >div {
+	
+	float:left;
+}
+
+.sect-base-movie .box-image {
+	margin-right: 30px;
+	width: 185px;
+	height: 260px
+}
+
+.sect-base-movie .thumb-image img {
+	width: 185px;
+	height: 260px;
+}
+
+.sect-base-movie .box-contents {
+	width: 765px;
+}
+
+.sect-base-movie .box-contents .like>.round {
+	margin-left: 4px;
+	font-size: 15px;
+	line-height: 29px;
+	vertical-align: middle;
+}
+
+.sect-base-movie .box-contents .like>.round>* {
+	padding: 0 10px;
+}
+
+.sect-base-movie .spec {
+	padding-top: 18px;
+	line-height: 1.6;
+}
+
+.sect-base-movie .spec:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.sect-base-movie .spec dd {
+	float: left;
+}
+
+.sect-base-movie .spec dd {
+	white-space: normal;
+	text-overflow: clip;
+	overflow: visible;
+}
+
+.sect-base-movie .spec .on {
+	float: none;
+}
+
+
+.wrap-movie-detail .heading {
+	margin-bottom: 20px;
+}
+
+.wrap-movie-detail{
+	
+	margin-top: 40px;
+}
+
+.sect-story-movie {
+	margin-top: 35px;
+	color: #333333;
+	line-height: 1.8;
+}
+
+.sect-story-movie  strong {
+	font-size: 13px;
+}
+
+.sect-story-movie  p {
+	margin-top: 10px;
+	font-size: 11px;
+	line-height: 2;
+}
+
+/* 영화포스터 크게 보기 +  */
+.ico-posterdetail {
+	display: block;
+	position: absolute;
+	left: 4px;
+	bottom: 3px;
+	width: 24px;
+	height: 24px;
+	background: url('../images/sprite/sprite_icon.png') 0 0 no-repeat;
+	font: 0/0 a;
+	zoom: 1;
+}
+
+/* ico 영화등급 */
+.ico-grade {
+	display: block;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	width: 21px;
+	height: 21px;
+	background: url('../images/sprite/sprite_icon.png') no-repeat;
+	font: 0/0 a;
+	zoom: 1;
+}
+
+.ico-grade.grade-all {
+	background-position: -30px 0;
+} /* 전체 */
+.ico-grade.grade-12 {
+	background-position: -51px 0;
+} /* 12세 */
+.ico-grade.grade-15 {
+	background-position: -72px 0;
+} /* 15세 */
+.ico-grade.grade-19 {
+	background-position: -93px 0;
+} /* 청불 */
+.ico-grade.grade-none {
+	background-position: -114px 0;
+} /* 미정 */
+.eng .ico-grade.grade-all {
+	background-position: -135px 0;
+} /* 영어전체 */
+.eng .ico-grade.grade-19 {
+	background-position: -156px 0;
+} /* 영어 청불 */
+
+/* 리본탭매뉴 */
+
+
+.tab-menu {
+	clear: both;
+	text-align: center;
+}
+
+.tab-menu li {
+	display: inline-block;
+	margin-left: -4px;
+}
+
+.tab-menu li:first-child {
+	padding-left: 20px;
+	background: url('../images/sprite/sprite_corner.png') 0 -20px no-repeat;
+}
+
+.tab-menu .last {
+	padding-right: 19px;
+	background: url('../images/common/bg/ribon_right.png') right 0 no-repeat;
+}
+
+.tab-menu li a {
+	display: inline-block;
+	position: relative;
+	height: 39px;
+	padding: 0 15px;
+	background: #e71a0f url('../images/common/bg/bg_tebmenu-line.gif') 0
+		12px no-repeat;
+	color: #ffffff;
+	font-size: 15px;
+	font-family: 'NanumBarunGothicBold';
+	text-align: center;
+	line-height: 39px;
+}
+
+.tab-menu li:first-child a {
+	background: #e71a0f;
+}
+
+.tab-menu li.on a:before {
+	content: '';
+	display: inline-block;
+/* 	width: 26px; */
+	height: 39px;
+	padding-right: 5px;
+	background: #e71a0f url('../images/common/ico/ico_finger.png') 0 50%
+		no-repeat;
+	vertical-align: top;
+}
+
+*+html .tab-menu li.on a {
+	text-decoration: underline;
+}
+
+*+html .tab-menu li {
+	display: inline;
+}
+/* 기본정보 */
+
+.spec{ color:#333333; font-size:13px; font-family:'NanumBarunGothicBold';}
+.spec dl{}
+.spec dt{ float:left;}
+.spec dd{white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+.title{ display:block; color:#333333; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+
+
+/* 무비파인더 */
+
+
+.hidden {
+	font: 0/0 a;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	visibility: hidden;
+	width: 0;
+	zoom: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+/* 달력으로 조회 */
+div.date_base_search_wrap>div {
+	font-size: 12px;
+	position: relative;
+	float: left;
+	margin-right: 5px;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle; input { line-height : 30px;
+	margin: 0;
+	padding: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 100px;
+}
+
+}
+.wrap-submit>button {
+	clear: both;
+	display: inline;
+	line-height: 40px;
+	margin-top: 0px;
+	background-color: #eee;
+	color: #333;
+	border: 1px solid #666;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 4px;
+}
+
+#ui-datepicker-div {
+	top: -999px;
+	border: 0;
+	font-size: 14px;
+}
+
+.ui-datepicker-header {
+	font-size: 13px;
+}
+
+.ui-datepicker-calendar {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	tr
+	{
+	font-size
+	:
+	11px;
+}
+
+}
+
+/* 영화파인더 */
+.sect-finder {
+	width: 980px;
+	height: 450px;
+	background: #ff6600;
+}
+
+.sect-finder h3 {
+	height: auto;
+	margin: 0;
+	padding: 15px 0 10px;
+	background: none;
+	line-height: 1.2;
+}
+
+.sect-finder h3 img {
+	background: none;
+}
+
+.sect-finder table {
+	border-collapse: collapse;
+}
+
+.sect-finder table .finder-col01 {
+	width: 107px;
+}
+
+.sect-finder th, .sect-finder td {
+	padding: 11px 0;
+	border-top: 1px solid #3e484f;
+	color: #fdfcf0;
+	font-size: 11px;
+	font-family: 'NanumBarunGothicBold';
+	vertical-align: middle;
+}
+
+.sect-finder th {
+	padding-left: 34px;
+	text-align: left;
+}
+
+.sect-finder td>strong {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.sect-finder td ui:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.sect-finder td li {
+	float: left;
+	width: 14%;
+}
+
+.sect-finder td ul:first-child li:first-child {
+	width: 14%;
+	margin: 0;
+}
+
+.sect-finder td .collage {
+	color: #23b7e8;
+	width: 86%
+}
+
+.sect-finder td label {
+	display: inline-block;
+	padding: 1px 0;
+}
+
+.sect-finder .maketype+td li {
+	width: auto;
+	margin-right: 28px
+}
+
+.sect-finder .gradetype+td li {
+	width: auto;
+	margin-right: 35px;
+}
+
+.sect-finder .yeartype+td ul {
+	margin: 0 -21px 0 -21px;
+}
+
+.sect-finder .yeartype+td li {
+	position: relative;
+	width: 41px;
+	padding-top: 10px;
+	color: #d3d3cb;
+	font-size: 9px;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: center;
+}
+
+.sect-finder th.yeartype+td li:first-child {
+	width: 41px;
+}
+
+.sect-finder .yeartype+td li:after {
+	content: '';
+	position: absolute;
+	top: 11px;
+	left: 50%;
+	width: 1px;
+	height: 3px;
+	background: #d3d4cc;
+}
+
+.sect-finder .slider-range {
+	width: 328px;
+	margin-right: 30px;
+}
+
+.sect-finder dl {
+	
+}
+
+.sect-finder dt, .sect-finder dd {
+	display: inline-block;
+	padding: 11px 0;
+	border-top: 1px solid #3e484f;
+	color: #fdfcf0;
+	font-size: 11px;
+	font-family: 'NanumBarunGothicBold';
+}
+
+.sect-finder dt:first-child, .sect-finder dt:first-child+dd {
+	border-top: none;
+}
+
+.sect-finder dt {
+	width: 105px;
+	padding-left: 32px;
+	line-height: 19px;
+	vertical-align: top;
+}
+
+.sect-finder dd {
+	width: 840px
+}
+
+.sect-finder dd strong {
+	display: block;
+}
+
+.sect-finder dd label {
+	display: inline-block;
+	width: 98px;
+}
+
+
+/* 트레일러 */
+
+/* 영화상세- 트레일러 */
+.sect-trailer > ul{ margin-left:-10px; }
+.sect-trailer li{ width:260px; margin:0 0 15px 10px;}
+.sect-trailer li .box-image{width:260px; height:142px}
+.sect-trailer li .thumb-image{ width:260px; height:142px;}
+.sect-trailer li .thumb-image img{ width:260px; height:142px;}
+.sect-trailer .title{ margin-top:10px; font-size:11px; line-height:16px;}
+.sect-trailer .txt-info{ margin-top:3px; color:#666666; font-family:Verdana, Geneva, sans-serif;}
+/* 트레일러 공통 */
+.sect-trailer > ul{ }
+.sect-trailer > ul > li{float:left;}
+.sect-trailer .title{ font-size:13px; vertical-align:middle;}
+
+/* play 아이콘 이미지 필요*/
+.ico-play{ position:absolute; right:5px; bottom:6px; width:44px; height:44px; background:url('../images/sprite/sprite_icon.png') -60px -21px no-repeat; font:0/0 a;zoom:1; }
