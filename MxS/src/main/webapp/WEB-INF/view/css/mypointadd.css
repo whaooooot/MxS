@@ -1,0 +1,215 @@
+@charset "utf-8";
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-all;
+}
+body, input, textarea, button, table {
+    font-size: 12px;
+    line-height: 1.2;
+    color: #666;
+    font-family: 'NanumBarunGothic', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+.cols-content .tit-mycgv {
+    overflow: hidden;
+    position: relative;
+    line-height: 34px;
+}
+.cols-content .tit-mycgv > h3, .cols-content .tit-mycgv > h4 {
+    float: left;
+    height: 34px;
+    margin: 0;
+    color: #222;
+    font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-size: 17px;
+    line-height: 34px;
+    text-align: left;
+}
+.cols-content .tit-mycgv > h4 {
+    font-size: 14px;
+}
+.sect-register > p > strong {
+    display: block;
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 24px;
+}
+strong {
+    font-family: 'NanumBarunGothicBold', sans-serif;
+    font-weight: normal;
+}
+.sect-register > p > span {
+    color: #222;
+    font-size: 13px;
+}
+.sect-register {
+    margin-top: 50px;
+    text-align: center;
+}
+.sect-register .box-polaroid {
+    margin-top: 15px;
+    border: 1px solid #cbcac4;
+}
+.sect-register .box-inner {
+    padding: 30px 0;
+    background-color: #fff;
+    text-align: center;
+}
+.sect-register.onepoint .box-inner > input[type='text'].num {
+    width: 68px;
+    padding-left: 0;
+    text-align: center;
+}
+input[type='text'], input[type='password'] {
+    display: inline-block;
+    height: 25px;
+    line-height: 22px;
+    padding-left: 10px;
+    border: 1px solid #b5b5b5;
+}
+.sect-register .box-inner label {
+    margin-right: 10px;
+    color: #222;
+}
+
+
+/* 적립내역 */
+.sect-register.onepoint + .tit-mycgv, .tbl-card + .tit-mycgv {
+    margin-top: 60px;
+}
+.sect-use-expense .box-inner {
+    position: relative;
+    padding: 20px 40px 20px 117px;
+    background-color: #f3f2e7;
+}
+.sect-use-expense .box-inner button.round > * {
+    padding: 0 10px;
+}
+.round, .round > * {
+    display: inline-block;
+    position: relative;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 5px;
+    font: 400 13.3333px Arial;
+}
+.round > * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    /* height: 100%; */
+    padding: 0 5px 0;
+    
+}
+.sect-use-expense .box-inner input[type='text'] {
+    width: 200px;
+}
+
+.tbl-data td.nodata {
+    padding: 45px 0;
+    text-align: center;
+}
+caption, th, td {
+    font-weight: normal;
+    line-height: 1.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.tbl-breakdown thead th, .tbl-card thead th, .tbl-data thead th {
+    height: 34px;
+    padding-left: 12px;
+    background-color: #e2e2e0;
+    font-size: 11px;
+    line-height: 34px;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+/* 누적포인트 */
+[class^="sect-point"][class*="use"] .box-polaroid {
+    border: 1px solid #000;
+}
+[class^="sect-point"][class*="use"] .box-inner {
+    background-color: #edebde;
+}
+[class^="sect-point"] .box-inner {
+    position: relative;
+    padding: 20px;
+}
+/*이용안내*/
+div[class^="sect-"] {
+    clear: both;
+    zoom: 1;
+}
+.sect-box-descri {
+    width: 800px;
+    margin-top: 50px;
+}
+
+.sect-box-descri .box-inner > ul > li > dl > dt {
+    float: left;
+    width: 116px;
+    padding: 0 0 0 27px;
+    font-family: 'NanumBarunGothicBold', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.sect-box-descri .box-inner > ul > li > dl > dd {
+    float: left;
+    width: 598px;
+    padding: 0 2px 0 25px;
+    border-left: 1px solid #d7d6ce;
+    font-family: 'NanumBarunGothic', '맑은 고딕', '돋움', Dotum, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

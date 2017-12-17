@@ -1,133 +1,231 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
-<meta charset="utf-8">
-<!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-<title>Responsive Moving Box Carousel - Bootsnipp.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-   
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    
-        <link href="./css/EventEnd.css" rel="stylesheet" type="text/css">
-        <!-- ì›¹ ìŠ¤íƒ€ì¼ css --> 
-        
+
+<link href="./css/mypage.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
 </head>
- <div id="header">
-      <jsp:include page="./header.jsp" flush="false" />
-   </div>
-
 <body>
-<div class="container">
-<div class="col-xs-12">
-
-
-       
-       
-       <div class="title-event">
-      <h1>EVENT</h1>
-   </div>   
-   
-   <div class="title-header">
-      <h5 class="modal-title" id="lineModalLabel">ì´ë²¤íŠ¸ ë‹¹ì²¨ìž ë°œí‘œ</h5>
-      <div class="btn-toolbar">
-       <a href="eventend" class="btn btn-primary">ì¢…ë£Œëœ ì´ë²¤íŠ¸</a>   
-      </div>
-   </div>
-
-
-   
-
-   <div class="well">
-       <table class="table">
-         <thead>
-           <tr>
-             <th>ì´ë²¤íŠ¸ íƒ€ìž…</th>
-             <th>ì œëª©</th>
-             <th>ê¸°ê°„</th>
-             <th style="width: 36px;"></th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ë½€ë¡œë¡œ ê³µë£¡ì„¬ ëŒ€ëª¨í—˜ ê·¹ìž¥íŒ] ìŠ¤í¬ë¦° X íŠ¹ì§‘íŽ˜ì´ì§€ í•˜íŠ¸ ì´ë²¤íŠ¸ ë‹¹ì²¨ìž ë°œí‘œ</a></td>
-             <td>2017.12.04 ~ 2017.12.17</td>
-             
-           </tr>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ë…¸ ê²Œìž„ ë…¸ ë¼ì´í”„ -ì œë¡œ] ì˜ˆë§¤ ì´ë²¤íŠ¸ ë‹¹ì²¨ìž ë°œí‘œ</a></td>
-             <td>2017.10.19 ~ 2017.10.25</td>
-             
-           </tr>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ë¼ë¼ëžœë“œ]2018 ë‹¬ë ¥ ì¦ì • íŠ¹ë³„ìƒì˜ ì´ë²¤íŠ¸</a></td>
-             <td>2017.12.08 ~ 2017.12.10</td>
-             
-           </tr>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ë©”ë¦¬ì™€ ë§ˆë…€ì˜ ê½ƒ] 1+1 ì˜ˆë§¤ê¶Œ ì´ë²¤íŠ¸</a></td>
-             <td>2017.12.04 ~ 2017.12.10</td>
-             
-           </tr>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ì €ìŠ¤í‹°ìŠ¤ ë¦¬ê·¸] ì˜ˆë§¤ ì´ë²¤íŠ¸ ë‹¹ì²¨ìž ë°œí‘œ</a></td>
-             <td>2017.11.10 ~ 2017.11.26</td>
-             
-           </tr>
-           <tr>
-             <td><em class="txt-lightblue">ì˜í™”/ì˜ˆë§¤</em></td>
-             <td><a href="#">[ê¾¼] 300ë§Œ ëŒíŒŒ ê¸°ë… CGVì½¤ë³´ ì¦ì • ì´ë²¤íŠ¸</a></td>
-             <td>2017.12.10</td>
-             
-           </tr>
-         </tbody>
-       </table>
-   </div>
-   <div class="pagination">
-       <ul>
-           <li><a href="#">ì´ì „</a></li>
-           <li><a href="#">1</a></li>
-           <li><a href="#">2</a></li>
-           <li><a href="#">3</a></li>
-           <li><a href="#">4</a></li>
-           <li><a href="#">ë‹¤ìŒ</a></li>
-       </ul>
-   </div>
-       
-   </div>
-    
-
+<div class="mycgv-info-wrap">
+        <div class="sect-person-info">
+           <div class="box-contents newtype">
+              <div class="person-info">
+                 <strong>¹ÚÂùÈñ´Ô</strong>
+                 <em>0912pch</em>
+                 <span>´Ð³×ÀÓ : <i>´Ð³×ÀÓÀ» ¼³Á¤ÇØÁÖ¼¼¿ä.</i> </span>
+                 <button id="go_edit_page" type="button" title="»õÃ¢¿­¸²">º¯°æ</button>
+              </div>
+           </div>
+        </div>
+        <hr/>
+        <div class="cols-benefit-info">
+           <div class="col-my-coupon">
+              <h3>MY COUPON</h3>
+              <ul>
+                 
+                 <li>
+                    <strong>MxS ÇÒÀÎÄíÆù</strong>
+                    <span><em>0</em> °³</span>
+                 </li>
+                 <li>
+                    <strong>¿µÈ­°ü¶÷±Ç</strong>
+                    <span><em>0</em> °³</span>
+                 </li>
+              </ul>
+           </div>
+           
+                
+                <div class="col-one-point">
+                  <h3>CJ ONE POINT</h3>
+              <ul>
+                 <li>
+                    <strong>CJ ONE »ç¿ë°¡´É Æ÷ÀÎÆ®</strong>
+                    <span><em class="txt-maroon">6,620</em> Á¡</span>
+                 </li>
+                
+              </ul>
+                
+           </div>
          
-       
-       
-                              
- 
-</div><!-- /.col-xs-12 -->          
+                <div class="cols-point-wrap">
+                
+                </div>
+            
+        </div>
+    </div>
+    <div class="cols-content" id="menu">
+    <div class="col-aside">
+       <h2>MY MxS ¼­ºê¸Þ´º</h2>
+       <div class="snb">
+           <ul>
+               <li class="on">
+                    <a href="/user/mycgv/?g=1" title="ÇöÀç ¼±ÅÃ">MY MxS HOME <i></i></a>
+                </li>
+               <li>
+                    <a href="/user/mycgv/reserve/?g=1">³ªÀÇ ¿¹¸Å³»¿ª <i></i></a>
+                    <ul>
+                       <li>
+                            <a href="/user/mycgv/reserve/receipt.aspx?g=1">¿µ¼öÁõ Ãâ·Â</a>
+                        </li>
+                    </ul>
+                </li>
+               <li>
+                   <a href="/user/mycgv/coupon/movie-ticket/list.aspx?g=1">°ü¶÷±Ç/ÇÒÀÎÄíÆù °ü¸® <i></i></a>
+                   <ul>                      
+                     
+                       <li>
+                            <a href="/user/mycgv/coupon/movie-ticket/list.aspx?g=1">MxS ¿µÈ­°ü¶÷±Ç</a>
+                        </li>
+                       <li>
+                            <a href="/user/mycgv/coupon/discount/list.aspx?g=1">MxSÇÒÀÎÄíÆù</a>
+                        </li>
+                         
+                   </ul>
+               </li>
+               <li>
+                    <a href="/user/mycgv/myinfo/?g=1">È¸¿øÁ¤º¸<i></i></a>
+                   <ul>
 
-</div><!-- /.container -->
+                         <li>
+                            <a href="/user/mycgv/myinfo/edit-myinfo-cjone.aspx?g=1">°³ÀÎÁ¤º¸ º¯°æ</a>
+                        </li>
+
+                       <li>
+                            <a href="/user/mycgv/myinfo/?g=1">ÀÌ¿ëµ¿ÀÇ ¼³Á¤</a>
+                        </li>
+                  
+                       <li>
+                            <a href="/user/mycgv/myinfo/edit-myinfo-Email-Sms.aspx?g=1">¼ö½Å¼³Á¤</a>
+                        </li>
+                       <li>
+                            <a href="/user/mycgv/myinfo/leave-cjone.aspx?g=1">È¸¿øÅ»Åð</a>
+                        </li>
+                        
+                   </ul>
+               </li>
+                 <li>
+                    <a href="/user/mycgv/myinfo/edit-myinfo-myprofile.aspx?g=1">ÇÁ·ÎÇÊ °ü¸®<i></i></a>
+                </li>
+               <li>
+                    <a href="/user/mycgv/inquiry/qna/list.aspx?g=1">³ªÀÇ ¹®ÀÇ³»¿ª <i></i></a>
+                   <ul>
+                       <li>
+                            <a href="/user/mycgv/inquiry/qna/list.aspx?g=1">1:1 ¹®ÀÇ</a>
+                        </li>
 
 
- <div id="footer">
-      <jsp:include page="./footer.jsp" flush="false" />
+                        <li>
+                            <a href="/user/mycgv/inquiry/lost/list.aspx?g=1">ºÐ½Ç¹° ¹®ÀÇ</a>
+                        </li>
+                   </ul>
+               </li>
+                        <li class="my-event"><a href="/user/movielog/watched.aspx">³»°¡ º» ¿µÈ­</a></li> 
+              <!-- <li class="my-event"><a href="/user/mycgv/event/?g=1">³ªÀÇ Âü¿© ÀÌº¥Æ®</a></li> -->
+           </ul>
+       </div>
+    </div>
+   <div class="col-detail" id="mycgv_contents">
+
+<div class="sect-mycgv-reserve movielog col4">
+    <div class="box-polaroid">
+        <div class="box-inner wishlist">
+            <a href="http://www.cgv.co.kr/user/movielog/" title="À§½Ã¸®½ºÆ®">
+                <h3>À§½Ã¸®½ºÆ®</h3>
+                <span>º¸°í ½ÍÀº ¿µÈ­µéÀ» ¹Ì¸® <br>´ã¾ÆµÎ°í ½Í´Ù¸é?</span>
+            </a>
+        </div>
+        <div class="box-inner watched">
+            <a href="http://www.cgv.co.kr/user/movielog/watched.aspx" title="³»°¡ º» ¿µÈ­">
+                <h3>³»°¡ º» ¿µÈ­</h3>
+                <span>°ü¶÷ÇÑ ¿µÈ­µéÀ» ÇÑ¹ø¿¡ <br>¸ð¾Æ º¸°í ½Í´Ù¸é?</span>
+            </a>
+        </div>
+        <div class="box-inner mvdiary">
+            <a href="http://www.cgv.co.kr/user/movielog/diary.aspx" title="¹«ºñ´ÙÀÌ¾î¸®">
+                <h3>¹«ºñ´ÙÀÌ¾î¸®</h3>
+                <span>°ü¶÷ ÈÄ ³» °¨»óÆòÀ» Àû¾î <br>Ãß¾ïÇÏ°í ½Í´Ù¸é?</span>
+            </a>
+        </div>
+        <div class="box-inner photi">
+            <a href="http://phototicket.cgv.co.kr" target="_blank">
+                <h3>Æ÷ÅäÆ¼ÄÏ</h3>
+                <span>´Ü ÇÏ³ª»ÓÀÎ ³ª¸¸ÀÇ<br>Æ¼ÄÏÀ» °£Á÷ÇÏ°í ½Í´Ù¸é?</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="tit-mycgv">
+   <h3>MY ¿¹¸Å³»¿ª</h3>
+   <p><em>0°Ç</em> <a href="/user/mycgv/reserve/">¿¹¸Å³»¿ª ´õº¸±â</a></p>
+   <span>¿¹¸Å¹øÈ£·Î¸¸ Æ¼ÄÏÀ» Ã£À» ¼ö ÀÖÀ¸´Ï ¹Ýµå½Ã È®ÀÎ ºÎÅ¹µå¸³´Ï´Ù.</span>
+</div>
+
+<form name="aspnetForm" method="post" action="./" id="aspnetForm" novalidate="novalidate">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjAzNjI1MTIzN2Rkb61/wKC2wl92h7iknOS3c2nC6AQ=">
+</div>
+
+<div>
+
+   <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F268F2D4">
+   <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAANEBwag/p6Cyp7NqgHffiIrAAaiyC+ogOIlg3pscMtiP2lKUwCIH8TI/sjrTPJzW34iVv8t0sMzGIw9AmgL9DZ3cbnRDQ==">
+</div>
+    <!-- MY ¿¹¸Å³»¿ª -->
+    <input type="hidden" id="hidCancelReserveNo" name="hidCancelReserveNo">
+    <div class="sect-base-booking">
+       <div class="box-polaroid">
+           <div class="box-inner">
+                
+                
+                    
+                    <div class="lst-item">
+                     °í°´´ÔÀÇ ÃÖ±Ù ¿¹¸Å³»¿ªÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
+                  </div>
+                    
+           </div>
+       </div>
+    </div>
+</form>
+<!-- //MY ¿¹¸Å³»¿ª -->
+
+<!-- MY Âü¿©ÀÌ·Â -->
+<div class="sect-mycgv-part">
+    <div class="box-polaroid type1">
+      <!--  <div class="box-inner">
+            <div class="tit-mycgv">
+            <h3>MY Âü¿©ÀÌº¥Æ®</h3>
+            <p><em>0°Ç</em> <a href="/user/mycgv/event/">MY Âü¿©ÀÌº¥Æ® ´õº¸±â</a></p>
+         </div>
+         <div class="col-myevt">
+                
+                    <ol><li>°í°´´ÔÀÇ ÀÌº¥Æ® Âü¿©³»¿ªÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.</li></ol>
+                
+         </div>
+        </div>-->
+        <div class="box-inner">
+            <div class="tit-mycgv">
+            <h3>MY Q&amp;A</h3>
+            <p><em>0°Ç</em> <a href="/user/mycgv/inquiry/qna/list.aspx">MY Q&amp;A ´õº¸±â</a></p>
+         </div>
+         <div class="col-myqna">
+                
+                    <ul><li>°í°´´ÔÀÇ 1:1 ¹®ÀÇ³»¿ªÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.</li></ul>
+                
+         </div>
+        </div>
+    </div>
+</div>
+<!-- //MY Âü¿©ÀÌ·Â -->
+<form name="targetform" id="targetform" method="post" novalidate="novalidate">
+   <input type="hidden" name="reverse_no" id="reverse_no">
+</form>
+
    </div>
-
-<script type="text/javascript">
-// Carousel Auto-Cycle
-  $(document).ready(function() {
-    $('.carousel').carousel({
-      interval: 6000
-    })
-  });
-
-</script>
+</div>
 </body>
 </html>

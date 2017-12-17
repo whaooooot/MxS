@@ -1,34 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
- <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Table with users - Bootsnipp.com</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-
-
-    <title>Responsive Moving Box Carousel - Bootsnipp.com</title>
+<meta charset="utf-8">
+<!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+<title>Responsive Moving Box Carousel - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
    
-
-   
-   <link href="./css/EventEnd.css" rel="stylesheet" type="text/css">
-    <!-- 웹 스타일 css --> 
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+        <link href="./css/EventEnd.css" rel="stylesheet" type="text/css">
+        <!-- 웹 스타일 css --> 
+        
 </head>
-<body>
-
-   
-    <div id="header">
+ <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
 
-	<div class="container">
-		<div class="row">
-   <div class="title-event">
+<body>
+<div class="container">
+<div class="col-xs-12">
+
+
+       
+       
+       <div class="title-event">
       <h1>EVENT</h1>
    </div>   
    
@@ -102,15 +102,32 @@
            <li><a href="#">다음</a></li>
        </ul>
    </div>
-   
-   
-</div>
-</div>
+       
+   </div>
+    
 
-   </body>
-   
-      
-    <div id="footer">
+         
+       
+       
+                              
+ 
+</div><!-- /.col-xs-12 -->          
+
+</div><!-- /.container -->
+
+
+ <div id="footer">
       <jsp:include page="../footer.jsp" flush="false" />
    </div>
-   </html>
+
+<script type="text/javascript">
+// Carousel Auto-Cycle
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 6000
+    })
+  });
+
+</script>
+</body>
+</html>

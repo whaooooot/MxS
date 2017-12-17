@@ -47,8 +47,8 @@
 <div class="row row1">
             <ul class="largenav pull-right">
                 <li class="upper-links"><a class="links" href="login">로그인</a></li>
-                <li class="upper-links"><a class="links" href="https://campusbox.org/">회원가입</a></li>
-                <li class="upper-links"><a class="links" href="http://clashhacks.in/">My MXS</a></li>
+                <li class="upper-links"><a class="links" href="join">회원가입</a></li>
+                <li class="upper-links"><a class="links" href="mypage">My MXS</a></li>
                 <li class="upper-links"><a class="links" href="customer_service">고객센터</a></li>
                 <li class="upper-links">
                     <a class="links" href="http://clashhacks.in/">
@@ -59,9 +59,9 @@
                 </li>
                 <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>
                     <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">로그인</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">회원가입</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">My MXS</a></li>
+                        <li class="profile-li"><a class="profile-links" href="login">로그인</a></li>
+                        <li class="profile-li"><a class="profile-links" href="join">회원가입</a></li>
+                        <li class="profile-li"><a class="profile-links" href="mypage">My MXS</a></li>
                         <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">고객센터</a></li>
                     </ul>
                 </li>
