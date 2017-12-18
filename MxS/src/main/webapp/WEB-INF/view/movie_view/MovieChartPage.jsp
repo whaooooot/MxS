@@ -103,7 +103,7 @@
 					<!-- 영화2 -->
 					<div class="box-image">
 						<strong class="rank">No.2</strong> <a
-							href="/movies/detail-view/?midx=80290"> <span
+							href="MovieDetail"> <span
 							class="thumb-image"> <img
 								src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000080/80290/80290_185.jpg"
 								alt="오리엔트 특급 살인 포스터" onerror="errorImage(this)" /> <span
@@ -114,7 +114,7 @@
 					</div>
 
 					<div class="box-contents">
-						<a href="/movies/detail-view/?midx=80290"> <strong
+						<a href="MovieDetail"> <strong
 							class="title">오리엔트 특급 살인</strong><br />
 						</a> <span class="txt-info"> <strong> 2017.11.29 <span>개봉</span><br />
 

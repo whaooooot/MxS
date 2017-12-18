@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- CommentMAppeer.xml -->
+
+<mapper namespace="repository.mapper.StoreMapper">
+	<cache />
+
+	<resultMap id="baseResultMap" type="storeDAO">
+		<id column="GOODS_num" jdbcType="VARCHAR" property="GOODS_NUM" />
+		<result column="GOODS_name" jdbcType="VARCHAR" property="GOODS_NAME" />
+		<result column="GOODS_con" jdbcType="VARCHAR" property="GOODS_CON" />
+		<result column="GOODS_pri" jdbcType="BIGINT" property="GOODS_PRI" />
+		<result column="GOODS_quan" jdbcType="BIGINT" property="GOODS_QUAN" />
+		<result column="GOODS_note" jdbcType="VARCHAR" property="GOODS_NOTE" />
+		<result column="MEMBER_num" jdbcType="BIGINT" property="MEMBER_NUM" />
+		<result column="MOVIE_num" jdbcType="BIGINT" property="MOVIE_NUM" />
+	</resultMap>
+
+
+	<select id="selectStore" parameterType="String"	resultMap="baseResultMap">
+		Select
+		*
+		FROM GOODS
+		<where>
+			<if test="GOODS_NUM != null ">
+				GOODS_num = #{GOODS_NUM}
+			</if>
+		</where>
+	</select>
+	
+
+
+
+</mapper>

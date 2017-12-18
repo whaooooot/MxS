@@ -7,14 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 public class MoviebookController {
+	
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String mxsindex(Model model) {
 		return "index";
 	}
-
+	
 	@RequestMapping(value = "/moviebook", method = RequestMethod.GET)
 	public String mxs(Model model) {
 

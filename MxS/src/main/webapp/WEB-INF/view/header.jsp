@@ -82,10 +82,20 @@
 		            <li><a href="MovieChartPage" data-nav-section=""><span>영화</span></a></li>
 		            <li><a href="moviebook" data-nav-section=""><span>빠른예매</span></a></li>
 		            <li><a href="" data-nav-section=""><span>극장</span></a></li>
+		            
 		             <li><a href="store" data-nav-section=""><span>스토어</span></a></li>
 		            <li><a href="event" data-nav-section=""><span>이벤트</span></a></li>		           
 		          </ul>
 		          
+		            <hr>
+
+   <form:form commandName="movie" action="store">
+
+      <input type="submit" value='스토어테스트' />
+     
+
+   </form:form>
+   <hr>
 		
 		        </div>
 		          </div>

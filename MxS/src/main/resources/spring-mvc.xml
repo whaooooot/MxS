@@ -19,6 +19,10 @@
 
 	<mvc:resources mapping="/**" location="/WEB-INF/view/"
 		cache-period="31556926" />
+		
+		
+		
+		
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -29,4 +33,8 @@
 		</property>
 		<property name="defaultEncoding" value="utf-8" />
 	</bean>
+	
+	
+	
+	
 </beans>

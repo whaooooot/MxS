@@ -1,18 +1,30 @@
 package controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import model.StoreDAO;
+import repository.StoreSessionRepository;
+
 @Controller
 public class StoreController {
 	
+	@Autowired
+	private StoreSessionRepository storeSessionRepository;
 
-	@RequestMapping(value = "/store", method = RequestMethod.GET)
-	public String store(Model model) {
+
+	@RequestMapping(value = "/store", method = RequestMethod.POST)
+	public String commentSelect(StoreDAO storeDAO, Model model) {
+		List<StoreDAO> result = storeSessionRepository.selectStore(storeDAO);
+		model.addAttribute("result", result);
 		return "store/store";
 	}
+	
 	
 	@RequestMapping(value = "/productdetail", method = RequestMethod.GET)
 	public String store2(Model model) {
