@@ -8,7 +8,7 @@
 <configuration>
 	<!-- 타입별칭 -->
 	<typeAliases>
-		<typeAlias type="model.Store" alias="Store" />
+		<typeAlias type="model.StoreDAO" alias="StoreDAO" />
 	</typeAliases>
 
 

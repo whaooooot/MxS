@@ -10,7 +10,6 @@ import model.StoreDAO;
 @Repository
 public class StoreSessionRepository extends AbstractRepository {
 	private final String namespace = "repository.mapper.StoreMapper";
-
 	public List<StoreDAO> selectStore(StoreDAO storeDAO) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		String statement = namespace + ".selectStore";

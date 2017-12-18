@@ -17,7 +17,6 @@ public class StoreController {
 	@Autowired
 	private StoreSessionRepository storeSessionRepository;
 
-
 	@RequestMapping(value = "/store", method = RequestMethod.POST)
 	public String commentSelect(StoreDAO storeDAO, Model model) {
 		List<StoreDAO> result = storeSessionRepository.selectStore(storeDAO);
