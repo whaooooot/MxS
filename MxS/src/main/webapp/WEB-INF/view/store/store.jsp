@@ -21,7 +21,7 @@
 
 <link href="./css/store.css?ver=1" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body> 
 	
 	 <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
