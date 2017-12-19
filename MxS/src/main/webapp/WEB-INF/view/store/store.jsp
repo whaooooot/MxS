@@ -62,7 +62,7 @@
 								</span>
 							</span> <span class="item-right">
 									<button class="btn btn-xs btn-danger pull-right">x</button>
-							</span>
+						</span>
 						</span></li>
 						<li><span class="item"> <span class="item-left">
 									<img src="http://lorempixel.com/50/50/" alt="" /> <span
