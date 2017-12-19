@@ -10,7 +10,7 @@
 <head>	
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-<title>스토어</title>
+<title>MxS스토어</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
