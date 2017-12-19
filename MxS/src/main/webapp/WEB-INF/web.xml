@@ -16,7 +16,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 				classpath:spring-controller.xml
 				classpath:spring-member.xml
 				classpath:spring-mvc.xml
-				classpath:mybatis-config.xml
+			
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

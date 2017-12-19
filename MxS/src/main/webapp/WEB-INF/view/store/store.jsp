@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import = "java.util.*" %>	
+<%@ page import = "model.*" %>	
+<% List<StoreDTO> list = (List<StoreDTO>)request.getAttribute("result");%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
-<head>
+<head>	
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 <title>스토어</title>
@@ -24,15 +28,19 @@
    </div>
 	
 
+	
+
 	<div class="container">
 		<div class="row">
 			<h1>스토어상단</h1>
 		</div>
 		<div class="row">
 			<h2>인기상품</h2>
-
-
-
+			<%
+			for(StoreDTO d : list){
+				out.print(d.getGoodsName());
+			}
+		 %>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"

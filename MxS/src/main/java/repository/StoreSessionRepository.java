@@ -1,20 +1,36 @@
 package repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import model.StoreDAO;
+import model.StoreDTO;
 
 @Repository
 public class StoreSessionRepository extends AbstractRepository {
 	private final String namespace = "repository.mapper.StoreMapper";
-	public List<StoreDAO> selectStore(StoreDAO storeDAO) {
+	
+	public List<StoreDTO> selectStore() {
+		
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		String statement = namespace + ".selectStore";
-		return sqlSession.selectList(statement, storeDAO);
+		List<StoreDTO> list = new ArrayList<StoreDTO>();
+		
+		try {
+	
+			list =  sqlSession.selectList(statement);
+			System.out.println(list.size());
+			System.out.println(list);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
+	
+	
 
 	/*
 	public Integer insertComment(Comment comment) {
