@@ -36,11 +36,7 @@
 		</div>
 		<div class="row">
 			<h2>인기상품</h2>
-			<%
-			for(StoreDTO d : list){
-				out.print(d.getGoodsName());
-			}
-		 %>
+			
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -98,7 +94,27 @@
 								<div class="col-md-4">
 									<a class="thumbnail" href="#"><img alt=""
 										src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-									<h3>어밴져스 텀블러</h3>
+									<h3>
+									<%									
+									for(StoreDTO d : list){
+									out.print(d.getGoodsName());
+									}
+									
+									
+									for(int i =0; i < list.size(); i++)
+										
+		 							%>
+		 							ㅡㅡㅡ
+		 							<%	
+		 							out.print(list.get(1));
+		 							out.print("aa");
+		 							out.print(list.get(3).getGoodsName());
+		 							
+		 							%>	
+		 								
+									</h3>
+									
+									
 									<p>가격:30000원</p>
 									<p align="center">
 										<a href="#" class="btn btn-primary btn-block">Open</a>

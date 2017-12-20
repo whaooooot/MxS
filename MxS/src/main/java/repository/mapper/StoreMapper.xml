@@ -14,17 +14,27 @@
 		<result column="GOODS_QUAN" jdbcType="BIGINT" property="goodsQuan" />
 		<result column="GOODS_NOTE" jdbcType="VARCHAR" property="goodsNote" />
 		<result column="GOODS_PIC" jdbcType="VARCHAR" property="goodsPic" />
-		<result column="MEMBER_NUM" jdbcType="BIGINT" property="memberNum" />
 		<result column="MOVIE_NUM" jdbcType="BIGINT" property="movieNum" />
 	</resultMap>
 
-
+  	<!-- 받아올때 -->
 	<select id="selectStore" resultMap="storeResultMap">
 		Select
 		*
 		FROM GOODS
-	</select>
+	</select>	 
 	
+	<!-- 집어넣을때 -->
+	<insert id="insertStore" parameterType="storedto" >
+		insert into GOODS(GOODS_NUM,GOODS_NAME,GOODS_CON,GOODS_PRI,GOODS_QUAN,GOODS_NOTE,GOODS_PIC,MOVIE_NUM)
+		VALUES (GOODS_NUM.nextval, #{goodsName}, #{goodsCon}, #{goodsPri},#{goodsQuan}, #{goodsNote},#{goodsPic}, #{movieNum})
+	</insert>
+	
+	
+	<delete id="deleteStore" parameterType="string">
+		delete from GOODS
+		where GOODS_NUM = #{goodsNum}
+	</delete>
 
 
 
