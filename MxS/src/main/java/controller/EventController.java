@@ -37,11 +37,14 @@ public class EventController {
 		return "event/eventend";
 	}
 	
-	
 	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET)
 	public String event6(Model model) {
 		return "event/eventdetail";
 	}
+	
+	
+	
+
 	
 	
 }

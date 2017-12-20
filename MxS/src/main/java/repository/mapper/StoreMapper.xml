@@ -19,13 +19,4 @@
 	</resultMap>
 
 
-	<select id="selectStore" resultMap="storeResultMap">
-		Select
-		*
-		FROM GOODS
-	</select>
-	
-
-
-
 </mapper>

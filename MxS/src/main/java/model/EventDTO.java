@@ -4,15 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class EventDTO implements Serializable{
-	private Long eventNo;
-	private Long movieNo;
-	private String eventTit;
-	private String eventCon;
-	private String eventHead;
-	private String eventFile;
-	private String eventType;
-	private Date eventStt;
-	private Date eventEnd;
+	private Long eventNo;		// 이벤트 번호
+	private Long movieNo;		// 영화 번호
+	private String eventTit;	// 이벤트 제목
+	private String eventCon;	// 이벤트 내용
+	private String eventHead;	// 이벤트 말머리
+	private String eventFile;	// 파일
+	private String eventType;	// 이벤트 유형
+	private Date eventStt;		// 이벤트 시작 날짜
+	private Date eventEnd;		// 이벤트 종료 날짜
 	
 	public Long getEventNo() {
 		return eventNo;

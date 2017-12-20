@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- CommentMAppeer.xml -->
+
+<mapper namespace="repository.mapper.EventMapper">
+<cache />
+
+	<resultMap id="eventResultMap" type="eventto">
+		<id column="EVENT_NUM" jdbcType="BIGINT" property="eventNo" />
+		<result column="MOVIE_NUM" jdbcType="BIGINT" property="movieNo" />
+		<result column="EVENT_TITLE" jdbcType="VARCHAR" property="eventTit" />
+		<result column="EVENT_CON" jdbcType="VARCHAR" property="eventCon" />
+		<result column="EVENT_HEAD" jdbcType="VARCHAR" property="eventHead" />
+		<result column="EVENT_FILE" jdbcType="VARCHAR" property="eventFile" />
+		<result column="EVENT_TYPE" jdbcType="VARCHAR" property="eventType" />
+		<result column="EVENT_START" jdbcType="DATE" property="eventStt" />
+		<result column="EVENT_END" jdbcType="DATE" property="eventEnd" />
+	</resultMap>
+
+	<select id="selectEvent" resultMap="eventResultMap">
+      Select
+      *
+      FROM EVENT
+    </select>   
+
+</mapper>
+

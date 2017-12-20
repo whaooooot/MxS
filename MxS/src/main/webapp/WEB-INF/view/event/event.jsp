@@ -41,11 +41,11 @@
                         <li class="col-sm-3">
                       <div class="fff">
                         <div class="thumbnail">
-                           <a href="#"><img src="./img/15117589467490.jpg" alt=""></a>
+                           <a href="eventdetail"><img src="./img/15117589467490.jpg" alt=""></a>
                         </div>
                         
                         <div class="caption">
-                        <a href="#">
+                        <a href="eventdetail">
                                <em class="txt-lightblue">스페셜이벤트</em>
                                  <p>2018 CGV CALENDAR</p>
                                 </a>

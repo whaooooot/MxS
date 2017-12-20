@@ -1,14 +1,8 @@
 @charset "utf-8";
 
- .container{
-       clear:both;
-       width:100%;
+ 
+    .col-xs-12 {
        background-color: #fdfcf0;
-       margin: 0;
-       padding: 0;
-       border: 0;
-       vertical-align: baseline;
-       word-break: break-all;
     }
     .title-event {
        border-bottom: 2px solid #241d1e;
@@ -26,16 +20,28 @@
     }
     
     .well a { 
-       color : inherit;
-       text-decoration:none;
+    	color : inherit;
+    	text-decoration:none;
     }    
+    .table>tbody>tr>td {
+    	padding:10px;
+    }
+    .table>thead>tr>th {
+    	border-bottom: 0;
+}
+
     .txt-lightblue{
-       color : #2275a4 !important;
+    	color : #2275a4 !important;
     }
     em{
-       font-style: normal;
+    	font-style: normal;
+    }
+       
+    .pagination>li>a {
+    	 border-radius: 50% !important;
+    	 margin: 0 3px;
     }
     
-    .pagination{
-       margin-left:20px;
+    .glyphicon-tags {
+    	margin-right: 8px;
     }
