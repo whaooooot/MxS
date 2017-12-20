@@ -53,13 +53,10 @@
                  
                  <div class="form-group">
                    <label for="exampleInputEventcheck">이벤트 항목 </label>
-                   <label class="form-control" id="exampleInputEventcheck"></label> 
-                  <input type="checkbox" value=" 출석"> 출석
-                  <input type="checkbox" value=" 1+1"> 1+1 예매
-                  <input type="checkbox" value=" 할인"> 할인
-                  <input type="checkbox" value=" 경품"> 경품
-                  <input type="checkbox" value=" 굿즈"> 굿즈
-                   
+                   <input type="radio" name="type" value="영화/예매">영화/예매
+				   <input type="radio" name="type" value="극장별">극장별
+				   <input type="radio" name="type" value="스페셜이벤트">스페셜이벤트
+
                  </div>
                  
                  <div class="form-group">

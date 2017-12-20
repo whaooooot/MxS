@@ -115,51 +115,75 @@
             <div class="item">
                     <ul class="thumbnails">
                         <li class="col-sm-3">
-                     <div class="fff">
-                        <div class="thumbnail">
-                           <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                        </div>
-                        <div class="caption">
-                           <h4>Praesent commodo</h4>
-                           <p>Nullam Condimentum Nibh Etiam Sem</p>
-                           <a class="btn btn-mini" href="#">쨩 Read More</a>
-                        </div>
+    						<div class="fff">
+								<div class="thumbnail">
+									<a href="#"><img src="./img/15117589467490.jpg" alt=""></a>
+								</div>
+								
+								<div class="caption">
+								<a href="#">
+                            	<em class="txt-lightblue">스페셜이벤트</em>
+                          	    <p>2018 CGV CALENDAR</p>
+                       			</a>
+			                        <em class="date">
+			                            <span>기간: </span>
+			                            2017.11.16 ~ 2017.12.31
+			                        </em>
+								</div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                     <div class="fff">
-                        <div class="thumbnail">
-                           <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                        </div>
-                        <div class="caption">
-                           <h4>Praesent commodo</h4>
-                           <p>Nullam Condimentum Nibh Etiam Sem</p>
-                           <a class="btn btn-mini" href="#">쨩 Read More</a>
-                        </div>
+							<div class="fff">
+								<div class="thumbnail">
+									<a href="#"><img src="./img/15120083782940.jpg" alt=""></a>
+								</div>
+								
+								<div class="caption">
+								<a href="#">
+                            	<em class="txt-lightblue">스페셜이벤트</em>
+                          	    <p>[야심찬 연말마무리 이벤트]  2017 작년의 나를 이겨라!</p>
+                       			</a>
+			                        <em class="date">
+			                            <span>기간: </span>
+			                            2017.11.28 ~ 2017.12.31
+			                        </em>
+								</div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                     <div class="fff">
-                        <div class="thumbnail">
-                           <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                        </div>
-                        <div class="caption">
-                           <h4>Praesent commodo</h4>
-                           <p>Nullam Condimentum Nibh Etiam Sem</p>
-                           <a class="btn btn-mini" href="#">쨩 Read More</a>
-                        </div>
+							<div class="fff">
+								<div class="thumbnail">
+									<a href="#"><img src="./img/메리와 마녀 의 꽃.jpg" alt=""></a>
+								</div>
+								
+								<div class="caption">
+								<a href="#">
+                            	<em class="txt-lightblue">스페셜이벤트</em>
+                          	    <p>1+1 예매권 이벤트</p>
+                       			</a>
+			                        <em class="date">
+			                            <span>기간: </span>
+			                            2017.12.06 ~ 2017.12.13
+			                        </em>
+								</div>
                             </div>
                         </li>
                         <li class="col-sm-3">
-                     <div class="fff">
-                        <div class="thumbnail">
-                           <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                        </div>
-                        <div class="caption">
-                           <h4>Praesent commodo</h4>
-                           <p>Nullam Condimentum Nibh Etiam Sem</p>
-                           <a class="btn btn-mini" href="#">쨩 Read More</a>
-                        </div>
+							<div class="fff">
+								<div class="thumbnail">
+									<a href="#"><img src="./img/15120165577600.jpg" alt=""></a>
+								</div>
+								
+								<div class="caption">
+								<a href="#">
+                            	<em class="txt-lightblue">스페셜이벤트</em>
+                          	    <p>이달의CGV_12월</p>
+                       			</a>
+			                        <em class="date">
+			                            <span>기간: </span>
+			                            2017.11.30 ~ 2017.12.31
+			                        </em>
+								</div>
                             </div>
                         </li>
                     </ul>

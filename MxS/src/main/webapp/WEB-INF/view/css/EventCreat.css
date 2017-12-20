@@ -74,8 +74,12 @@ body{
 }
 
 .form-group {
-   margin-top: 10px;
+   margin: 8px;
 }
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px orange;
+}
+
 #exampleInputName1{
    width:550px;
 }
@@ -218,3 +222,5 @@ body{
 .modal-footer .btn-group:last-child > button {
    border-right: 0;
 }
+
+
