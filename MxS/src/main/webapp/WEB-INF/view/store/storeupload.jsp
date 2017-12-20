@@ -7,9 +7,7 @@
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 <title>상품등록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="http://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css"
-	rel="stylesheet">
+
 <style type="text/css">
 .bright {
 	float: right;
@@ -48,7 +46,7 @@
 
 <body>
 
-
+<hr/>
 
 	<div class="container">
 		<div class="row">
@@ -103,6 +101,8 @@
 			<form class="well col-sm-10 col-md-10">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
+						<label>상품 URL(위파일선택과 둘중하나만)</label> <input class="form-control"
+							placeholder="상품 URL" type="text">
 						<label>상품 이름</label> <input class="form-control"
 							placeholder="상품이름" type="text"> <label>상품 간단
 							정보(15자이하)</label> <input class="form-control" placeholder="상품간단정보(15자이하)"

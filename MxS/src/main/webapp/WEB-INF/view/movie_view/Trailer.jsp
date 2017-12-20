@@ -5,7 +5,7 @@
 <head>
 
 <link rel="stylesheet" href="./css/movie_common.css">
-<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
 
 <style type="text/css">
 
@@ -27,7 +27,7 @@
                     <div class="heading">
                         <h4>트레일러</h4><span class="count">5건</span>
                     </div>
-                    <ul>
+                    <ul> 
                         
                         <li>
                             <div class="box-image">
