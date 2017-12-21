@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.io.*, javax.servlet.*, java.util.*, model.*" %>
+<%@page import="org.springframework.context.*, org.springframework.context.support.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-
+<title>메인 | 고객센터</title>
 <style type="text/css">
 .container {
     margin-right: auto;
@@ -13,18 +14,12 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
-
 </style>
-
-
 </head>
-
- <div id="header">
+ 	<div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
-   
-   <link rel="stylesheet" media="all" type="text/css" href="./css/customer.css" />
+<link rel="stylesheet" media="all" type="text/css" href="./css/customer.css" />
 <body>
 <br/>
 		<div class="container">
@@ -33,10 +28,10 @@
             <div class="col-aside">
                <div class="snb">
                   <ul>
-                     <li class="on"><a href="#" title="현재선택">고객센터 메인<i></i></a></li>
+                     <li class="on"><a href="customer_service" title="현재선택">고객센터 메인<i></i></a></li>
                      <li class=""><a href="customer_qna">자주찾는 질문<i></i></a></li>
                      <li class=""><a href="customer_notice">공지/뉴스<i></i></a></li>
-                     <li class=""><a href="/support/qna/default.aspx">이메일 문의<i></i></a></li>
+                     <li class=""><a href="customer_email">이메일 문의<i></i></a></li>
                   </ul>
                </div>
             </div>
@@ -84,11 +79,9 @@
                <div class="notice_area">
                   <a href="customer_notice"><span class="tit">공지/뉴스</span></a>
                   <ul class="txt">
-                     <li><a href="/support/news/detail-view.aspx?idx=7126&amp;type=2">[극장] &lt; 2018 CGV 캘린더 &gt; 판매 개시일 변경</a><span class="day">2017.11.14</span></li>
-                     <li><a href="/support/news/detail-view.aspx?idx=7091&amp;type=4">[기타] CGV 개인정보처리방침 개정 공지</a><span class="day">2017.09.28</span></li>
-                     <li><a href="/support/news/detail-view.aspx?idx=7058&amp;type=4">[기타] CGV 개인정보처리방침 개정 공지</a><span class="day">2017.08.18</span></li>
-                     <li><a href="/support/news/detail-view.aspx?idx=7049&amp;type=1">[시스템점검] 8월 정기 시스템 안내</a><span class="day">2017.08.08</span></li>
-                     <li><a href="/support/news/detail-view.aspx?idx=7042&amp;type=5"> 티켓 재판매 공지드립니다.</a><span class="day">2017.08.02</span></li>
+                     <c:forEach var="customerdto" items="${customer}">
+							<li><a href="#">[${customerdto.boardHead}] ${customerdto.boardTitle}</a><span class="day">${customerdto.boardDate}</span></li>
+					</c:forEach>
                   </ul>
                   <a href="/support/news/default.aspx" class="more">공지/뉴스 더보기</a>
                </div>
@@ -101,15 +94,8 @@
          <!-- //Contents End -->
  </div>
  </div>
- 
- 
- 
- 
       <!-- //Contents Area -->
       <script type="text/javascript">
-      //<![CDATA[
-      
-          (function ($) {
               $(function () {
                   $('#btn_search').on('click', function () {
                       if ($('#searchtext').val() == "") {
@@ -159,14 +145,10 @@
                   });
       
               });
-          })(jQuery);
-      
-      //]]>
       </script>
-
 </body>
 
  <div id="footer">
       <jsp:include page="../footer.jsp" flush="false" />
-   </div>
+ </div>
 </html>

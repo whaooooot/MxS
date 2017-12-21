@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- CommentMAppeer.xml -->
+
+<mapper namespace="repository.mapper.GradeMapper">
+	<cache />
+
+	<resultMap id="customerResultMap" type="gradedto">
+  	<id column="score_num" jdbcType="INTEGER" property="scoreNum" />
+  	<id column="movie_num" jdbcType="VARCHAR" property="movieNum" />
+  	<result column="score_con" jdbcType="VARCHAR" property="scoreCon" />
+	<result column="score_quan" jdbcType="DATE" property="scoreQuan" />
+	<result column="member_num" jdbcType="INTEGER" property="memberNum"/>
+  	</resultMap>
+</mapper>

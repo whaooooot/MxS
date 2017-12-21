@@ -5,6 +5,8 @@
 <configuration>
    <typeAliases>
       <typeAlias type="model.StoreDTO" alias="storedto" />
+      <typeAlias type="model.CustomerDTO" alias="customerdto" />
+      <typeAlias type="model.CustomerDTO" alias="gradedto" />
    </typeAliases>
    <environments default="development">
       <environment id="development">
@@ -19,6 +21,7 @@
    </environments>
    <mappers>
       <mapper resource="repository/mapper/StoreMapper.xml" />
-     
+      <mapper resource="repository/mapper/CustomerMapper.xml"/>
+      <mapper resource="repository/mapper/GradeMapper.xml"/>
    </mappers>
 </configuration>

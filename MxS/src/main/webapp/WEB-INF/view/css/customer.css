@@ -2,8 +2,11 @@
 
 a{text-decoration: none; color: #000;}
 ul{list-style: none; padding: 0px;}
-.col-aside{display: inline-block; vertical-align:top; margin-right: 30px;}
-..col-aside li{padding: 10px;}
+.col-aside{display: inline-block; vertical-align:top; margin-right: 30px; height: 500px;}
+.col-aside li{padding: 10px; border-top: solid 1px #ccc;}
+.col-aside a:hover{color: #fff; text-decoration: none; background-color: #f7ca55;}
+.on{background-color: #f7ca55;}
+.on a{color: #fff;}
 .col-detail{display: inline-block; width: 900px;}
 .tel_inquiry{border-top: solid 1px #bbb; padding:20px 10px;}
 .customer_notice_area{height: 350px;}
@@ -35,14 +38,15 @@ ul{list-style: none; padding: 0px;}
 .service_area{float:left;width:300px; height:287px;}
 .service_area .list{padding-top:15px;margin:-5px 0px 0px -5px;*zoom:1;}
 .service_area .list:after {display:block;content:'';clear:both;}
-.service_area .list li {margin:5px 0px 0px 5px;float:left;}
-.service_area .list li a{padding:24px 20px 25px 17px;display:block;width:94px;height:32px;color:#222;line-height:150%;font-weight:bold;background:url(../images/sub/customer/bg_c_main.png) no-repeat 0 -287px;}
+.service_area .list li {margin:5px 0px 0px 5px;float:left; width:130px; height:80px;}
+.service_area .list li a{padding:24px 20px 25px 17px;display:block;width:120px;height:32px;color:#222;line-height:150%;font-weight:bold;background:url(../images/sub/customer/bg_c_main.png) no-repeat 0 -287px;}
+.service_area .list li a:hover{text-decoration: none;}
 .service_area .list .off a {color:rgba(149, 149, 143, 0.5); background-position: 0 -377px;}
 
 .notice_area{position:relative;left:0;top:0;float:left;width:473px; height:287px; margin-left: 30px;} 
 .notice_area .txt{margin-top:15px;}
 .notice_area .txt li:first-child{margin-top:0;}
-.notice_area .txt li{text-align:right;margin-top:13px;vertical-align:top;}
+.notice_area .txt li{text-align:right;margin-top:13px;vertical-align:top; font-size: 12px;}
 .notice_area .txt li a{float:left;overflow:hidden;display:inline-block;width:400px;color:#222;white-space:nowrap;text-overflow:ellipsis;text-align:left;}
 .notice_area .txt li a:hover, .notice_area .txt li a:active{font-weight:bold;text-decoration:underline;}
 .notice_area .txt .day{color:#222;font-size:11px;}
@@ -53,7 +57,7 @@ ul{list-style: none; padding: 0px;}
 
 .shortcu_area{overflow:hidden;margin-top:60px;padding:30px 0px 35px 0px;color:#222;border-top:solid 1px #cacac1;border-bottom:solid 1px #cacac1;}
 .shortcu_area li:first-child{margin-left:0;}
-.shortcu_area li{float:left;width:25%;}
+.shortcu_area li{float:left;width:25%; font-size: 12px;}
 .shortcu_area .tit_shortcut{display:inline-block;height:33px;line-height:33px;font-size:16px;background:url(../images/sub/customer/bg_c_main.png) no-repeat;}
 .shortcu_area .ico_lost{padding-left:48px;background-position:-3px -88px;}
 .shortcu_area .ico_general{padding-left:53px;background-position:-158px -88px;}

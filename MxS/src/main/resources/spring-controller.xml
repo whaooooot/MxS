@@ -14,5 +14,6 @@
 	<bean class="controller.CustomerServiceController"/>
 	<bean class="controller.EventController"/>
 	<bean class="controller.MemberController"/>
+	<bean class="controller.GradeController"/>
 	
 </beans>
