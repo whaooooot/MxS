@@ -5,6 +5,7 @@
 <configuration>
    <typeAliases>
       <typeAlias type="model.StoreDTO" alias="storedto" />
+      <typeAlias type="model.StoreoptDTO" alias="storeoptdto" />
    </typeAliases>
    <environments default="development">
       <environment id="development">

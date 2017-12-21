@@ -2,11 +2,13 @@
 	pageEncoding="utf-8"%>
 <%@ page import = "java.util.*" %>	
 <%@ page import = "model.*" %>	
-<% List<StoreDTO> list = (List<StoreDTO>)request.getAttribute("result");%>
+<% 
+request.setCharacterEncoding("utf-8");
+List<StoreDTO> list = (List<StoreDTO>)request.getAttribute("result");%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="en">
+<html>
 <head>	
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -96,15 +98,17 @@
 										src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
 									<h3>
 									<%									
+									
+									/*
 									for(StoreDTO d : list){
 									out.print(d.getGoodsName());
 									}
+									*/
 									
-									
-									for(int i =0; i < list.size(); i++)
+									//for(int i =0; i < list.size(); i++)
 										
 		 							%>
-		 							ㅡㅡㅡ
+		 							<br/>
 		 							<%	
 		 							out.print(list.get(1));
 		 							out.print("aa");

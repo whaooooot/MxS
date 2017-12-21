@@ -6,8 +6,8 @@
 <mapper namespace="repository.mapper.StoreMapper">
 	<cache />
 
-	<resultMap id="storeResultMap" type="storedto">
-		<id column="GOODS_NUM" jdbcType="VARCHAR" property="goodsNum" />
+	<resultMap id="storeResultMap" type="storedto">  	<!-- 상품 -->
+		<id column="GOODS_NUM" jdbcType="BIGINT" property="goodsNum" />
 		<result column="GOODS_NAME" jdbcType="VARCHAR" property="goodsName" />
 		<result column="GOODS_CON" jdbcType="VARCHAR" property="goodsCon" />
 		<result column="GOODS_PRI" jdbcType="BIGINT" property="goodsPri" />
@@ -16,22 +16,50 @@
 		<result column="GOODS_PIC" jdbcType="VARCHAR" property="goodsPic" />
 		<result column="MOVIE_NUM" jdbcType="BIGINT" property="movieNum" />
 	</resultMap>
+	
+	
+	<resultMap id="storeResultMap2" type="storeoptdto">   	<!-- 옵션 -->
+		<id column="GOODS_NUM" jdbcType="BIGINT" property="goodsNum" />
+		<id column="GOODS_OPTNUM" jdbcType="BIGINT" property="goodsOptnum" />		
+		<result column="GOODS_OPT" jdbcType="VARCHAR" property="goodsOpt" />	
+	</resultMap>
+	
 
-  	<!-- 받아올때 -->
+  	<!-- 상품 받아올때 -->
 	<select id="selectStore" resultMap="storeResultMap">
 		Select
 		*
 		FROM GOODS
 	</select>	 
 	
-	<!-- 집어넣을때 -->
+	
+		<!-- 옵션 받아올때 -->
+	<select id="selectoptStore" resultMap="storeResultMap2">
+		Select
+		*
+		FROM GOODS_OPTION
+	</select>	
+	
+	
+	
+	
+	
+	<!-- 상품집어넣을때 -->
 	<insert id="insertStore" parameterType="storedto" >
 		insert into GOODS(GOODS_NUM,GOODS_NAME,GOODS_CON,GOODS_PRI,GOODS_QUAN,GOODS_NOTE,GOODS_PIC,MOVIE_NUM)
 		VALUES (GOODS_NUM.nextval, #{goodsName}, #{goodsCon}, #{goodsPri},#{goodsQuan}, #{goodsNote},#{goodsPic}, #{movieNum})
 	</insert>
 	
 	
-	<delete id="deleteStore" parameterType="string">
+		<!--옵션 집어넣을때 -->
+	<insert id="insertStoreopt" parameterType="storeoptdto" >
+		insert into GOODS_OPTION(GOODS_NUM,GOODS_OPTNUM,GOODS_OPT)
+		VALUES (#{goodsNum}, GOODS_OPTNUM.nextval, #{goodsOpt})
+	</insert>
+	
+	
+	
+	<delete id="deleteStore" parameterType="int">
 		delete from GOODS
 		where GOODS_NUM = #{goodsNum}
 	</delete>

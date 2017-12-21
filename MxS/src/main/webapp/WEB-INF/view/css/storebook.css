@@ -89,7 +89,7 @@
 /*취소확인버튼*/
 
 /*버튼*/
-        .div-container{border-top:3px solid #428BCA;border-right:3px solid #D9534F;border-bottom:3px solid #5CB85C;border-left:3px solid #F0AD4E;margin:30px;border-radius:20px 20px 0px 0px}
+.div-container{border-top:3px solid #428BCA;border-right:3px solid #D9534F;border-bottom:3px solid #5CB85C;border-left:3px solid #F0AD4E;margin:30px;border-radius:20px 20px 0px 0px}
 .div-heading{border-bottom:1px dashed #5BC0DE;padding-top:15px;padding-bottom:15px;margin:0px;background-color:#F5F5F5;border-radius:19px 19px 0px 0px}
 .heading{color:#5FC9E5}
 .div-content{padding:30px}

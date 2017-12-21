@@ -7,12 +7,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import model.StoreDTO;
+import model.StoreoptDTO;
 
 @Repository
 public class StoreSessionRepository extends AbstractRepository {
 	private final String namespace = "repository.mapper.StoreMapper";
 	
-	public List<StoreDTO> selectStore() {
+	public List<StoreDTO> selectStore() { //상품출력
 		
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		String statement = namespace + ".selectStore";
@@ -30,8 +31,9 @@ public class StoreSessionRepository extends AbstractRepository {
 		return list;
 	}
 	
+	
 		
-	public Integer insertStore(StoreDTO storedto) {
+	public Integer insertStore(StoreDTO storedto) { //상품등록
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		// Connection conn
 		try {
@@ -50,7 +52,7 @@ public class StoreSessionRepository extends AbstractRepository {
 		}
 	}	
 	
-	public Integer deleteStore(String goodsNum) {
+	public Integer deleteStore(int goodsNum) { //상품삭제
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 
 		Integer result = sqlSession.delete(namespace + ".deleteStore", goodsNum);
@@ -85,6 +87,43 @@ public class StoreSessionRepository extends AbstractRepository {
 	
 	
 	*/
+	
+	public List<StoreoptDTO> selectStoreopt() { //옵션출력
+		
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".selectoptStore";
+		List<StoreoptDTO> list = new ArrayList<StoreoptDTO>();
+		
+		try {
+	
+			list =  sqlSession.selectList(statement);
+			//System.out.println(list.size());
+			//System.out.println(list);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public Integer insertStoreopt(StoreoptDTO storeoptdto) { //상품등록
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+		try {
+			//System.out.println("1");
+			String statement = namespace + ".insertStoreopt";
+			int result = sqlSession.insert(statement, storeoptdto);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
+
+		}
+	}	
 	
 	
 	

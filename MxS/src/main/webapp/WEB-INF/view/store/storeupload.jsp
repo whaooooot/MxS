@@ -4,8 +4,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<% request.setCharacterEncoding("utf-8"); %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -100,7 +102,7 @@
 				</div>
 
 	</div>
-			<form:form class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST">
+			<form:form class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
 						<label>상품 URL(위파일선택과 둘중하나만)</label> 

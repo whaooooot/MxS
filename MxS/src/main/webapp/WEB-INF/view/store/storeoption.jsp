@@ -3,9 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import = "java.util.*" %>	
+<%@ page import = "model.*" %>	
+<% 
+request.setCharacterEncoding("utf-8");
+List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("result");%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -21,7 +26,7 @@
 <script
 	src="http://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 
-<link href="./css/storeupload.css?ver=1" rel="stylesheet"
+<link href="./css/storeupload.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript" src="./js/storeupload.js"></script>
 
@@ -40,33 +45,46 @@
 
 <body>
 
+									<% 
+									for(StoreoptDTO d : listopt){
+									out.print(d.getGoodsNum());
+									out.print(d.getGoodsOpt());
+									}
+									%>
+									
+							
+									
+
+
+
+
 <hr/>
 
 	<div class="container">
 		<div class="row">
+		
+			
+		
+		<hr/>
+		
+		
 
-			<form:form class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST">
+			<form:form class="well col-sm-10 col-md-10"  action="storeoptionfinish" modelAttribute="storeoptdto" method="POST">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-												
+									
+						<label>상품번호선택(리스트로변경)</label>
+						<input name="goodsNum"  class="form-control" placeholder="상품번호입력" type="text"/>
+						
 						<hr/>
-						<label>상품옵션1(색상)(,로구분)</label>
-						<input class="form-control" placeholder="상품옵션" type="text">
-						<label>상품옵션2(크기)(,로 구분)</label> 
-						<input class="form-control"	placeholder="상품옵션" type="text"> 
+						<label>상품옵션</label>
+						<input name="goodsOpt"  class="form-control" placeholder="상품옵션" type="text">
+		
 						<hr/>
-						
-						<label>상품 수</label> 
-						<input name="goodsQuan" class="form-control" placeholder="상품수" type="text"/>
-						<label>상품 유의사항</label>
-						<textarea name="goodsNote"  class="form-control" id="message" name="message"	rows="10"></textarea>
-						
-						<label>영화번호선택(리스트로변경)</label>
-						<input name="movieNum" class="form-control" placeholder="영화번호입력" type="text"/>
-						
+											
 						<br />
 						<div class="bright">
-							<input type="submit" class="btn btn-primary" value="상품올리기"/>						
+							<input type="submit" class="btn btn-primary" value="옵션 추가"/>						
 						</div>
 					</div>
 				</div>

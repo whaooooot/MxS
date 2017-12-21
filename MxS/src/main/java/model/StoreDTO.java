@@ -7,7 +7,7 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class StoreDTO implements Serializable {
 	
-	private String goodsNum; //상품번호
+	private int goodsNum; //상품번호
 	private String goodsName; //상품이름
 	private String goodsCon;  //상품내용
 	private int goodsPri;   //상품금액
@@ -17,10 +17,10 @@ public class StoreDTO implements Serializable {
 	private int movieNum;     // 영화번호
 	
 	
-	public String getGoodsNum() {
+	public int getGoodsNum() {
 		return goodsNum;
 	}
-	public void setGoodsNum(String goodsNum) {
+	public void setGoodsNum(int goodsNum) {
 		this.goodsNum = goodsNum;
 	}
 	public String getGoodsName() {
