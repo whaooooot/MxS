@@ -5,6 +5,7 @@
 <configuration>
    <typeAliases>
       <typeAlias type="model.StoreDTO" alias="storedto" />
+      <typeAlias type="model.EventDTO" alias="eventto" />
    </typeAliases>
    <environments default="development">
       <environment id="development">
@@ -19,6 +20,7 @@
    </environments>
    <mappers>
       <mapper resource="repository/mapper/StoreMapper.xml" />
+      <mapper resource="repository/mapper/EventMapper.xml" />
      
    </mappers>
 </configuration>

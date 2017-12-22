@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import model.EventDTO;
 
 @Repository
-public class EventSessionRepository extends AbstractRepository1{
+public class EventSessionRepository extends AbstractRepository{
 	private final String namespace = "repository.mapper.EventMapper";
 		
 	public List<EventDTO> selectEvent() {
@@ -18,9 +18,8 @@ public class EventSessionRepository extends AbstractRepository1{
 		String statement = namespace + ".selectEvent";
 		List<EventDTO> list = new ArrayList<EventDTO>();
 		
-		try {
-	
-			list =  sqlSession.selectList(statement);
+		try {	
+			list = sqlSession.selectList(statement);
 			System.out.println(list.size());
 			System.out.println(list);
 		}
@@ -29,6 +28,64 @@ public class EventSessionRepository extends AbstractRepository1{
 		}
 		return list;
 	}
+	
+	
+	/*
+	public Integer insertComment(Comment comment) {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+
+		try {
+
+			String statement = namespace + ".insertComment";
+			int result = sqlSession.insert(statement, comment);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
+
+		}
+	}
+	
+	public Integer updateComment(Comment comment) {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		
+		Integer result = sqlSession.update(namespace + ".updateComment", comment);
+		if(result>0) {
+			
+			sqlSession.commit();//트랜젝션 관리가 가능함
+		}else {
+			
+			sqlSession.rollback();
+			
+		}
+		return result;
+	}
+	
+	public Integer deleteComment(Long commentNo) {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		
+		Integer result = sqlSession.delete(namespace + ".deleteComment", commentNo);
+		if(result>0) {
+			
+			sqlSession.commit();//트랜젝션 관리가 가능함
+		}else {
+			
+			sqlSession.rollback();
+			
+		}
+		return result;
+	}
+	
+	
+	*/
+	
+	
+	
 }
 
 

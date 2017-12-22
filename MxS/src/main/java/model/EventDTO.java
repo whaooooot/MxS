@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class EventDTO implements Serializable{
+	
 	private Long eventNo;		// 이벤트 번호
 	private Long movieNo;		// 영화 번호
 	private String eventTit;	// 이벤트 제목

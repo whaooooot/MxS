@@ -11,4 +11,5 @@ http://www.springframework.org/schema/context/spring-context.xsd">
       
 	<context:annotation-config />
 		<bean id="storeSessionRepository" class="repository.StoreSessionRepository" />
+		<bean id="eventSessionRepository" class="repository.EventSessionRepository" />
 </beans>
