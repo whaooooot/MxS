@@ -103,14 +103,14 @@ public class CustomerServiceController {
 		return "customerservice/customer_email";
 	}
 	
-	@RequestMapping(value = "/customer_email", method = {RequestMethod.GET, RequestMethod.POST})
+	/*@RequestMapping(value = "/customer_email", method = {RequestMethod.GET, RequestMethod.POST})
 	public String customerservice5(CustomerDTO custmoerdto, Model model) {
 		
-		Map<String, Object> result = customerSessionRepository.selectEmail(memberdto);
+		Map<String, Object> result = customerSessionRepository.selectEmail(custmoerdto);
 		
 		model.addAttribute("email", result);
 		
 		return "customerservice/customer_email";
 	}
-
+*/
 }
