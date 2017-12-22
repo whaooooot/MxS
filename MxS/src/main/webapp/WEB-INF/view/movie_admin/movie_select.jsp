@@ -90,7 +90,7 @@
 									<span class="thumb-image"> 
 									
 									
-									<img src="/mxs-movie/img/upload/mxs/movie/upload/s_${movie.moviePoster}" />
+									<img src="/MxS/img/upload/mxs/movie/upload/s_${movie.moviePoster}" />
 		                                      
 									<span class="ico-grade grade-15">${movie.movieGrade}</span>
 									
