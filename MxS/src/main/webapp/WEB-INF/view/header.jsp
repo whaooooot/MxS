@@ -80,6 +80,7 @@
 		          <ul class="nav navbar-nav navbar-left">
 		          	 <li class="active"><a href="index" data-nav-section="home"><span>홈</span></a></li>
 		            <li><a href="MovieChartPage" data-nav-section=""><span>영화</span></a></li>
+		            <li><a href="grade" data-nav-section=""><span>평점</span></a></li>
 		            <li><a href="moviebook" data-nav-section=""><span>빠른예매</span></a></li>
 		            <li><a href="" data-nav-section=""><span>극장</span></a></li>		            
 		             <li><a href="store" data-nav-section=""><span>스토어</span></a></li>

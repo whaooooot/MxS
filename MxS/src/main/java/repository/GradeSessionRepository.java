@@ -10,19 +10,19 @@ import model.*;
 @Repository
 public class GradeSessionRepository extends AbstractRepository {
 	private final String namespace = "repository.mapper.GradeMapper";
-	
-	/* 평점 */
-	public List<GradeDTO> selectGrade(GradeDTO grade) {
+/*	
+	 평점 
+	public List<GradeDTO> selectGrade(GradeDTO gradedto) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		String statement = namespace + ".selectGradeByCondition";
 		
-		return sqlSession.selectList(statement, grade);
-	}
+		return sqlSession.selectList(statement, gradedto);
+	}*/
 
-	public List<GradeDTO> selectMylist(GradeDTO grade) {
+/*	public List<GradeDTO> selectMylist(GradeDTO grade) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		String statement = namespace + ".selectMylist";
 		
 		return sqlSession.selectList(statement, grade);
-	}
+	}*/
 }

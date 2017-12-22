@@ -6,11 +6,10 @@
 <mapper namespace="repository.mapper.GradeMapper">
 	<cache />
 
-	<resultMap id="customerResultMap" type="gradedto">
-  	<id column="score_num" jdbcType="INTEGER" property="scoreNum" />
-  	<id column="movie_num" jdbcType="VARCHAR" property="movieNum" />
-  	<result column="score_con" jdbcType="VARCHAR" property="scoreCon" />
-	<result column="score_quan" jdbcType="DATE" property="scoreQuan" />
-	<result column="member_num" jdbcType="INTEGER" property="memberNum"/>
-  	</resultMap>
+	<select id="selectGradeByCondition" parameterType="int" resultType="model.GradeDTO">
+		select s.score_con, s.score_quan, c.member_id
+		from score s, movie m, member c
+		where s.movie_num = m.movie_num and m.member_num = c.member_num;
+	</select>
+	
 </mapper>

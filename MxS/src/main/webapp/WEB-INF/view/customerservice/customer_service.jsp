@@ -55,7 +55,7 @@
                <div class="c_box emaile_inquiry" style="cursor:pointer;">
                   <strong class="c_tit email_tit">이메일 문의</strong>
                   <span class="c_txt">24시간 365일 언제든지 문의해주세요.</span>
-                  <a class="round red" href="/support/qna/default.aspx"><span style="padding:0 20px;">문의하기</span></a>
+                  <a class="round red" href="customer_email"><span style="padding:0 20px;">문의하기</span></a>
                </div>
                <div class="c_box my_advice" style="cursor:pointer;">
                   <strong class="c_tit advice_tit">내 상담 내역 확인</strong>

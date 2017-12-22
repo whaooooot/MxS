@@ -11,6 +11,56 @@
 <link href="./css/customer.detail.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#searchtext").keyup(function() {
+		var k = $(this).val(); // keyup 되면 입력한 문자열 변수 k에 저장 $().val 이벤트 발생한 요소(텍스트 필드 value 속성값) 읽어내는 기능
+		$(".tbl_notice_list > tbody > tr").hide();
+		var temp = $(".tbl_notice_list > tbody > tr > td:nth-child(5n+3):contains('" + k + "')");
+		
+		$(temp).parent().show();
+    });
+});
+
+/* Tab */
+$(document).ready(function(){
+	$(".container > .row > .col-detail > .tabbable > .nav-tabs > li").click(function(){
+		$(".container > .row > .col-detail > .tabbable > .nav-tabs > li").removeClass('active');
+		$(this).addClass("active");
+	});
+	
+	tab('0');
+});
+function tab(val){
+    $.ajax({
+        url: "customer_notice_list",
+        type: "post",     
+		dataType : 'json',
+		cache : false,    
+        data: {
+        	p_tab_value: val
+        },
+    	success: function(data){
+	       $("#tbody").empty();
+	        var txt ="";
+	        $.each(data, function(index, obj){
+	        	/* alert(data); */
+         	  txt += "<tr class='first'>"
+              txt += "<td>"+obj.BOARD_NUM+"</td>"
+              txt += "<td>"+obj.BOARD_HEAD+"</td>"
+              txt += "<td class='txt'><a href='#'>"+obj.BOARD_TITLE+"</a></td>"
+              txt += "<td>"+obj.BOARD_DATE+"</td>"
+			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
+              txt += "</tr>"
+	        });
+	        $("#tbody").html(txt);
+		},
+		error : function(request, status, error) {
+            alert("code:" + request.status + "\n" + "error:" + error);
+         }
+	});
+}  
+</script>
 </head>
 <div id="header">
 	<jsp:include page="../header.jsp" flush="false" />
@@ -19,7 +69,7 @@
 <br/>
 	<div class="container">
 		<div class="row">
-		<div class="col-aside">
+			<div class="col-aside">
                <div class="snb">
                   <ul>
                      <li class=""><a href="customer_service">고객센터 메인<i></i></a></li>
@@ -36,17 +86,14 @@
       </div>
       <div class="search_area">
          <input id="searchtext" type="text" class="c_input" title="검색어 입력" placeholder="검색어를 입력해 주세요" value="" style="width: 275px;">
-         <button type="button" class="round inblack" title="검색하기" id="btn_search">
-            <span>검색하기</span>
-         </button>
       </div>
 
       <div class="tabbable">
          <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1" data-toggle="tab" title="선택된 탭메뉴">전체</a></li>
-            <li class=""><a href="#tab2" data-toggle="tab">시스템 점검</a></li>
-            <li class=""><a href="#tab3" data-toggle="tab">극장</a></li>
-            <li class=""><a href="#tab4" data-toggle="tab">기타</a></li>
+            <li class="active"><a href="javascript:void();" onclick="tab(0);" data-toggle="tab" title="선택된 탭메뉴">전체</a></li>
+            <li class=""><a href="javascript:void();" onclick="tab(1);" data-toggle="tab">시스템 점검</a></li>
+            <li class=""><a href="javascript:void();" onclick="tab(2);" data-toggle="tab">극장</a></li>
+            <li class=""><a href="javascript:void();" onclick="tab(3);" data-toggle="tab">기타</a></li>
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="tab1">
@@ -72,24 +119,12 @@
                            <th scope="col">조회수</th>
                         </tr>
                      </thead>
-                     <tbody>
-                     <c:forEach var="customerdto" items="${notice}">
-                        <tr class="first">
-                            <td>${customerdto.boardNum}</td>
-                                  <td>[${customerdto.boardHead}]</td>
-                            <td class="txt"><a href="#">${customerdto.boardTitle}</a></td>
-                            <td>${customerdto.boardDate}</td>
-                            <td class="num">${customerdto.readCount}</td>
-                         </tr>
-                     </c:forEach>
+                     <tbody id="tbody">
+                     
                      </tbody>
                   </table>
                </div>
             </div>
-            <div class="tab-pane" id="tab2">2</div>
-            <div class="tab-pane" id="tab3">3</div>
-            <div class="tab-pane" id="tab4">4</div>
-
          </div>
       </div>
    </div>

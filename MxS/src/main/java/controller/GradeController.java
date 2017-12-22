@@ -18,19 +18,19 @@ public class GradeController {
 	
 	/* 평점 */
 	@RequestMapping(value="/grade", method = {RequestMethod.GET, RequestMethod.POST})
-	public String GradeSelect(GradeDTO grade, Model model) {
-		/*List<GradeDTO> result = gradeSessionRepository.selectGrade(grade);
-		model.addAttribute("result", result);
-		*/
+	public String GradeSelect(GradeDTO gradedto, Model model) {
+		/*List<GradeDTO> result = gradeSessionRepository.selectGrade(gradedto);
+		model.addAttribute("result", result);*/
+		
 		return "grade/grade";
 	}
 	
-	@RequestMapping(value="/gradelist", method = {RequestMethod.GET, RequestMethod.POST})
+/*	@RequestMapping(value="/gradelist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String Select(GradeDTO grade, Model model) {
 		List<GradeDTO> result = gradeSessionRepository.selectMylist(grade);
 		model.addAttribute("result", result);
 		
 		return "grade/gradeList";
 	}
-
+*/
 }

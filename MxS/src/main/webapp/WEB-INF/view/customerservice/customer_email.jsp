@@ -51,14 +51,14 @@
 							<tbody>
 								<tr>
 									<th scope="row"><label for="inp_name">이름</label></th>
-									<td colspan="3"><strong></strong>ㄱㅈㅇ</td>
+									<td colspan="3"><strong></strong>${email.MEMBER_NAME}</td>
 								</tr>
 								<tr>
 									<th scope="row">휴대전화</th>
-									<td><strong>010-****-2144</strong></td>
+									<td><strong>${email.MEMBER_PHON}</strong></td>
 										<input type="hidden" id="HiddenMobile1" name="HiddenMobile1" value="9fb356d3073990f6e5ab099b4e2d93a8">
 									<th scope="row">이메일</th>
-									<td><strong>a.**aa@hanmail.net</strong></td>
+									<td><strong>${email.MEMBER_EMAIL}</strong></td>
 										<input type="hidden" id="HiddenEmail1" name="HiddenEmail1" value="e1e5527b0332f31512781b27fd8363862baba02970a527d5">
 								</tr>
 								<tr class="check_info">

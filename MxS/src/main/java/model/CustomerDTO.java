@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @SuppressWarnings("serial")
-public class CustomerDTO implements Serializable{
+public class CustomerDTO extends MemberDTO implements Serializable{
 	private int boardNum; // 게시물 번호 (PK)
 	private String boardCon; // 게시물 내용
 	private String boardTitle; // 게시물 제목
@@ -83,7 +83,7 @@ public class CustomerDTO implements Serializable{
 	public String getTabType() {
 		return tabType;
 	}
-	public void setTabType(String tabType) {
-		this.tabType = tabType;
+	public void setTabType(String tab_type) {
+		this.tabType = tab_type;
 	}
 }

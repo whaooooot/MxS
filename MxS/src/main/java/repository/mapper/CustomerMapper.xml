@@ -6,16 +6,16 @@
 	<cache />
 
 	<resultMap id="customerResultMap" type="customerdto">
-  	<id column="board_num" jdbcType="INTEGER" property="boardNum" />
-  	<result  column="board_con" jdbcType="VARCHAR" property="boardCon" />
-  	<result column="board_title" jdbcType="VARCHAR" property="boardTitle" />
-	<result column="board_date" jdbcType="DATE" property="boardDate" />
-	<result column="readcount" jdbcType="INTEGER" property="readCount"/>
-	<result column="board_file" jdbcType="VARCHAR" property="boardFile"/>
-	<result column="board_head" jdbcType="VARCHAR" property="boardHead"/>
-	<result column="board_type" jdbcType="VARCHAR" property="boardType"/>
-	<result column="board_level" jdbcType="INTEGER" property="boardLevel"/>
-	<result column="member_num" jdbcType="INTEGER" property="memberNum"/>
+	  	<id column="board_num" jdbcType="INTEGER" property="boardNum" />
+	  	<result  column="board_con" jdbcType="VARCHAR" property="boardCon" />
+	  	<result column="board_title" jdbcType="VARCHAR" property="boardTitle" />
+		<result column="board_date" jdbcType="DATE" property="boardDate" />
+		<result column="readcount" jdbcType="INTEGER" property="readCount"/>
+		<result column="board_file" jdbcType="VARCHAR" property="boardFile"/>
+		<result column="board_head" jdbcType="VARCHAR" property="boardHead"/>
+		<result column="board_type" jdbcType="VARCHAR" property="boardType"/>
+		<result column="board_level" jdbcType="INTEGER" property="boardLevel"/>
+		<result column="member_num" jdbcType="INTEGER" property="memberNum"/>
   	</resultMap>
   	
   	
@@ -29,11 +29,11 @@
 		ORDER BY BOARD_DATE DESC
 	]]>
 	</select>
+
 	
 	
 	
-	
-	<!-- 총 count -->
+	<!-- 총 count --> 
 	<select id="selectCountByCondition" parameterType="int" resultType="int">
 		SELECT count(*)
 		FROM BOARD
@@ -41,20 +41,20 @@
 	</select>
 	
 	<!-- 자주 찾는 질문 -->
-	<select id="selectQnaByCondition" parameterType="int" resultMap="customerResultMap">
+ 	<select id="selectQnaByCondition" parameterType="int" resultMap="customerResultMap">
 		SELECT
 			BOARD_NUM, board_head, board_title, readcount
 		FROM BOARD
-		WHERE (BOARD_HEAD = '예매/관람권' OR BOARD_HEAD = '멤버쉽' OR BOARD_HEAD = '할인혜택'  OR BOARD_HEAD = '영화관이용'  OR BOARD_HEAD = '기프트샵' OR BOARD_HEAD = '홈페이지' OR BOARD_HEAD = '모바일')
+		WHERE (BOARD_HEAD = '시스템점검' OR BOARD_HEAD = '극장' OR BOARD_HEAD = '기타'  OR BOARD_HEAD = '제휴이벤트'  OR BOARD_HEAD = '행사/이벤트')
 		ORDER BY BOARD_DATE DESC
 	</select>
-	
-	<!-- ㅈ -->
-	<select id="selectQnaList" parameterType="int" resultMap="customerResultMap">
+
+	<!-- 자주 찾는 질문 Tab-->
+	<select id="selectQnaList" parameterType="hashmap" resultType="hashmap">
 		SELECT
 			board_num, board_head, board_title, readcount
 		FROM BOARD
-		WHERE 1 = 1
+		WHERE (BOARD_HEAD = '예매/관람권' OR BOARD_HEAD = '멤버쉽' OR BOARD_HEAD = '할인혜택'  OR BOARD_HEAD = '영화관이용'  OR BOARD_HEAD = '기프트샵' OR BOARD_HEAD = '홈페이지' OR BOARD_HEAD = '모바일')
 		<if test="tabType == 1">
 			AND BOARD_HEAD = '예매/관람권'
 		</if>
@@ -79,6 +79,9 @@
 		ORDER BY BOARD_DATE DESC
 	</select>
 
+	
+	
+	
 	<!-- 공지 / 뉴스 -->
 	<select id="selectNoticeByCondition" parameterType="int" resultMap="customerResultMap">
 		SELECT
@@ -87,9 +90,37 @@
 		WHERE (BOARD_HEAD = '시스템점검' OR BOARD_HEAD = '극장' OR BOARD_HEAD = '기타'  OR BOARD_HEAD = '제휴이벤트'  OR BOARD_HEAD = '행사/이벤트')
 		ORDER BY BOARD_DATE DESC
 	</select>
+	
+	<!-- 공지/뉴스 Tab-->
+	<select id="selectNoticeList" parameterType="hashmap" resultType="hashmap">
+		SELECT
+			BOARD_NUM, board_head, board_title, board_date, readcount
+		FROM BOARD
+		WHERE (BOARD_HEAD = '시스템점검' OR BOARD_HEAD = '극장' OR BOARD_HEAD = '기타'  OR BOARD_HEAD = '제휴이벤트'  OR BOARD_HEAD = '행사/이벤트')
+		<if test="tabType == 1">
+			AND BOARD_HEAD = '시스템점검'
+		</if>
+		<if test="tabType == 2">
+			AND BOARD_HEAD = '극장'
+		</if>
+		<if test="tabType == 3">
+			AND BOARD_HEAD = '제휴이벤트'
+		</if>
+		<if test="tabType == 4">
+			AND BOARD_HEAD = '행사/이벤트'
+		</if>			
+		ORDER BY BOARD_DATE DESC
+	</select>
 
 	
 	
 	
 	<!-- 이메일 문의 -->
+	<select id="selectEmailMember" parameterType="int" resultType="map">
+		SELECT
+			MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHON
+		FROM MEMBER
+		WHERE MEMBER_NUM = 1
+	</select>
+	
 </mapper>

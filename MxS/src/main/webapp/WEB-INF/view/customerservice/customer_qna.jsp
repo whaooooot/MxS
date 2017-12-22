@@ -16,45 +16,44 @@
       <jsp:include page="../header.jsp" flush="false" />
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-    $("#searchtext").keyup(function() {
-		var k = $(this).val(); // keyup 되면 입력한 문자열 변수 k에 저장 $().val 이벤트 발생한 요소(텍스트 필드 value 속성값) 읽어내는 기능
-		$(".tbl_notice_list > tbody > tr").hide();
-		var temp = $(".tbl_notice_list > tbody > tr > td:nth-child(5n+3):contains('" + k + "')");
+/* Tab */
+	$(document).ready(function(){
+		$(".container > .row > .col-detail > .tabbable > .nav-tabs > li").click(function(){
+			$(".container > .row > .col-detail > .tabbable > .nav-tabs > li").removeClass('active');
+			$(this).addClass("active");
+		});
 		
-		$(temp).parent().show();
-    });
-});
-
-
-function tab(val){
+		tab('0');
+	});
+  function tab(val){
     $.ajax({
-        url: "customerList.do",
+        url: "customer_qna_list",
         type: "post",     
 		dataType : 'json',
-		cache : false,        
+		cache : false,    
         data: {
         	p_tab_value: val
         },
-    	success: function(result){
-	        $("#tbody").empty();
-	        
+    	success: function(data){
+	       $("#tbody").empty();
 	        var txt ="";
-	        $.each(result, function(index, obj){
+	        $.each(data, function(index, obj){
+	        	/* alert(data); */
          	  txt += "<tr class='first'>"
-              txt += "<td>"+obj.board_num+"</td>"
-              txt += "<td>"+obj.board_head+"</td>"
-              txt += "<td class='txt'><a href='#'>"+obj.board_title+"</a></td>"
-			  txt += "<td class='num'>"+obj.readcount+"</td>"
+              txt += "<td>"+obj.BOARD_NUM+"</td>"
+              txt += "<td>"+obj.BOARD_HEAD+"</td>"
+              txt += "<td class='txt'><a href='#'>"+obj.BOARD_TITLE+"</a></td>"
+			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
               txt += "</tr>"
 	        });
 	        $("#tbody").html(txt);
 		},
-		error:function(request,status,error){
-	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	       }
+		error : function(request, status, error) {
+            alert("code:" + request.status + "\n" + "error:" + error);
+         }
 	});
-} 
+}  
+
 </script>
 <body>
 <br/>
@@ -77,25 +76,9 @@ function tab(val){
 						회원님들께서 가장 자주하시는 질문을 모았습니다. <br>궁금하신 내용에 대해 검색해보세요.
 					</p>
 				</div>
-				<div class="search_area">
-					<input id="searchtext" type="text" class="c_input" title="검색어 입력"
-						placeholder="검색어를 입력해 주세요" value="" style="width: 275px;">
-					<button type="button" class="round inblack" title="검색하기" id="btn_search">
-						<span>검색하기</span>
-					</button>
-					<div class="qu_txt">
-						<em>추천검색어 :</em> <span class="first"> <a href="#none">현금영수증</a></span>
-
-						<span class=""><a href="#none">관람권</a></span> <span class=""><a
-							href="#none">홈페이지</a></span> <span class=""><a href="#none">예매</a></span>
-						<span class=""><a href="#none">환불</a></span>
-					</div>
-				</div>
-
 				<div class="tabbable">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab"
-							title="선택된 탭메뉴">전체</a></li>
+						<li class="active"><a href="javascript:void();" onclick="tab(0);" title="선택된 탭메뉴">전체</a></li>
 						<li class=""><a href="javascript:void();" onclick="tab(1);" data-toggle="tab">예매/관람권</a></li>
 						<li class=""><a href="javascript:void();" onclick="tab(2);" data-toggle="tab">멤버쉽</a></li>
 						<li class=""><a href="javascript:void();" onclick="tab(3);" data-toggle="tab">할인혜택</a></li>
@@ -128,15 +111,14 @@ function tab(val){
 										</tr>
 									</thead>
 									<tbody id="tbody">
-
 									</tbody>
 								</table>
 							</div>
 							<!-- //tab contents -->
 						</div>
+						</div>
 					</div>
-				</div>
-				<div class="search_order">
+					<div class="search_order">
 					<ol>
 						<li><span class="ico_oder find_q">01 자주찾는 질문 검색</span></li>
 						<li><span class="ico_oder email_i">02 이메일 문의</span><a
@@ -146,7 +128,7 @@ function tab(val){
 							class="num">2222-2222</span></li>
 					</ol>
 				</div>
-			</div>
+			</div>		
 		</div>
 	</div>
 </body>

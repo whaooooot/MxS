@@ -5,7 +5,7 @@
 .col-md-4{margin-left:35px; vertical-align: middle; width: 370px;}
 
 .title_heading h1{display: inline-block; margin:10px; padding: 10px;}
-.submenu{display: inline-block; width: 160px; float:right; padding-top: 40px;}
+.submenu{display: inline-block; width: 160px; float:right; padding-top: 40px; margin-right: 10px;}
 .submenu ul{list-style:none; magin:0px; padding:0px;}
 .submenu ul li{display:inline;}
 .submenu ul li a{color:#5d5757; text-decoration:none;}
