@@ -31,6 +31,9 @@
 
 .btn-bordered-opt{color:#da658e;background:#FFFFFF;border:2px solid #da658e}
 .btn-bordered-opt:hover{color:#FFFFFF;background:#da658e;border:2px solid #FFFFFF}
+
+.btn-bordered-admin{color:#58c9c7;background:#FFFFFF;border:2px solid #58c9c7}
+.btn-bordered-admin:hover{color:#FFFFFF;background:#58c9c7;border:2px solid #FFFFFF}
 </style>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
@@ -61,9 +64,9 @@
 		<div class="row">
 
 		<h1>상품 등록이 완료되었습니다.</h1>
-		<a href="storeupload"  class="btn btn-bordered-success" >추가 상품 등록</a>
-		
+		<a href="storeupload"  class="btn btn-bordered-success" >추가 상품 등록</a>		
 		<a href="storeoption" class="btn btn-bordered-opt">옵션 등록 하러 가기</a>
+		<a href="storeadmin" class="btn btn-bordered-admin">스토어 관리자페이지로</a>
 		
 		
 		

@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +24,11 @@ public class StoreController {
 	@RequestMapping(value = "/store", method = RequestMethod.GET) //스토어메인
 	public String store(Model model) {
 		//System.out.println("사이즈");
-		List<StoreDTO> result = storeSessionRepository.selectStore();
+		List<StoreDTO> result = storeSessionRepository.selectStore(); //상품출력
 		model.addAttribute("result", result);		
+		model.addAttribute("count", result.size());
+		
+		
 		return "store/store";
 	}
 		
@@ -45,8 +50,11 @@ public class StoreController {
 	@RequestMapping(value = "/storeoption", method = RequestMethod.GET) //옵션등록
 	public String storeoption(Model model) {
 		//System.out.println("11");	
-		model.addAttribute("storeoptdto", new StoreoptDTO());
-		List<StoreoptDTO> result = storeSessionRepository.selectStoreopt();
+		List<StoreDTO> result1 = storeSessionRepository.selectStore(); //상품출력
+		model.addAttribute("result1", result1);	
+		
+		model.addAttribute("storeoptdto", new StoreoptDTO()); //등록
+		List<StoreoptDTO> result = storeSessionRepository.selectStoreopt(); //옵션출력
 		model.addAttribute("result", result);
 		return "store/storeoption";
 	}
@@ -60,14 +68,18 @@ public class StoreController {
 	}
 	
 
-
-	
-	
-	
-	@RequestMapping(value = "/productdetail", method = RequestMethod.GET)
-	public String store2(Model model) {
-		return "store/productdetail";
+	@RequestMapping(value = "/productdetail", method = RequestMethod.GET) //상품상세보기
+	public String productdetail(Model model, HttpServletRequest req) {
+		System.out.println(req.getParameter("num"));				
+			model.addAttribute("detail", storeSessionRepository.productdetail(Integer.parseInt(req.getParameter("num"))));	
+			return "store/productdetail";
+		
+			
+		
 	}
+	
+	
+	
 	
 	@RequestMapping(value = "/payment", method = RequestMethod.POST)
 	public String store3(Model model) {

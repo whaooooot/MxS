@@ -40,12 +40,20 @@
 		FROM GOODS_OPTION
 	</select>	
 	
+
+
+	<!-- 상품 상세보기 결과반환 -->
+	<select id="productdetail"  resultMap="storeResultMap"> 
+        select * from GOODS
+        where
+        GOODS_NUM =#{goodsNum} 
+    </select>
+    
+    
+
 	
-	
-	
-	
-	<!-- 상품집어넣을때 -->
-	<insert id="insertStore" parameterType="storedto" >
+	<!-- 상품집어넣을때  parameter 조회결과--> 
+	<insert id="insertStore" parameterType="storedto" > 
 		insert into GOODS(GOODS_NUM,GOODS_NAME,GOODS_CON,GOODS_PRI,GOODS_QUAN,GOODS_NOTE,GOODS_PIC,MOVIE_NUM)
 		VALUES (GOODS_NUM.nextval, #{goodsName}, #{goodsCon}, #{goodsPri},#{goodsQuan}, #{goodsNote},#{goodsPic}, #{movieNum})
 	</insert>
