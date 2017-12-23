@@ -29,7 +29,7 @@ public class UploadController {
 	
 	//업로드 디렉토리 경로
 
-	String uploadPath = "C:\\Users\\user1\\git\\MxS\\MxS\\src\\main\\webapp\\WEB-INF\\view\\img\\upload";
+	String uploadPath = "C:\\Java\\workspace\\MxS\\MxS\\src\\main\\webapp\\WEB-INF\\view\\img\\upload";
 	
 	// Ajax로 업로드하는 방식
 	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.GET)
