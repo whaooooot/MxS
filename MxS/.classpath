@@ -28,7 +28,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/user1/Desktop/project_lib/mybatis-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/user1/Desktop/project_lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/JavaEx/workspace/ojdbc6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>MxS Maven Webapp</name>
   <url>http://maven.apache.org</url>
-	<dependencies>
+<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -24,7 +24,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
-			<scope>provided</scope>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -59,22 +59,17 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>4.3.0.RELEASE</version>
+			<artifactId>spring-web</artifactId>
+			<version>4.1.2.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.2</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.1.0.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>org.imgscalr</groupId>
-			<artifactId>imgscalr-lib</artifactId>
-			<version>4.2</version>
-		</dependency>
-	</dependencies>
+</dependencies>
 	<build>
-		<finalName>mybatis-spring-web</finalName>
+		<finalName>MxS</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>

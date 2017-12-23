@@ -15,7 +15,4 @@
 	<bean class="controller.EventController"/>
 	<bean class="controller.MemberController"/>
 	
-	<bean class="controller.MovieChartController" />
-	<bean class="controller.UploadController" />
-	
 </beans>
