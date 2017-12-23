@@ -37,7 +37,7 @@ public class MovieChartController {
 		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list); // list
-		//map.put("count", count); // 레코드의 갯수
+		//map.put("count", count); // 레코드의 갯수 
 		map.put("searchOption", searchOption); // 검색옵션
 		map.put("keyword", keyword); // 검색키워드
 		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
