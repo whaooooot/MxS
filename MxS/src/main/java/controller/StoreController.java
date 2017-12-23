@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import model.StoreDTO;
 import model.StoreoptDTO;
 import repository.StoreSessionRepository;
 
+
+
 @Controller
+@SessionAttributes({"cart"})
 public class StoreController {
 	
 	@Autowired
@@ -85,10 +90,7 @@ public class StoreController {
 	}
 	
 
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String store5(Model model) {
-		return "store/cart";
-	}
+	
 	
 	@RequestMapping(value = "/storeadmin", method = RequestMethod.GET)
 	public String store6(Model model) {
@@ -96,6 +98,30 @@ public class StoreController {
 	}
 	
 
+	@RequestMapping(value="cart", method = RequestMethod.GET) //장바구니
+	public String getCart(Model model) {
+	if (!model.containsAttribute("cart")) {
+	model.addAttribute("cart", new ArrayList<StoreDTO>());
+	}
+	return "store/cart";
+	}
+	
+	@RequestMapping(value="cart", method = RequestMethod.POST) //장바구니추가
+	public String add(@ModelAttribute StoreDTO goods,
+	         @ModelAttribute("cart") List<StoreDTO> cart) {
+	cart.add(goods);
+	return "redirect:cart";
+	}
+	
+	/*@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	public String store5(Model model) {
+		return "store/cart";
+	}
+	
+	
+	}*/
+	
+	
 	
 
 

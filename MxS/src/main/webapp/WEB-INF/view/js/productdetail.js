@@ -10,7 +10,15 @@
 
                 $("." + clase).removeClass("active");
                 $(this).addClass("active");
+                
+                
             })
+            
+            
+            
+            
+            
+            
 
             //-- Click on QUANTITY
             $(".btn-minus").on("click",function(){
@@ -21,7 +29,9 @@
                 }else{
                     $(".section > div > input").val("1");
                 }
-            })            
+            })     
+            
+            
             $(".btn-plus").on("click",function(){
                 var now = $(".section > div > input").val();
                 if ($.isNumeric(now)){

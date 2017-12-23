@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 	<%@ page import = "java.util.*" %>	
 <%@ page import = "model.*" %>	
 <% 
@@ -34,6 +37,7 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 
 	<div class="container">
 		<div class="row">
+		
 			<table style="width:80%;">
 				<tr>
 					<td style="width:40%;"><img class="imgsize"
@@ -65,24 +69,9 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 							<h3 style="margin-top: 0px;">${detail.goodsPri} 원</h3>
 
 							<!-- Detalles especificos del producto -->
-							<div class="section" style="padding-bottom: 5px;">
-								<h6 class="title-attr">
-									<small>옵션</small>
-								</h6>
-								
-								<div>
-								<%
-									for (int i = 0; i < listopt.size(); i++) {
-										StoreoptDTO goodsopt = (StoreoptDTO) listopt.get(i);
-								%>
-								
-									<div class="attr2"><%=goodsopt.getGoodsOpt() %> </div>	
-									
-								<%
-								} %>							
-								</div>
-							</div>
 							
+							
+								
 							<div class="section" style="padding-bottom: 5px;">
 								<h6 class="title-attr">
 								<small>재고수</small>
@@ -90,6 +79,42 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 							<h5>${detail.goodsQuan} 개</h5>
 							</div>
 							
+<script language="javascript">
+
+function getSelectValue(frm)
+{
+ frm.goodsOpt.value = frm.selectBox.options[frm.selectBox.selectedIndex].text;
+ frm.goodsOpt1.value = frm.selectBox.options[frm.selectBox.selectedIndex].value;
+}
+
+</script>
+
+					<form method="post" action="cart">
+					
+					<div class="section" style="padding-bottom: 5px;">
+								<h6 class="title-attr">
+									<small>옵션</small>
+								</h6>
+								
+								<div>
+								<select name="selectBox" onChange="getSelectValue(this.form);">
+								<%
+									for (int i = 0; i < listopt.size(); i++) {
+										StoreoptDTO goodsopt = (StoreoptDTO) listopt.get(i);
+								%>
+								
+								
+									<option value="<%=goodsopt.getGoodsOpt()%>"> <%=goodsopt.getGoodsOpt()%></option>									 
+																	
+									<%} %>			
+									
+									</select>													
+								</div>
+ 							선택한 옵션: <input type="text" name="goodsOpt" readonly>
+							</div>
+							
+									
+					
 							<div class="section" style="padding-bottom: 20px;">
 								<h6 class="title-attr">
 									<small>수량</small>
@@ -98,13 +123,20 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 									<div class="btn-minus">
 										<span class="glyphicon glyphicon-minus"></span>
 									</div>
-									<input value="1" />
+									<input name="goodsAmount" value="1" />
 									<div class="btn-plus">
 										<span class="glyphicon glyphicon-plus"></span>
 									</div>
 								</div>
 							</div>
-
+										<input type="hidden" name="goodsPic" value="${detail.goodsPic}">										
+										 <input type="hidden" name="goodsName" value="${detail.goodsName}">
+										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
+										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
+										 <input type="hidden" name="goodsOpt">	 										 		
+										<button class="glyphicon glyphicon-heart-empty"> 장바구니담기</button></span> 
+					</form>
+<br/>
 							<!-- Botones de compra -->
 							<div class="section" style="padding-bottom: 20px;">
 								<form action="payment" method="post">
@@ -114,12 +146,15 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 									구매하기
 								</button>
 							</form>
+							
+							
+							
 
 
 								<h6>
-									<a href="cart"><span class="glyphicon glyphicon-heart-empty"
-										style="cursor: pointer;"></span> 장바구니담기</a>
-								</h6>
+	
+								
+	<br/>
 								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
 							</div>
 			

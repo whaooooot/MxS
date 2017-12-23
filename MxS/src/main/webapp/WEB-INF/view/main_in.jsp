@@ -208,7 +208,7 @@
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="https://cdn.pixabay.com/photo/2014/04/03/10/02/fir-tree-309681_960_720.png" alt="크리스마스트리"></div>
+					    	<div class="iphone to-animate-2"><img src="img/mxslogo1.png" alt="크리스마스트리"></div>
 					    </div>
 
 		    		</div>
@@ -229,7 +229,7 @@
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-pull-7 col-sm-4 col-sm-pull-7 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="images/iphone-1.png" alt="Free HTML5 Template by FREEHTML5.co"></div>
+					    	<div class="iphone to-animate-2"><img src="https://postfiles.pstatic.net/MjAxNzEyMjNfNjcg/MDAxNTE0MDE5NTgzNDEz.l5ipt6ONsc6E5VIZQTDyXyuYYVg83qLY6JT64ZGH6X4g.YEJS1kF02HxQvluagCJCohoknZvhX1IiSUqTpDLTtcUg.PNG.gmlckd6219/mxslogo1.png?type=w773" alt="Free HTML5 Template by FREEHTML5.co"></div>
 					    </div>
 
 		    		</div>

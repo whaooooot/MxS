@@ -5,14 +5,9 @@
 <% 
 request.setCharacterEncoding("utf-8");
 List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
-
-
 %>
 
-
-	<%									
-									
-									
+									<%	
 									/*for(StoreDTO d : listgoods){
 									out.print(d.getGoodsName());
 									}
@@ -21,7 +16,7 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 									//for(int i =0; i < listgoods.size(); i++)
 										*/
 		 							%>
-		 							<br/>
+		 							
 		 							<%	
 		 							/*out.print(list.get(1));
 		 							out.print("aa");
