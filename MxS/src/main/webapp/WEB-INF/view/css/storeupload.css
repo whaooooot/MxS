@@ -37,7 +37,11 @@ body {
 	border: 1px solid currentColor;
 }
 
-
+a {
+	text-decoration: none;
+	line-height: 80px;
+	color: black;
+}
 
 .files input {
 	outline: 2px dashed #92b0b3;

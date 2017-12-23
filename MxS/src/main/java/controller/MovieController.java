@@ -28,6 +28,7 @@ public class MovieController {
 		return "movie_view/Trailer";
 	}
 
+	
 
 	
 		

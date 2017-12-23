@@ -14,7 +14,7 @@ public class CustomerServiceController {
 	public String customerservice(Model model) {
 		return "customerservice/customer_service";
 	}
-	 
+	
 	@RequestMapping(value = "/customer_qna", method = RequestMethod.GET)
 	public String customerservice2(Model model) {
 		return "customerservice/customer_qna";
