@@ -1,6 +1,8 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,11 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Movie;
@@ -24,6 +24,31 @@ public class MovieChartController {
 	@Autowired
 	private MovieSessionRepository movieSessionRepository;
 	
+	//영화 목록 다시
+	@RequestMapping("/movie_list")
+	public ModelAndView list(@RequestParam(defaultValue = "movie_num") String searchOption,
+			@RequestParam(defaultValue = "") String keyword) throws Exception {
+		
+		List<Movie> list = movieSessionRepository.listAll(searchOption, keyword);
+		// 레코드의 갯수
+		int count = movieSessionRepository.countArticle(searchOption, keyword);
+		// ModelAndView - 모델과 뷰
+		ModelAndView mav = new ModelAndView();
+		// 데이터를 맵에 저장
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list); // list
+		//map.put("count", count); // 레코드의 갯수
+		map.put("searchOption", searchOption); // 검색옵션
+		map.put("keyword", keyword); // 검색키워드
+		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
+		mav.setViewName("movie_admin/movie_list"); // 뷰를 list.jsp로 설정
+		map.put("count", count);
+		
+		return mav; // list.jsp로 List가 전달된다.
+		
+		
+		
+	}
 	//영화 상세 
 	@RequestMapping(value="/movie_view", method=RequestMethod.GET)
 	public ModelAndView view(@RequestParam Long movieNum, HttpSession session) throws Exception{
@@ -37,10 +62,10 @@ public class MovieChartController {
 		return mav;
 	}
 	//영화 등록하는 폼
-	@RequestMapping(value = "/movie_form", method = RequestMethod.GET)
+	@RequestMapping(value = "/movie_write", method = RequestMethod.GET)
 	public String movieForm(Model model) {
 		model.addAttribute("movie", new Movie());
-		return "movie_admin/movie_form";
+		return "movie_admin/movie_write";
 	}
 	
 	//관리자 기초메인
@@ -57,7 +82,7 @@ public class MovieChartController {
 	}*/
 
 	//영화 리스트 출력
-	@RequestMapping(value = "/movie_select", method = {RequestMethod.GET,RequestMethod.POST})
+/*	@RequestMapping(value = "/movie_select", method = {RequestMethod.GET,RequestMethod.POST})
 	public String movieSelect(Movie movie, Model model, HttpServletRequest request) {
 		//System.out.println("movie111" + movie.getMovieNum());
 		List<Movie> result = movieSessionRepository.selectMovie(movie);
@@ -68,7 +93,7 @@ public class MovieChartController {
 		return "movie_admin/movie_select";
 		
 
-	}
+	}*/
 
 	//영화 등록
 	@RequestMapping(value = "/movie_insert", method = RequestMethod.POST)
@@ -101,15 +126,6 @@ public class MovieChartController {
 			
 	}
 	
-	//게시글 첨부파일 목록
-	// http://loacalhost/spring02/board/getAttach/1
-	// @PathVariable : parameter가 아닌 url에 포함된 변수
-	// @RequestParam : parameter변수
-/*	@RequestMapping(value = "/getAttach/{movieNum}", method = RequestMethod.POST)
-	@ResponseBody // view가 아닌 data를 리턴
-	public List<String> getAttach(@PathVariable("movieNum") Long movieNum){
-		return movieSessionRepository.getAttach(movieNum);
-	}*/
 
 
 	

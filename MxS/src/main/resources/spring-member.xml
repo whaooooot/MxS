@@ -12,5 +12,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:annotation-config />
 		<bean id="storeSessionRepository" class="repository.StoreSessionRepository" />
 		<bean id="MovieSessionRepository" class="repository.MovieSessionRepository" />
+		<bean id="TheaterSessionRepository" class="repository.TheaterSessionRepository" />
 
 </beans>

@@ -74,7 +74,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>mybatis-spring-web</finalName>
+		<finalName>MxS</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>

@@ -20,20 +20,17 @@
 		<result column="movie_poster" jdbcType="VARCHAR" property="moviePoster" />
 	</resultMap>
 	
-	
-	
-	<select id="detailView"  parameterType="Long" resultType="Movie" resultMap="baseResultMap">
-	SELECT * FROM movie
-	WHERE movie_num = #{movieNum}
+		<!-- 01_02. 게시글 레코드 갯수 -->
+	<select id="countArticle" resultType="int" >
+		SELECT COUNT(*) FROM movie
+		<!-- WHERE절을 include 태그로 삽입 -->
+ 		<include refid="search"></include> 
 	</select>
 
-
-	<select id="selectMovieByCondition" parameterType="Long"
+	<!-- 01. 게시글 전체 목록 조회 및 검색조회까지 -->
+	<select id="listAll" resultType="model.Movie" parameterType="Long"
 		resultMap="baseResultMap">
-
-		Select
-		*
-		<!-- movie_num,
+		SELECT movie_num,
 		movie_title,
 		movie_genr,
 		movie_time,
@@ -42,7 +39,54 @@
 		movie_grade,
 		movie_con,
 		movie_date,
-		member_num -->
+		movie_poster
+
+		FROM movie
+		<!-- WHERE절을 include 태그로 삽입 -->
+		<include refid="search"></include>
+		ORDER BY movie_num desc
+	</select>
+
+	<!-- sql code 조각 -->
+	<!-- 반복되는 sql의 일부를 sql태그를 이용하여 따로 빼둘수 있다. -->
+	<sql id="search">
+		<choose>
+
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				WHERE movie_title like '%'||#{keyword}||'%'
+				OR
+				movie_con like '%'||#{keyword}||'%'
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				WHERE ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
+	
+	<select id="detailView"  parameterType="Long" resultType="Movie" resultMap="baseResultMap">
+	SELECT * FROM movie
+	WHERE movie_num = #{movieNum}
+	</select>
+
+<!-- 
+	<select id="selectMovieByCondition" parameterType="Long"
+		resultMap="baseResultMap">
+
+		Select
+		*
+		movie_num,
+		movie_title,
+		movie_genr,
+		movie_time,
+		movie_dire,
+		movie_actor,
+		movie_grade,
+		movie_con,
+		movie_date,
+		member_num
 		FROM movie
  		<where>
 
@@ -52,7 +96,7 @@
 		</where> 
 
 
-	</select> 
+	</select>  -->
 	
 	<insert id="insertMovie" parameterType="Movie" >
 		

@@ -13,9 +13,37 @@ import model.Movie;
 
 
 
+
 @Repository
 public class MovieSessionRepository extends AbstractRepository {
 	private final String namespace = "repository.mapper.MovieMapper";
+	
+	
+	public List<Movie> listAll(String searchOption, String keyword) throws Exception {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".listAll";
+		// 검색옵션, 키워드 맵에 저장
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+
+		return sqlSession.selectList(statement, map);
+		
+		
+		
+
+	}
+	//레코스 갯수
+	public int countArticle(String searchOption, String keyword) throws Exception {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".countArticle";
+		// 검색옵션, 키워드 맵에 저장
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOption", searchOption);
+		map.put("keyword", keyword);
+		return sqlSession.selectOne(statement, map);
+	}
+	
 	
 	public void insertMovie(Movie movie) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
@@ -23,16 +51,7 @@ public class MovieSessionRepository extends AbstractRepository {
 			String statement = namespace + ".insertMovie";      
 			int result = sqlSession.insert(statement, movie);
 			//System.out.println("a");
-			
-			// 게시물의 첨부파일 정보 등록
-			/*String files = movie.getFiles(); */// 첨부파일 배열
-			// 첨부파일이 없으면 메서드 종료
-			    
-			// 첨부파일들의 정보를 movie_attach 테이블에 insert
-/*			for (String name : files) {
-				addAttach(name);
 
-			}*/
 
 			if (result > 0) {
 
@@ -66,7 +85,7 @@ public class MovieSessionRepository extends AbstractRepository {
 	}
 	
 	
-	
+/*	
 	public List<Movie> selectMovie(Movie movie) {
 
 		//System.out.println("movie : " + movie.getMovieNum());
@@ -74,7 +93,7 @@ public class MovieSessionRepository extends AbstractRepository {
 		String statement = namespace + ".selectMovieByCondition";
 		return sqlSession.selectList(statement, movie);
 		
-	}
+	}*/
 	//영화 상세보기
 	public Movie movieDetail(Long movieNum) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
