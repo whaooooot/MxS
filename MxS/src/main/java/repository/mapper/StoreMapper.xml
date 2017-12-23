@@ -49,6 +49,13 @@
         GOODS_NUM =#{goodsNum} 
     </select>
     
+    <!-- 옵션 상세보기 결과반환 -->
+	<select id="productoptdetail"  resultMap="storeResultMap2"> 
+        select * from GOODS_OPTION
+        where
+        GOODS_NUM =#{goodsNum} 
+    </select>
+    
     
 
 	

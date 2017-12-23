@@ -123,29 +123,29 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 								<div class="col-md-4">
 									
 									<a class="thumbnail" href="productdetail?num=1"><img alt=""
-										src="<%=listgoods.get(3).getGoodsPic()%>"></a>
+										src="<%=listgoods.get(0).getGoodsPic()%>"></a>
 									<h3>
-									<%=listgoods.get(3).getGoodsName() %>		 								
+									<%=listgoods.get(0).getGoodsName() %>		 								
 									</h3> 									
-									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
+									<p>가격:<%=listgoods.get(0).getGoodsPri()%>원</p>
 									<p align="center">
 										<a href="productdetail?num=1" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
 									<a class="thumbnail" href="productdetail?num=2"><img alt=""
-										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
-									<h3><%=listgoods.get(3).getGoodsName() %>	</h3>
-									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
+										src="<%=listgoods.get(1).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(1).getGoodsName() %>	</h3>
+									<p>가격:<%=listgoods.get(1).getGoodsPri()%>원</p>
 									<p align="center">
 										<a href="productdetail?num=2" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
 									<a class="thumbnail" href="productdetail?num=3"><img alt=""
-										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
-									<h3><%=listgoods.get(3).getGoodsName() %></h3>
-									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
+										src="<%=listgoods.get(2).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(2).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(2).getGoodsPri()%>원</p>
 									<p align="center">
 										<a href="productdetail?num=3" class="btn btn-primary btn-block">상세보기</a>
 									</p>
@@ -155,7 +155,7 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 						<div class="item">
 							<div class="row">
 								<div class="col-md-4">
-									<a class="thumbnail" href="#"><img alt=""
+									<a class="thumbnail" href="productdetail?num=4"><img alt=""
 										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
 									<h3><%=listgoods.get(3).getGoodsName() %></h3>
 									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
@@ -164,19 +164,19 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 									</p>
 								</div>
 								<div class="col-md-4">
-									<a class="thumbnail" href="#"><img alt=""
-										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
-									<h3><%=listgoods.get(3).getGoodsName() %></h3>
-									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
+									<a class="thumbnail" href="productdetail?num=5"><img alt=""
+										src="<%=listgoods.get(4).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(4).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(4).getGoodsPri()%>원</p>
 									<p align="center">
 										<a href="#" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
-									<a class="thumbnail" href="#"><img alt=""
-										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
-									<h3><%=listgoods.get(3).getGoodsName() %></h3>
-									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
+									<a class="thumbnail" href="productdetail?num=6"><img alt=""
+										src="<%=listgoods.get(5).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(5).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(5).getGoodsPri()%>원</p>
 									<p align="center">
 										<a href="#" class="btn btn-primary btn-block">상세보기</a>
 									</p>
@@ -244,12 +244,12 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 
 							
 			<div class="col-md-3">
-				<a class="thumbnail" href="#"><img alt=""
+				<a class="thumbnail" href="productdetail?num=<%=goods.getGoodsNum() %>"><img alt=""
 					src="<%=goods.getGoodsPic() %>"></a>
 				<h3><%=goods.getGoodsName()  %></h3>
 				<p>가격:<%=goods.getGoodsPri()  %>원</p>
 				<p align="center">
-					<a href="#" class="btn btn-primary btn-block">상세보기</a>
+					<a href="productdetail?num=<%=goods.getGoodsNum() %>" class="btn btn-primary btn-block">상세보기</a>
 				</p>
 			</div>
 			

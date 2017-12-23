@@ -70,12 +70,10 @@ public class StoreController {
 
 	@RequestMapping(value = "/productdetail", method = RequestMethod.GET) //상품상세보기
 	public String productdetail(Model model, HttpServletRequest req) {
-		System.out.println(req.getParameter("num"));				
-			model.addAttribute("detail", storeSessionRepository.productdetail(Integer.parseInt(req.getParameter("num"))));	
+		//System.out.println(req.getParameter("num"));				
+			model.addAttribute("detail", storeSessionRepository.productdetail(Integer.parseInt(req.getParameter("num"))));
+			model.addAttribute("detailopt", storeSessionRepository.productoptdetail(Integer.parseInt(req.getParameter("num"))));
 			return "store/productdetail";
-		
-			
-		
 	}
 	
 	

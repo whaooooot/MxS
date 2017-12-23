@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	    <% request.setCharacterEncoding("utf-8"); %>
+	<%@ page import = "java.util.*" %>	
+<%@ page import = "model.*" %>	
+<% 
+request.setCharacterEncoding("utf-8");
+List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt");
+
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -36,7 +43,19 @@
 							<!-- Datos del vendedor y titulo del producto -->
 							<h2>${detail.goodsName}</h2>
 							<h5 style="color: #337ab7">
-								<a href="#">${detail.goodsCon}</a> <small style="color: #337ab7">(빨강,금)</small>
+								<a href="#">${detail.goodsCon}</a> <small style="color: #337ab7">
+								
+								(	<%
+									for (int i = 0; i < listopt.size(); i++) {
+										StoreoptDTO goodsopt = (StoreoptDTO) listopt.get(i);
+								%>
+								
+									<%=goodsopt.getGoodsOpt() %> -
+									
+								<%
+								} %>	
+								
+								)</small>
 							</h5>
 
 							<!-- Precios -->
@@ -46,22 +65,21 @@
 							<h3 style="margin-top: 0px;">${detail.goodsPri} 원</h3>
 
 							<!-- Detalles especificos del producto -->
-							<div class="section">
-								<h6 class="title-attr" style="margin-top: 15px;">
-									<small>색상</small>
-								</h6>
-								<div>
-									<div class="attr" style="width: 25px; background: red;"></div>
-									<div class="attr" style="width: 25px; background: white;"></div>
-								</div>
-							</div>
 							<div class="section" style="padding-bottom: 5px;">
 								<h6 class="title-attr">
-									<small>크기</small>
+									<small>옵션</small>
 								</h6>
+								
 								<div>
-									<div class="attr2">Tall</div>
-									<div class="attr2">Venti</div>
+								<%
+									for (int i = 0; i < listopt.size(); i++) {
+										StoreoptDTO goodsopt = (StoreoptDTO) listopt.get(i);
+								%>
+								
+									<div class="attr2"><%=goodsopt.getGoodsOpt() %> </div>	
+									
+								<%
+								} %>							
 								</div>
 							</div>
 							
@@ -118,22 +136,14 @@
          <ul class="nav nav-tabs">
             <li class="active"><a href="#tab1" data-toggle="tab" title="선택된 탭메뉴">상세설명</a></li>
             <li class=""><a href="#tab2" data-toggle="tab">주의사항</a></li>
-            <li class=""><a href="#tab3" data-toggle="tab">이용방법</a></li>
-            <li class=""><a href="#tab4" data-toggle="tab">상품후기</a></li>
+            <li class=""><a href="#tab3" data-toggle="tab">이용방법</a></li>           
          </ul>
          <div class="tab-content">
             <div class="tab-pane active" id="tab1">
             <div style="width: 100%; border-top: 1px solid silver">
 					<p style="padding: 15px;">
 						<small> ${detail.goodsCon}  </small>
-					</p>
-					<small>
-						<ul>
-							<li>주의사항1</li>
-							<li>주의사항2</li>
-							<li>주의사항3</li>
-						</ul>
-					</small>
+					</p>					
 				</div>
                
                
@@ -144,13 +154,14 @@
 					<p style="padding: 15px;">
 						<small>   ${detail.goodsNote}  </small>
 					</p>
+					
 					<small>
 						<ul>
-							<li>주의사항4</li>
-							<li>주의사항5</li>
-							<li>주의사항7</li>
+							<li>90일 이내에 교환하세요.</li>
+							<li>90일 이전에 연장할 수 있습니다. </li>
+							<li>실재고와 차이가 있어 품절일 수 있습니다.</li>
 						</ul>
-					</small>
+					</small>					
 				</div>
                
                
@@ -165,9 +176,8 @@
 					</p>
 					<small>
 						<ul>
-							<li>주의사항4</li>
-							<li>주의사항5</li>
-							<li>주의사항7</li>
+							<li>바코드를 들고 가까운 극장에 방문 하세요.</li>
+							<li>극장 카운터에 직원에게 문의하세요. </li>
 						</ul>
 					</small>
 				</div>
@@ -177,25 +187,6 @@
             
           </div>
           </div>
-            <div class="tab-pane" id="tab4"><div class="tab-pane" id="tab2">
-            <div class="tab-pane active" id="tab1">
-            <div style="width: 100%; border-top: 1px solid silver">
-					<p style="padding: 15px;">
-						<small>   상품후기  </small>
-					</p>
-					<small>
-						<ul>
-							<li>주의사항4</li>
-							<li>주의사항5</li>
-							<li>주의사항7</li>
-						</ul>
-					</small>
-				</div>
-               
-               
-            </div>
-            
-          </div></div>
 
          </div>
       </div>

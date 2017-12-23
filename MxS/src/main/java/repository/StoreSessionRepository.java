@@ -115,8 +115,27 @@ public class StoreSessionRepository extends AbstractRepository {
 		}
 		return list;
 	}
+	
+	public List<StoreoptDTO> productoptdetail(int goodsNum) {//옵션상세보기
+		
+		
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".productoptdetail";
+		List<StoreoptDTO> list = new ArrayList<StoreoptDTO>();
 
-	public Integer insertStoreopt(StoreoptDTO storeoptdto) { // 상품등록
+		try {
+
+			list = sqlSession.selectList(statement,goodsNum);
+			// System.out.println(list.size());
+			// System.out.println(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;	
+	}
+	
+
+	public Integer insertStoreopt(StoreoptDTO storeoptdto) { // 옵션등록
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		// Connection conn
 		try {
