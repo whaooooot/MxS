@@ -82,10 +82,20 @@ public class StoreController {
 			return "store/productdetail";
 	}
 	
+	@RequestMapping(value = "/productresult", method = RequestMethod.POST) //상품등록완료
+	public String productresult(Model model) {
+		
+		//System.out.println(storedto.getGoodsCon()+"jjj");		
+			
+		return "store/productresult";
+	}	
 	
 	
 	
-	@RequestMapping(value = "/payment", method = RequestMethod.POST)
+	
+	
+	
+	@RequestMapping(value = "/payment", method = RequestMethod.POST) //결제하기
 	public String store3(Model model) {
 		return "store/payment";
 	}
@@ -93,7 +103,7 @@ public class StoreController {
 
 	
 	
-	@RequestMapping(value = "/storeadmin", method = RequestMethod.GET)
+	@RequestMapping(value = "/storeadmin", method = RequestMethod.GET) //관리자스토어
 	public String store6(Model model) {
 		return "store/storeadmin";
 	}

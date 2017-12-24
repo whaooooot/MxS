@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-        <% request.setCharacterEncoding("utf-8"); %>
+
+  <%
+	request.setCharacterEncoding("utf-8");
+	String goodsPic1 = request.getParameter("goodsPic1");
+	String goodsName1 = request.getParameter("goodsName1");
+	String goodsCon1 = request.getParameter("goodsCon1");
+	String goodsNum1 = request.getParameter("goodsNum1");
+	String goodsAmount = request.getParameter("goodsAmount");
+	String goodsPri1 = request.getParameter("goodsPri1");
+	String goodsOpt= request.getParameter("goodsOpt");
+	
+	int sum= Integer.parseInt(goodsAmount)*Integer.parseInt(goodsPri1);
+	
+%>
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -48,39 +62,47 @@
                             <div class="col-md-12"><strong>상품사진:</strong>  
                           
                             <img id="img1" alt=""
-					src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg" width="200px">
+					src="<%=goodsPic1%>" width="200px">
 					<hr/></div>	
 					
                             	<div class="col-md-12"><strong>상품번호:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:1234-1234&nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp;  <%=goodsNum1%>&nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
                          
                             	<div class="col-md-12"><strong>상품이름:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:아이언맨텀블러 &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <%=goodsName1%> &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
+                            	
+                            	<div class="col-md-12"><strong>상품옵션:</strong>   	
+                            	
+                            	&nbsp;&nbsp;&nbsp; <%=goodsOpt%> &nbsp;&nbsp;&nbsp;
+                            	<hr/>
+                            	
+                            	</div>
+                            	
                             		<div class="col-md-12"><strong>상품금액:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:<font color="red" size=2px>30000</font>  원 &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <font color="red" size=2px><%=goodsPri1%></font>  원 &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
                             	
                             	<div class="col-md-12"><strong>상품수량:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:몇개~ &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <%=goodsAmount%>개 &nbsp;&nbsp;&nbsp; 
                             	<hr/>
                             	
                             	</div>
                             	
                             		<div class="col-md-12"><strong>할인금액:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:<font color="red" size=2px>1000</font> 원 &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; ex:<font color="red" size=2px>1000</font> 원아직노적용 &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
@@ -88,7 +110,7 @@
                             	
                             		<div class="col-md-12"><strong>상품설명:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:간단한설명~ &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <%=goodsCon1 %> &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
@@ -96,7 +118,7 @@
                                                      	
                                 <div class="col-md-12"><strong>결제완료금액</strong></div>
                                 
-                                 <div class="col-md-12" align="right" ><strong ><font color="red" size=80px>29000</font> 원</strong><hr/></div>
+                                 <div class="col-md-12" align="right" ><strong ><font color="red" size=80px><%=sum%></font> 원</strong><hr/></div>
                             	
                                  
                             </div>

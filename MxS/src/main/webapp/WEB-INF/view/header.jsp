@@ -39,7 +39,8 @@
 			 <div class="navbar-header">
 		        	<!-- Mobile Toggle Menu Button -->
 					<a href="index" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		          	<a class="navbar-brand" href="index">MXS</a> 
+		          	<a class="navbar-brand" href="index"><img width="100px" height="40px"  src="img/mxs1.png"></a> 
+		          	
 		        </div>
 		        
 		        

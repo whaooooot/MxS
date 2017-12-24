@@ -195,28 +195,29 @@
 	<body>
 	<div id="slider" data-section="home">
 		<div class="owl-carousel owl-carousel-fullwidth">
-			<!-- You may change the background color here. -->
-		    <div class="item" style="background-image:url(http://img.cgv.co.kr/Front/Main/2017/1204/15123571857850.jpg)">
+		
+			<div class="item" style="background-image:url(img/poster3.jpg)">
+		    	<div class="overlay"></div>
 		    	<div class="container" style="position: relative;">
 		    		<div class="row">
-					    <div class="col-md-7 col-sm-7">
-			    			<div class="fh5co-owl-text-wrap">
+		    			<div class="col-md-8 col-md-offset-2 text-center">
+		    				<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
-						    		<h1 class="fh5co-lead to-animate">MxS 홈페이지에 <br/>오신 것을 환영합니다.</h1>
-									<p class="to-animate-2"><a href="" class="btn btn-primary btn-lg">빠른 예매 하기</a></p>
-						    	</div>
-						    </div>
-					    </div>
-					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="http://thepayneco.com/wp-content/uploads/2016/09/Welcome.png" alt="크리스마스트리"></div>
-					    </div>
-
+		    						<h1 class="fh5co-lead to-animate">MxS 홈페이지에 <br/>오신 것을 환영합니다.</h1>
+									<p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">빠른예매하기</a></p>
+									<div class="iphone to-animate-2"><img src="img/welcome.png" alt="welcome"></div>
+					    
+								</div>
+							</div>
+		    			</div>
 		    		</div>
 		    	</div>
 		    </div>
+			
 			<!-- You may change the background color here.  -->
 		    
-		     <div class="item" style="background-image:  url(http://img.cgv.co.kr/Front/Main/2017/1201/15120877635730.jpg)">	    
+		     <div class="item" style="background-image:  url(img/poster2.jpg)">	
+		     <div class="overlay"></div>    
 		    	<div class="container" style="position: relative;">
 		    		<div class="row">
 		    			<div class="col-md-7 col-md-push-1 col-md-push-5 col-sm-7 col-sm-push-1 col-sm-push-5">
@@ -229,43 +230,30 @@
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-pull-7 col-sm-4 col-sm-pull-7 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="https://postfiles.pstatic.net/MjAxNzEyMjNfNjcg/MDAxNTE0MDE5NTgzNDEz.l5ipt6ONsc6E5VIZQTDyXyuYYVg83qLY6JT64ZGH6X4g.YEJS1kF02HxQvluagCJCohoknZvhX1IiSUqTpDLTtcUg.PNG.gmlckd6219/mxslogo1.png?type=w773" alt="Free HTML5 Template by FREEHTML5.co"></div>
+					    	<div class="iphone to-animate-2"><img src="img/logo1.png" alt="Free HTML5 Template by FREEHTML5.co"></div>
 					    </div>
 
 		    		</div>
 		    	</div>
-		    </div>
-
-		    <div class="item" style="background-image:url(http://img.cgv.co.kr/banner/main/mainbig_new_2.jpg)">
-		    	<div class="overlay"></div>
-		    	<div class="container" style="position: relative;">
-		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2 text-center">
-		    				<div class="fh5co-owl-text-wrap">
-						    	<div class="fh5co-owl-text">
-		    						<h1 class="fh5co-lead to-animate">Grab it now for free!</h1>
-									<h2 class="fh5co-sub-lead to-animate">100% Free Fully Responsive HTML5 Bootstrap Template. Crafted with love by the fine folks at <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></h3>
-									<p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">Download This Template</a></p>
-								</div>
-							</div>
-		    			</div>
-		    		</div>
-		    	</div>
-		    </div>
+		    </div>		    
 		    
-		    <div class="item" style="background-image:url(http://img.cgv.co.kr/banner/main/mainbig_new_2.jpg)">
-		    	<div class="overlay"></div>
+		    <!-- You may change the background color here. -->
+		    <div class="item" style="background-image:url(http://img.cgv.co.kr/Front/Main/2017/1204/15123571857850.jpg)">
+		     <div class="overlay"></div>  
 		    	<div class="container" style="position: relative;">
 		    		<div class="row">
-		    			<div class="col-md-8 col-md-offset-2 text-center">
-		    				<div class="fh5co-owl-text-wrap">
+					    <div class="col-md-7 col-sm-7">
+			    			<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
-		    						<h1 class="fh5co-lead to-animate">Grab it now for free!</h1>
-									<h2 class="fh5co-sub-lead to-animate">100% Free Fully Responsive HTML5 Bootstrap Template. Crafted with love by the fine folks at <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></h3>
-									<p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">Download This Template</a></p>
-								</div>
-							</div>
-		    			</div>
+						    		<h1 class="fh5co-lead to-animate">영화굿즈를 <br/>이용해보세요.</h1>
+									<p class="to-animate-2"><a href="" class="btn btn-primary btn-lg">스토어 바로가기</a></p>
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
+					    	<div class="iphone to-animate-2"><img src="img/tree2.png" alt="크리스마스트리"></div>
+					    </div>
+
 		    		</div>
 		    	</div>
 		    </div>

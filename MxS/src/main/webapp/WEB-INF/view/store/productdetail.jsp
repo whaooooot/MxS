@@ -79,6 +79,10 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 							<h5>${detail.goodsQuan} 개</h5>
 							</div>
 							
+
+
+						
+							
 <script language="javascript">
 
 function getSelectValue(frm)
@@ -87,7 +91,17 @@ function getSelectValue(frm)
  frm.optionValue.value = frm.selectBox.options[frm.selectBox.selectedIndex].value;
 }
 
+var temp; 
+
+function input(){
+var input = document.getElementById("input").value; 
+temp = input;
+document.getElementById("output").value = temp;
+}
+
 </script>
+
+<button onclick="input()">옵션 적용하기</button>	
 
 					<form method="post" action="cart">
 					
@@ -111,10 +125,11 @@ function getSelectValue(frm)
 									
 									</select>													
 								</div>
- 							선택한 옵션: <input type="text" name="textValue" readonly>
+ 							 <input type="hidden" name="textValue" id="input" readonly>
+ 								
 							</div>
 							
-									
+									 
 					
 							<div class="section" style="padding-bottom: 20px;">
 								<h6 class="title-attr">
@@ -134,27 +149,33 @@ function getSelectValue(frm)
 										 <input type="hidden" name="goodsName" value="${detail.goodsName}">
 										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
-																			 		
-										<button class="glyphicon glyphicon-heart-empty"> 장바구니담기</button></span> 
+																		 		
+										<button><span class="glyphicon glyphicon-heart-empty">장바구니담기</span></button> 
+					
 					</form>
-<br/>
+<br/>	
 							<!-- Botones de compra -->
-							<div class="section" style="padding-bottom: 20px;">
-								<form action="payment" method="post">
+							<div class="section" style="padding-bottom: 1px;">							
+								<form action="payment" method="post">								
+								<div class="section" style="padding-bottom: 1px;">								
+								<div>									
+									<input type="hidden" name="goodsAmount" value="1" />								
+								</div>
+							</div>
+									<input type="hidden" name="goodsPic1" value="${detail.goodsPic}">										
+									<input type="hidden" name="goodsName1" value="${detail.goodsName}">
+									<input type="hidden" name="goodsCon1" value="${detail.goodsCon}">
+									<input type="hidden" name="goodsNum1" value="${detail.goodsNum}">
+									<input type="hidden" name="goodsPri1" value="${detail.goodsPri}">
+								선택한 옵션: <input type="text" id="output" name="goodsOpt"> 	
+								<div class="section" style="padding-bottom: 15px;">										
 								<button class="btn btn-success">
 									<span style="margin-right: 20px"
 										class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 									구매하기
-								</button>
-							
-							</form>
-							
-	
-
-
-								<h6>
-	
-								
+								</button>	
+								</div>						
+							</form>							
 	<br/>
 								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
 								<a href="#"><button class="btn btn-warning">삭제하기</button></a>

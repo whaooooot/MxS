@@ -77,7 +77,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   opacity: 1;
   top: 0;
-  background-color:#6173f4;
+  background-color:#1c2023;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header {
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
   }
   #fh5co-header .navbar-brand {
-    color: #6173f4 !important;
+    color: #1c2023 !important;
   }
   #fh5co-header #navbar li a {
     color: #8080ff !important;
@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
   #fh5co-header #navbar li.active a {
     background: transparent;
     background: none;
-    color: #6173f4 !important;
+    color: #1c2023 !important;
   }
   #fh5co-header #navbar li.active a span:before {
     visibility: visible;
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-header #navbar li a {
   font-family: "Source Sans Pro", Arial, sans-serif;
-  color: black;
+  color: #5f4b8a;
   position: relative;
 }
 #fh5co-header #navbar li a span {
@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #6d40a5;
+  background-color: #5f4b8a;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
@@ -778,7 +778,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 .btn.btn-primary {
-  background: #6173f4;
+  background: #5f4b8aa3;
   color: #fff;
   border: none !important;
   border: 2px solid transparent !important;

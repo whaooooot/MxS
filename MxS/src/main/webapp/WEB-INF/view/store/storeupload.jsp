@@ -5,6 +5,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <% request.setCharacterEncoding("utf-8"); %>
+<script type="text/javascript">
+function check_input(){ 
+   var form = document.storeadd; 
+   var inputs = { 
+      'goodsPic' : '상품사진url을 적어주세요.',  
+      'goodsName' : '상품이름을 적어주세요.',
+      'goodsCon' : '상품정보를 적어주세요.',
+      'goodsPri' : '상품가격을 적어주세요.',
+      'goodsQuan' : '상품 재고수를 적어주세요.',
+      'goodsNote' : '상품 유의사항을 적어주세요.',
+      'movieNum' : '영화번호를 적어주세요.',      
+   }; 
+   var input; 
+   for(name in inputs){ 
+      input = form[name]; 
+      if(!input.value.replace(/^\s+/, '').replace(/\s+$/, '')){ 
+         alert(inputs[name]); 
+         input.focus(); 
+         return; 
+      } 
+   } 
+   form.submit(); 
+} 
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -102,7 +126,7 @@
 				</div>
 
 	</div>
-			<form:form class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
+			<form:form name="storeadd" class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
 						<label>상품 URL(위파일선택과 둘중하나만)</label> 
@@ -114,7 +138,7 @@
 						<label>상품금액(숫자만)</label> 
 						<input name="goodsPri" class="form-control" placeholder="상품금액" type="text"/> 
 			
-						<label>상품 수</label> 
+						<label>상품 재고 수</label> 
 						<input name="goodsQuan" class="form-control" placeholder="상품수" type="text"/>
 						<label>상품 유의사항</label>
 						<textarea name="goodsNote"  class="form-control" id="message" name="message"	rows="10"></textarea>
@@ -124,7 +148,7 @@
 						
 						<br />
 						<div class="bright">
-							<input type="submit" class="btn btn-primary" value="상품올리기"/>						
+							<input  onclick="check_input()" class="btn btn-primary" value="상품올리기" />						
 						</div>
 					</div>
 				</div>
