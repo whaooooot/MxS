@@ -157,7 +157,7 @@ $(document).ready(function(){
 		
 		//게시글 목록으로 이동 
 		$("#btnList").click(function(){
-			location.href="${path}/movie_select";
+			location.href="${path}/movie_list";
 		});
 		// 4. 첨부파일 목록 불러오기
 		/* listAttach(); */

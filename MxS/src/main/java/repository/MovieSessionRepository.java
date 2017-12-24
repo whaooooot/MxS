@@ -33,6 +33,7 @@ public class MovieSessionRepository extends AbstractRepository {
 		
 
 	}
+	
 	//레코스 갯수
 	public int countArticle(String searchOption, String keyword) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();

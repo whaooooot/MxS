@@ -1,12 +1,8 @@
 package controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,37 +19,19 @@ public class TheaterController {
 	private TheaterSessionRepository theaterSessionRepository;
 
 	// 01. 게시글 목록
-	@RequestMapping("/theater_list")
-	public ModelAndView list(@RequestParam(defaultValue = "movie_num") String searchOption,
-			@RequestParam(defaultValue = "") String keyword, Model model) throws Exception {
-		
-		List<Theater> list = theaterSessionRepository.listAll(searchOption, keyword);
-		// 레코드의 갯수
-		int count = theaterSessionRepository.countArticle(searchOption, keyword);
-		// ModelAndView - 모델과 뷰
-		ModelAndView mav = new ModelAndView();
-		/*
-		 * mav.addObject("list", list); // 데이터를 저장 mav.addObject("count", count);
-		 * mav.addObject("searchOption", searchOption); mav.addObject("keyword",
-		 * keyword);
-		 */
-		// 데이터를 맵에 저장
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list", list); // list
-		//map.put("count", count); // 레코드의 갯수
-		map.put("searchOption", searchOption); // 검색옵션
-		map.put("keyword", keyword); // 검색키워드
-		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
-		mav.setViewName("movie_admin/theater_list"); // 뷰를 list.jsp로 설정
-		
-		
-//		model.addAttribute("count", count);
-		
-		return mav; // list.jsp로 List가 전달된다.
-		
-		
-		
-	}
+    
+
+    @RequestMapping("/theater_list")
+    public ModelAndView listTheater(@RequestParam Long movieNum, ModelAndView mav){
+        List<Theater> list = theaterSessionRepository.listTheater(movieNum);
+        // 뷰이름 지정
+        mav.setViewName("movie_admin/theater_list");
+        // 뷰에 전달할 데이터 지정
+        mav.addObject("list", list);
+        // replyList.jsp로 포워딩
+        return mav;
+    }
+	
 	// 02_01. 게시글 작성화면
 	// @RequestMapping("board/write.do")
 	// value="", method="전송방식"

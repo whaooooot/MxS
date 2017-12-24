@@ -171,30 +171,6 @@
 		where movie_num = #{movieNum}
 	</delete> 
 	
-	<!-- :::::::::::::::::첨부관련 매퍼:::::::::::::::::::: -->
-	
-	<!-- 영화 번호와 파일정보를 같이 가져올때 -->
-<!-- 	<resultMap id="collectionResultMap" type="movie">
-		<id column="movie_num" jdbcType="BIGINT" property="movieNum" />
-		<result column="movie_title" jdbcType="VARCHAR" property="movieTitle" />
-		<result column="movie_genr" jdbcType="VARCHAR" property="movieGenr" />
-		<result column="movie_time" jdbcType="VARCHAR" property="movieTime" />
-		<result column="movie_dire" jdbcType="VARCHAR" property="movieDire" />
-		<result column="movie_actor" jdbcType="VARCHAR" property="movieActor" />
-		<result column="movie_grade" jdbcType="VARCHAR" property="movieGrade" />
-		<result column="movie_con" jdbcType="VARCHAR" property="movieCon" />
-		<result column="movie_date" jdbcType="TIMESTAMP" property="movieDate" />
-		<result column="member_num" jdbcType="BIGINT" property="memberNum" />
-
-		<collection property="files" ofType="MovieAttach">
-			<id column="fullname" property="fullname" />
-			<result column="movie_num" property="movieNum" />
-			<result column="regdate" property="regdate" />
-		</collection>
-
-	</resultMap>
-	 -->
-	<!-- setter를 이용해서 저장 -->
 
 
 	<select id="getAttach" parameterType="long" resultMap="baseResultMap">
@@ -205,20 +181,7 @@
 	
 		
 	</select>
-<!-- 	 03. 게시글의 첨부파일 업데이트처리(입력처리)
-	<insert id="updateAttach">
-		INSERT INTO movie_attach (
-		fullname, movie_num
-		) VALUES (
-		#{fullName}, #{movieNum}
-		)
-	</insert>
 
-	03. 게시글의 첨부파일 삭제처리
-	<delete id="deleteAttach">
-		DELETE FROM movie_attach
-		WHERE fullname = #{fullname}
-	</delete> -->
 
 
 </mapper>

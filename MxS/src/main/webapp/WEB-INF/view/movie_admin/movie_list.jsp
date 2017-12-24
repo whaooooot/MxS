@@ -14,6 +14,11 @@
 			// 페이지 주소 변경(이동)
 			location.href = "${path}/movie_write";
 		});
+		
+		
+
+		
+		
 	});
 </script>
 </head>
@@ -36,13 +41,14 @@
 		<button type="button" id="btnWrite">영화새로등록</button>
 	</form>
 
-	<table border="1" width="600px">
+	<table id="example-table-1" border="1" width="600px">
 		<colgroup>
 			<col width="10%" />
 			<col width="*" />
 			<col width="*" />
 			<col width="15%" />
-			<col width="20%" />
+			<col width="25%" />
+			<col width="10%" />
 		</colgroup>
 		<thead>
 			<tr>
@@ -51,6 +57,7 @@
 				<th scope="col">포스터</th>
 				<th scope="col">영화장르</th>
 				<th scope="col">개봉날짜</th>
+				<th scope="col">극장선택</th>
 
 			</tr>
 		</thead>
@@ -81,6 +88,7 @@
 							<td>${movie.movieGenr}</td>
 							<td><fmt:formatDate value="${movie.movieDate}"
 									pattern="yyyy년MM월dd일" /></td>
+							<td><input type="button" class="checkBtn" value="선택" /></td>
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -92,6 +100,63 @@
 			</c:choose>
 		</tbody>
 	</table>
+
+	<div class="col-lg-12" id="ex1_Result1"></div>
+	<div class="col-lg-12" id="ex1_Result2"></div>
+	<div id="listReply"></div>
+	<script>
+		// 해당 레코드 버튼 클릭시 값 가져오기
+			$(document).ready(function() {
+		 $(".checkBtn").click(function(){
+
+							var str = ""
+							var tdArr = new Array(); // 배열 선언
+
+				            var checkBtn = $(this);
+				            
+				            // checkBtn.parent() : checkBtn의 부모는 <td>이다.
+				            // checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
+				            var tr = checkBtn.parent().parent();
+				            var td = tr.children();
+
+							// tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
+							console.log("클릭한 Row의 모든 데이터 : " + tr.text());
+				            
+							// td.eq(index)를 통해 값을 가져올 수도 있다.
+				            var movieNum = td.eq(0).text();
+				            var movieTitle = td.eq(1).text();
+
+							
+ 							str += " * 클릭된 Row의 td값 = 영화번호 : <font color='red'>"
+									+ movieNum + "</font>"
+									+ ", 영화제목 : <font color='red'>"
+									+ movieTitle + "</font>" 
+
+
+							$("#ex1_Result1").html(
+									" * 클릭한 Row의 모든 데이터 = " + tr.text());
+							$("#ex1_Result2").html(str);
+					
+		 
+							$.ajax({
+										type : "POST",
+										url : "${path}/theater_list",
+										dataType : "html",
+										data: "movieNum="+movieNum, 
+										success : function(result) {
+											$('#listReply').html(result);
+										}
+									});
+									return false;
+
+								});
+
+							});
+		 
+		 
+
+		
+	</script>
 
 </body>
 </html>

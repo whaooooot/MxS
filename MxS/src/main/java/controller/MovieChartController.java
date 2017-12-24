@@ -37,7 +37,7 @@ public class MovieChartController {
 		// 데이터를 맵에 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list); // list
-		//map.put("count", count); // 레코드의 갯수   
+		//map.put("count", count); // 레코드의 갯수
 		map.put("searchOption", searchOption); // 검색옵션
 		map.put("keyword", keyword); // 검색키워드
 		mav.addObject("map", map); // 맵에 저장된 데이터를 mav에 저장
@@ -74,39 +74,16 @@ public class MovieChartController {
 		model.addAttribute("movie", new Movie());
 		return "movie_admin/admin_index";
 	}
-	//부트스트랩 메인
-/*	@RequestMapping(value = "/home", method = {RequestMethod.GET,RequestMethod.POST})
-	public String index2(Model model) {
-		model.addAttribute("movie", new Movie());
-		return "index";
-	}*/
-
-	//영화 리스트 출력
-/*	@RequestMapping(value = "/movie_select", method = {RequestMethod.GET,RequestMethod.POST})
-	public String movieSelect(Movie movie, Model model, HttpServletRequest request) {
-		//System.out.println("movie111" + movie.getMovieNum());
-		List<Movie> result = movieSessionRepository.selectMovie(movie);
-		//System.out.println(result.size());
-		model.addAttribute("result", result);
-		
-		
-		return "movie_admin/movie_select";
-		
-
-	}*/
 
 	//영화 등록
 	@RequestMapping(value = "/movie_insert", method = RequestMethod.POST)
 	public String movieInsert(@ModelAttribute Movie movie, HttpSession session,HttpServletRequest request) throws Exception {
 		System.out.println(movie.getMovieTitle());
 		movieSessionRepository.insertMovie(movie);
-		
-		/*Integer result =  movieSessionRepository.insertMovie(movie);		
-		model.addAttribute("result", result);*/
-		return "redirect:movie_form";
+		return "redirect:movie_write";
 	}
 	
-	//영화 수정
+	//영화 수정 
 	@RequestMapping(value = "/movie_update", method = RequestMethod.POST)	
 	public String movieUpdate(Movie movie, Model model) {
 		Integer result =  movieSessionRepository.updateMovie(movie);		
@@ -116,9 +93,7 @@ public class MovieChartController {
 	}
 	//영화 삭제
 	@RequestMapping(value = "/movie_delete", method = RequestMethod.POST)
-	public String movieDelete(Movie movie, Model model) {
-		
-		
+	public String movieDelete(Movie movie, Model model) {		
 		Integer result =  movieSessionRepository.deleteMovie(movie.getMovieNum());		
 		model.addAttribute("result", result);
 		return "redirect:movie_select";
