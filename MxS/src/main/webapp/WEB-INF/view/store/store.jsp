@@ -54,55 +54,13 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 
 	
 
-	<div class="container">
-		<div class="row">
-			<h1>스토어상단</h1>
-		</div>
+	<div class="container">		
 		<div class="row">
 			<h2>인기상품</h2>
 			
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-expanded="false"> <span
-						class="glyphicon glyphicon-shopping-cart"></span> 3 - Items<span
-						class="caret"></span></a>
-					<ul class="dropdown-menu dropdown-cart" role="menu">
-						<li><span class="item"> <span class="item-left">
-									<img src="http://lorempixel.com/50/50/" alt="" /> <span
-									class="item-info"> <span>Item name</span> <span>23$</span>
-								</span>
-							</span> <span class="item-right">
-									<button class="btn btn-xs btn-danger pull-right">x</button>
-							</span>
-						</span></li>
-						<li><span class="item"> <span class="item-left">
-									<img src="http://lorempixel.com/50/50/" alt="" /> <span
-									class="item-info"> <span>Item name</span> <span>23$</span>
-								</span>
-							</span> <span class="item-right">
-									<button class="btn btn-xs btn-danger pull-right">x</button>
-							</span>
-						</span></li>
-						<li><span class="item"> <span class="item-left">
-									<img src="http://lorempixel.com/50/50/" alt="" /> <span
-									class="item-info"> <span>Item name</span> <span>23$</span>
-								</span>
-							</span> <span class="item-right">
-									<button class="btn btn-xs btn-danger pull-right">x</button>
-							</span>
-						</span></li>
-						<li><span class="item"> <span class="item-left">
-									<img src="http://lorempixel.com/50/50/" alt="" /> <span
-									class="item-info"> <span>Item name</span> <span>23$</span>
-								</span>
-							</span> <span class="item-right">
-									<button class="btn btn-xs btn-danger pull-right">x</button>
-							</span>
-						</span></li>
-						<li class="divider"></li>
-						<li><a class="text-center" href="cart">View Cart</a></li>
-					</ul></li>
+				<a href="cart"> <span class="glyphicon glyphicon-shopping-cart"></span>장바구니보기</span></a>
 			</ul>
 
 
@@ -186,10 +144,7 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 			</div>
 		</div>
 
-		<div class="row">
-			<h2>스토어하단</h2>
-		</div>
-
+	
 		<div class="row">
 			<div class="col-md-4">
 				<h2>굿즈목록</h2>

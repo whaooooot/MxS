@@ -83,8 +83,8 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 
 function getSelectValue(frm)
 {
- frm.goodsOpt.value = frm.selectBox.options[frm.selectBox.selectedIndex].text;
- frm.goodsOpt1.value = frm.selectBox.options[frm.selectBox.selectedIndex].value;
+ frm.textValue.value = frm.selectBox.options[frm.selectBox.selectedIndex].text;
+ frm.optionValue.value = frm.selectBox.options[frm.selectBox.selectedIndex].value;
 }
 
 </script>
@@ -97,7 +97,8 @@ function getSelectValue(frm)
 								</h6>
 								
 								<div>
-								<select name="selectBox" onChange="getSelectValue(this.form);">
+							
+							<select name="selectBox" onChange="getSelectValue(this.form);">
 								<%
 									for (int i = 0; i < listopt.size(); i++) {
 										StoreoptDTO goodsopt = (StoreoptDTO) listopt.get(i);
@@ -110,7 +111,7 @@ function getSelectValue(frm)
 									
 									</select>													
 								</div>
- 							선택한 옵션: <input type="text" name="goodsOpt" readonly>
+ 							선택한 옵션: <input type="text" name="textValue" readonly>
 							</div>
 							
 									
@@ -133,7 +134,7 @@ function getSelectValue(frm)
 										 <input type="hidden" name="goodsName" value="${detail.goodsName}">
 										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
-										 <input type="hidden" name="goodsOpt">	 										 		
+																			 		
 										<button class="glyphicon glyphicon-heart-empty"> 장바구니담기</button></span> 
 					</form>
 <br/>
@@ -145,10 +146,10 @@ function getSelectValue(frm)
 										class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 									구매하기
 								</button>
+							
 							</form>
 							
-							
-							
+	
 
 
 								<h6>
@@ -156,6 +157,8 @@ function getSelectValue(frm)
 								
 	<br/>
 								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
+								<a href="#"><button class="btn btn-warning">삭제하기</button></a>
+						
 							</div>
 			
 

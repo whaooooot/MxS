@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -201,14 +202,13 @@
 					    <div class="col-md-7 col-sm-7">
 			    			<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
-						    		<h1 class="fh5co-lead to-animate">Case Study Title</h1>
-									<h2 class="fh5co-sub-lead to-animate">100% Free Fully Responsive HTML5 Bootstrap Template. Crafted with love by the fine folks at <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></h3>
-									<p class="to-animate-2"><a href="#" class="btn btn-primary btn-lg">View Case Study</a></p>
+						    		<h1 class="fh5co-lead to-animate">MxS 홈페이지에 <br/>오신 것을 환영합니다.</h1>
+									<p class="to-animate-2"><a href="" class="btn btn-primary btn-lg">빠른 예매 하기</a></p>
 						    	</div>
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="img/mxslogo1.png" alt="크리스마스트리"></div>
+					    	<div class="iphone to-animate-2"><img src="http://thepayneco.com/wp-content/uploads/2016/09/Welcome.png" alt="크리스마스트리"></div>
 					    </div>
 
 		    		</div>

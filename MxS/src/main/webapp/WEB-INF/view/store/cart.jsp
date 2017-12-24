@@ -61,7 +61,7 @@
                             <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${goods.goodsPic}" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${goods.goodsName}</a></h4>  
-                                <h5 class="media-heading"><a href="#"> ${goods.goodsOpt}</a></h5> 
+                                <h5 class="media-heading"><a href="#"> ${goods.textValue}</a></h5> 
                                                 
                                 <span>상태 : </span>
                                    <span class="text-success"><strong>재고 있음  ${goods.goodsQuan} 개</strong></span>

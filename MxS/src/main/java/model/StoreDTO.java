@@ -17,15 +17,16 @@ public class StoreDTO implements Serializable {
 	private int movieNum;     // 영화번호
 	
 	private int goodsAmount;  //상품선택수
-	private String goodsOpt;  //상품옵션
+	private String textValue;  //상품옵션
 	
 	
 
-	public String getGoodsOpt() {
-		return goodsOpt;
+	
+	public String getTextValue() {
+		return textValue;
 	}
-	public void setGoodsOpt(String goodsOpt) {
-		this.goodsOpt = goodsOpt;
+	public void setTextValue(String textValue) {
+		this.textValue = textValue;
 	}
 	public int getGoodsAmount() {
 		return goodsAmount;
