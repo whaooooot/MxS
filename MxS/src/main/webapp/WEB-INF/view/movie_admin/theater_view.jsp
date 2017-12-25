@@ -30,8 +30,11 @@
 			}
 
 			if (confirm("수정하시겠습니까?")) {
+				//opener.window.location = "${path}/theater_update";
 				document.form1.action = "${path}/theater_update";
 				document.form1.submit();
+				
+				
 			}
 
 		});
@@ -41,10 +44,11 @@
 
 			if (confirm("삭제하시겠습니까?")) {
 				
+				//opener.window.location = "${path}/theater_delete";
 				document.form1.action = "${path}/theater_delete";
 				document.form1.submit();
-				alert("삭제되었습니다");
-				self.close();
+				
+				
 			}
 		});
 

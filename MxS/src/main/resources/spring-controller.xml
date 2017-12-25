@@ -18,5 +18,6 @@
 	<bean class="controller.MovieChartController" />
 	<bean class="controller.UploadController" />
 		<bean class="controller.TheaterController"/>
+<!-- 		<bean class="controller.ScreenController"/> -->
 	
 </beans>

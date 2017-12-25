@@ -1,8 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Movie {
+@SuppressWarnings("serial")
+public class Movie implements Serializable {
 	private Long movieNum;
 	private String movieTitle;
 	private String movieGenr;

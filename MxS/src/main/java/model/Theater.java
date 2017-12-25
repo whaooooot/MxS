@@ -1,6 +1,9 @@
 package model;
 
-public class Theater {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Theater implements Serializable {
 	
 	private Long theaterNum;
 	private Long movieNum;

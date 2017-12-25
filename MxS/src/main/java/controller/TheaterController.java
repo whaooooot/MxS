@@ -75,17 +75,47 @@ public class TheaterController {
 
 	// 04. 게시글 수정
 	// 폼에서 입력한 내용들은 @ModelAttribute BoardVO vo로 전달됨
-	@RequestMapping(value = "/theater_update", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/theater_update", method = RequestMethod.POST)
 	public String update(@ModelAttribute Theater tt) throws Exception {
 		theaterSessionRepository.updateTheater(tt);
+		return "redirect:movie_list";
+	}*/
+	
+	@RequestMapping(value = "/theater_update", method = RequestMethod.POST)	
+	public String theaterUpdate(Theater tt, Model model) {
+		Integer result =  theaterSessionRepository.updateTheater(tt);		
+		model.addAttribute("result", result);
+		
 		return "redirect:movie_list";
 	}
 	
 	// 05. 게시글 삭제
-	@RequestMapping("/theater_delete")
-	public void delete(@RequestParam Long theaterNum) throws Exception{
+/*	@RequestMapping("/theater_delete")
+	public String delete(@RequestParam Long theaterNum) throws Exception{
 		theaterSessionRepository.deleteTheater(theaterNum);
-		
+		return "redirect:movie_list";
+	}*/
+	
+	
+	@RequestMapping(value = "/theater_delete", method = RequestMethod.POST)
+	public String theaterDelete(Theater tt, Model model) {		
+		Integer result =  theaterSessionRepository.deleteTheater(tt.getTheaterNum());		
+		model.addAttribute("result", result);
+		return "redirect:movie_list";
+	
+			
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

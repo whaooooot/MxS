@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ScreenMapper.xml -->
+
+
+<mapper namespace="repository.mapper.ScreenMapper">
+	<cache />
+
+ 	<resultMap id="screenBaseResultMap" type="screen">
+ 		<id column="screen_name" jdbcType="VARCHAR" property="screenName" />
+		<id column="theater_num" jdbcType="BIGINT" property="theaterNum" />
+		<id column="screen_seat" jdbcType="BIGINT" property="screenSeat" />
+		<result column="seat_row" jdbcType="VARCHAR" property="seatRow" />
+		<result column="seat_col" jdbcType="BIGINT" property="seatCol" />
+	</resultMap>
+
+	
+	 <select id="listScreen" resultType="model.Screen"
+		resultMap="screenBaseResultMap">
+		SELECT *
+		FROM screen
+		WHERE movie_num=#{movieNum} and theater_num=#{theaterNum}
+	</select>
+<!-- 	
+	<select id="listMovie" 
+		resultMap="movieBaseResultMap">
+		SELECT movie_num,
+		movie_title
+
+
+		FROM movie
+		ORDER BY movie_num desc
+	</select> -->
+	
+	<!-- 상세보기 -->
+	<select id="detailView"  parameterType="String" resultType="Screen" resultMap="screenBaseResultMap">
+	SELECT * FROM screen
+	WHERE screen_name = #{screenName}
+	</select>
+
+	<!-- 02. 게시글 작성 -->
+	<insert id="insertScrenn" parameterType="Screen">
+		INSERT INTO screen (
+		theater_num,
+		movie_num,
+		screen_name,
+		screen_seat,
+		seat_row,
+		seat_col
+
+		) VALUES (
+		#{theaterNum},
+		#{movieNum},
+		#{screenName},		
+		#{screenSeat},
+		#{seatRow},
+		#{seatCol}
+		)
+	</insert>
+
+	<!-- 05. 게시글 수정처리 -->
+	<update id="updateScreen" parameterType="Screen">
+		UPDATE screen SET
+		screen_seat = #{screenSeat},
+		seat_row = #{seatRow},
+		seat_col = #{seatCol}
+		WHERE screen_name = #{screenName}
+	</update>
+
+	<!-- 06. 게시글 삭제처리 -->
+	<delete id="deleteScreen" parameterType="String">
+		DELETE FROM screen
+		WHERE screen_name = #{screenName}
+	</delete>
+
+	
+		
+
+</mapper>
