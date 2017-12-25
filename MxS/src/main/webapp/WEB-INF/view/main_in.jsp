@@ -204,7 +204,7 @@
 		    				<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
 		    						<h1 class="fh5co-lead to-animate">MxS 홈페이지에 <br/>오신 것을 환영합니다.</h1>
-									<p class="to-animate-2"><a href="http://freehtml5.co/" target="_blank" class="btn btn-primary btn-lg">빠른예매하기</a></p>
+									<p class="to-animate-2"><a href="moviebook" target="_blank" class="btn btn-primary btn-lg">빠른예매하기</a></p>
 									<div class="iphone to-animate-2"><img src="img/welcome.png" alt="welcome"></div>
 					    
 								</div>
@@ -223,14 +223,14 @@
 		    			<div class="col-md-7 col-md-push-1 col-md-push-5 col-sm-7 col-sm-push-1 col-sm-push-5">
 			    			<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
-						    		<h1 class="fh5co-lead to-animate">Case Study Title</h1>
-									<h2 class="fh5co-sub-lead to-animate">100% Free Fully Responsive HTML5 Bootstrap Template. Crafted with love by the fine folks at <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></h3>
-									<p class="to-animate-2"><a href="#" class="btn btn-primary btn-lg">View Case Study</a></p>
+						    		<h1 class="fh5co-lead to-animate">무엇이든 물어보세요.</h1>
+									<h2 class="fh5co-sub-lead to-animate">QnA,FAQ...
+									<p class="to-animate-2"><a href="customer_service" class="btn btn-primary btn-lg">고객센터 바로가기</a></p>
 						    	</div>
 						    </div>
 					    </div>
 					    <div class="col-md-4 col-md-pull-7 col-sm-4 col-sm-pull-7 iphone-image">
-					    	<div class="iphone to-animate-2"><img src="img/logo1.png" alt="Free HTML5 Template by FREEHTML5.co"></div>
+					    	<div class="iphone to-animate-2"><img src="http://www.immigrationbayarea.com/images/consultation.png" alt=""></div>
 					    </div>
 
 		    		</div>
@@ -246,7 +246,7 @@
 			    			<div class="fh5co-owl-text-wrap">
 						    	<div class="fh5co-owl-text">
 						    		<h1 class="fh5co-lead to-animate">영화굿즈를 <br/>이용해보세요.</h1>
-									<p class="to-animate-2"><a href="" class="btn btn-primary btn-lg">스토어 바로가기</a></p>
+									<p class="to-animate-2"><a href="store" class="btn btn-primary btn-lg">스토어 바로가기</a></p>
 						    	</div>
 						    </div>
 					    </div>

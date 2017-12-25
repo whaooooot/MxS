@@ -2,7 +2,11 @@
 	pageEncoding="utf-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+	
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 	<%@ page import = "java.util.*" %>	
 <%@ page import = "model.*" %>	
 <% 
@@ -12,6 +16,7 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 
 <html>
 <head>
@@ -79,11 +84,44 @@ List<StoreoptDTO> listopt = (List<StoreoptDTO>)request.getAttribute("detailopt")
 							<h5>${detail.goodsQuan} 개</h5>
 							</div>
 							
-
-
-						
+				
 							
 <script language="javascript">
+
+function check_input(){ 
+	   var form = document.op1; 
+	   var inputs = { 
+	      'goodsOpt' : '옵션을 적용해주세요.',         
+	   }; 
+	   var input; 
+	   for(name in inputs){ 
+	      input = form[name]; 
+	      if(!input.value.replace(/^\s+/, '').replace(/\s+$/, '')){ 
+	         alert(inputs[name]); 
+	         input.focus(); 
+	         return; 
+	      } 
+	   } 
+	   form.submit(); 
+	} 
+	
+function check_input2(){ 
+	   var form = document.op2; 
+	   var inputs = { 
+	      'textValue' : '옵션을 적용해주세요.',         
+	   }; 
+	   var input; 
+	   for(name in inputs){ 
+	      input = form[name]; 
+	      if(!input.value.replace(/^\s+/, '').replace(/\s+$/, '')){ 
+	         alert(inputs[name]); 
+	         input.focus(); 
+	         return; 
+	      } 
+	   } 
+	   form.submit(); 
+	} 
+
 
 function getSelectValue(frm)
 {
@@ -92,18 +130,28 @@ function getSelectValue(frm)
 }
 
 var temp; 
+var temp1; 
+
 
 function input(){
 var input = document.getElementById("input").value; 
 temp = input;
 document.getElementById("output").value = temp;
+
+var input1 = document.getElementById("input1").value; 
+temp1 = input1;
+document.getElementById("output1").value = temp1;
 }
+
+
+
+
 
 </script>
 
 <button onclick="input()">옵션 적용하기</button>	
 
-					<form method="post" action="cart">
+					<form method="post" action="cart" name="op2">
 					
 					<div class="section" style="padding-bottom: 5px;">
 								<h6 class="title-attr">
@@ -119,13 +167,14 @@ document.getElementById("output").value = temp;
 								%>
 								
 								
-									<option value="<%=goodsopt.getGoodsOpt()%>"> <%=goodsopt.getGoodsOpt()%></option>									 
+									<option value="<%=goodsopt.getGoodsOptnum()%>"> <%=goodsopt.getGoodsOpt()%></option>									 
 																	
 									<%} %>			
 									
 									</select>													
 								</div>
  							 <input type="hidden" name="textValue" id="input" readonly>
+ 							 	 <input type="hidden" name="optionValue"  id="input1"readonly>
  								
 							</div>
 							
@@ -150,32 +199,40 @@ document.getElementById("output").value = temp;
 										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
 																		 		
-										<button><span class="glyphicon glyphicon-heart-empty">장바구니담기</span></button> 
-					
+										<input  class="btn btn-primary" onclick="check_input2()"  value="장바구니담기"/>
+															
 					</form>
 <br/>	
 							<!-- Botones de compra -->
 							<div class="section" style="padding-bottom: 1px;">							
-								<form action="payment" method="post">								
+						<form:form action="payment" method="post" name="op1" accept-charset="utf-8" modelAttribute="gpaylistdto">								
 								<div class="section" style="padding-bottom: 1px;">								
 								<div>									
 									<input type="hidden" name="goodsAmount" value="1" />								
 								</div>
 							</div>
-									<input type="hidden" name="goodsPic1" value="${detail.goodsPic}">										
-									<input type="hidden" name="goodsName1" value="${detail.goodsName}">
-									<input type="hidden" name="goodsCon1" value="${detail.goodsCon}">
-									<input type="hidden" name="goodsNum1" value="${detail.goodsNum}">
-									<input type="hidden" name="goodsPri1" value="${detail.goodsPri}">
-								선택한 옵션: <input type="text" id="output" name="goodsOpt"> 	
+									<input type="hidden" name="goodsPic" value="${detail.goodsPic}">										
+									<input type="hidden" name="goodsName" value="${detail.goodsName}">
+									<input type="hidden" name="goodsCon" value="${detail.goodsCon}">
+									<input type="hidden" name="goodsNum" value="${detail.goodsNum}">
+									<input type="hidden" name="goodsPri" value="${detail.goodsPri}">
+									
+					<!-- 연결 -->	<input type="hidden" name="gpayNum" value="1">
+					<!-- 연결 -->	<input type="hidden" name="memberNum" value="1">
+									
+								
+									
+									<input type="hidden" name="gplistPrice" value="${detail.goodsPri}">
+									
+								선택한 옵션: <input type="text" id="output" name="goodsOpt" readonly>
+								 	
+								<input type="hidden" id="output1" name="goodsOptnum" readonly> 
+								
 								<div class="section" style="padding-bottom: 15px;">										
-								<button class="btn btn-success">
-									<span style="margin-right: 20px"
-										class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-									구매하기
-								</button>	
+													
+								<input class="btn btn-success" onclick="check_input()" value="구매하기"/>	
 								</div>						
-							</form>							
+							</form:form>							
 	<br/>
 								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
 								<a href="#"><button class="btn btn-warning">삭제하기</button></a>

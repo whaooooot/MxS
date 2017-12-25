@@ -6,6 +6,7 @@
    <typeAliases>
       <typeAlias type="model.StoreDTO" alias="storedto" />
       <typeAlias type="model.StoreoptDTO" alias="storeoptdto" />
+      <typeAlias type="model.GpaylistDTO" alias="gpaylistdto" />
    </typeAliases>
    <environments default="development">
       <environment id="development">

@@ -83,7 +83,7 @@
 
 								<tr>
 									<th class="col-xs-3">상품번호</th>
-									<th class="col-xs-5">상품</th>
+									<th class="col-xs-7">상품</th>
 
 
 								</tr>
@@ -120,9 +120,9 @@
 						<table class="points_table">
 							<thead>
 								<tr>
-									<th class="col-xs-3">상품번호</th>
-									<th class="col-xs-6">상품옵션번호</th>
-									<th class="col-xs-3">옵션</th>
+									<th class="col-xs-1">상품번호</th>
+									<th class="col-xs-2">상품옵션번호</th>
+									<th class="col-xs-2">옵션</th>
 
 								</tr>
 							</thead>
@@ -137,7 +137,7 @@
 								<tr class="even">
 									<td class="col-xs-1"><%=opt.getGoodsNum()%></td>
 									<td class="col-xs-3"><%=opt.getGoodsOptnum()%></td>
-									<td class="col-xs-1"><%=opt.getGoodsOpt()%></td>
+									<td class="col-xs-4"><%=opt.getGoodsOpt()%></td>
 								</tr>
 
 									<%

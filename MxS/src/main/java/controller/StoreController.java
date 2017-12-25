@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import model.GpaylistDTO;
 import model.StoreDTO;
 import model.StoreoptDTO;
 import repository.StoreSessionRepository;
@@ -32,9 +33,7 @@ public class StoreController {
 		//System.out.println("사이즈");
 		List<StoreDTO> result = storeSessionRepository.selectStore(); //상품출력
 		model.addAttribute("result", result);		
-		model.addAttribute("count", result.size());
-		
-		
+		model.addAttribute("count", result.size());		
 		return "store/store";
 	}
 		
@@ -77,10 +76,18 @@ public class StoreController {
 	@RequestMapping(value = "/productdetail", method = RequestMethod.GET) //상품상세보기
 	public String productdetail(Model model, HttpServletRequest req) {
 		//System.out.println(req.getParameter("num"));				
-			model.addAttribute("detail", storeSessionRepository.productdetail(Integer.parseInt(req.getParameter("num"))));
-			model.addAttribute("detailopt", storeSessionRepository.productoptdetail(Integer.parseInt(req.getParameter("num"))));
+			model.addAttribute("detail", storeSessionRepository.productdetail(Integer.parseInt(req.getParameter("num")))); //수에맞게상품불러오기
+			model.addAttribute("detailopt", storeSessionRepository.productoptdetail(Integer.parseInt(req.getParameter("num")))); //수에맞게 옵션불러오기
+			model.addAttribute("gpaylistdto", new GpaylistDTO());
 			return "store/productdetail";
 	}
+	
+	@RequestMapping(value = "/payment", method = RequestMethod.POST) //결제하기
+	public String store3(Model model,@ModelAttribute("gpaylistdto")GpaylistDTO gpaylistdto) {
+		storeSessionRepository.insertGpaylist(gpaylistdto);
+		return "store/payment";
+	}
+	
 	
 	@RequestMapping(value = "/productresult", method = RequestMethod.POST) //상품등록완료
 	public String productresult(Model model) {
@@ -95,10 +102,6 @@ public class StoreController {
 	
 	
 	
-	@RequestMapping(value = "/payment", method = RequestMethod.POST) //결제하기
-	public String store3(Model model) {
-		return "store/payment";
-	}
 	
 
 	

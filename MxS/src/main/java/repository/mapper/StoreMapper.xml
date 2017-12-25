@@ -24,6 +24,17 @@
 		<result column="GOODS_OPT" jdbcType="VARCHAR" property="goodsOpt" />	
 	</resultMap>
 	
+	
+	<resultMap id="gpaylistResultMap" type="gpaylistdto">   	<!-- 구매리스트 -->
+		<id column="GPAY_NUM" jdbcType="BIGINT" property="gpayNum" />
+		<id column="MEMBER_NUM" jdbcType="BIGINT" property="memberNum" />
+		<id column="GOODS_NUM" jdbcType="BIGINT" property="goodsNum" />		
+		<id column="GOODS_OPTNUM" jdbcType="BIGINT" property="goodsOptnum" />	
+		<result column="GPLIST_QUAN" jdbcType="BIGINT" property="gplistQuan" />	
+		<result column="GPLIST_PRICE" jdbcType="BIGINT" property="gplistPrice" />
+		<result column="GPLIST_DAY" jdbcType="TIMESTAMP" property="gplistDay" />	
+	</resultMap>
+	
 
   	<!-- 상품 받아올때 -->
 	<select id="selectStore" resultMap="storeResultMap">
@@ -70,6 +81,13 @@
 	<insert id="insertStoreopt" parameterType="storeoptdto" >
 		insert into GOODS_OPTION(GOODS_NUM,GOODS_OPTNUM,GOODS_OPT)
 		VALUES (#{goodsNum}, GOODS_OPTNUM.nextval, #{goodsOpt})
+	</insert>
+	
+	
+		<!--구매리스트 집어넣을때 -->
+	<insert id="insertGpaylist" parameterType="gpaylistdto" >
+		insert into GPAY_LIST(GPAY_NUM,MEMBER_NUM,GOODS_NUM,GOODS_OPTNUM,GPLIST_QUAN,GPLIST_PRICE,GPLIST_DAY)
+		VALUES (#{gpayNum}, #{memberNum}, #{goodsNum}, #{goodsOptnum}, #{goodsAmount}, #{gplistPrice}, SYSDATE)
 	</insert>
 	
 	

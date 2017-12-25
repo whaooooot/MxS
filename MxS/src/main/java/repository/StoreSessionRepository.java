@@ -1,13 +1,12 @@
 package repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import model.GpaylistDTO;
 import model.StoreDTO;
 import model.StoreoptDTO;
 
@@ -153,5 +152,26 @@ public class StoreSessionRepository extends AbstractRepository {
 
 		}
 	}
+
+	
+	public Integer insertGpaylist(GpaylistDTO gpaylistdto) { // 구매리스트등록
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+		try {
+			// System.out.println("1");
+			String statement = namespace + ".insertGpaylist";
+			int result = sqlSession.insert(statement, gpaylistdto);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
+
+		}
+	}
+	
 
 }

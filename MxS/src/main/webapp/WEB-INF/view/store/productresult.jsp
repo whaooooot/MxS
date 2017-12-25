@@ -3,15 +3,15 @@
 
   <%
 	request.setCharacterEncoding("utf-8");
-	String goodsPic1 = request.getParameter("goodsPic1");
-	String goodsName1 = request.getParameter("goodsName1");
-	String goodsCon1 = request.getParameter("goodsCon1");
-	String goodsNum1 = request.getParameter("goodsNum1");
+	String goodsPic = request.getParameter("goodsPic");
+	String goodsName = request.getParameter("goodsName");
+	String goodsCon = request.getParameter("goodsCon");
+	String goodsNum = request.getParameter("goodsNum");
 	String goodsAmount = request.getParameter("goodsAmount");
-	String goodsPri1 = request.getParameter("goodsPri1");
+	String goodsPri = request.getParameter("goodsPri");
 	String goodsOpt= request.getParameter("goodsOpt");
 	
-	int sum= Integer.parseInt(goodsAmount)*Integer.parseInt(goodsPri1);
+	int sum= Integer.parseInt(goodsAmount)*Integer.parseInt(goodsPri);
 	
 %>
   
@@ -62,19 +62,19 @@
                             <div class="col-md-12"><strong>상품사진:</strong>  
                           
                             <img id="img1" alt=""
-					src="<%=goodsPic1%>" width="200px">
+					src="<%=goodsPic%>" width="200px">
 					<hr/></div>	
 					
                             	<div class="col-md-12"><strong>상품번호:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp;  <%=goodsNum1%>&nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp;  <%=goodsNum%>&nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
                          
                             	<div class="col-md-12"><strong>상품이름:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; <%=goodsName1%> &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <%=goodsName%> &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
@@ -88,7 +88,7 @@
                             	
                             		<div class="col-md-12"><strong>상품금액:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; <font color="red" size=2px><%=goodsPri1%></font>  원 &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <font color="red" size=2px><%=goodsPri%></font>  원 &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
@@ -110,7 +110,7 @@
                             	
                             		<div class="col-md-12"><strong>상품설명:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; <%=goodsCon1 %> &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <%=goodsCon %> &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
