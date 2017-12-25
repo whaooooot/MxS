@@ -9,7 +9,6 @@ public class EventDTO implements Serializable{
 	private Long movieNo;		// 영화 번호
 	private String eventTit;	// 이벤트 제목
 	private String eventCon;	// 이벤트 내용
-	private String eventHead;	// 이벤트 말머리
 	private String eventFile;	// 파일
 	private String eventType;	// 이벤트 유형
 	private Date eventStt;		// 이벤트 시작 날짜
@@ -39,12 +38,6 @@ public class EventDTO implements Serializable{
 	public void setEventCon(String eventCon) {
 		this.eventCon = eventCon;
 	}
-	public String getEventHead() {
-		return eventHead;
-	}
-	public void setEventHead(String eventHead) {
-		this.eventHead = eventHead;
-	}
 	public String getEventFile() {
 		return eventFile;
 	}
@@ -71,12 +64,5 @@ public class EventDTO implements Serializable{
 	}
 
 
-	
-	
-	
-	
-	
-	
-	
 	
 }

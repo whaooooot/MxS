@@ -20,8 +20,8 @@ public class EventSessionRepository extends AbstractRepository{
 		
 		try {	
 			list = sqlSession.selectList(statement);
-			System.out.println(list.size());
-			System.out.println(list);
+			//System.out.println(list.size());
+			//System.out.println(list);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -30,15 +30,14 @@ public class EventSessionRepository extends AbstractRepository{
 	}
 	
 	
-	/*
-	public Integer insertComment(Comment comment) {
+	
+	public Integer insertEvent(EventDTO eventdto) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		// Connection conn
-
 		try {
 
-			String statement = namespace + ".insertComment";
-			int result = sqlSession.insert(statement, comment);
+			String statement = namespace + ".insertEvent";
+			int result = sqlSession.insert(statement, eventdto);
 			if (result > 0) {
 
 				sqlSession.commit();
@@ -50,7 +49,7 @@ public class EventSessionRepository extends AbstractRepository{
 
 		}
 	}
-	
+/*	
 	public Integer updateComment(Comment comment) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		
