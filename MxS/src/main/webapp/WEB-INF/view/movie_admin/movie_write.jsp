@@ -1,20 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
-
-<%
-	request.setCharacterEncoding("EUC-KR");
-%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>movie_form</title>
+<title>영화등록</title>
 
 
 <%@ include file="../include/header.jsp" %>
@@ -115,7 +107,7 @@
 		});
 	
 		//데이터 전송 및 유효성 검사
-		$("#btnSave").click(function(){
+		$("#btnMovieSave").click(function(){
 			var movieTitle = $("#movieTitle").val();
 			var movieTime = $("#movieTime").val();
 			var movieGenr = $("#movieGenr").val();
@@ -166,7 +158,11 @@
 					document.form1.movieDate.focus();
 					return;
 				}
-
+			 if(moviePoster == ""){
+					alert("포스터를 입력하세요");
+					document.form1.moviePoster.focus();
+					return;
+				}
 			 
 /*    		
  
@@ -320,7 +316,7 @@
 
 			</tr>			
 			<tr>
-				<td><button type="button" id="btnSave">확인</button>
+				<td><button type="button" id="btnMovieSave">확인</button>
 				 <input	type="reset" name="resetbtn" value="초기화"></td>
 			</tr>
 

@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import model.Movie;
 import model.Theater;
 
 
@@ -74,9 +75,19 @@ public class TheaterSessionRepository extends AbstractRepository {
     }
 	
 	
+    public List<Movie> listMovie(Movie movie) {
+    	
+    	SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".listMovie";
+        return sqlSession.selectList(statement,movie);
+    }
 	
-	
-	
+	//극장 상세보기
+	public Theater theaterDetail(Long theaterNum) throws Exception {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".detailView";
+		return sqlSession.selectOne(statement, theaterNum);
+	}
 	
 	
 	

@@ -6,6 +6,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- jquery -->

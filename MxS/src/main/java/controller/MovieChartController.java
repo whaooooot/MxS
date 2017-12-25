@@ -78,7 +78,7 @@ public class MovieChartController {
 	//영화 등록
 	@RequestMapping(value = "/movie_insert", method = RequestMethod.POST)
 	public String movieInsert(@ModelAttribute Movie movie, HttpSession session,HttpServletRequest request) throws Exception {
-		System.out.println(movie.getMovieTitle());
+		//System.out.println(movie.getMovieTitle());
 		movieSessionRepository.insertMovie(movie);
 		return "redirect:movie_write";
 	}
@@ -89,7 +89,7 @@ public class MovieChartController {
 		Integer result =  movieSessionRepository.updateMovie(movie);		
 		model.addAttribute("result", result);
 		
-		return "redirect:movie_select";
+		return "redirect:movie_list";
 	}
 	//영화 삭제
 	@RequestMapping(value = "/movie_delete", method = RequestMethod.POST)
