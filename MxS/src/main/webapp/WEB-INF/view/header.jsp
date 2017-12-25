@@ -46,8 +46,12 @@
 			<!-- 로그임 Start -->
 <div class="row row1">
             <ul class="largenav pull-right">
+				<% if(session.getAttribute("id") == null){ %>
                 <li class="upper-links"><a class="links" href="login">로그인</a></li>
-                <li class="upper-links"><a class="links" href="join">회원가입</a></li>
+                <li class="upper-links"><a class="links" href="accept">회원가입</a></li>
+                <% }else{ %>
+                <li class="upper-links"><%= session.getAttribute("name") %>님 반갑습니다. <a class="links" href="logout">로그아웃</a></li>
+                <% } %>
                 <li class="upper-links"><a class="links" href="mypage">My MXS</a></li>
                 <li class="upper-links"><a class="links" href="customer_service">고객센터</a></li>
                 <li class="upper-links">

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "repository.mapper.MoviebookMapper">
+	<cache />
+	<resultMap id="timetableResultMap" type="timetable">
+  		<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />
+  		<collection property="TimeStarts" ofType="TimeTableScreen">
+  			<id property="timeStart" column="time_start"></id>
+  		</collection>
+		
+  </resultMap>
+	<select id="reserve" resultType="Movie">
+      select b.cnt ,  m.movie_num, b.movie_num
+      from (select count(movie_num) cnt , movie_num
+      from BOOKLIST
+      group by movie_num) b, movie m
+      where b.movie_num = m.movie_num
+      order by b.cnt
+   	</select> 
+   	<select id = "ganada" resultType="HashMap">
+   		select movie_title, movie_num
+   		from movie
+   		order by movie_title ASC
+   	</select>
+   	<select id = "teater" parameterType="string" resultType="HashMap">
+   		select TEATER_NUM,
+			MOVIE_NUM,
+			TEATER_NAME,
+			TEATER_AREA,
+			TEATER_ADD1,
+			TEATER_ADD2
+   		from TEATER
+   		<if test = "theaterAdd1 != -1 and theaterAdd2 != -1">
+   			where teater_add1 = #{theaterAdd1} and teater_add2 = #{theaterAdd2}
+   		</if>
+   	</select>
+   	<select id="teaterDate" parameterType="Screen" resultMap="timetableResultMap">
+   		select *
+   		from TIME_TABLE
+   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{theaterNum} 
+   	</select>
+   	
+   	<select id="getScreen" parameterType="TimeTable" resultType="HashMap">
+   		select *
+   		from Screen
+   		where SCREEN_NAME = #{screenName}  and  TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} 
+   	</select>
+   	<select id="getTime" parameterType="TimeTable" resultType="HashMap">
+   		select *
+   		from TIME_TABLE
+   		where TIME_START = #{timeStart} and TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}
+   	</select>
+</mapper>
