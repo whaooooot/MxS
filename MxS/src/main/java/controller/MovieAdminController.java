@@ -73,8 +73,10 @@ public class MovieAdminController {
 	// 영화 등록하는 폼
 	@RequestMapping(value = "/movie_write", method = RequestMethod.GET)
 	public String movieWrite(Model model) {
+		
 		model.addAttribute("movie", new Movie());
 		return "movie_admin/movie_write";
+		
 	}
 
 	// 관리자 기초메인
@@ -178,6 +180,8 @@ public class MovieAdminController {
 	
 	
 	
+	
+
 	
 	
 	
