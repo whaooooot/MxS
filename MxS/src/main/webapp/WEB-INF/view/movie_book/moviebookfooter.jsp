@@ -47,6 +47,7 @@
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -69,28 +70,13 @@
 		</td>
 	
 		<td>
-		<form action="moviebookseat" method="post">
+
 		<div class="bright">
-                    <button type="submit" class="btn btn-sq btn-danger"> ▶ <br/><h4><strong>좌석선택</strong> </h4> </button>                 
+                    <button  class="btn btn-sq btn-danger" onclick="javascript:bookyes()"> ▶ <br/><h4><strong>좌석선택</strong> </h4> </button>                 
      		</div>
-		</form>
-		
 		</td>
 	</tr>
-	
-
-
 </table>
-
-
-
-            
-          
-                
-  
-        
-                
-              
     
 <script type="text/javascript">
 

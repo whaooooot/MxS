@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "repository.mapper.MemberMapper">
+	<cache />
+
+  <resultMap id="baseResultMap" type="member">
+  	<id column="member_num"  jdbcType="BIGINT" property="memberNum" />
+  	<result column="member_name" jdbcType="VARCHAR" property="memberName" />
+  	<result column="member_gender" jdbcType="VARCHAR" property="memberGender" />
+  	<result column="member_id" jdbcType="VARCHAR" property="memberId" /> 
+  	<result column="member_pw" jdbcType="VARCHAR" property="memberPw" /> 
+  	<result column="member_phon" jdbcType="VARCHAR" property="memberPhon" />
+  	<result column="member_adrs" jdbcType="VARCHAR" property="memberAdrs" />
+  	<result column="member_birth" jdbcType="VARCHAR" property="memberBirth" />
+  	<result column="member_email" jdbcType="VARCHAR" property="memberEmail" />
+  	<result column="member_set" jdbcType="VARCHAR" property="memberSet" />
+  	<result column="member_auth" jdbcType="VARCHAR" property="memberAuth" />
+  </resultMap>
+  <insert id="insertMember" parameterType="Member">
+		INSERT INTO member(member_num, member_name, member_gender, member_id, member_pw, member_phon, member_adrs, member_birth, member_email, member_set, member_auth)
+		values(membersqc.nextval,#{memberName},#{memberGender},#{memberId},#{memberPw},#{memberPhon},#{memberAdrs},#{memberBirth},#{memberEmail},#{memberSet},null)
+	</insert>
+	<select id="checkId" parameterType="String" resultType="int">
+      select count(member_id) AS memberId
+      from member where member_id = #{memberId}
+   	</select> 
+   	<select id="logincheck" parameterType="String" resultMap="baseResultMap">
+      select *
+      from member where member_id = #{memberId} and member_pw = #{memberPw}
+   	</select>
+  </mapper>

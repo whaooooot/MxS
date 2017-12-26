@@ -2,11 +2,38 @@
 	pageEncoding="utf-8"%>
 <%@ page import = "java.util.*" %>	
 <%@ page import = "model.*" %>	
-<% List<StoreDTO> list = (List<StoreDTO>)request.getAttribute("result");%>
+<% 
+request.setCharacterEncoding("utf-8");
+List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
+
+
+%>
+
+
+	<%									
+									
+									
+									/*for(StoreDTO d : listgoods){
+									out.print(d.getGoodsName());
+									}
+									
+									
+									//for(int i =0; i < listgoods.size(); i++)
+										*/
+		 							%>
+		 							<br/>
+		 							<%	
+		 							/*out.print(list.get(1));
+		 							out.print("aa");
+		 							out.print(list.get(3).getGoodsName());
+		 							*/
+		 							%>	 
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="en">
+<html>
 <head>	
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -22,6 +49,8 @@
 <link href="./css/store.css?ver=1" rel="stylesheet" type="text/css">
 </head>
 <body> 
+
+ <input type="hidden" name="idx" value="${row.idx}">
 	
 	 <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
@@ -36,11 +65,7 @@
 		</div>
 		<div class="row">
 			<h2>인기상품</h2>
-			<%
-			for(StoreDTO d : list){
-				out.print(d.getGoodsName());
-			}
-		 %>
+			
 
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -96,30 +121,33 @@
 						<div class="item  active">
 							<div class="row">
 								<div class="col-md-4">
-									<a class="thumbnail" href="#"><img alt=""
-										src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-									<h3>어밴져스 텀블러</h3>
-									<p>가격:30000원</p>
+									
+									<a class="thumbnail" href="productdetail?num=1"><img alt=""
+										src="<%=listgoods.get(3).getGoodsPic()%>"></a>
+									<h3>
+									<%=listgoods.get(3).getGoodsName() %>		 								
+									</h3> 									
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="#" class="btn btn-primary btn-block">Open</a>
+										<a href="productdetail?num=1" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
-									<a class="thumbnail" href="productdetail"><img alt=""
-										src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg"></a>
-									<h3>아이언맨 텀블러</h3>
-									<p>가격:30000원</p>
+									<a class="thumbnail" href="productdetail?num=2"><img alt=""
+										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(3).getGoodsName() %>	</h3>
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="productdetail" class="btn btn-primary btn-block">Open</a>
+										<a href="productdetail?num=2" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
-									<a class="thumbnail" href="#"><img alt=""
-										src="http://maniaczone.com/web/product/medium/201601/5780_shop1_772902.jpg"></a>
-									<h3>배트맨 피규어</h3>
-									<p>가격:20000원</p>
+									<a class="thumbnail" href="productdetail?num=3"><img alt=""
+										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(3).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="#" class="btn btn-primary btn-block">Open</a>
+										<a href="productdetail?num=3" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 							</div>
@@ -128,29 +156,29 @@
 							<div class="row">
 								<div class="col-md-4">
 									<a class="thumbnail" href="#"><img alt=""
-										src="http://placehold.it/150x150"></a>
-									<h3>Header Name</h3>
-									<p>Description</p>
+										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(3).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="#" class="btn btn-primary btn-block">Open</a>
+										<a href="#" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
 									<a class="thumbnail" href="#"><img alt=""
-										src="http://placehold.it/150x150"></a>
-									<h3>Header Name</h3>
-									<p>Description</p>
+										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(3).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="#" class="btn btn-primary btn-block">Open</a>
+										<a href="#" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 								<div class="col-md-4">
 									<a class="thumbnail" href="#"><img alt=""
-										src="http://placehold.it/150x150"></a>
-									<h3>Header Name</h3>
-									<p>Description</p>
+										src="<%=listgoods.get(3).getGoodsPic() %>"></a>
+									<h3><%=listgoods.get(3).getGoodsName() %></h3>
+									<p>가격:<%=listgoods.get(3).getGoodsPri()%>원</p>
 									<p align="center">
-										<a href="#" class="btn btn-primary btn-block">Open</a>
+										<a href="#" class="btn btn-primary btn-block">상세보기</a>
 									</p>
 								</div>
 							</div>
@@ -203,48 +231,33 @@
 
 		<div class="row">
 			<div class="col-md-4">
-				<h5>전체 1212 개</h5>
+				<h5>전체  ${count} 개</h5>
 			</div>
 		</div>
 
 
 		<div class="row">
+		<%
+									for (int i = 0; i < listgoods.size(); i++) {
+										StoreDTO goods = (StoreDTO) listgoods.get(i);
+								%>
+
+							
 			<div class="col-md-3">
 				<a class="thumbnail" href="#"><img alt=""
-					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-				<h3>어밴져스 텀블러</h3>
-				<p>가격:30000원</p>
+					src="<%=goods.getGoodsPic() %>"></a>
+				<h3><%=goods.getGoodsName()  %></h3>
+				<p>가격:<%=goods.getGoodsPri()  %>원</p>
 				<p align="center">
-					<a href="#" class="btn btn-primary btn-block">Open</a>
+					<a href="#" class="btn btn-primary btn-block">상세보기</a>
 				</p>
 			</div>
-			<div class="col-md-3">
-				<a class="thumbnail" href="#"><img alt=""
-					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-				<h3>어밴져스 텀블러</h3>
-				<p>가격:30000원</p>
-				<p align="center">
-					<a href="#" class="btn btn-primary btn-block">Open</a>
-				</p>
-			</div>
-			<div class="col-md-3">
-				<a class="thumbnail" href="#"><img alt=""
-					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-				<h3>어밴져스 텀블러</h3>
-				<p>가격:30000원</p>
-				<p align="center">
-					<a href="#" class="btn btn-primary btn-block">Open</a>
-				</p>
-			</div>
-			<div class="col-md-3">
-				<a class="thumbnail" href="#"><img alt=""
-					src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-				<h3>어밴져스 텀블러2</h3>
-				<p>가격:30000원</p>
-				<p align="center">
-					<a href="#" class="btn btn-primary btn-block">Open</a>
-				</p>
-			</div>
+			
+				<%
+									}
+								%>
+			
+			
 		</div>
 
 

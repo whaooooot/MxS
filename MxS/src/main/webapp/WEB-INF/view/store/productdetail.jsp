@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	    <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -22,26 +23,27 @@
       <jsp:include page="../header.jsp" flush="false" />
    </div>
 	
+	
 
 	<div class="container">
 		<div class="row">
 			<table style="width:80%;">
 				<tr>
 					<td style="width:40%;"><img class="imgsize"
-						src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg" /></td>
+						src="${detail.goodsPic}" /></td>
 					<td style="width:40%;">
 						
 							<!-- Datos del vendedor y titulo del producto -->
-							<h2>아이언맨 텀블러</h2>
+							<h2>${detail.goodsName}</h2>
 							<h5 style="color: #337ab7">
-								<a href="#">아이언맨시리즈~</a> <small style="color: #337ab7">(빨강,금)</small>
+								<a href="#">${detail.goodsCon}</a> <small style="color: #337ab7">(빨강,금)</small>
 							</h5>
 
 							<!-- Precios -->
 							<h6 class="title-price">
 								<small>가격</small>
 							</h6>
-							<h3 style="margin-top: 0px;">30000 원</h3>
+							<h3 style="margin-top: 0px;">${detail.goodsPri} 원</h3>
 
 							<!-- Detalles especificos del producto -->
 							<div class="section">
@@ -62,6 +64,14 @@
 									<div class="attr2">Venti</div>
 								</div>
 							</div>
+							
+							<div class="section" style="padding-bottom: 5px;">
+								<h6 class="title-attr">
+								<small>재고수</small>
+							</h6>
+							<h5>${detail.goodsQuan} 개</h5>
+							</div>
+							
 							<div class="section" style="padding-bottom: 20px;">
 								<h6 class="title-attr">
 									<small>수량</small>
@@ -115,9 +125,7 @@
             <div class="tab-pane active" id="tab1">
             <div style="width: 100%; border-top: 1px solid silver">
 					<p style="padding: 15px;">
-						<small> 상세설명들~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-							ㄴ어랴ㅐㅁ너ㅑㅐ러ㅐㅑㄷ저랴ㅐㅓ날니ㅏ러너리ㅏ너라ㅣ닝러ㅣ넝ㄹ 냐ㅐㄹㄷㅈ머ㅐㅑ러ㅑ너랴ㅓ내ㅑ러ㅐㅑ너야러ㅏㅣ너ㅣ라ㅓ나라너란멀
-							내ㅑ러ㅐㅑ너랴ㅐㅓㄴ먀ㅓ랴어냐러ㅐ냐머래ㅑㅇ너래ㅑㅓㄴ매ㅑ러나ㅣ러누 </small>
+						<small> ${detail.goodsCon}  </small>
 					</p>
 					<small>
 						<ul>
@@ -130,9 +138,64 @@
                
                
             </div>
-            <div class="tab-pane" id="tab2">주의사항</div>
-            <div class="tab-pane" id="tab3">이용방법</div>
-            <div class="tab-pane" id="tab4">상품후기</div>
+            <div class="tab-pane" id="tab2">
+            <div class="tab-pane active" id="tab1">
+            <div style="width: 100%; border-top: 1px solid silver">
+					<p style="padding: 15px;">
+						<small>   ${detail.goodsNote}  </small>
+					</p>
+					<small>
+						<ul>
+							<li>주의사항4</li>
+							<li>주의사항5</li>
+							<li>주의사항7</li>
+						</ul>
+					</small>
+				</div>
+               
+               
+            </div>
+            
+          </div>
+            <div class="tab-pane" id="tab3"><div class="tab-pane" id="tab2">
+            <div class="tab-pane active" id="tab1">
+            <div style="width: 100%; border-top: 1px solid silver">
+					<p style="padding: 15px;">
+						<small>   이용방법  </small>
+					</p>
+					<small>
+						<ul>
+							<li>주의사항4</li>
+							<li>주의사항5</li>
+							<li>주의사항7</li>
+						</ul>
+					</small>
+				</div>
+               
+               
+            </div>
+            
+          </div>
+          </div>
+            <div class="tab-pane" id="tab4"><div class="tab-pane" id="tab2">
+            <div class="tab-pane active" id="tab1">
+            <div style="width: 100%; border-top: 1px solid silver">
+					<p style="padding: 15px;">
+						<small>   상품후기  </small>
+					</p>
+					<small>
+						<ul>
+							<li>주의사항4</li>
+							<li>주의사항5</li>
+							<li>주의사항7</li>
+						</ul>
+					</small>
+				</div>
+               
+               
+            </div>
+            
+          </div></div>
 
          </div>
       </div>

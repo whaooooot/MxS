@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<% request.setCharacterEncoding("utf-8"); %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
@@ -95,35 +101,34 @@
 					</div>
 				</div>
 
-
-			</div>
-
-			<form class="well col-sm-10 col-md-10">
+	</div>
+			<form:form class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<label>상품 URL(위파일선택과 둘중하나만)</label> <input class="form-control"
-							placeholder="상품 URL" type="text">
-						<label>상품 이름</label> <input class="form-control"
-							placeholder="상품이름" type="text"> <label>상품 간단
-							정보(15자이하)</label> <input class="form-control" placeholder="상품간단정보(15자이하)"
-							type="text"> <label>상품금액(숫자만)</label> <input
-							class="form-control" placeholder="상품금액" type="text"> <label>상품옵션1(색상)(,로
-							구분)</label> <input class="form-control" placeholder="상품옵션" type="text">
-						<label>상품옵션2(크기)(,로 구분)</label> <input class="form-control"
-							placeholder="상품옵션" type="text"> <label>상품 수</label> <input
-							class="form-control" placeholder="상품수" type="text"> <label>상품상세정보</label>
-						<textarea class="form-control" id="message" name="message"
-							rows="10"></textarea>
+						<label>상품 URL(위파일선택과 둘중하나만)</label> 
+						<input name="goodsPic" class="form-control"/><br />					
+						<label>상품 이름</label> 
+						<input name="goodsName" class="form-control" placeholder="상품이름" type="text"/>
+						 <label>상품 정보</label> 
+						 <textarea name="goodsCon"  class="form-control"  rows="10" placeholder="상품 정보"> </textarea> 
+						<label>상품금액(숫자만)</label> 
+						<input name="goodsPri" class="form-control" placeholder="상품금액" type="text"/> 
+			
+						<label>상품 수</label> 
+						<input name="goodsQuan" class="form-control" placeholder="상품수" type="text"/>
+						<label>상품 유의사항</label>
+						<textarea name="goodsNote"  class="form-control" id="message" name="message"	rows="10"></textarea>
+						
+						<label>영화번호선택(리스트로변경)</label>
+						<input name="movieNum" class="form-control" placeholder="영화번호입력" type="text"/>
+						
 						<br />
 						<div class="bright">
-							<button class="btn btn-primary" type="submit">상품 올리기</button>
+							<input type="submit" class="btn btn-primary" value="상품올리기"/>						
 						</div>
-
-
 					</div>
-
 				</div>
-			</form>
+			</form:form>
 
 		</div>
 	</div>

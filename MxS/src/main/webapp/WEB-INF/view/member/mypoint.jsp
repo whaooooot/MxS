@@ -7,9 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
-	 <div id="header">
-      <jsp:include page="../header.jsp" flush="false" />
-   </div>
 <body>
 <div class="col-detail" id="mycgv_contents">
        
@@ -110,7 +107,7 @@
             <strong class="period">조회기간</strong>
             <span id="period_wrap"><button data-period="2" data-type="w" class="round gray"><span>2주일</span></button><button data-period="1" data-type="m" class="round gray"><span>1개월</span></button><button data-period="3" data-type="m" class="round gray"><span>3개월</span></button></span>
             <p>
-                <label for="startdate">시작일 입력</label><input type="text" id="startdate" name="startdate" value="2017-11-11" datepicker="datepicker" date="date" class="hasDatepicker" readonly="readonly"><button type="button" class="ui-datepicker-trigger" title="월이동:PageUp/PageDown, 일이동:Ctrl+방향키"><span>시작일 선택</span></button> ~
+                <label for="startdate">시작일 입력</label><input type="text" id="startdate" name="startdate" value="2017-11-11" size="12" datepicker="datepicker" date="date" class="hasDatepicker" readonly="readonly"><button type="button" class="ui-datepicker-trigger" title="월이동:PageUp/PageDown, 일이동:Ctrl+방향키"><span>시작일 선택</span></button> ~
                 <label for="enddate">종료일 입력</label><input type="text" id="enddate" name="enddate" value="2017-12-11" datepicker="datepicker" date="date" class="hasDatepicker" readonly="readonly"><button type="button" class="ui-datepicker-trigger" title="월이동:PageUp/PageDown, 일이동:Ctrl+방향키"><span>종료일 선택</span></button>
                 <button type="button" id="btn_search" class="round inblack"><span>조회하기</span></button>
             </p>
@@ -186,8 +183,4 @@
 
    </div>
 </body>
-
-	 <div id="footer">
-      <jsp:include page="../footer.jsp" flush="false" />
-   </div>
 </html>

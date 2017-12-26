@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+    <% request.setCharacterEncoding("utf-8"); %>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -282,9 +282,10 @@
 	
 		</div>
 		<div class="col-md-4">		
-			<a href="storeupload" ><input type="button" class="btn btn-warning" value="등록" /></a>
-					<input type="button" class="btn btn-warning" value="수정" />
-			<input type="button" class="btn btn-warning" value="삭제" />
+			<a href="storeupload" ><input type="button" class="btn btn-warning" value="상품등록" /></a>
+					<input type="button" class="btn btn-warning" value="상품수정" />
+			<input type="button" class="btn btn-warning" value="상품삭제" />
+			<a href="storeoption" ><input type="button" class="btn btn-success" value="옵션등록" /></a>
 		</div>
 </div>
 </div>
