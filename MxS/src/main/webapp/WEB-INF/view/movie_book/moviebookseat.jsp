@@ -19,16 +19,11 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 function seat(){
-	alert(this.value);
+	alert(button.value);
 } 
 </script>
 </head>
 <body>
-${result.size()}
-${result1.size()}
-
-
-
  <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>

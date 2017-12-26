@@ -24,7 +24,7 @@
    		from movie
    		order by movie_title ASC
    	</select>
-   	<select id = "teater" parameterType="string" resultType="HashMap">
+   	<select id = "teater" parameterType="Theater" resultType="HashMap">
    		select TEATER_NUM,
 			MOVIE_NUM,
 			TEATER_NAME,
@@ -32,7 +32,7 @@
 			TEATER_ADD1,
 			TEATER_ADD2
    		from TEATER
-   		<if test = "theaterAdd1 != -1 and theaterAdd2 != -1">
+   		<if test = 'theaterAdd1 != "-1" and theaterAdd2 != "-1"'>
    			where teater_add1 = #{theaterAdd1} and teater_add2 = #{theaterAdd2}
    		</if>
    	</select>

@@ -59,6 +59,7 @@ public class MoviebookController {
 		System.out.println(theater.getTheaterAdd2());
 		List<Theater> result = moviebookSessionRepository.selectTeater(theater);
 		model.addAttribute("result", result);
+		System.out.println(result);
 		return "movie_book/movieteater";
 	}
 	
