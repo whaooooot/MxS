@@ -24,6 +24,6 @@
       <mapper resource="repository/mapper/StoreMapper.xml" />
      <mapper resource="repository/mapper/MovieMapper.xml" />
      <mapper resource="repository/mapper/TheaterMapper.xml" />
-     <mapper resource="repository/mapper/ScreenMapper.xml" />
+    <mapper resource="repository/mapper/ScreenMapper.xml" /> 
    </mappers>
 </configuration>

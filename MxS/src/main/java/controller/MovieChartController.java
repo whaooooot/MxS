@@ -24,7 +24,7 @@ public class MovieChartController {
 	@Autowired
 	private MovieSessionRepository movieSessionRepository;
 	
-	//영화 목록 다시
+	//영화목록
 	@RequestMapping("/movie_list")
 	public ModelAndView list(@RequestParam(defaultValue = "movie_num") String searchOption,
 			@RequestParam(defaultValue = "") String keyword) throws Exception {

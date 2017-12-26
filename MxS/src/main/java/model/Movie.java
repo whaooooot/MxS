@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import model.Theater;
 
 @SuppressWarnings("serial")
 public class Movie implements Serializable {
@@ -16,8 +18,14 @@ public class Movie implements Serializable {
 	private Date movieDate;
 	private Long memberNum;
 	private String moviePoster;
+	private List<Theater> theaters;
 
-
+	public List<Theater> getTheaters() {
+		return theaters;
+	}
+	public void setTheaters(List<Theater> theaters) {
+		this.theaters = theaters;
+	}
 	public String getMoviePoster() {
 		return moviePoster;
 	}

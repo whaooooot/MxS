@@ -28,10 +28,9 @@ public class MovieSessionRepository extends AbstractRepository {
 		map.put("keyword", keyword);
 
 		return sqlSession.selectList(statement, map);
-		
-		
-		
+			
 
+		
 	}
 	
 	//레코스 갯수
@@ -85,16 +84,7 @@ public class MovieSessionRepository extends AbstractRepository {
 			
 	}
 	
-	
-/*	
-	public List<Movie> selectMovie(Movie movie) {
 
-		//System.out.println("movie : " + movie.getMovieNum());
-		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".selectMovieByCondition";
-		return sqlSession.selectList(statement, movie);
-		
-	}*/
 	//영화 상세보기
 	public Movie movieDetail(Long movieNum) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
@@ -104,14 +94,6 @@ public class MovieSessionRepository extends AbstractRepository {
 
 	
 
-	
-
-	// 08. 게시글의 첨부파일 목록
-	public List<String> getAttach(Long movieNum) {
-		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".getAttach";
-		return sqlSession.selectList(statement, movieNum);
-	}
 	
 	public Integer updateAttach(String fullName, Long movieNum) {
 	    Map<String, Object> map = new HashMap<String, Object>();

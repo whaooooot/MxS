@@ -14,6 +14,45 @@
 		
 		
 		});
+		
+		// 해당 레코드 버튼 클릭시 값 가져오기
+		 $(".screenCheckBtn").click(function(){
+
+				var str = ""
+				var tdArr = new Array(); // 배열 선언
+
+	            var screenCheckBtn = $(this);
+	            
+	            // checkBtn.parent() : checkBtn의 부모는 <td>이다.
+	            // checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
+	            var tr = screenCheckBtn.parent().parent();
+	            var td = tr.children();
+
+				// tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
+				console.log("클릭한 Row의 모든 데이터 : " + tr.text());
+	            
+				// td.eq(index)를 통해 값을 가져오기
+	            
+	            var theaterNum = td.eq(0).text();
+	            var movieNum = td.eq(4).text();
+		
+				//선택한 극장에 해당하는 시간표데이터 가져오기
+				$.ajax({
+							type : "POST",
+							url : "${path}/screen_list",
+							dataType : "html",
+							data: "theaterNum="+theaterNum&"movieNum="+movieNum, 
+							success : function(result) {
+								$('#listScreen').html(result);
+							}
+						});
+						return false;
+
+					});
+
+		
+		
+		
 
 	});	
 	
@@ -44,6 +83,7 @@
 			<col width="15%" />
 			<col width="20%" />
 			<col width="10%" />
+			<col width="10%" />
 		</colgroup>
 		<thead>
 			<tr>
@@ -51,6 +91,7 @@
 				<th>극장이름</th>
 				<th>극장지역</th>
 				<th>상영관선택</th>
+				<th>영화번호</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -61,8 +102,12 @@
 							<td>${theater.theaterNum}</td>
 							<td><span onclick="open_pop(${theater.theaterNum});">${theater.theaterName}</span></td>
 							<td>${theater.theaterArea}</td>
-							<td><input type="button" class="checkBtn" value="선택" /></td>
-
+							<td><input type="button" class="screenCheckBtn" value="선택" />
+							</td>
+							<td>
+							${theater.movieNum}
+							</td>
+			
 						</tr>
 					</c:forEach>
 				</c:when>
@@ -74,5 +119,6 @@
 			</c:choose>
 		</tbody>
 	</table>
+	<div id="listScreen"></div><!-- 상영관리스트 출력 -->
 </body>
 </html>

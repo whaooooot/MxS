@@ -30,7 +30,7 @@
 	
 	 <select id="listTheater" resultType="model.Theater" parameterType="Long"
 		resultMap="theaterBaseResultMap">
-		SELECT theater_num, theater_name, theater_area
+		SELECT *
 		FROM theater
 		WHERE movie_num=#{movieNum}
         ORDER BY theater_num
