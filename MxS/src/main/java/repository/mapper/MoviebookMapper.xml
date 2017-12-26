@@ -42,12 +42,12 @@
    		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{theaterNum} 
    	</select>
    	
-   	<select id="getScreen" parameterType="TimeTable" resultType="HashMap">
+   	<select id="getScreen" parameterType="TimeTable" resultType="Map">
    		select *
    		from Screen
    		where SCREEN_NAME = #{screenName}  and  TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} 
    	</select>
-   	<select id="getTime" parameterType="TimeTable" resultType="HashMap">
+   	<select id="getTime" parameterType="TimeTable" resultType="Map">
    		select *
    		from TIME_TABLE
    		where TIME_START = #{timeStart} and TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}

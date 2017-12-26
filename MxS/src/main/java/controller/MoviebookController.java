@@ -79,6 +79,8 @@ public class MoviebookController {
 		List<Screen> result1 = moviebookSessionRepository.getScreen(timeTable);
 		model.addAttribute("result", result);
 		model.addAttribute("result1", result1);
+		//System.out.println(timeTable.getMovieNum());
+		System.out.println(result1);
 		
 		return "movie_book/moviebookseat";
 	}

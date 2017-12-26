@@ -24,7 +24,11 @@ function seat(){
 </script>
 </head>
 <body>
-${result}
+${result.size()}
+${result1.size()}
+
+
+
  <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
@@ -84,28 +88,19 @@ ${result}
 								</td>
 							
 							<td colspan="2">
-							극장 종로  | 2관  | 남은좌석 230/300 <br/>
-							<h3>2017.12.08(금) 18:00~20:60 </h3>
+							<c:forEach var = "screen" items="${result1}">
+							극장 종로  | ${screen.SCREEN_NAME}  | 남은좌석 230/${screen.SCREEN_SEAT}
+							</c:forEach><br/>
+							
+							<c:forEach var = "time" items="${result}">
+							<h3>${time.TIME_START}~${time.TIME_END}</h3>
+							</c:forEach>
+							
 							<br/>
 							<div class="bright">
 								<input type="button" class="btn btn-bordered-danger" value="상영시간변경하기"/>
 								</div>
 
-							</td>
-
-						
-
-						</tr>
-
-
-						<tr>
-							<td colspan="2" rowspan="2">
-								좌석~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-							</td>
-							
-							<td colspan="2">
-							선택/예매완료/선택불가 이미지
 							</td>
 						</tr>
 						</table>

@@ -15,6 +15,81 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <!-- <script type="text/javascript" src="js/area.js"></script> -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+<script type="text/javascript">
+
+   $(function() {
+      var rangeDate = 31; // set limit day
+      var setSdate, setEdate;
+      $("#from").datepicker({
+         changeMonth: true, 
+            changeYear: true,
+            nextText: '다음 달',
+            prevText: '이전 달',
+         dateFormat : 'yy-mm-dd',
+         minDate : 0,
+         onSelect : function(selectDate) {
+            var stxt = selectDate.split("-");
+            stxt[1] = stxt[1] - 1;
+            var sdate = new Date(stxt[0], stxt[1], stxt[2]);
+            var edate = new Date(stxt[0], stxt[1], stxt[2]);
+            edate.setDate(sdate.getDate() + rangeDate);
+
+            $('#to').datepicker('option', {
+            
+               minDate : selectDate,
+               beforeShow : function() {
+                  $("#to").datepicker("option", "maxDate", edate);
+                  setSdate = selectDate;
+                  console.log(setSdate)
+               }
+            });
+            //to 설정
+         }
+      //from 선택되었을 때
+      });
+   
+//유효성검사 시작
+   $("#to").datepicker({
+      changeMonth: true, 
+        changeYear: true,
+        nextText: '다음 달',
+        prevText: '이전 달',
+      dateFormat : 'yy-mm-dd',
+      onSelect : function(selectDate) {
+         setEdate = selectDate;
+         console.log(setEdate)
+      }
+   });
+   $('.btn').on('click', function(e) {
+      if ($('input#from').val() == '') {
+         alert('시작일을 선택해주세요.');
+         $('input#from').focus();
+         return false;
+      } else if ($('input#to').val() == '') {
+         alert('종료일을 선택해주세요.');
+         $('input#to').focus();
+         return false;
+      }
+
+      var t1 = $('input#from').val().split("-");
+      var t2 = $('input#to').val().split("-");
+      var t1date = new Date(t1[0], t1[1], t1[2]);
+      var t2date = new Date(t2[0], t2[1], t2[2]);
+      var diff = t2date - t1date;
+      var currDay = 24 * 60 * 60 * 1000;
+      if (parseInt(diff / currDay) > rangeDate) {
+         alert('로그 조회 기간은 ' + rangeDate + '일을 초과할 수 없습니다.');
+         return false;
+      }
+
+      alert("성공")
+   });
+   //조회 버튼 클릭
+   });
+</script>
 <script type="text/javascript">
 	function regana(num){
 		$.ajax({
@@ -417,6 +492,7 @@
 	             }
 		});
 	}
+	
  	function theaterDate(){
  			var theaterNum = document.frm1.theaterNum.value;
 			var movieNum = document.frm1.movieNum.value;
@@ -441,6 +517,7 @@
 			},
 			success : function(result) {
 		    	   $("#timescreen").html(result);
+		    	   return false;
 			    },
 	            error : function(request, status, error) {
 	                alert("code:" + request.status + "\n" + "error:" + error);
