@@ -4,7 +4,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<% request.setCharacterEncoding("utf-8"); %>
+<% request.setCharacterEncoding("utf-8"); 
+	String goodsNum = request.getParameter("goodsNum");
+	String goodsPic = request.getParameter("goodsPic");
+	String goodsName = request.getParameter("goodsName");
+	String goodsCon = request.getParameter("goodsCon");
+	String goodsQuan = request.getParameter("goodsQuan");
+	String goodsPri = request.getParameter("goodsPri");
+	String goodsNote= request.getParameter("goodsNote");
+	String movieNum= request.getParameter("movieNum");
+%>
 <script type="text/javascript">
 function check_input(){ 
    var form = document.storeadd; 
@@ -35,7 +44,7 @@ function check_input(){
 <head>
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-<title>상품등록</title>
+<title>상품 수정</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style type="text/css">
@@ -114,7 +123,8 @@ function check_input(){
 							<div class="col-md-10">
 								<form method="POST" action="#">
 									<div class="form-group files color">
-										<label>사진 파일 업로드</label> <input type="file" class="form-control" multiple="">
+										<label>사진 파일 업로드</label> <input type="file"
+											class="form-control" multiple="">
 									</div>
 
 								</form>
@@ -125,29 +135,29 @@ function check_input(){
 				</div>
 
 	</div>
-			<form:form name="storeadd" class="well col-sm-10 col-md-10"  action="storeuploadfinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
+			<form:form name="storeadd" class="well col-sm-10 col-md-10"  action="storeupdatefinish" modelAttribute="storedto" method="POST"  accept-charset="utf-8">
+				<input type="hidden" name="goodsNum" class="form-control" value="<%=goodsNum %>" /><br />		
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
 						<label>상품 URL(위파일선택과 둘중하나만)</label> 
-						<input name="goodsPic" class="form-control"/><br />					
+						<input name="goodsPic" class="form-control" value="<%=goodsPic %>"/><br />					
 						<label>상품 이름</label> 
-						<input name="goodsName" class="form-control" placeholder="상품이름" type="text"/>
+						<input name="goodsName" class="form-control" placeholder="상품이름" type="text" value="<%=goodsName %>"/>
 						 <label>상품 정보</label> 
-						 <textarea name="goodsCon"  class="form-control"  rows="10" placeholder="상품 정보"> </textarea> 
+						 <textarea name="goodsCon"  class="form-control"  rows="10" placeholder="상품 정보"> <%=goodsCon %></textarea> 
 						<label>상품금액(숫자만)</label> 
-						<input name="goodsPri" class="form-control" placeholder="상품금액" type="text"/> 
+						<input name="goodsPri" class="form-control" placeholder="상품금액" type="text" value="<%=goodsPri %>"/> 
 			
 						<label>상품 재고 수</label> 
-						<input name="goodsQuan" class="form-control" placeholder="상품수" type="text"/>
+						<input name="goodsQuan" class="form-control" placeholder="상품수" type="text" value="<%=goodsQuan %>"/>
 						<label>상품 유의사항</label>
-						<textarea name="goodsNote"  class="form-control" id="message"rows="10"></textarea>
+						<textarea name="goodsNote"  class="form-control" id="message"	rows="10" ><%=goodsNote%></textarea>
 						
 						<label>영화번호선택(리스트로변경)</label>
-						<input name="movieNum" class="form-control" placeholder="영화번호입력" type="text"/>
-						
+						<input name="movieNum" class="form-control" placeholder="영화번호입력" type="text" value="<%=movieNum %>"/>						
 						<br />
 						<div class="bright">
-							<input  onclick="check_input()" class="btn btn-primary" value="상품올리기" />						
+							<input  onclick="check_input()" class="btn btn-primary" value="상품 수정하기" />						
 						</div>
 					</div>
 				</div>

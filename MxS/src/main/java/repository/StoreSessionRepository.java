@@ -73,12 +73,35 @@ public class StoreSessionRepository extends AbstractRepository {
 
 			sqlSession.commit();
 		} else {
-
 			sqlSession.rollback();
-
 		}
 		return result;
 	}
+	
+	
+	public Integer updateStore(StoreDTO storedto) { // 상품수정
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+		try {
+			//System.out.println("1");
+			String statement = namespace + ".updateStore";
+			int result = sqlSession.update(statement, storedto);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
+
+		}
+	}
+	
+
+	
+
+	
 
 	/*
 	 * public Integer updateComment(Comment comment) { SqlSession sqlSession =
@@ -152,6 +175,47 @@ public class StoreSessionRepository extends AbstractRepository {
 
 		}
 	}
+
+	public Integer deleteStoreopt(int goodsOptnum) { // 옵션삭제
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		try {
+		Integer result = sqlSession.delete(namespace + ".deleteStoreopt", goodsOptnum);
+		
+		if (result > 0) {
+			sqlSession.commit();
+			
+		} else {
+			sqlSession.rollback();
+		}
+		return result;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+	
+	public Integer updateStoreopt(StoreoptDTO storeoptdto) { // 옵션수정
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+		try {
+			//System.out.println("1");
+			String statement = namespace + ".updateStoreopt";
+			int result = sqlSession.update(statement, storeoptdto);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
+
+		}
+	}
+	
 
 	
 	public Integer insertGpaylist(GpaylistDTO gpaylistdto) { // 구매리스트등록

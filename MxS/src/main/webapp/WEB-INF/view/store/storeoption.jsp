@@ -153,13 +153,6 @@
 				</tr>
 			</table>
 
-
-
-
-
-
-
-
 			<hr />
 
 
@@ -169,26 +162,69 @@
 				method="POST">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-
+					<h2>상품옵션 등록</h2>
 						<label>상품번호선택(리스트로변경)</label> <input name="goodsNum"
 							class="form-control" placeholder="상품번호입력" type="text" />
 
 						<hr />
 						<label>상품옵션</label> <input name="goodsOpt" class="form-control"
 							placeholder="상품옵션" type="text">
+						
+						
 
 						<hr />
-
 						<br />
 						<div class="bright">
 							<input type="submit" class="btn btn-primary" value="옵션 추가" />
 						</div>
+
+						
+					
+				<h2>상품옵션 삭제</h2>
+					</form:form>
+							<form:form method="post" action="storeoptdelete" accept-charset="utf-8" modelAttribute="storeoptdto">
+									삭제할 상품옵션 번호 : <input type="text" name="goodsOptnum">			
+									<input type="submit"  class="btn btn-warning" value="삭제하기" /><br /><br />								
+								</form:form>
 					</div>
 				</div>
-			</form:form>
+				
+				<form:form class="well col-sm-10 col-md-10"
+				action="storeoptupdatefinish" modelAttribute="storeoptdto"
+				method="POST">
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+					<h2>상품옵션 수정</h2>
+						<label>변경할 옵션번호선택(리스트로변경)</label> <input name="goodsOptnum"
+							class="form-control" placeholder="상품옵션번호입력" type="text" />
 
-		</div>
+						<hr />
+						<label>변경할 상품옵션</label> <input name="goodsOpt" class="form-control"	placeholder="상품옵션" type="text">					
+
+						<hr />
+						<br />
+						<div class="bright">
+							<input type="submit" class="btn btn-primary" value="옵션 수정" />
+						</div>
+
+						
+						</div>
+				</div>
+	
+					</form:form>
+				
+				
+				
+				
+				
+				
+				</div>
 	</div>
+			
+			
+			
+
+	
 
 
 	<div id="footer">

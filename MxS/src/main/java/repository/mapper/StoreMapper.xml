@@ -91,11 +91,61 @@
 	</insert>
 	
 	
-	
+	 <!-- 상품삭제 -->
 	<delete id="deleteStore" parameterType="int">
 		delete from GOODS
 		where GOODS_NUM = #{goodsNum}
 	</delete>
+	
+		 <!-- 옵션삭제 -->
+	<delete id="deleteStoreopt" parameterType="int">
+		delete from GOODS_OPTION
+		where GOODS_OPTNUM = #{goodsOptnum}
+	</delete>
+	
+		<!-- 상품수정 -->
+	<update id = "updateStore" parameterType="storedto">
+		UPDATE GOODS
+		SET
+			<if test ="goodsName != null">
+				GOODS_NAME = #{goodsName},
+			</if>
+			<if test ="goodsCon != null">
+				GOODS_CON = #{goodsCon},
+			</if>
+			<if test ="goodsPri != null">
+				GOODS_PRI =  #{goodsPri},
+			</if>
+			<if test ="goodsQuan != null">
+				GOODS_QUAN =  #{goodsQuan},
+			</if>
+			<if test ="goodsNote != null">
+				GOODS_NOTE =  #{goodsNote},
+			</if>
+			<if test ="goodsPic != null">
+				GOODS_PIC =  #{goodsPic},
+			</if>
+			<if test ="movieNum != null">
+				MOVIE_NUM =  #{movieNum}
+			</if>			
+			<!-- 마지막 IF분은 꼭 실행된다는 전제 하에 사용해야함-->		
+		WHERE
+			GOODS_NUM = #{goodsNum}	
+	</update>
+	
+			<!-- 옵션수정 -->
+	<update id = "updateStoreopt" parameterType="storeoptdto">
+		UPDATE GOODS_OPTION
+		SET
+			<if test ="goodsOpt != null">
+				GOODS_OPT = #{goodsOpt}
+			</if>						
+			<!-- 마지막 IF분은 꼭 실행된다는 전제 하에 사용해야함-->		
+		WHERE
+			GOODS_OPTNUM = #{goodsOptnum}	
+	</update>
+	
+	
 
 
 

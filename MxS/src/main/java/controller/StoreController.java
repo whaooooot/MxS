@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+
 import model.GpaylistDTO;
 import model.StoreDTO;
 import model.StoreoptDTO;
@@ -64,11 +65,13 @@ public class StoreController {
 		return "store/storeoption";
 	}
 	
+	
+	
 	@RequestMapping(value = "/storeoptionfinish", method = RequestMethod.POST) //옵션등록완료
 	public String storeoptionfinish(Model model,@ModelAttribute("storeoptdto")StoreoptDTO storeoptdto) {
 		
 		//System.out.println(storedto.getGoodsCon()+"jjj");		
-		storeSessionRepository.insertStoreopt(storeoptdto);
+		storeSessionRepository.insertStoreopt(storeoptdto); //등록
 		return "store/storeoptionfinish";
 	}
 	
@@ -97,14 +100,7 @@ public class StoreController {
 		return "store/productresult";
 	}	
 	
-	
-	
-	
-	
-	
-	
 
-	
 	
 	@RequestMapping(value = "/storeadmin", method = RequestMethod.GET) //관리자스토어
 	public String store6(Model model) {
@@ -130,14 +126,45 @@ public class StoreController {
 	}
 	
 
+	@RequestMapping(value = "/storedelete", method = RequestMethod.POST)  //상품삭제
+	public String storedelete(StoreDTO storedto, Model model) {				
+		Integer result =  storeSessionRepository.deleteStore(storedto.getGoodsNum());		
+		model.addAttribute("result", result);
+		return "store/storedelete";
+	}
 	
+	@RequestMapping(value = "/storeoptdelete", method = RequestMethod.POST)  //상품옵션삭제
+	public String storeoptdelete(StoreoptDTO storeoptdto, Model model) {				
+		Integer result =  storeSessionRepository.deleteStoreopt(storeoptdto.getGoodsOptnum());
+		model.addAttribute("result", result);
+		return "store/storeoptdelete";
+	}
+	
+	
+	@RequestMapping(value = "/storeupdate", method = RequestMethod.GET) //상품수정
+	public String storeupdate(Model model) {
+		//System.out.println("11");		
+		model.addAttribute("storedto", new StoreDTO());
+		return "store/storeupdate";
+	}
+	
+	@RequestMapping(value = "/storeupdatefinish", method = RequestMethod.POST)	//상품수정완료
+	public String storeupdatefinish(@ModelAttribute("storedto")StoreDTO storedto, Model model) {		
+		Integer result =  storeSessionRepository.updateStore(storedto);	
+		model.addAttribute("result", result);
+		return "store/storeupdatefinish";
+	}
+	
+	
+	@RequestMapping(value = "/storeoptupdatefinish", method = RequestMethod.POST)	//상품수정완료
+	public String storeoptupdatefinish(@ModelAttribute("storeoptdto")StoreoptDTO storeoptdto, Model model) {		
+		Integer result =  storeSessionRepository.updateStoreopt(storeoptdto);
+		model.addAttribute("result", result);
+		return "store/storeoptupdatefinish";
+	}
 	
 	
 
-
-
-	
-		
 		
 	}
 		
