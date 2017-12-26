@@ -7,7 +7,7 @@
       <typeAlias type="model.StoreDTO" alias="storedto" />
       <typeAlias type="model.Movie" alias="Movie" />
        <typeAlias type="model.Theater" alias="Theater" />
-       <typeAlias type="model.Screen" alias="Screen" />
+
    </typeAliases>
    <environments default="development">
       <environment id="development">
@@ -22,8 +22,7 @@
    </environments>
    <mappers>
       <mapper resource="repository/mapper/StoreMapper.xml" />
-     <mapper resource="repository/mapper/MovieMapper.xml" />
-     <mapper resource="repository/mapper/TheaterMapper.xml" />
-    <mapper resource="repository/mapper/ScreenMapper.xml" /> 
+     <mapper resource="repository/mapper/MovieAdminMapper.xml" />
+ 	<mapper resource="repository/mapper/MovieUserMapper.xml" />
    </mappers>
 </configuration>

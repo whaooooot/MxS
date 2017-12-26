@@ -7,64 +7,21 @@
 <title>극장목록</title>
 <%@ include file="../include/header.jsp"%>
 <script>
-	$(document).ready(function() {
-		$("#btnTheaterWrite").click(function() {
-			// 페이지 주소 변경(이동)
-			location.href = "${path}/theater_write";
-		
-		
-		});
-		
-		// 해당 레코드 버튼 클릭시 값 가져오기
-		 $(".screenCheckBtn").click(function(){
+$(document).ready(function() {
+	$("#btnTheaterWrite").click(function() {
+		// 페이지 주소 변경(이동)
+		location.href = "${path}/theater_write";
+	});
+});	
 
-				var str = ""
-				var tdArr = new Array(); // 배열 선언
+//데이터 수정창 띄우기 
+    
+   function open_pop(theaterNum){
+       var url = 'theater_view?theaterNum='+theaterNum;
+       
+       window.open(url,'theater_view','width=500, height=250'); 
+   }
 
-	            var screenCheckBtn = $(this);
-	            
-	            // checkBtn.parent() : checkBtn의 부모는 <td>이다.
-	            // checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
-	            var tr = screenCheckBtn.parent().parent();
-	            var td = tr.children();
-
-				// tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
-				console.log("클릭한 Row의 모든 데이터 : " + tr.text());
-	            
-				// td.eq(index)를 통해 값을 가져오기
-	            
-	            var theaterNum = td.eq(0).text();
-	            var movieNum = td.eq(4).text();
-		
-				//선택한 극장에 해당하는 시간표데이터 가져오기
-				$.ajax({
-							type : "POST",
-							url : "${path}/screen_list",
-							dataType : "html",
-							data: "theaterNum="+theaterNum&"movieNum="+movieNum, 
-							success : function(result) {
-								$('#listScreen').html(result);
-							}
-						});
-						return false;
-
-					});
-
-		
-		
-		
-
-	});	
-	
-	//데이터 수정창 띄우기 
-        
-       function open_pop(theaterNum){
-           var url = 'theater_view?theaterNum='+theaterNum;
-           window.open(url,'theater_view','width=500, height=250'); 
-       }
-
-
-  
 
 </script>
 </head>
@@ -100,7 +57,7 @@
 					<c:forEach var="theater" items="${list}">
 						<tr>
 							<td>${theater.theaterNum}</td>
-							<td><span onclick="open_pop(${theater.theaterNum});">${theater.theaterName}</span></td>
+							<td><span onclick="open_pop(${theater.theaterNum})">${theater.theaterName}</span></td>
 							<td>${theater.theaterArea}</td>
 							<td><input type="button" class="screenCheckBtn" value="선택" />
 							</td>

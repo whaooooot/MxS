@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpSession;
 
 import org.imgscalr.Scalr;
 import org.springframework.util.FileCopyUtils;
@@ -37,6 +38,11 @@ public class UploadFileUtils {
 			// 아이콘 생성
 			uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
 		}
+
+
+		 
+		
+
 		return uploadedFileName;
 	}
 

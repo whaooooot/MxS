@@ -3,20 +3,22 @@ package controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import util.*;
+import util.MediaUtils;
+import util.UploadFileUtils;
 
 @Controller
 public class UploadController {
@@ -25,11 +27,12 @@ public class UploadController {
 	// xml에 설정된 리소스 참조
 	// bean의 id가 uploadPath인 태그를 참조
 /*	@Resource(name = "uploadPath")*/
-	
+	String uploadPath1;
+	String uploadPath;
 	
 	//업로드 디렉토리 경로
 
-	String uploadPath = "C:\\Java\\workspace\\MxS\\MxS\\src\\main\\webapp\\WEB-INF\\view\\img\\upload";
+	//String uploadPath = "C:\\Users\\user1\\git\\MxS\\MxS\\src\\main\\webapp\\WEB-INF\\view\\img\\upload";
 	
 	// Ajax로 업로드하는 방식
 	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.GET)
@@ -40,8 +43,10 @@ public class UploadController {
 	// 파일의 한글처리 : produces="text/plain;charset=utf-8"
 	@ResponseBody // 뷰가 아닌 데이터를 리턴
 	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception {
-				
+	public ResponseEntity<String> uploadAjax(HttpSession session , MultipartFile file) throws Exception {
+		 uploadPath = session.getServletContext().getRealPath("/WEB-INF/view/img/upload");
+
+		System.out.println("■path:::"+uploadPath);
 		return new ResponseEntity<String>(
 				UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.OK);
 

@@ -9,60 +9,44 @@
 <title>영화목록</title>
 <%@ include file="../include/header.jsp"%>
 <script>
-	$(document).ready(function() {
-		$("#btnWrite").click(function() {
-			// 페이지 주소 변경(이동)
-			location.href = "${path}/movie_write";
-		});
-		
-		// 해당 레코드 버튼 클릭시 값 가져오기
-		 $(".checkBtn").click(function(){
-
-				var str = ""
-				var tdArr = new Array(); // 배열 선언
-
-	            var checkBtn = $(this);
-	            
-	            // checkBtn.parent() : checkBtn의 부모는 <td>이다.
-	            // checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
-	            var tr = checkBtn.parent().parent();
-	            var td = tr.children();
-
-				// tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
-				console.log("클릭한 Row의 모든 데이터 : " + tr.text());
-	            
-				// td.eq(index)를 통해 값을 가져올 수도 있다.
-	            var movieNum = td.eq(0).text();
-	            var movieTitle = td.eq(1).text();
-
-/* 							
-				str += " * 클릭된 Row의 td값 = 영화번호 : <font color='red'>"
-						+ movieNum + "</font>"
-						+ ", 영화제목 : <font color='red'>"
-						+ movieTitle + "</font>" 
-
-
-				$("#ex1_Result1").html(
-						" * 클릭한 Row의 모든 데이터 = " + tr.text());
-				$("#ex1_Result2").html(str); 
-*/
-		
-				//선택한 영화에 해당하는 극장데이터 가져오기
-				$.ajax({
-							type : "POST",
-							url : "${path}/theater_list",
-							dataType : "html",
-							data: "movieNum="+movieNum, 
-							success : function(result) {
-								$('#listTheater').html(result);
-							}
-						});
-						return false;
-
-					});
-		
-		
+$(document).ready(function() {
+	$("#btnWrite").click(function() {
+		// 페이지 주소 변경(이동)
+		location.href = "${path}/movie_write";
 	});
+	
+	// 해당 레코드 버튼 클릭시 값 가져오기
+	 $(".checkBtn").click(function(){
+			var str = ""
+			var tdArr = new Array(); // 배열 선언
+            var checkBtn = $(this);
+            
+            // checkBtn.parent() : checkBtn의 부모는 <td>이다.
+            // checkBtn.parent().parent() : <td>의 부모이므로 <tr>이다.
+            var tr = checkBtn.parent().parent();
+            var td = tr.children();
+			// tr.text()는 클릭된 Row 즉 tr에 있는 모든 값을 가져온다.
+			console.log("클릭한 Row의 모든 데이터 : " + tr.text());
+            
+			// td.eq(index)를 통해 값을 가져올 수도 있다.
+            var movieNum = td.eq(0).text();
+            var movieTitle = td.eq(1).text();
+	
+			//선택한 영화에 해당하는 극장데이터 가져오기
+			$.ajax({
+						type : "POST",
+						url : "${path}/theater_list",
+						dataType : "html",
+						data: "movieNum="+movieNum, 
+						success : function(result) {
+							$('#listTheater').html(result);
+						}
+					});
+					return false;
+				});
+	
+	
+});
 </script>
 </head>
 <body>

@@ -29,13 +29,14 @@
 				return;
 			}
 
-			if (confirm("수정하시겠습니까?")) {
-				//opener.window.location = "${path}/theater_update";
-				document.form1.action = "${path}/theater_update";
-				document.form1.submit();
+		 	if (confirm("수정하시겠습니까?")) {
+/*   			window.opener.document.form1.action = "${path}/theater_update";
+			window.opener.document.form1.submit();   */
+ 				
+			document.form1.action = "${path}/theater_update";
+			document.form1.submit();  
 				
-				
-			}
+			 } 
 
 		});
 

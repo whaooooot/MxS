@@ -30,8 +30,10 @@
 			// 콘솔에서 파일정보 확인
 			// ajax로 전달할 폼 객체
 			var formData = new FormData();
+
 			// 폼 객체에 파일추가, append("변수명", 값)
 			formData.append("file", file);
+
 			//ajax를 통해 업로드 및 페이지에 정보 출력
 			$.ajax({
 				type: "post",

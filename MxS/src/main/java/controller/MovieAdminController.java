@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Movie;
-import model.Screen;
 import model.Theater;
 import repository.MovieAdminSessionRepository;
 
@@ -29,6 +28,7 @@ public class MovieAdminController {
 	private MovieAdminSessionRepository movieAdminSessionRepository;
 
 	//////////////////////////// 영화///////////////////////////////////////
+
 	// 영화목록
 	@RequestMapping("/movie_list")
 	public ModelAndView movieList(@RequestParam(defaultValue = "movie_num") String searchOption,
@@ -50,22 +50,26 @@ public class MovieAdminController {
 		map.put("count", count);
 
 		return mav; // list.jsp로 List가 전달된다.
-
+		
+		
 	}
+	
 
 	// 영화 상세
 	@RequestMapping(value = "/movie_view", method = RequestMethod.GET)
-	public ModelAndView movieView(@RequestParam Long movieNum, HttpSession session) throws Exception {
+	public ModelAndView movieDetailView(@RequestParam Long movieNum, HttpSession session) throws Exception {
 
 		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		// 뷰의 이름
 		mav.setViewName("movie_admin/movie_view");
 		// 뷰에 전달할 데이터
-		mav.addObject("movie", movieAdminSessionRepository.movieDetail(movieNum));
+		mav.addObject("movie", movieAdminSessionRepository.movieDetailView(movieNum));
 		return mav;
 	}
 
+	
+	
 	// 영화 등록하는 폼
 	@RequestMapping(value = "/movie_write", method = RequestMethod.GET)
 	public String movieWrite(Model model) {
@@ -89,6 +93,7 @@ public class MovieAdminController {
 		return "redirect:movie_write";
 	}
 
+
 	// 영화 수정
 	@RequestMapping(value = "/movie_update", method = RequestMethod.POST)
 	public String movieUpdate(Movie movie, Model model) {
@@ -111,13 +116,13 @@ public class MovieAdminController {
 
 	// 극장 상세
 	@RequestMapping(value = "/theater_view", method = RequestMethod.GET)
-	public ModelAndView theaterView(@RequestParam Long theaterNum, HttpSession session) throws Exception {
+	public ModelAndView theaterDetailView(@RequestParam Long theaterNum, HttpSession session) throws Exception {
 		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 		// 뷰의 이름
 		mav.setViewName("movie_admin/theater_view");
 		// 뷰에 전달할 데이터
-		mav.addObject("theater", movieAdminSessionRepository.theaterDetail(theaterNum));
+		mav.addObject("theater", movieAdminSessionRepository.theaterDetailView(theaterNum));
 		return mav;
 	}
 
@@ -169,4 +174,11 @@ public class MovieAdminController {
 
 	}
 
+	////////////////////////////상영관///////////////////////////////////////	
+	
+	
+	
+	
+	
+	
 }

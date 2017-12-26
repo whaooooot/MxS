@@ -21,7 +21,7 @@ public class MovieAdminSessionRepository extends AbstractRepository {
 	public List<Movie> movieList(String searchOption, String keyword) throws Exception {
 
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".listAll";
+		String statement = namespace + ".movieList";
 		// 검색옵션, 키워드 맵에 저장
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("searchOption", searchOption);
@@ -61,9 +61,9 @@ public class MovieAdminSessionRepository extends AbstractRepository {
 
 	}
 	//영화 상세
-	public Movie movieDetail(Long movieNum) throws Exception {
+	public Movie movieDetailView(Long movieNum) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".detailView";
+		String statement = namespace + ".movieDetailView";
 		return sqlSession.selectOne(statement, movieNum);
 	}
 	//영화 수정
@@ -166,9 +166,9 @@ public class MovieAdminSessionRepository extends AbstractRepository {
 	}
 
 	// 극장 상세
-	public Theater theaterDetail(Long theaterNum) throws Exception {
+	public Theater theaterDetailView(Long theaterNum) throws Exception {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".detailView";
+		String statement = namespace + ".theaterDetailView";
 		return sqlSession.selectOne(statement, theaterNum);
 	}
 	

@@ -15,9 +15,8 @@
 	<bean class="controller.EventController"/>
 	<bean class="controller.MemberController"/>
 	
-	<bean class="controller.MovieChartController" />
+	<bean class="controller.MovieAdminController" />
 	<bean class="controller.UploadController" />
-	<bean class="controller.TheaterController"/>
-	<bean class="controller.ScreenController"/>
+
 	
 </beans>
