@@ -11,6 +11,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
+<link href="./css/customer.detail.css" rel="stylesheet">
 <link href="./css/customerDetail.css" rel="stylesheet" type="text/css">
 </head>
 <div id="header">
@@ -19,9 +20,23 @@
 <body>
 <br>
 	<div id="contaniner">
-		<!-- Contents Area -->
+		<div class="row">
+		<div class="col-aside">
+               <div class="snb">
+                  <ul>
+                     <li class=""><a href="customer_service">고객센터 메인<i></i></a></li>
+                     <li class=""><a href="customer_qna">자주찾는 질문<i></i></a></li>
+                     <li class="on"><a href="customer_notice" title="현재선택">공지/뉴스<i></i></a></li>
+                     <li class=""><a href="customer_email">이메일 문의<i></i></a></li>
+                  </ul>
+               </div>
+            </div>
 		<div id="contents">
 			<!-- Contents Start -->
+			 <div class="customer_top">
+         <h2 class="tit">공지/뉴스</h2>
+         <p class="stit">CGV의 주요한 이슈 및 여러가지 소식들을 확인하실 수 있습니다.</p>
+      </div>
 			<!-- 상세 시작-->
 			<div class="tbl-viw-head">
 				<h3>
@@ -32,7 +47,7 @@
 				</em>
 			</div>
 			<div class="tbl-viw-content">
-				<div style="text-align: center">
+				<div>
 					${notice.boardCon}
 				</div>
 			</div>
@@ -43,6 +58,7 @@
 			</div>
 		</div>
 		<!-- /contents End -->
+		</div>
 	</div>
 	<!-- /contaniner End -->
 </body>

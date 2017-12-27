@@ -11,6 +11,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
+<link href="./css/customer.detail.css" rel="stylesheet">
 <link href="./css/customerDetail.css" rel="stylesheet" type="text/css">
 </head>
 <div id="header">
@@ -19,8 +20,25 @@
 <body>
 <br>
 	<div id="contaniner">
+	<div class="row">
+		<div class="col-aside">
+               <div class="snb">
+                  <ul>
+                     <li class=""><a href="customer_service">고객센터 메인<i></i></a></li>
+                     <li class=""><a href="customer_qna">자주찾는 질문<i></i></a></li>
+                     <li class="on"><a href="customer_notice" title="현재선택">공지/뉴스<i></i></a></li>
+                     <li class=""><a href="customer_email">이메일 문의<i></i></a></li>
+                  </ul>
+               </div>
+            </div>
 		<!-- Contents Area -->
 		<div id="contents">
+		<div class="customer_top">
+					<h2 class="tit">자주찾는 질문</h2>
+					<p class="stit">
+						회원님들께서 가장 자주하시는 질문을 모았습니다. <br>궁금하신 내용에 대해 검색해보세요.
+					</p>
+				</div>
 			<!-- Contents Start -->
 			<!-- 상세 시작-->
 			<div class="tbl-viw-head">
@@ -32,7 +50,7 @@
 				</em>
 			</div>
 			<div class="tbl-viw-content">
-				<div style="text-align: center">
+				<div>
 					${qna.boardCon}
 				</div>
 			</div>
@@ -43,6 +61,7 @@
 			</div>
 		</div>
 		<!-- /contents End -->
+		</div>
 	</div>
 	<!-- /contaniner End -->
 </body>

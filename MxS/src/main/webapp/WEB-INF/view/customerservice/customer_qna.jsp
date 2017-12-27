@@ -90,7 +90,7 @@
 					<div class="tab-content">
 						<div class="tab-pane active" id="tab1">
 							<div class="search_result">
-								총 <span class="num">${count}건</span>이 검색되었습니다.
+							<%-- 	총 <span class="num">${count}건</span>이 검색되었습니다. --%>
 							</div>
 							<!-- tab contents -->
 							<div class="tbl_area">

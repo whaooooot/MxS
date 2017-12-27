@@ -99,7 +99,7 @@ function tab(val){
          <div class="tab-content">
             <div class="tab-pane active" id="tab1">
                <div class="search_result">
-                  총 <span class="num">3747건</span>이 검색되었습니다.
+             <!--      총 <span class="num">3747건</span>이 검색되었습니다. -->
                </div>
                <div class="tbl_area">
                   <table class="tbl_notice_list">
