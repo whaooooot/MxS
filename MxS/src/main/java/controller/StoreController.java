@@ -16,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 
 import model.GpaylistDTO;
+import model.PayDTO;
 import model.StoreDTO;
 import model.StoreoptDTO;
 import repository.StoreSessionRepository;
@@ -46,8 +47,7 @@ public class StoreController {
 	}
 	
 	@RequestMapping(value = "/storeuploadfinish", method = RequestMethod.POST) //상품등록완료
-	public String storeuploadfinish(Model model,@ModelAttribute("storedto")StoreDTO storedto) {
-		
+	public String storeuploadfinish(Model model,@ModelAttribute("storedto")StoreDTO storedto) {		
 		//System.out.println(storedto.getGoodsCon()+"jjj");		
 		storeSessionRepository.insertStore(storedto);		
 		return "store/storeuploadfinish";
@@ -68,8 +68,7 @@ public class StoreController {
 	
 	
 	@RequestMapping(value = "/storeoptionfinish", method = RequestMethod.POST) //옵션등록완료
-	public String storeoptionfinish(Model model,@ModelAttribute("storeoptdto")StoreoptDTO storeoptdto) {
-		
+	public String storeoptionfinish(Model model,@ModelAttribute("storeoptdto")StoreoptDTO storeoptdto) {		
 		//System.out.println(storedto.getGoodsCon()+"jjj");		
 		storeSessionRepository.insertStoreopt(storeoptdto); //등록
 		return "store/storeoptionfinish";
@@ -88,15 +87,15 @@ public class StoreController {
 	@RequestMapping(value = "/payment", method = RequestMethod.POST) //결제하기
 	public String store3(Model model,@ModelAttribute("gpaylistdto")GpaylistDTO gpaylistdto) {
 		storeSessionRepository.insertGpaylist(gpaylistdto);
+		model.addAttribute("paydto", new PayDTO());
 		return "store/payment";
 	}
 	
 	
 	@RequestMapping(value = "/productresult", method = RequestMethod.POST) //상품등록완료
-	public String productresult(Model model) {
-		
+	public String productresult(Model model,@ModelAttribute("paydto")PayDTO paydto) {		
 		//System.out.println(storedto.getGoodsCon()+"jjj");		
-			
+		storeSessionRepository.insertPay(paydto);
 		return "store/productresult";
 	}	
 	
@@ -109,7 +108,7 @@ public class StoreController {
 	
 	
 	@RequestMapping(value="cart", method = RequestMethod.GET) //장바구니
-	public String getCart(Model model) {
+	public String getCart(Model model) {	
 	if (!model.containsAttribute("cart")) {
 	model.addAttribute("cart", new ArrayList<StoreDTO>());
 	}
@@ -119,7 +118,8 @@ public class StoreController {
 	
 	@RequestMapping(value="cart", method = RequestMethod.POST) //장바구니추가
 	public String add(@ModelAttribute StoreDTO goods, SessionStatus sessionStatus,	         
-			@ModelAttribute("cart") List<StoreDTO> cart) {
+			@ModelAttribute("cart") List<StoreDTO> cart,@ModelAttribute("gpaylistdto")GpaylistDTO gpaylistdto) {
+	storeSessionRepository.insertGpaylist(gpaylistdto);//받는곳에 인설트
 	cart.add(goods);
  //정리
 	return "redirect:/cart"; //"store/cart"
@@ -156,7 +156,7 @@ public class StoreController {
 	}
 	
 	
-	@RequestMapping(value = "/storeoptupdatefinish", method = RequestMethod.POST)	//상품수정완료
+	@RequestMapping(value = "/storeoptupdatefinish", method = RequestMethod.POST)	//상품옵션수정완료
 	public String storeoptupdatefinish(@ModelAttribute("storeoptdto")StoreoptDTO storeoptdto, Model model) {		
 		Integer result =  storeSessionRepository.updateStoreopt(storeoptdto);
 		model.addAttribute("result", result);

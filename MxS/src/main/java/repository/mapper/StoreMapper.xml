@@ -35,6 +35,20 @@
 		<result column="GPLIST_DAY" jdbcType="TIMESTAMP" property="gplistDay" />	
 	</resultMap>
 	
+	
+	<resultMap id="payResultMap" type="paydto">   	<!--결제-->
+		<id column="PAY_NUM" jdbcType="BIGINT" property="payNum" />
+		<result column="PAY_APPR" jdbcType="VARCHAR" property="payAppr" />	
+		<result column="PAY_CARD" jdbcType="VARCHAR" property="payCard" />
+		<result column="PAY_TYPE" jdbcType="VARCHAR" property="payType" />	
+		<result column="PAY_DCPOINT" jdbcType="VARCHAR" property="payDcpoint" />
+		<result column="PAY_DCCOUPON" jdbcType="VARCHAR" property="payDccoupon" />
+		<result column="PAY_PRICE" jdbcType="BIGINT" property="payPrice" />
+		<result column="GPAY_NUM" jdbcType="BIGINT" property="gpayNum" />
+		<result column="MEMBER_NUM" jdbcType="BIGINT" property="memberNum" />
+		<result column="BOOK_NUM" jdbcType="BIGINT" property="bookNum" />		
+	</resultMap>
+	
 
   	<!-- 상품 받아올때 -->
 	<select id="selectStore" resultMap="storeResultMap">
@@ -84,11 +98,20 @@
 	</insert>
 	
 	
-		<!--구매리스트 집어넣을때 -->
+		<!--구매리스트 집어넣을때  -->
 	<insert id="insertGpaylist" parameterType="gpaylistdto" >
 		insert into GPAY_LIST(GPAY_NUM,MEMBER_NUM,GOODS_NUM,GOODS_OPTNUM,GPLIST_QUAN,GPLIST_PRICE,GPLIST_DAY)
-		VALUES (#{gpayNum}, #{memberNum}, #{goodsNum}, #{goodsOptnum}, #{goodsAmount}, #{gplistPrice}, SYSDATE)
+		VALUES (GPAYLIST_NUM.nextval, #{memberNum}, #{goodsNum}, #{goodsOptnum}, #{goodsAmount}, #{gplistPrice}, SYSDATE)
 	</insert>
+	
+	
+			<!--상품쪽 결제! 집어넣을때 -->
+	<insert id="insertPay" parameterType="paydto" >
+		insert into PAY(PAY_NUM,PAY_APPR,PAY_CARD,PAY_CARDCVC,PAY_CARDDATE,PAY_CARDDATE2,PAY_TYPE,PAY_DCPOINT,PAY_DCCOUPON,PAY_PRICE,GPAY_NUM,MEMBER_NUM,BOOK_NUM)
+		VALUES (PAY_NUM.nextval, 1, #{payCard}, #{payCardcvc}, #{payCarddate}, #{payCarddate2}, #{payType}, #{payDcpoint}, #{payDccoupon}, #{payPrice},GPAYLIST1_NUM.nextval,#{memberNum},#{bookNum})
+	</insert>
+	
+	
 	
 	
 	 <!-- 상품삭제 -->

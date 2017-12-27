@@ -51,11 +51,8 @@
                     <tr>
                     	<td class="col-sm-1 col-md-1" style="text-align: center">
                         <input type="checkbox" class="form-control" value="true">
-                        </td>
+                        </td>                    
                     
-                    
-                    
-                                       
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
                             <a class="thumbnail pull-left" href="#"> <img class="media-object" src="${goods.goodsPic}" style="width: 72px; height: 72px;"> </a>
@@ -77,20 +74,22 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong> ${goods.goodsPri} 원</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${goods.goodsPri*goods.goodsAmount} 원</strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <button type="button" class="btn btn-danger">
+                      <!--  <button type="button" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> 삭제
-                        </button></td>     
+                        </button> --> </td>     
                     </tr>
-                </c:forEach>
+             </c:forEach>
                   
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td><h3>합계</h3></td>
-                        <td class="text-center"><h4><strong> ? 원</strong></h4></td>
+                        <td class="text-center"><h4><strong> 원</strong></h4></td>
                         <td>   </td>
                     </tr>
+                    
+                    
                     <tr>
                         <td>   </td>
                         <td>   </td>

@@ -11,8 +11,25 @@
 	String goodsPri = request.getParameter("goodsPri");
 	String goodsOpt= request.getParameter("goodsOpt");
 	
-	int sum= Integer.parseInt(goodsAmount)*Integer.parseInt(goodsPri);
 	
+	
+	String payNum = request.getParameter("payNum");
+	String payDcpoint = request.getParameter("payDcpoint");
+	
+	int sum= Integer.parseInt(goodsAmount)*Integer.parseInt(goodsPri)-Integer.parseInt(payDcpoint);
+	
+	
+	/*String payCard = request.getParameter("payCard");
+	String payType = request.getParameter("payType");
+
+	String payDccoupon = request.getParameter("payDccoupon");
+	String payPrice = request.getParameter("payPrice");
+	String gpayNum= request.getParameter("gpayNum");		
+	String memberNum= request.getParameter("memberNum");	
+	String bookNum= request.getParameter("bookNum");*/
+												
+	
+
 %>
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,6 +44,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link href="./css/payment.css" rel="stylesheet" type="text/css">
+    
+   
 </head>
 <body>
 
@@ -65,9 +84,10 @@
 					src="<%=goodsPic%>" width="200px">
 					<hr/></div>	
 					
+                            	                     	
                             	<div class="col-md-12"><strong>상품번호:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp;  <%=goodsNum%>&nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp;  <%=goodsNum%> &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>
@@ -102,7 +122,7 @@
                             	
                             		<div class="col-md-12"><strong>할인금액:</strong>   	
                             	
-                            	&nbsp;&nbsp;&nbsp; ex:<font color="red" size=2px>1000</font> 원아직노적용 &nbsp;&nbsp;&nbsp;
+                            	&nbsp;&nbsp;&nbsp; <font color="red" size=2px><%=payDcpoint %></font> 원 &nbsp;&nbsp;&nbsp;
                             	<hr/>
                             	
                             	</div>

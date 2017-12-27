@@ -141,7 +141,9 @@ document.getElementById("output").value = temp;
 var input1 = document.getElementById("input1").value; 
 temp1 = input1;
 document.getElementById("output1").value = temp1;
+document.getElementById("output2").value = temp1;
 }
+
 
 
 
@@ -151,7 +153,7 @@ document.getElementById("output1").value = temp1;
 
 <button onclick="input()">옵션 적용하기</button>	
 
-					<form method="post" action="cart" name="op2">
+					<form:form method="post" action="cart" name="op2" modelAttribute="gpaylistdto" accept-charset="utf-8" >
 					
 					<div class="section" style="padding-bottom: 5px;">
 								<h6 class="title-attr">
@@ -198,10 +200,17 @@ document.getElementById("output1").value = temp1;
 										 <input type="hidden" name="goodsName" value="${detail.goodsName}">
 										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
+										 
+									<!-- 연결 -->	<input type="hidden" name="memberNum" value="1">
+									<!-- 연결 --><input type="hidden" name="gpayNum" value="1">
+									
+									<input type="hidden" name="gplistPrice" value="${detail.goodsPri}">
+									<input type="hidden" name="goodsNum" value="${detail.goodsNum}">									
+										<input type="hidden" id="output2" name="goodsOptnum" readonly> 
 																		 		
 										<input  class="btn btn-primary" onclick="check_input2()"  value="장바구니담기"/>
 															
-					</form>
+					</form:form>
 <br/>	
 							<!-- Botones de compra -->
 							<div class="section" style="padding-bottom: 1px;">							

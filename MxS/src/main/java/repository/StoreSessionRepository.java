@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import model.GpaylistDTO;
+import model.PayDTO;
 import model.StoreDTO;
 import model.StoreoptDTO;
 
@@ -233,9 +234,29 @@ public class StoreSessionRepository extends AbstractRepository {
 		} finally {
 
 			sqlSession.close();
+		}
+	}
+	
+	
+	public Integer insertPay(PayDTO paydto) { // 결제등록 (상품쪽)
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		// Connection conn
+		try {
+			// System.out.println("1");
+			String statement = namespace + ".insertPay";
+			int result = sqlSession.insert(statement, paydto);
+			if (result > 0) {
+
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+
+			sqlSession.close();
 
 		}
 	}
+	
 	
 
 }
