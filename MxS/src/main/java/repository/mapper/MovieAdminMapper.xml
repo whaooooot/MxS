@@ -89,7 +89,7 @@
 		movie_poster
 		)
 		values(
-		MOVIE_NUM_SEQ.NEXTVAL,
+		MOVIE_NUM.NEXTVAL,
 		#{movieTitle},
 		#{movieGenr},
 		#{movieTime},
@@ -190,7 +190,7 @@
 		theater_area
 
 		) VALUES (
-		THEATER_NUM_SEQ.NEXTVAL,
+		THEATER_NUM.NEXTVAL,
 		#{movieNum},
 		#{theaterName},
 		#{theaterArea}
@@ -217,7 +217,7 @@
 		<resultMap id="screenBaseResultMap" type="screen">
  		<id column="screen_name" jdbcType="VARCHAR" property="screenName" />
 		<id column="theater_num" jdbcType="BIGINT" property="theaterNum" />
-		<id column="screen_seat" jdbcType="BIGINT" property="screenSeat" />
+	
 		<result column="seat_row" jdbcType="VARCHAR" property="seatRow" />
 		<result column="seat_col" jdbcType="BIGINT" property="seatCol" />
 		<result column="aisle" jdbcType="VARCHAR" property="aisle" />
@@ -230,7 +230,7 @@
 		SELECT SCREEN_NAME,
 			THEATER_NUM,
 			MOVIE_NUM,
-			SCREEN_SEAT,
+			
 			SEAT_ROW,
 			SEAT_COL,
 			AISLE
@@ -251,7 +251,7 @@
 		movie_num,
 		theater_num,
 		screen_name,
-		screen_seat,
+		
 		seat_row,
 		seat_col,
 		aisle
@@ -260,7 +260,7 @@
 		#{movieNum},
 		#{theaterNum},
 		#{screenName},		
-		#{screenSeat},
+		
 		#{seatRow},
 		#{seatCol},
 		#{aisle}
@@ -269,7 +269,7 @@
 
 	<update id="updateScreen" parameterType="Screen">
 		UPDATE screen SET
-		screen_seat = #{screenSeat},
+		
 		seat_row = #{seatRow},
 		seat_col = #{seatCol},
 		aisle = #{aisle},

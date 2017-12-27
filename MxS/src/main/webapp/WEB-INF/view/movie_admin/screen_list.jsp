@@ -42,7 +42,7 @@
 		<thead>
 			<tr>
 				<th>상영관이름</th>
-				<th>상영관 좌석수</th>
+				
 				<th>좌석행</th>
 				<th>좌석열</th>
 				<th>시간표관리</th>
@@ -57,7 +57,7 @@
 
 						<tr>
 							<td>${screen.screenName}</td>
-							<td>${screen.screenSeat}</td>
+							
 							<td>${screen.seatRow}</td>
 							<td>${screen.seatCol}</td>
 							<td>

@@ -14,7 +14,7 @@
 		//데이터 전송 및 유효성 검사
 		$("#btnScreenSave").click(function() {
 			var screenName = $("#screenName").val();
-			var screenSeat = $("#screenSeat").val();
+
 			var seatRow = $("#seatRow").val();
 			var seatCol = $("#seatCol").val();
 			if (screenName == "") {
@@ -22,11 +22,7 @@
 				document.form1.screenName.focus();
 				return;
 			}
-			if (screenSeat == "") {
-				alert("좌석수를 입력하세요");
-				document.form1.screenSeat.focus();
-				return;
-			}
+
 			if (seatRow == "") {
 				alert("좌석행을 입력하세요");
 				document.form1.seatRow.focus();
@@ -157,12 +153,7 @@
 
 			</tr>
 
-			<tr>
 
-				<td>좌석수</td>
-				<td><form:input id="screenSeat" path="screenSeat" /></td>
-
-			</tr>
 			<tr>
 
 				<td>좌석행</td>
