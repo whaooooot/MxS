@@ -75,7 +75,7 @@
 				alt="Image"></td>
 			<td>영화: <br /> 영화정보: <br />
 			</td>
-			<td>극장: <br /> 일시: <br /> 상영관: <br /> 인원: <br /> 좌석명: <br />
+			<td>극장: <br /> 일시: <br /> 상영관: ${screen.SCREEN_NAME}<br /> 인원: <br /> 좌석명: <br />
 				좌석번호: <br />
 
 			</td>

@@ -275,11 +275,9 @@
 		<hr/>
 <div class="bright">
 	<div class="row">
-		<div class="col-md-4">
-			
+		<div class="col-md-4">			
 		</div>
-		<div class="col-md-4">
-	
+		<div class="col-md-4">	
 		</div>
 		<div class="col-md-4">		
 			<a href="storeupload" ><input type="button" class="btn btn-warning" value="상품등록" /></a>

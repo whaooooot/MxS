@@ -611,6 +611,7 @@ div {
 
 .pull-right {
     float: right !important;
+    color: #a54057;
 }
 ul, ol {
     margin-top: 0;

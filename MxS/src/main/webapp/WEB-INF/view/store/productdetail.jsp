@@ -244,13 +244,15 @@ document.getElementById("output2").value = temp1;
 							</form:form>							
 	<br/>
 								<a href="javascript:history.back();"><button class="btn btn-default">목록으로</button></a>
-								
-								
+					 
 								<form:form method="post" action="storedelete" accept-charset="utf-8" modelAttribute="storedto">
 									<input type="hidden" name="goodsNum" value="${detail.goodsNum}">			
-									<input type="submit"  class="btn btn-warning" value="삭제하기" /><br /><br />								
-								</form:form>
-									
+										<%String s=(String)session.getAttribute("id");%>
+		  <%if(s.equals("admin1")){ %>  
+									<input type="submit"  class="btn btn-warning" value="삭제하기" />	<br />	
+									<%} %>								
+								</form:form>							 
+							 		
 								<form:form method="get" action="storeupdate" accept-charset="utf-8" modelAttribute="storedto">
 									<input type="hidden" name="goodsNum" value="${detail.goodsNum}">									
 									<input type="hidden" name="goodsPic" value="${detail.goodsPic}">										
@@ -260,10 +262,12 @@ document.getElementById("output2").value = temp1;
 										 	<input type="hidden" name="goodsCon" value="${detail.goodsCon}">
 										 	<input type="hidden" name="goodsNote" value="${detail.goodsNote}">
 										 	<input type="hidden" name="movieNum" value="${detail.movieNum}">
-										 	
-											
-									<input type="submit"  class="btn btn-warning" value="수정하기" /><br /><br />								
-								</form:form>
+									<%String s=(String)session.getAttribute("id");%>
+										 	  <%if(s.equals("admin1")){ %>  
+								<input type="submit"  class="btn btn-warning" value="수정하기" />	
+								<%} %>							
+								</form:form>								
+								
 
 							</div>
 			

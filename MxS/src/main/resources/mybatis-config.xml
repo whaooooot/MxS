@@ -8,6 +8,13 @@
       <typeAlias type="model.StoreoptDTO" alias="storeoptdto" />
       <typeAlias type="model.GpaylistDTO" alias="gpaylistdto" />
        <typeAlias type="model.PayDTO" alias="paydto" />
+       <typeAlias type="model.Member" alias="Member" />
+      <typeAlias type="model.BookList" alias="BookList" />
+      <typeAlias type="model.Movie" alias="Movie" />
+      <typeAlias type="model.Theater" alias="Theater" />
+      <typeAlias type="model.TimeTable" alias="TimeTable" />
+      <typeAlias type="model.Screen" alias="Screen" />
+      <typeAlias type="model.TimeTableScreen" alias="TimeTableScreen" />
    </typeAliases>
    <environments default="development">
       <environment id="development">
@@ -21,7 +28,9 @@
       </environment>
    </environments>
    <mappers>
-      <mapper resource="repository/mapper/StoreMapper.xml" />
+      <mapper resource="repository/mapper/StoreMapper.xml" />      
+      <mapper resource="repository/mapper/MemberMapper.xml" />
+     <mapper resource="repository/mapper/MoviebookMapper.xml" />
      
    </mappers>
 </configuration>

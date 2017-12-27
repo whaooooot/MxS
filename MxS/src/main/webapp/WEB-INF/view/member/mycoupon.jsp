@@ -7,11 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
-
-	 <div id="header">
-      <jsp:include page="../header.jsp" flush="false" />
-   </div>
-   
 <body>
 
 	<div class="container">
@@ -170,9 +165,4 @@
    </div>
    </div>
 </body>
-
-	 <div id="footer">
-      <jsp:include page="../footer.jsp" flush="false" />
-   </div>
-   
 </html>

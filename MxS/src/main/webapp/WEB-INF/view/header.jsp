@@ -39,33 +39,44 @@
 			 <div class="navbar-header">
 		        	<!-- Mobile Toggle Menu Button -->
 					<a href="index" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		          	<a class="navbar-brand" href="index"><img width="100px" height="40px"  src="img/mxs1.png"></a> 
-		          	
+		          	<a class="navbar-brand" href="index">MXS</a> 
 		        </div>
-		        
+
 		        
 			<!-- 로그임 Start -->
 <div class="row row1">
             <ul class="largenav pull-right">
+				<% if(session.getAttribute("id") == null){ %>
                 <li class="upper-links"><a class="links" href="login">로그인</a></li>
-                <li class="upper-links"><a class="links" href="join">회원가입</a></li>
+                <li class="upper-links"><a class="links" href="accept">회원가입</a></li>
+                <% }else{ %>
+                <li class="upper-links"><%= session.getAttribute("name") %>님 반갑습니다. <a class="links" href="logout">로그아웃</a></li>
+                <% } %>
+                <% if(session.getAttribute("id") != null){ %>
                 <li class="upper-links"><a class="links" href="mypage">My MXS</a></li>
+                <% }%>
                 <li class="upper-links"><a class="links" href="customer_service">고객센터</a></li>
                 <li class="upper-links">
-                    <a class="links" href="http://clashhacks.in/">
+                    <a class="links" href="moviebook">빠른예매
                         <svg class="" width="16px" height="12px" style="overflow: visible;">
                             <path d="M8.037 17.546c1.487 0 2.417-.93 2.417-2.417H5.62c0 1.486.93 2.415 2.417 2.415m5.315-6.463v-2.97h-.005c-.044-3.266-1.67-5.46-4.337-5.98v-.81C9.01.622 8.436.05 7.735.05 7.033.05 6.46.624 6.46 1.325v.808c-2.667.52-4.294 2.716-4.338 5.98h-.005v2.972l-1.843 1.42v1.376h14.92v-1.375l-1.842-1.42z" fill="#fff"></path>
                         </svg>
                     </a>
-                </li>
-                <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Dropdown</a>
+                </li>            
+                <% if(session.getAttribute("id") != null){ %>
+                <li class="upper-links dropdown"><a class="links" href="">더보기+++</a>
                     <ul class="dropdown-menu">
-                        <li class="profile-li"><a class="profile-links" href="login">로그인</a></li>
-                        <li class="profile-li"><a class="profile-links" href="join">회원가입</a></li>
+                        <li class="profile-li"><a class="profile-links" href="cart">장바구니</a></li>              
                         <li class="profile-li"><a class="profile-links" href="mypage">My MXS</a></li>
-                        <li class="profile-li"><a class="profile-links" href="http://clashhacks.in/">고객센터</a></li>
+                        <li class="profile-li"><a class="profile-links" href="customer_service">고객센터</a></li>
                     </ul>
                 </li>
+                	 <% if(session.getAttribute("id") == "admin"){ %>
+               			 aaa
+                 	<% }%>
+                 <% }%>
+                 
+                                    
             </ul>
         </div>
         

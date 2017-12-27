@@ -1,11 +1,12 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 	<!-- footer Start -->
 	<footer id="footer" role="contentinfo">
 		<div class="container">
 			<div class="row row-bottom-padded-sm">
 				<div class="col-md-12">
-					<p class="copyright text-center">&copy; 2017 <a href="main.jsp">MXS</a>. All Rights Reserved. <br> Free HTML5 Template by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by <a href="http://pexels.com/" target="_blank">Pexels</a> &amp;  <a href="http://unsplash.com/" target="_blank">Unsplash</a></p>
+					<p class="copyright text-center">&copy; 2017 <a href="main.jsp">MXS</a>. All Rights Reserved. <br> MXS 자체 생성 콘텐츠는 MXS 및 영화 계약업체에 저작권이 있습니다.<br>
+					이러한 콘텐츠는 출처를 밝히고(MXS 표기 필수) 비상업적인 용도에서만 활용하실 수 있습니다.</p>
 				</div>
 			</div>
 			<div class="row">

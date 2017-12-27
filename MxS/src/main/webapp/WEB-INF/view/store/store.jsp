@@ -5,7 +5,11 @@
 <% 
 request.setCharacterEncoding("utf-8");
 List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
+
+String a= (String)session.getAttribute("name");
+
 %>
+<%=a %>
 
 									<%	
 									/*for(StoreDTO d : listgoods){
@@ -29,7 +33,9 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
+
 <head>	
+
 <meta charset="utf-8">
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 <title>MxS스토어</title>
@@ -40,8 +46,14 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="./css/store.css" rel="stylesheet" type="text/css">
 
-<link href="./css/store.css?ver=1" rel="stylesheet" type="text/css">
+<style type="text/css">
+.bright {
+	float: right;
+}
+</style>
+
 </head>
 <body> 
 
@@ -209,6 +221,16 @@ List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 			
 			
 		</div>
+		
+		<div class="bright">
+		
+		<%String s=(String)session.getAttribute("id");%>
+		<%if(s.equals("admin1")){ %>  
+			<a href="storeupload" ><input type="button" class="btn btn-warning" value="상품등록" /></a>					
+			<a href="storeoption" ><input type="button" class="btn btn-success" value="옵션등록" /></a>
+			<%} %>
+	
+</div>
 
 
 
