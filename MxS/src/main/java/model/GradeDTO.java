@@ -1,12 +1,15 @@
 package model;
 
-public class GradeDTO {
-	int scoreNum; // 평점 번호 (PK)
-	int movieNum; // 영화 번호 (PK-FK)
-	String scoreCon; // 평점 내용
-	int scoreQuan; // 평점 별 개수
-	int memberNum; // 회원 번호 (FK)
-	
+import java.sql.Date;
+
+public class GradeDTO extends MovieDTO{
+	private int scoreNum; // 평점 번호 (PK)
+	private int movieNum; // 영화 번호 (PK-FK)
+	private String scoreCon; // 평점 내용
+	private int scoreQuan; // 평점 별 개수
+	private Date scoreDate; // 등록일
+	private int memberNum; // 회원 번호 (FK)
+
 	
 	public int getScoreNum() {
 		return scoreNum;
@@ -31,6 +34,12 @@ public class GradeDTO {
 	}
 	public void setScoreQuan(int scoreQuan) {
 		this.scoreQuan = scoreQuan;
+	}
+	public Date getScoreDate() {
+		return scoreDate;
+	}
+	public void setScoreDate(Date scoreDate) {
+		this.scoreDate = scoreDate;
 	}
 	public int getMemberNum() {
 		return memberNum;

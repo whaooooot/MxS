@@ -42,7 +42,7 @@
          	  txt += "<tr class='first'>"
               txt += "<td>"+obj.BOARD_NUM+"</td>"
               txt += "<td>"+obj.BOARD_HEAD+"</td>"
-              txt += "<td class='txt'><a href='#'>"+obj.BOARD_TITLE+"</a></td>"
+              txt += "<td class='txt'><a href='${path}/MxS/qna_detail?boardNum="+obj.BOARD_NUM+"'>"+obj.BOARD_TITLE+"</a></td>"
 			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
               txt += "</tr>"
 	        });

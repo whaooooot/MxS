@@ -118,9 +118,42 @@
 	<!-- 이메일 문의 -->
 	<select id="selectEmailMember" parameterType="int" resultType="map">
 		SELECT
-			MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHON
+			MEMBER_NUM, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHON
 		FROM MEMBER
-		WHERE MEMBER_NUM = 1
+		WHERE MEMBER_NUM = 2
 	</select>
+ 	<insert id="insertEmail" parameterType="customerdto">
+ 		INSERT INTO BOARD
+ 		(
+			BOARD_NUM,
+			BOARD_CON, 
+			BOARD_TITLE, 
+			BOARD_DATE, 
+			BOARD_FILE, 
+			BOARD_HEAD, 
+			BOARD_TYPE, 
+			MEMBER_NUM
+		)
+ 		VALUES 
+ 		(
+ 			BOARD_NUM_SEQ.nextval,
+ 		 	#{boardCon, jdbcType=VARCHAR},
+ 		 	#{boardTitle, jdbcType=VARCHAR},
+ 		 	SYSDATE,
+ 		 	#{boardFile, jdbcType=VARCHAR}, 
+ 		 	'이메일문의', 
+ 		 	#{boardType, jdbcType=VARCHAR}, 
+ 		 	#{MEMBER_NUM, jdbcType=INTEGER}
+ 		 )
+ 	</insert>
 	
+	
+	
+	
+	<!-- 상세 -->
+	<select id="customerDetail" parameterType="int" resultType="CustomerDTO" resultMap="customerResultMap">
+      SELECT * 
+      FROM BOARD
+      WHERE BOARD_NUM = #{boardNum}
+    </select>
 </mapper>

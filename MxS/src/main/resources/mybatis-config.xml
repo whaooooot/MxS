@@ -6,7 +6,7 @@
    <typeAliases>
       <typeAlias type="model.StoreDTO" alias="storedto" />
       <typeAlias type="model.CustomerDTO" alias="customerdto" />
-      <typeAlias type="model.CustomerDTO" alias="gradedto" />
+      <typeAlias type="model.GradeDTO" alias="gradedto" />
    </typeAliases>
    <environments default="development">
       <environment id="development">

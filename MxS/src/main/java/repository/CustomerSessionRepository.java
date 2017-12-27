@@ -45,6 +45,9 @@ public class CustomerSessionRepository extends AbstractRepository {
 	}
 
 	
+	
+	
+	
 	/* 공지/뉴스 */
 	public List<CustomerDTO> selectNotice(CustomerDTO custmoerdto) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
@@ -62,6 +65,9 @@ public class CustomerSessionRepository extends AbstractRepository {
 	}
 	
 	
+	
+	
+	
 	/* 이메일 문의 */
 	public Map<String, Object> selectEmail(MemberDTO memberdto) {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
@@ -69,5 +75,41 @@ public class CustomerSessionRepository extends AbstractRepository {
 		
 		return sqlSession.selectOne(statement, memberdto);
 	}
+	public Integer insertEmail(CustomerDTO custmoerdto) {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		/*String statement = namespace + ".insertEmail";*/
+		try {
+			System.out.println("1");
+			
+			String statement = namespace + ".insertEmail";
+			int result = sqlSession.insert(statement, custmoerdto);
+			
+			if (result > 0) {
+				sqlSession.commit();
+			}
+			return result;
+		} finally {
+			sqlSession.close();
+		}
+		/*return sqlSession.insert(statement, custmoerdto);*/
+	}
+	
+	
+	
+	
+	/* 상세 */
+	public CustomerDTO noticeDetail(int boardNum) throws Exception {
+	      SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+	      String statement = namespace + ".customerDetail";
+	      
+	      return sqlSession.selectOne(statement, boardNum);
+	   }
+
+	public CustomerDTO qnaDetail(int boardNum) throws Exception {
+	      SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+	      String statement = namespace + ".customerDetail";
+	      
+	      return sqlSession.selectOne(statement, boardNum);
+	   }
 
 }

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 | 고객센터</title>
+<link rel="stylesheet" media="all" type="text/css" href="./css/customer.css" />
 <style type="text/css">
 .container {
     margin-right: auto;
@@ -19,7 +20,6 @@
  	<div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
-<link rel="stylesheet" media="all" type="text/css" href="./css/customer.css" />
 <body>
 <br/>
 		<div class="container">
@@ -83,8 +83,9 @@
 							<li><a href="#">[${customerdto.boardHead}] ${customerdto.boardTitle}</a><span class="day">${customerdto.boardDate}</span></li>
 					</c:forEach>
                   </ul>
-                  <a href="/support/news/default.aspx" class="more">공지/뉴스 더보기</a>
+                  <a href="#" class="more">공지/뉴스 더보기</a>
                </div>
+               ${notice}
             </div>
             <ul class="tel_inquiry">
                <li>MXS 고객센터 : 2222-1122 <span class="time">(09:00~21:00)</span></li>

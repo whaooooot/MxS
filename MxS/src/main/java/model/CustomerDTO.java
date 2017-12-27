@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @SuppressWarnings("serial")
 public class CustomerDTO extends MemberDTO implements Serializable{
 	private int boardNum; // 게시물 번호 (PK)
@@ -79,6 +81,8 @@ public class CustomerDTO extends MemberDTO implements Serializable{
 	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
 	}
+
+	
 	
 	public String getTabType() {
 		return tabType;

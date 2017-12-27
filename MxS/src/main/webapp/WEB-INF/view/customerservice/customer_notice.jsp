@@ -2,6 +2,7 @@
 <%@page import="java.io.*, javax.servlet.*, java.util.*, model.*" %>
 <%@page import="org.springframework.context.*, org.springframework.context.support.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,7 +49,7 @@ function tab(val){
          	  txt += "<tr class='first'>"
               txt += "<td>"+obj.BOARD_NUM+"</td>"
               txt += "<td>"+obj.BOARD_HEAD+"</td>"
-              txt += "<td class='txt'><a href='#'>"+obj.BOARD_TITLE+"</a></td>"
+              txt += "<td class='txt'><a href='${path}/MxS/notice_detail?boardNum="+obj.BOARD_NUM+"'>"+obj.BOARD_TITLE+"</a></td>"
               txt += "<td>"+obj.BOARD_DATE+"</td>"
 			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
               txt += "</tr>"
