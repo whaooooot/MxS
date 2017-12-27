@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>극장목록</title>
+<title>시간표 목록</title>
 <%@ include file="../include/header.jsp"%>
 <script>
 $(document).ready(function() {
-	$("#btnTheaterWrite").click(function() {
+	$("#btnTimeTableWrite").click(function() {
 		// 페이지 주소 변경(이동)
-		location.href = "${path}/theater_write";
+		location.href = "${path}/timetable_write";
 	});
 });	
 //데이터 수정창 띄우기 
@@ -24,12 +24,12 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-	<h2>극장 목록</h2>
+	<h2>시간표 목록</h2>
 
 
-	<form name="form1" method="post" action="${path}/theater_write">
+	<form name="form1" method="post" action="${path}/timetable_write">
 
-		<button type="button" id="btnTheaterWrite">극장새로등록</button>
+		<button type="button" id="btnTimeTableWrite">시간표새로등록</button>
 	</form>
 
 	<table border="1" width="600px">
@@ -42,24 +42,28 @@ $(document).ready(function() {
 		</colgroup>
 		<thead>
 			<tr>
+				<th>시작시간</th>
+				<th>종료시간</th>
 				<th>극장번호</th>
-				<th>극장이름</th>
-				<th>극장지역</th>
-				<th>상영관리스트로</th>
-	
+				<th>영화번호</th>
+				<th>상영관</th>
+				
+				
+
 			</tr>
 		</thead>
 		<tbody>
 			<c:choose>
 				<c:when test="${fn:length(list) > 0}">
-					<c:forEach var="theater" items="${list}">
+					<c:forEach var="timetable" items="${list}">
 						<tr>
-							<td>${theater.theaterNum}</td>
-							<td><span onclick="open_pop(${theater.theaterNum})">${theater.theaterName}</span></td>
-							<td>${theater.theaterArea}</td>
-							<td>
-							<a href="${path}/screen_list?movieNum=${theater.movieNum}&theaterNum=${theater.theaterNum}" >상영관 관리</a></td>
+							<td>${timetable.timeStart}</td>
+							<td>${timetable.timeEnd}</td>
+							<td>${timetable.theaterNum}</td>
+							<td>${timetable.movieNum}</td>
+							<td>${timetable.screenName}</td>
 							
+
 			
 						</tr>
 					</c:forEach>
@@ -72,6 +76,5 @@ $(document).ready(function() {
 			</c:choose>
 		</tbody>
 	</table>
-	
-</body>
+
 </html>

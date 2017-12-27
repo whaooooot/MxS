@@ -59,6 +59,11 @@
 	</sql>
 
 
+	<select id="movieDetailView" parameterType="Long" resultType="Movie"
+		resultMap="movieBaseResultMap">
+		SELECT * FROM movie
+		WHERE movie_num = #{movieNum}
+	</select>
 
 
 

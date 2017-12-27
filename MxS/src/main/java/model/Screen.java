@@ -10,9 +10,16 @@ public class Screen implements Serializable  {
 	private Long screenSeat;
 	private String seatRow;
 	private Long seatCol;
+	private String aisle;
 	
 	
 	
+	public String getAisle() {
+		return aisle;
+	}
+	public void setAisle(String aisle) {
+		this.aisle = aisle;
+	}
 	public String getScreenName() {
 		return screenName;
 	}

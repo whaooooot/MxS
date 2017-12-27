@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Movie;
+import model.Screen;
 import model.Theater;
+import model.TimeTable;
 import repository.MovieAdminSessionRepository;
 
 @Controller
@@ -178,9 +179,138 @@ public class MovieAdminController {
 
 	////////////////////////////상영관///////////////////////////////////////	
 	
+	//상영관 상세 
+	@RequestMapping(value="/screen_view", method=RequestMethod.GET)
+	public ModelAndView screenDetailView(@RequestParam String screenName, HttpSession session) throws Exception{
+
+		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
+		ModelAndView mav = new ModelAndView();
+		// 뷰의 이름
+		mav.setViewName("movie_admin/screen_view");
+		// 뷰에 전달할 데이터
+		mav.addObject("screen", movieAdminSessionRepository.screenDetailView(screenName));
+		return mav;
+	}
+	// 상영관목록
+    @RequestMapping("/screen_list")
+    public ModelAndView listScreen(@RequestParam Long theaterNum, Long movieNum, ModelAndView mav){
+        List<Screen> list = movieAdminSessionRepository.listScreen(theaterNum, movieNum);
+        
+        // 뷰이름 지정
+        mav.setViewName("movie_admin/screen_list");
+        // 뷰에 전달할 데이터 지정
+        mav.addObject("list", list);
+        // replyList.jsp로 포워딩
+        return mav;
+    }
+	//상영관 작성 폼
+	@RequestMapping(value="/screen_write", method=RequestMethod.POST)
+	public String screenWrite(HttpServletRequest httpServeletRequest,Screen screen , Model model){
+		String movieNum = httpServeletRequest.getParameter("movieNum");
+		String theaterNum = httpServeletRequest.getParameter("theaterNum");
+		
+		//System.out.println(movieNum);
+		
+		model.addAttribute("movieNum", movieNum);
+		model.addAttribute("theaterNum", theaterNum);
+		
+		return "movie_admin/screen_write"; // write.jsp로 이동
+	}
+
+	//상영관 입력
+	@RequestMapping(value = "/screen_insert", method = RequestMethod.POST)
+	public String screenInsert(@ModelAttribute Screen screen) throws Exception {
+		movieAdminSessionRepository.insertScreen(screen);
+		return "redirect:movie_list";
+	}
+
+
+	//상영관 수정
+	@RequestMapping(value = "/screen_update", method = RequestMethod.POST)	
+	public String screenUpdate(Screen screen, Model model) {
+		Integer result =  movieAdminSessionRepository.updateScreen(screen);		
+		model.addAttribute("result", result);
+		
+		return "redirect:movie_list";
+	}
 	
+
 	
+	//상영관 삭제
+	@RequestMapping(value = "/screen_delete", method = RequestMethod.POST)
+	public String screenDelete(Screen screen, Model model) {		
+		Integer result =  movieAdminSessionRepository.deleteScreen(screen.getScreenName());		
+		model.addAttribute("result", result);
+		return "redirect:movie_list";
 	
+			
+	}
+	
+	////////////////////////////상영시간표///////////////////////////////////////	
+	
+	//시간표 상세 
+	@RequestMapping(value="/timetable_view", method=RequestMethod.GET)
+	public ModelAndView timetableDetailView(@RequestParam String TimeStart, HttpSession session) throws Exception{
+
+		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
+		ModelAndView mav = new ModelAndView();
+		// 뷰의 이름
+		mav.setViewName("movie_admin/timetable_view");
+		// 뷰에 전달할 데이터
+		mav.addObject("timetable", movieAdminSessionRepository.timetableDetailView(TimeStart));
+		return mav;
+	}
+	// 시간표 목록
+    @RequestMapping("/timetable_list")
+    public String listTimetable(
+    		@RequestParam String screenName, 
+    		@RequestParam Long theaterNum, 
+    		@RequestParam Long movieNum, 
+    		Model model){
+
+    	System.out.println("aaa");
+    	
+    	List<Screen> list = movieAdminSessionRepository.listTimetable(screenName, theaterNum, movieNum);
+    	model.addAttribute("list", list);
+
+    	return "movie_admin/timetable_list";
+    }
+	//시간표 작성 폼
+	@RequestMapping(value="/timetable_write", method=RequestMethod.GET)
+	public String timetableWrite(TimeTable timetable , Model model){
+		model.addAttribute("timetable", new TimeTable());
+		
+		return "movie_admin/screen_write"; // write.jsp로 이동
+	}
+
+	//시간표 입력
+	@RequestMapping(value = "/timetable_insert", method = RequestMethod.POST)
+	public String timetableInsert(@ModelAttribute TimeTable timetable) throws Exception {
+		movieAdminSessionRepository.timetableInsert(timetable);
+		return "redirect:movie_list";
+	}
+
+
+	//시간표 수정
+	@RequestMapping(value = "/timetable_update", method = RequestMethod.POST)	
+	public String timetableUpdate(TimeTable timetable, Model model) {
+		Integer result =  movieAdminSessionRepository.timetableUpdate(timetable);		
+		model.addAttribute("result", result);
+		
+		return "redirect:movie_list";
+	}
+	
+
+	
+	//시간표 삭제
+	@RequestMapping(value = "/timetable_delete", method = RequestMethod.POST)
+	public String timetableDelete(TimeTable timetable, Model model) {		
+		Integer result =  movieAdminSessionRepository.timetableDelete(timetable.getTimeStart());		
+		model.addAttribute("result", result);
+		return "redirect:movie_list";
+	
+			
+	}
 
 	
 	

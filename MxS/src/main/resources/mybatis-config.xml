@@ -7,7 +7,8 @@
       <typeAlias type="model.StoreDTO" alias="storedto" />
       <typeAlias type="model.Movie" alias="Movie" />
        <typeAlias type="model.Theater" alias="Theater" />
-
+	<typeAlias type="model.Screen" alias="Screen" />
+	<typeAlias type="model.TimeTable" alias="TimeTable" />
    </typeAliases>
    <environments default="development">
       <environment id="development">

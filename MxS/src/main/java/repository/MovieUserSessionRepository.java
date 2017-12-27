@@ -29,6 +29,12 @@ public class MovieUserSessionRepository extends AbstractRepository{
 		return sqlSession.selectList(statement, map);
 
 	}
+	//영화 상세
+	public Movie movieDetailView(Long movieNum) throws Exception {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".movieDetailView";
+		return sqlSession.selectOne(statement, movieNum);
+	}
 	
 	
 	

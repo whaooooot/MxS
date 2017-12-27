@@ -75,9 +75,7 @@
 		</select> 
 		<div>
 		
-			<input type="checkbox" id="chk" name="chk1" value="1"/>1<br />
-			<input type="checkbox" id="chk" name="chk1" value="2"/>2<br />
-			
+		
 		</div>
 		
 		<input name="keyword" value="${map.keyword}"> <input
@@ -113,7 +111,7 @@
 						<li>
 							<!-- 영화1 -->
 							<div class="box-image">
-								<a href="${path}/movieDetail?movieNum=${movie.movieNum}"> <span class="thumb-image"> <img
+								<a href="${path}/MovieDetail?movieNum=${movie.movieNum}"> <span class="thumb-image"> <img
 										src="/MxS/img/upload/mxs/movie/upload/s_${movie.moviePoster}"
 										alt="${movie.movieTitle} 포스터"/> <span
 										class="ico-grade grade-15">${movie.movieGrade}</span>

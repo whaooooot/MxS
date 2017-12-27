@@ -14,7 +14,6 @@
 		$("#btnTheaterSave").click(function() {
 			var theaterName = $("#theaterName").val();
 			var theaterArea = $("#theaterArea").val();
-
 			if (theaterName == "") {
 				alert("극장이름을 입력하세요");
 				document.form1.theaterName.focus();
@@ -25,10 +24,8 @@
 				document.form1.theaterArea.focus();
 				return;
 			}
-
 			document.form1.submit();
 			alert("등록되었습니다.");
-
 		});
 		
 		
