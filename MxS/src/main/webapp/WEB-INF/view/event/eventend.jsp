@@ -40,14 +40,14 @@
 	<ul>
 	   	<li>
 	   		<div class="box-image">
-	   			<a href="#">
+	   			<a href="eventdetail">
 	   				<span class="image">
 	   				<img src="./img/메리와 마녀 의 꽃.jpg" onerror="errorImage(this)">
 	   				</span>
 	   			</a>
 	   		</div>
 	   		<div class="box-contents">
-	   			<a href="#">
+	   			<a href="eventdetail">
 	   			<em class="txt-lightblue">영화/예매</em>
 	   			<strong>[메리와 마녀의 꽃] 1+1 예매권 이벤트</strong>
 	   			</a>
@@ -59,14 +59,14 @@
 	   	</li>
 	   	<li>
              <div class="box-image">
-                  <a href="#">
+                  <a href="eventdetail">
                  	 <span class="image">
                      <img src="./img/대구 월성.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="#">
+                  <a href="eventdetail">
                   <em class="txt-lightblue">CGV극장별</em>
                   <strong>[대구월성,대구스타디움]나만의 뽀로로를 그려주세요!</strong>
                   </a>
@@ -78,14 +78,14 @@
         </li>
         <li>
              <div class="box-image">
-                  <a href="#">
+                  <a href="eventdetail">
                  	 <span class="image">
                      <img src="./img/세 번째 살인.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="#">
+                  <a href="eventdetail">
                   <em class="txt-lightblue">아트하우스</em>
                   <strong>[세 번째 살인] 프리미어 DAY</strong>
                   </a>
@@ -97,14 +97,14 @@
         </li>
 	   	<li>
              <div class="box-image">
-                  <a href="#">
+                  <a href="eventdetail">
                  	 <span class="image">
                      <img src="./img/라라랜드.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="#">
+                  <a href="eventdetail">
                   <em class="txt-lightblue">영화/예매</em>
                   <strong>[라라랜드] 2018달력 증정 특별상영 이벤트</strong>
                   </a>

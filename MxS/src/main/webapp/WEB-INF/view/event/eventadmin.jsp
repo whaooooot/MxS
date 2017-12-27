@@ -48,19 +48,18 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                       	<div class="fff">
 	                        <div class="thumbnail">
-	                     	<a href="eventdetail?num=1">
-	                        <img src="img/15117589467490.jpg" alt=""></a>
+	                           <a href="eventdetail"><img src="<%=listevent.get(0).getEventFile()%>" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=1">
+	                        <a href="eventdetail">
 	                               <em class="txt-lightblue"><%=listevent.get(0).getEventType()%></em>
 	                               <p><%=listevent.get(0).getEventTit()%></p>
 	                        </a>
 	                               <em class="date">
 	                               <span>기간: </span>
 	                               <fmt:formatDate value="<%=listevent.get(0).getEventStt()%>"
-                           		   pattern="yyyy/MM/dd" /> ~ <fmt:formatDate value="<%=listevent.get(0).getEventEnd()%>"
+                           		   pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="<%=listevent.get(0).getEventEnd()%>"
                            		   pattern="yyyy.MM.dd" />
                            		
 	                               </em>
@@ -71,11 +70,11 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=2"><img src="<%=listevent.get(1).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail"><img src="<%=listevent.get(1).getEventFile()%>" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=2">
+	                        <a href="eventdetail">
 	                               <em class="txt-lightblue"><%=listevent.get(1).getEventType()%></em>
 	                               <p><%=listevent.get(1).getEventTit()%></p>
 	                        </a>
@@ -93,11 +92,11 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                      	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=3"><img src="<%=listevent.get(2).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail"><img src="<%=listevent.get(2).getEventFile()%>" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=3">
+	                        <a href="eventdetail">
 	                               <em class="txt-lightblue"><%=listevent.get(2).getEventType()%></em>
 	                               <p><%=listevent.get(2).getEventTit()%></p>
 	                        </a>
@@ -115,11 +114,11 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=4"><img src="<%=listevent.get(3).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail"><img src="<%=listevent.get(3).getEventFile()%>" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=4">
+	                        <a href="eventdetail">
 	                               <em class="txt-lightblue"><%=listevent.get(3).getEventType()%></em>
 	                               <p><%=listevent.get(3).getEventTit()%></p>
 	                        </a>
@@ -222,57 +221,17 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
          </ul>
       </nav>
       <!-- /.control-box -->   
-      
-<!--    <div class="sect-event" align="center">
-         <div class="box-event">
-            <div class="evt-item-lst" style="min-height:1000px; ">
-              <div style="position:absolute; top:100px; left: 50px; ">
-                <a id="tile_1" href="#" >
-                <img src="../img/15120083782940.jpg" alt="cgv 감사 패키지" ">
-                </a>
-                </div>       
-                      
-              <div style="position:absolute; top:100px; left: 380px; ">
-                <a id="tile_2" href="#" >
-                <img src="../img/15120165577600.jpg" alt="" >
-                </a>
-                </div>       
-                          
-              <div style="position:absolute; top:100px; left: 700px; ">
-                <a id="tile_3" href="#" >
-                <img src="../img/메리와 마녀 의 꽃.jpg" alt="">
-                </a>
-                </div>
-                
-                <div style="position:absolute; top:350px; left: 50px; ">
-                <a id="tile_4" href="#" >
-                <img src="../img/15117589467490.jpg" alt="">
-                </a>
-                </div>
-                
-                <div style="position:absolute; top:350px; left: 380px; ">
-                <a id="tile_5" href="#" >
-                <img src="../img/메리와 마녀 의 꽃.jpg" alt="">
-                </a>
-                </div>
-                
-                <div style="position:absolute; top:350px; left: 700px; ">
-                <a id="tile_6" href="#" >
-                <img src="../img/메리와 마녀 의 꽃.jpg" alt="">
-                </a>
-                </div>                       
-                    
-             </div>
-        </div>
--->     
-        
-      
+     
      
         <div class="button" align="center">
             <a class="btn icon-btn btn-warning" href="#">
             <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> 전체보기 </a>
         </div>
-     
+     	
+     	<div class="eventadminbtn">		
+			<a href="eventupload" ><input type="button" class="btn icon-btn btn-success" value="상품등록" /></a>
+			
+		</div>
      
     </div><!-- /#myCarousel -->
        

@@ -1,16 +1,13 @@
 @charset "utf-8";
 
 
-#contaniner {
-    width: 1200px;
-    background-color: #fdfcf0;
-}
 
 #contents {
     clear: both;
     padding-bottom: 50px;
     position: relative;
     margin: 0 auto;
+	background-color: #fdfcf0;
 }
 
 .tbl-viw-head {
@@ -49,21 +46,15 @@
 }
 
 .dir-prev {
-    height: 32px;
-    margin: 32px 0 20px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #CECCC1;
+    height: 30px;
+    margin: 0;
+    padding: 15px;
+    float:right;
+    font-size: 15px;
+    color: #333;
 }
 
 
-.dir-prev a {
-    float: right;
-    height: 20px;
-    margin: 9px 2px 0 0;
-    padding-left: 20px;
-    color: #333333;
-    font-size: 16px;
-}
 
 
 

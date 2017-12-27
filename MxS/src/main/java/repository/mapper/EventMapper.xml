@@ -25,12 +25,60 @@
     </select>
     
        
-    <!-- 상품집어넣을때  parameter 조회결과--> 
+    <!-- 이벤트 등록할 때  parameter 조회결과 --> 
 	<insert id="insertEvent" parameterType="eventdto" > 
 		insert into 
-		EVENT(EVENT_NUM, MOVIE_NUM, EVENT_TITLE, EVENT_CON, EVENT_FILE, EVENT_TYPE, EVENT_START, EVENT_END)
-		VALUES (EVENT_NUM.nextval, #{movieNo}, #{eventTit}, #{eventCon}, #{eventFile}, #{eventType}, #{eventStt}, #{eventEnd})
+		EVENT(EVENT_NUM, MOVIE_NUM, EVENT_TITLE, EVENT_CON, EVENT_FILE, EVENT_TYPE,
+		EVENT_START, EVENT_END)
+		
+		VALUES (EVENT_NUM.nextval, #{movieNo}, #{eventTit}, #{eventCon}, #{eventFile},
+		#{eventType}, #{eventStt}, #{eventEnd})
 	</insert>   
+
+
+
+	<!-- 이벤트 수정 -->
+	<update id = "updateEvent" parameterType="eventdto">
+		UPDATE EVENT
+		SET
+			<if test ="movieNo != null">
+				MOVIE_NUM = #{movieNo},
+			</if>
+			<if test ="eventTit != null">
+				EVENT_TITLE = #{eventTit},
+			</if>
+			<if test ="eventCon != null">
+				EVENT_CON =  #{eventCon},
+			</if>
+			<if test ="eventFile != null">
+				EVENT_FILE =  #{eventFile},
+			</if>
+			<if test ="eventType != null">
+				EVENT_TYPE =  #{eventType},
+			</if>
+			<if test ="eventStt != null">
+				EVENT_START =  #{eventStt},
+			</if>
+			<if test ="eventEnd != null">
+				EVENT_END =  #{eventEnd}
+			</if>			
+			<!-- 마지막 IF분은 꼭 실행된다는 전제 하에 사용해야함-->		
+		WHERE
+			EVENT_NUM = #{eventNo}
+	</update>
+
+	<!-- 상품 상세보기 결과반환 --> 
+
+	<select id="eventdetail" resultMap="eventResultMap"> 
+        select * from EVENT
+        where
+        EVENT_NUM = #{eventNo} 
+    </select>
+ 
+
+
+
+
 
 </mapper>
 
