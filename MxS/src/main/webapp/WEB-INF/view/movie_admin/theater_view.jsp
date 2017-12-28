@@ -35,6 +35,7 @@
  				
 			document.form1.action = "${path}/theater_update";
 			document.form1.submit();  
+			self.close();
 				
 			 } 
 

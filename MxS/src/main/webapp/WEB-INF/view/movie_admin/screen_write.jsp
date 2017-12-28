@@ -36,48 +36,7 @@
 			document.form1.submit();
 			alert("등록되었습니다.");
 		});
-		//좌석선택값 받기 체크박스
-/* 		$(".btn").click(function() {
-			var chk = document.getElementsByName("chk[]");
-			var len = chk.length;
-			var checkRow = ''; //체크된 체크박스의 value를 담기위한 변수
-			var checkCnt = 0; //체크된 체크박스의 개수
-			var checkLast = ''; //체크된 체크박스 중 마지막 체크박스의 인덱스를 담기위한 변수
 
-			var rowid = ''; //체크된 체크박스의 모든 value 값답기     
-			var cnt = 0;
-
-			for (var i = 0; i < len; i++) {
-				if (chk[i].checked == true) {
-					checkCnt++;
-					checkLast = i;
-				}
-			}
-
-			for (var i = 0; i < len; i++) {
-				if (chk[i].checked == true) {
-					checkRow = chk[i].value;
-
-					if (checkCnt == 1) {
-						rowid += "'" + checkRow + "'"; // 한개 'value'의 형태 (뒤에 ,(콤마)가 붙지않게)
-
-					} else { //체크된 체크박스의 개수가 여러 개 일때                                        
-						if (i == checkLast) {
-							rowid += "'" + checkRow + "'"; //체크된 체크박스 중 마지막 체크박스일 때 
-						} else {
-							rowid += "'" + checkRow + "',";
-						}
-
-					}
-					cnt++;
-					checkRow = '';
-				}
-
-				
-
-			}
-			alert(rowid); //'value1', 'value2', 'value3' 의 형태로 출력
-		}); */
 		
 		
 

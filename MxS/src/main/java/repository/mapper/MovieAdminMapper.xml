@@ -297,19 +297,19 @@
 	 <select id="listTimetable" parameterType="TimeTable"
 		resultMap="TimeTableBaseResultMap">
 		SELECT *
-		FROM timetable
+		FROM time_table
 		WHERE movie_num=#{movieNum} and theater_num=#{theaterNum} and screen_name=#{screenName}
 	</select>
 
 	
 	<!-- 상세보기 -->
 	<select id="timetableDetailView"  parameterType="String" resultType="TimeTable" resultMap="TimeTableBaseResultMap">
-	SELECT * FROM timetable
+	SELECT * FROM time_table
 	WHERE time_start = #{timeStart}
 	</select>
 
 	<insert id="timetableInsert" parameterType="TimeTable">
-		INSERT INTO timetable (
+		INSERT INTO time_table (
 		time_start,
 		theater_num,
 		movie_num,
@@ -326,14 +326,14 @@
 	</insert>
 
 	<update id="timetableUpdate" parameterType="TimeTable">
-		UPDATE timetable SET
+		UPDATE time_table SET
 		time_end = #{timeEnd},
 		WHERE time_start = #{timeStart}
 	</update>
 
 
 	<delete id="timetableDelete" parameterType="String">
-		DELETE FROM timetable
+		DELETE FROM time_table
 		WHERE time_start = #{timeStart}
 	</delete>
 	

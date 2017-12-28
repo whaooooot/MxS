@@ -24,13 +24,20 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+	<%String movieNum = request.getParameter("movieNum"); 
+	String theaterNum = request.getParameter("theaterNum");
+	String screenName = request.getParameter("screenName");
+	%>
 	<h2>시간표 목록</h2>
+  	<form name="form2" method="post" action="${path}/timetable_write">
+		
+		<input type="hidden" name="movieNum" value="<%=movieNum%>">
+		<input type="hidden" name="theaterNum" value="<%=theaterNum%>">
+		<input type="hidden" name="screenName" value="<%=screenName%>">
+		<input type="submit" id="btnTimeTableWrite" value="시간표새로등록">
+	</form>  
 
 
-	<form name="form1" method="post" action="${path}/timetable_write">
-
-		<button type="button" id="btnTimeTableWrite">시간표새로등록</button>
-	</form>
 
 	<table border="1" width="600px">
 		<colgroup>
@@ -76,5 +83,5 @@ $(document).ready(function() {
 			</c:choose>
 		</tbody>
 	</table>
-
+	<a href="${path}/movie_list">영화목록으로</a>
 </html>

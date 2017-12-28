@@ -28,120 +28,57 @@
 			alert("등록되었습니다.");
 		});
 	});
-	//셀렉트박스의 영화 제목 선택했을 때 영화 번호가 input의 값으로 설정됨
-	function setMovieNum(value) {
-		var ab = document.getElementById('movieSelectBox').value;
-		document.getElementById('test').value = ab;
-	}
-	$(function() {
-		var select = "<option>:: 선택 ::</option>";
-		$("#product").change(function() {
-			if ($("#product").val() == "") { // select의 value가 ""이면, "선택" 메뉴만 보여줌.
-				$("#sub").find("option").remove().end().append(select);
-			} else {
-				comboChange($(this).val());
-			}
-		});
-		function comboChange() {
-			$.ajax({
-				type : "post",
-				url : "${contextPath}/servlet/product/getSub.do",
-				datatype : "json",
-				data : $("#productForm").serialize(),
-				success : function(data) {
-					if (data.SUB_LIST.length > 0) {
-						$("#sub").find("option").remove().end().append(select);
-						$.each(data.SUB_LIST, function(key, value) {
-							$("#sub").append("<option>" + value + "</option>");
-						});
-					} else {
-						$("#sub").find("option").remove().end().append(
-								"<option>-- No sub --</option>");
-						return;
-					}
-				},
-				error : function(x, o, e) {
-					var msg = "페이지 호출 중 에러 발생 \n" + x.status + " : " + o
-							+ " : " + e;
-					alert(msg);
-				}
-			});
-		}
-	});
 </script>
 </head>
 <body>
 	<h2>시간표등록</h2>
 
-	<form:form name="form1" id="form1" commandName="theater" method="post"
-		action="${path}/timetable_insert">
+	<form name="form1" id="form1" method="post" action="${path}/timetable_insert">
 		<table border=1>
-
-
+		<tr>
+		<td>
+			작성형식
+		</td>
+		<td>
+		yyyy/mm/dd hh:mm
+		</td>
+		</tr>
+		
 			<tr>
-
-				<td>존재하는 영화데이터</td>
-				<td><form id="productForm">
-						<select name="product" id="product" style="width: 80px;"
-							onchange='setMovieNum(this.value);'>
-
-							<option value="">영화선택</option>
-
-							<c:forEach var="movie" items="${list}" varStatus="i">
-
-								<option value="${movie.movieNum}">${movie.movieTitle}</option>
-
-							</c:forEach>
-						</select> <select name="sub" id="sub">
-
-							<option>:: 선택 ::</option>
-
-						</select>
-					</form></td>
-
+				<td>
+				<input type="hidden" id="movieNum" name="movieNum" value="${movieNum}" />
+				
+				<input type="hidden" id="theaterNum" name="theaterNum" value="${theaterNum}"/>
+				<input type="hidden" id="screenName" name="screenName" value="${screenName}"/></td>
 			</tr>
-			<form:input id="test" path="movieNum" />
-			<tr>
 
-				<td>극장 데이터</td>
-				<td><select id="theaterSelectBox" style="width: 80px;"
-					onchange=''>
+			
 
-						<option value="">극장선택</option>
-
-						<c:forEach var="movie" items="${list}" varStatus="i">
-
-							<option value="${movie.movieNum}">${movie.movieTitle}</option>
-
-						</c:forEach>
-
-				</select> <form:input id="test" path="movieNum" /></td>
-
-			</tr>
 
 			<tr>
 
 				<td>상영시작</td>
-				<td><form:input id="timeStart" path="timeStart" /></td>
+				<td><input type="text" id="timeStart" name="timeStart" /></td>
+				
 
 			</tr>
 
 			<tr>
 
 				<td>상영종료</td>
-				<td><form:input id="timeEnd" path="timeEnd" /></td>
+				<td><input type="text" id="timeEnd" name="timeEnd" /></td>
 
 			</tr>
 
 
 			<tr>
-				<td><button type="button" id="btnTimeTableSave">확인</button> <input
+				<td><button id="btnTimeTableSave">확인</button> <input
 					type="reset" name="resetbtn" value="초기화"></td>
 			</tr>
 
 		</table>
 
-	</form:form>
+	</form>
 
 
 

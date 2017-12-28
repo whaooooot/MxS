@@ -72,6 +72,6 @@ $(document).ready(function() {
 			</c:choose>
 		</tbody>
 	</table>
-	
+
 </body>
 </html>

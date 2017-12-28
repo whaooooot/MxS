@@ -205,9 +205,9 @@ public class MovieAdminController {
     }
 	//상영관 작성 폼
 	@RequestMapping(value="/screen_write", method=RequestMethod.POST)
-	public String screenWrite(HttpServletRequest httpServeletRequest,Screen screen , Model model){
-		String movieNum = httpServeletRequest.getParameter("movieNum");
-		String theaterNum = httpServeletRequest.getParameter("theaterNum");
+	public String screenWrite(HttpServletRequest httpServletRequest,Screen screen , Model model){
+		String movieNum = httpServletRequest.getParameter("movieNum");
+		String theaterNum = httpServletRequest.getParameter("theaterNum");
 		
 		//System.out.println(movieNum);
 		
@@ -261,26 +261,39 @@ public class MovieAdminController {
 		return mav;
 	}
 	// 시간표 목록
-    @RequestMapping("/timetable_list")
-    public String listTimetable(
-    		@RequestParam String screenName, 
-    		@RequestParam Long theaterNum, 
-    		@RequestParam Long movieNum, 
-    		Model model){
-
-    	System.out.println("aaa");
-    	
-    	List<Screen> list = movieAdminSessionRepository.listTimetable(screenName, theaterNum, movieNum);
+    @RequestMapping(value="/timetable_list", method=RequestMethod.GET)
+    public String listTimetable(HttpServletRequest request, Model model,
+    		@ModelAttribute TimeTable timetable){
+    	System.out.println("timetable_list");
+    	String movieNum = request.getParameter("movieNum");
+    	String theaterNum = request.getParameter("theaterNum");
+    	String screenName = request.getParameter("screenName");
+    	timetable.setMovieNum(Long.parseLong(movieNum));
+    	timetable.setTheaterNum(Long.parseLong(theaterNum));
+    	timetable.setScreenName(screenName);
+    	System.out.println(timetable.getScreenName());
+    	List<Screen> list = movieAdminSessionRepository.listTimetable(timetable);
     	model.addAttribute("list", list);
 
     	return "movie_admin/timetable_list";
     }
 	//시간표 작성 폼
-	@RequestMapping(value="/timetable_write", method=RequestMethod.GET)
-	public String timetableWrite(TimeTable timetable , Model model){
-		model.addAttribute("timetable", new TimeTable());
+	@RequestMapping(value="/timetable_write", method=RequestMethod.POST)
+	public String timetableWrite(@RequestParam("movieNum") String movieNum,
+			@RequestParam("theaterNum") String theaterNum,
+			@RequestParam("screenName") String screenName,
+			HttpServletRequest request , Model model){
 		
-		return "movie_admin/screen_write"; // write.jsp로 이동
+		System.out.println(movieNum);
+		System.out.println(theaterNum);
+		
+		
+		model.addAttribute("movieNum", movieNum);
+		model.addAttribute("theaterNum", theaterNum);
+		model.addAttribute("screenName", screenName);
+		
+		System.out.println("model" + screenName);
+		return "movie_admin/timetable_write"; // write.jsp로 이동
 	}
 
 	//시간표 입력

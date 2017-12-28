@@ -13,6 +13,11 @@
 		location.href = "${path}/screen_write";
 	});
 });	 */
+
+function timetable_list(a,b,c){
+	location.href = "${path}/timetable_list?movieNum="+a+"&theaterNum="+b+"&screenName="+c;
+}
+
 </script>
 </head>
 <body>
@@ -23,14 +28,14 @@
 	<h2>상영관 목록</h2>
 
 
-	<form name="form1" method="post" action="${path}/screen_write">
+  	<form name="form1" method="post" action="${path}/screen_write">
 		
 		<input type="hidden" name="movieNum" value="<%=movieNum%>">
 		<input type="hidden" name="theaterNum" value="<%=theaterNum%>">
 		<input type="submit" id="btnScreenWrite" value="상영관새로등록">
-	</form>
+	</form>  
 	
-<form name="form1" method="post" action="${path}/timetable_list">
+<form name="form2" method="post" action="${path}/timetable_list">
 	<table border="1" width="600px">
 		<colgroup>
 			<col width="10%" />
@@ -53,7 +58,7 @@
 		<tbody>
 			<c:choose>
 				<c:when test="${fn:length(list) > 0}">
-					<c:forEach var="screen" items="${list}">
+					<c:forEach var="screen" items="${list}" varStatus="status">
 
 						<tr>
 							<td>${screen.screenName}</td>
@@ -61,10 +66,11 @@
 							<td>${screen.seatRow}</td>
 							<td>${screen.seatCol}</td>
 							<td>
-							<input type="hidden" name="movieNum" value="${screen.movieNum}">
-							<input type="hidden" name="theaterNum" value="${screen.theaterNum}}">
-							<input type="hidden" name="screenName" value="${screen.screenName}">
-							<input type="submit" name="toTimetable" value="toTimetable">
+<!-- 							<input type="hidden" name="movieNum${status.index + 1}" value="${screen.movieNum}">
+							<input type="hidden" name="theaterNum${status.index + 1}" value="${screen.theaterNum}}">
+							<input type="hidden" name="screenName${status.index + 1}" value="${screen.screenName}"> -->
+							<input type="button" name="toTimetable${status.index + 1}" value="toTimetable" 
+							onclick="javascript:timetable_list('${screen.movieNum}','${screen.theaterNum}','${screen.screenName}');">
 							</td>
 						</tr>
 					</c:forEach>
@@ -77,6 +83,7 @@
 			</c:choose>
 		</tbody>
 	</table>
+		<a href="${path}/movie_list">영화목록으로</a>
 </form>
 </body>
 </html>

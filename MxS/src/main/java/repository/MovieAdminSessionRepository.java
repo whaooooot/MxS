@@ -307,14 +307,11 @@ public class MovieAdminSessionRepository extends AbstractRepository {
 
 	// 상영관 목록
 
-	public List<Screen> listTimetable(String screenName, Long theaterNum, Long movieNum) {
+	public List<Screen> listTimetable(TimeTable timatable) {
 
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		System.out.println("listTimetable");
 		String statement = namespace + ".listTimetable";
-		TimeTable timatable = new TimeTable();
-		timatable.setTheaterNum(theaterNum);
-		timatable.setMovieNum(movieNum);
-		timatable.setScreenName(screenName);
 		return sqlSession.selectList(statement, timatable);
 	}
 
