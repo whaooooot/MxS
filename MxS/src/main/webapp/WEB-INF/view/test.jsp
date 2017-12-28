@@ -19,7 +19,8 @@
 <div class="container">
 	<div class="row">
 		<h2>FIxed Header Table/ Scroll Table Body</h2>
-		
+		  	<a class="navbar-brand" href="index"><img width="100px" height="40px"  src="http://img.tenasia.hankyung.com/webwp_kr/wp-content/uploads/2014/10/2014101310390514687.jpg"></a> 
+		<img src="">
 		<table class="points_table">
 			<thead>
 				<tr>

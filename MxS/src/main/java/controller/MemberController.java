@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Member;
@@ -38,7 +39,7 @@ public class MemberController {
 		model.addAttribute("result", result);
 		if(result != null) {
 			System.out.println(result.getMemberName());
-			System.out.println(result.getMemberNum());
+			System.out.println(result.getMemberNum()+"1111111111111111111111111111");
 			session.setAttribute("id", result.getMemberId());
 			session.setAttribute("name", result.getMemberName());
 			session.setAttribute("idnum", result.getMemberNum());

@@ -251,6 +251,11 @@ $(function(){
 </script>
 
 </head>
+
+<div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
+
 <body>
 <form:form commandName="member" action="success" onsubmit="return validate();">
 <div id="container" class="width-fixed">
@@ -400,4 +405,8 @@ $(function(){
 </div>
 </form:form>
 </body>
+
+<div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 </html>

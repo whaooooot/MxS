@@ -212,6 +212,10 @@ $(function(){
 <title>Insert title here</title>
 </head>
 <body>
+<div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
+
 <input type = "hidden" />
 <!--
     you can substitue the span of reauth email for a input with the email and
@@ -240,4 +244,8 @@ $(function(){
         </div><!-- /card-container -->
     </div><!-- /container -->
 </body>
+
+<div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 </html>

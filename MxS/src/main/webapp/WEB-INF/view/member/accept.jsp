@@ -58,6 +58,10 @@ $(function(){ //전체선택 체크박스 클릭
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
+
+<div id="header">
+      <jsp:include page="../header.jsp" flush="false" />
+   </div>
 <body>
 <form action="join">
 <div class="user_wrap">
@@ -434,4 +438,8 @@ $(function(){ //전체선택 체크박스 클릭
 	</div>
 	</form>
 </body>
+
+<div id="footer">
+      <jsp:include page="../footer.jsp" flush="false" />
+   </div>
 </html>

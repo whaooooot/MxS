@@ -11,18 +11,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.BookList;
 import model.Movie;
 import model.Screen;
+import model.StoreDTO;
 import model.Theater;
 import model.TimeTable;
 import repository.MoviebookSessionRepository;
+import repository.StoreSessionRepository;
 
 
 @Controller
 public class MoviebookController {
 	@Autowired
 	private MoviebookSessionRepository moviebookSessionRepository;
+	@Autowired
+	private StoreSessionRepository storeSessionRepository;
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String mxsindex(Model model) {
@@ -33,6 +36,8 @@ public class MoviebookController {
 	public String mxs(Model model) {
 		List<Movie> reseve = moviebookSessionRepository.selectReserve();
 		List<Movie> ganada = moviebookSessionRepository.selectGanada();
+		List<StoreDTO> result = storeSessionRepository.selectStore(); //상품출력
+		model.addAttribute("result", result);		
 		model.addAttribute("reseve", reseve);
 		model.addAttribute("ganada", ganada);
 		

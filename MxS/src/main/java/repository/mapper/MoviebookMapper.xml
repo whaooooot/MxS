@@ -39,7 +39,7 @@
    	<select id="teaterDate" parameterType="Screen" resultMap="timetableResultMap">
    		select *
    		from TIME_TABLE
-   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{theaterNum} 
+   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{movieNum} 
    	</select>
    	
    	<select id="getScreen" parameterType="TimeTable" resultType="Map">

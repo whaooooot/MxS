@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ page import = "java.util.*" %>	
+<%@ page import = "model.*" %>	
+<%List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
+ %>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -456,7 +461,7 @@
 </script>
     <script type="text/javascript">
     	function bookyes(){
-    		alert("888888");
+    		alert("좌석선택하세요.");
 /*     		if(document.frm1.movieNum.value == "" || document.frm1.movieNum.value == null){
     			alert("영화를 선택하세요 ");
     			return false;
@@ -577,47 +582,64 @@
 											<div class="carousel-inner">
 												<div class="item  active">
 													<div class="row">
-														<div class="col-md-6">
+														
+														<%
+									for (int i = 0; i <= 1; i++) {
+										StoreDTO goods = (StoreDTO) listgoods.get(i);
+								%>
+								<div class="col-md-6">
 															<a class="thumbnail" href="#"><img alt=""
-																src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-															<h5>어밴져스 텀블러</h5>
-															<small>가격:30000원</small>
+																src="<%=goods.getGoodsPic() %>"></a>
+															<h5><%=goods.getGoodsName() %></h5>
+															<small>가격:<%=goods.getGoodsPri() %>원</small>
 															<p align="center">
-																<a href="#" class="btn btn-primary btn-block">add</a>
+																<a href="#" class="btn btn-primary btn-block">구매하기</a>
 															</p>
 														</div>
-														<div class="col-md-6">
-															<a class="thumbnail" href="#"><img alt=""
-																src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg"></a>
-															<h5>아이언맨 텀블러</h5>
-															<small>가격:30000원</small>
-															<p align="center">
-																<a href="#" class="btn btn-primary btn-block">add</a>
-															</p>
-														</div>
-
+							
+								<%} %>																			
 													</div>
 												</div>
 												<div class="item">
 													<div class="row">
-														<div class="col-md-6">
+														<%
+									for (int i = 2; i <= 3; i++) {
+										StoreDTO goods = (StoreDTO) listgoods.get(i);
+								%>
+								<div class="col-md-6">
 															<a class="thumbnail" href="#"><img alt=""
-																src="http://cocommiz.cafe24.com/web/product/small/cocommiz_4712.jpg"></a>
-															<h5>어밴져스 텀블러</h5>
-															<small>가격:30000원</small>
+																src="<%=goods.getGoodsPic() %>"></a>
+															<h5><%=goods.getGoodsName() %></h5>
+															<small>가격:<%=goods.getGoodsPri() %>원</small>
 															<p align="center">
-																<a href="#" class="btn btn-primary btn-block">Open</a>
+																<a href="#" class="btn btn-primary btn-block">구매하기</a>
 															</p>
 														</div>
-														<div class="col-md-6">
+							
+								<%} %>
+														
+
+													</div>
+												</div>
+												
+												<div class="item">
+													<div class="row">
+														<%
+									for (int i = 4; i <= 5; i++) {
+										StoreDTO goods = (StoreDTO) listgoods.get(i);
+								%>
+								<div class="col-md-6">
 															<a class="thumbnail" href="#"><img alt=""
-																src="http://harangmall.kr/web/product/big/201608/333_shop1_652509.jpg"></a>
-															<h5>아이언맨 텀블러</h5>
-															<small>가격:30000원</small>
+																src="<%=goods.getGoodsPic() %>"></a>
+															<h5><%=goods.getGoodsName() %></h5>
+															<small>가격:<%=goods.getGoodsPri() %>원</small>
 															<p align="center">
-																<a href="#" class="btn btn-primary btn-block">Open</a>
+																<a href="#" class="btn btn-primary btn-block">구매하기</a>
 															</p>
 														</div>
+							
+								<%} %>
+														
 
 													</div>
 												</div>

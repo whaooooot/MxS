@@ -6,10 +6,12 @@
 request.setCharacterEncoding("utf-8");
 List<StoreDTO> listgoods = (List<StoreDTO>)request.getAttribute("result");
 
-String a= (String)session.getAttribute("name");
+
+
 
 %>
-<%=a %>
+
+
 
 									<%	
 									/*for(StoreDTO d : listgoods){

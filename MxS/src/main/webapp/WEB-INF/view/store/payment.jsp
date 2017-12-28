@@ -248,7 +248,7 @@ function getSelectValue2(frm)
 									<input type="hidden" name="payDccoupon" value="1">																		
 									<input type="hidden" name="payPrice" value="<%=sum%>">									
 								<!-- <input type="hidden" name="gpayNum" > -->	
-									<input type="hidden" name="memberNum" value="1">
+									<input type="hidden" name="memberNum" value="<%=session.getAttribute("idnum") %>">
 									<input type="hidden" name="bookNum" value="1">
 
 						<div class="form-group">

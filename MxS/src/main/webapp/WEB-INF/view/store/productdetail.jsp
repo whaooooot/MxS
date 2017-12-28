@@ -201,7 +201,7 @@ document.getElementById("output2").value = temp1;
 										 <input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 										 <input type="hidden" name="goodsQuan" value="${detail.goodsQuan}">	
 										 
-									<!-- 연결 -->	<input type="hidden" name="memberNum" value="1">
+								<input type="hidden" name="memberNum" value="<%=session.getAttribute("idnum") %>">
 									<!-- 연결 --><input type="hidden" name="gpayNum" value="1">
 									
 									<input type="hidden" name="gplistPrice" value="${detail.goodsPri}">
@@ -227,7 +227,7 @@ document.getElementById("output2").value = temp1;
 									<input type="hidden" name="goodsPri" value="${detail.goodsPri}">
 									
 					<!-- 연결 -->	<input type="hidden" name="gpayNum" value="1">
-					<!-- 연결 -->	<input type="hidden" name="memberNum" value="1">
+					<input type="hidden" name="memberNum" value="<%=session.getAttribute("idnum") %>">
 									
 								
 									
@@ -277,6 +277,10 @@ document.getElementById("output2").value = temp1;
 
 
 			</table>
+
+
+
+
 
 
 	
