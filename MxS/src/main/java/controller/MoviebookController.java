@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import model.*;
@@ -52,11 +53,11 @@ public class MoviebookController {
 	
 	@RequestMapping(value = "/movietheater", method = {RequestMethod.GET, RequestMethod.POST})
 	public String movietheater(Model model,HttpServletRequest request, Theater theater) {
-		System.out.println(theater.getTheaterAdd1());
-		System.out.println(theater.getTheaterAdd2());
+		//System.out.println(theater.getTheaterAdd1());
+		//System.out.println(theater.getTheaterAdd2());
 		List<Theater> result = moviebookSessionRepository.selectTheater(theater);
 		model.addAttribute("result", result);
-		System.out.println(result);
+		//System.out.println(result);
 		return "movie_book/movietheater";
 	}
 	
@@ -77,7 +78,7 @@ public class MoviebookController {
 		model.addAttribute("result", result);
 		model.addAttribute("result1", result1);
 		//System.out.println(timeTable.getMovieNum());
-		System.out.println(result1);
+		//System.out.println(result1);
 		
 		return "movie_book/moviebookseat";
 	}
@@ -99,7 +100,7 @@ public class MoviebookController {
 	}
 	
 	@RequestMapping(value = "/moviebookpay", method = RequestMethod.POST)
-	public String mxs3(Model model) {
+	public String mxs3(BookList booklist, Model model) {
 		
 		return "movie_book/moviebookpay";
 	}

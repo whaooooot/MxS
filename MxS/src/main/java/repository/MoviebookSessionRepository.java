@@ -24,7 +24,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
 			String statement = namespace + ".ganada";
-			System.out.println(sqlSession.selectList(statement));
+			//System.out.println(sqlSession.selectList(statement));
 			return sqlSession.selectList(statement);
 		}finally {
 			sqlSession.close();
@@ -34,7 +34,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
 			String statement = namespace + ".theater";
-			System.out.println(sqlSession.selectList(statement, theater));
+			//System.out.println(sqlSession.selectList(statement, theater));
 			return sqlSession.selectList(statement, theater);
 		}finally {
 			sqlSession.close();
@@ -44,7 +44,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
 			String statement = namespace + ".theaterDate";
-			System.out.println(sqlSession.selectList(statement, screen));
+			//System.out.println(sqlSession.selectList(statement, screen));
 			return sqlSession.selectList(statement, screen);
 		}finally {
 			sqlSession.close();

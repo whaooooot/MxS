@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,27 +21,24 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 
-
-function chk(val, z) {//좌석클릭한 값 input에 출력
+//생성된좌석클릭해서 좌석 값 받기
+function chk(val, z) {//클릭한 값 input에 출력
+	var seatClick = document.getElementById("seatClick").value;
+	var idx = seatClick.indexOf(val);
+	var z = parseInt(z);
 	
-    var seatSet = document.getElementById("chk3").value;
-	alert(seatSet);
-    var idx = seatSet.indexOf(val);
-    var z = parseInt(z);
-    
-    
-    if(idx == -1){
-       document.getElementById("seatSet").value += "/" +val;
-       $("#chk"+z).css("background-color", "yellow");
-       
-    }else{
-          seatSet = seatSet.replace("/"+val, "");
-          document.getElementById("seatSet").value = seatSet;
-          $("#chk"+z).css("background-color", "gray");
-    }
-    
-    
- }
+	
+	if(idx == -1){
+		document.getElementById("seatClick").value += "/" +val;
+		$("#chk"+z).css("background-color", "gray");
+		$("#chk"+z).attr('disabled',true);
+	}else{
+		seatClick = seatClick.replace("/"+val, "");
+			document.getElementById("seatClick").value = seatClick;
+			$("#chk"+z).css("background-color", "gray");
+	}
+}
+
  
 function seatSel(val) {
 		 //인원ㅇ클릭한 값 input에 출력
@@ -51,15 +49,33 @@ function kidSel(val) {
 	 //인원ㅇ클릭한 값 input에 출력
 	document.frm.kid.value=val;
 	document.frm.totalperson.value=val + Number(document.frm.adult.value); 
-}	      
+}	  
 
 
 
+
+$(document).ready(function() {
+	
+	$.ajax({
+		type : "POST",
+		url : "${path}/moviebookseat",
+		dataType : "html",
+		
+
+		success : function(result) {
+			$('#listTheater').html(result);
+		}
+	});
+	return false;
+});
+	
+	
 </script>
 </head>
 <body>
 
-<form name="frm" method="post"   action="#">
+<form  name="frm" method="post"   action="#">
+
  <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
@@ -101,7 +117,7 @@ function kidSel(val) {
 							<input type="button" class="btn btn-app-store" name="seatSel3" value="3" onClick="javascript:seatSel(3);"/>
 							<input type="button" class="btn btn-app-store" name="seatSel4" value="4" onClick="javascript:seatSel(4);"/>
 							<input type="button" class="btn btn-app-store" name="seatSel5" value="5" onClick="javascript:seatSel(5);"/>
-							<input type="text" name="adult" >
+							<input type="text" name="adult" id="adult" >
 							<br/>
 							<br/>
 								어린이 : 
@@ -112,8 +128,8 @@ function kidSel(val) {
 								<input type="button" class="btn btn-app-store" name="seatSel13" value="3" onClick="kidSel(3);"/>
 								<input type="button" class="btn btn-app-store" name="seatSel14" value="4" onClick="kidSel(4);"/>
 								<input type="button" class="btn btn-app-store" name="seatSel15" value="5" onClick="kidSel(5);"/>
-								<input type="text" name="kid" >
-								<input type="text" name="totalperson" />
+								<input type="text" name="kid" id="kid" >
+								총 선택 인원 수 : <input type="text" name="totalperson" id="totalperson"/>
 								<br/>
 								<div class="bright">
 								<input type="button" class="btn btn-bordered-danger" value="관람할인안내"/>
@@ -125,9 +141,13 @@ function kidSel(val) {
                      <c:forEach var = "time" items="${result}">
                      <h3>상영시간 : ${time.TIME_START}
 					~ ${time.TIME_END}
-
+<%-- 					극장번호 : ${time.theaterNum}
+					영화번호 : ${time.movieNum}
+					상영관이름 : ${time.screenName} --%>
                      </h3>
                </c:forEach>
+               
+               		선택한좌석 : <input id="seatClick" type="text" />
 							<br/>
 							<div class="bright">
 								<input type="button" class="btn btn-bordered-danger" value="상영시간변경하기"/>
@@ -136,12 +156,17 @@ function kidSel(val) {
 							</td>
 						</tr>
 						</table>
+						
 						<table>
-							<div id="area"><!-- 좌석뿌리기 -->
-
+						
+						<tr><td><h2 align="center">---스크린---</h2></td></tr>
+							<tr><td><div id="area"><!-- 좌석뿌리기 -->
+								</div>
+								
+							</td></tr>
 						
 
-						</div>
+						
 						</tbody>
 						
 						<tfoot>
@@ -153,7 +178,6 @@ function kidSel(val) {
 	</div>
 </div>
 
-좌석<input type="text" id="seatSet">
 
 	 <div id="header">
       <jsp:include page="../footer.jsp" flush="false" />
@@ -177,11 +201,12 @@ function rowCol1(){//통로반영
 		  for(var c=1; c<=col; c++){
 			  var rc = c + "." + r;
 			  if(aisle.indexOf(rc) == -1 ){
-				  tag += "<td><input onClick='chk(this.value,"+z+");' class='chk' id='chk"+z+"' name='chk[]' type='button' type='button' id='seaterer' value="+r+"."+c+"></td>";
+				  tag += "<td><td><input onClick='chk(this.value,"+z+");button_onclick();' class='chk' id='chk"+z+"' name='chk[]' type='button' type='button' id='seaterer' value="+r+"."+c+"></td>";
+				  z++;
 			  }else{			
 				  //alert(rc);
 			  	  tag += "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-			  	z++;
+			  	
 			  }
 			  
 		  }tag += "</tr>";
@@ -193,6 +218,23 @@ function rowCol1(){//통로반영
 }
 
 rowCol1();
+
+	//버튼 클릭 카운트
+	var count = 0;
+    var totalperson = document.getElementById("totalperson").value;
+	function button_onclick() {
+		count = ++count;
+		alert(count + "회 클릭하셨습니다.");
+		
+/* 		if(count>=totalperson){//totalperson와 같으면 중지
+			alert("stop");
+			
+		}  */
+	}
+	
+
+
+
 </script>
 </body>
 </html>
