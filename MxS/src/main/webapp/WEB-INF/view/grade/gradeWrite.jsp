@@ -59,8 +59,14 @@ button#regBtn{
 }
 </style>
 </head>
+<div id="header">
+		<jsp:include page="../header.jsp" flush="false" />
+	</div>
 <% String movie = request.getParameter("movieNum"); %>
+<% String member = request.getParameter("memberNum"); %>
 <body>
+<div class="container">
+				<div class="row">
 <!-- 평점 작성 -->
 	<div class="layer-wrap" style="position: fixed;" tabindex="0"><div class="layer-contents on-shadow" style="width:710px;">
 		<div class="popup-general">
@@ -139,13 +145,17 @@ button#regBtn{
 					</div>		
 				</div>
 				
-					<button type="button" class="btn-close" id="regLayerClose" onclick="javascript:history.back();"></button>
+					<button type="button" class="btn-close" id="regLayerClose" ></button>
 						<input type=hidden name="movieNum" value="<%= movie %>">
+						<input type=hidden name="memberNum" value="<%= member %>">
 					<input type="submit" value="작성완료!">
 				
 			</div></form:form>
 		</div>
 	</div>
 </div>
+</div>
+</div>
 </body>
 </html>
+

@@ -237,7 +237,7 @@ $(function(){
            		  <div class="mypagemenu">
                     <ul>
                        <li>
-                            <a href ="paylist?num=<%=session.getAttribute("idnum")%>">예매내역</a>
+                            <a href ="paylist?num=<%=session.getAttribute("idnum")%>">예매/상품내역</a>
                         </li>
                     </ul>
                     </div>

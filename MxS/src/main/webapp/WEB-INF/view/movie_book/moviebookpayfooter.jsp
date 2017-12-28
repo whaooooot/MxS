@@ -67,8 +67,8 @@
 	  		
 	  	</td>
 	
-		<td>
-                    <img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image">
+	    <!--	<td>
+             <img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image">
 		</td>
 		<td>
 		영화:
@@ -101,7 +101,7 @@
 		<br/>
 		
 		
-		</td>
+		</td> -->    
 	
 		<td>
 		

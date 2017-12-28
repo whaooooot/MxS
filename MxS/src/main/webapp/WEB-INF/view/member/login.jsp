@@ -228,20 +228,10 @@ $(function(){
                 <span id="reauth-email" class="reauth-email"></span>
                 <form:input path="memberId" id="inputEmail" class="form-control" placeholder="id" />
                 <form:password path="memberPw" id="inputPassword" class="form-control" placeholder="Password" />
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me" name = "chk_txt" id = "idcheck" value = "false" /> 아이디 저장
-                    </label>
-                </div>
+               
                 <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin" id = "btn_login" onclick = "getid()">로그인</button>
             </form:form><!-- /form -->
-            <a href="#" class="forgot-id">
-                아이디 찾기 >
-            </a>
-            <a href="#" class="forgot-password" >
-                비밀번호 찾기 >
-            </a>
-        </div><!-- /card-container -->
+                    </div><!-- /card-container -->
     </div><!-- /container -->
 </body>
 

@@ -48,12 +48,12 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                       	<div class="fff">
 	                        <div class="thumbnail">
-	                     	<a href="eventdetail?num=1">
-	                        <img src="img/15117589467490.jpg" alt=""></a>
+	                     	<a href="eventdetail?num=4">
+	                        <img src="img/15120083782940.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=1">
+	                        <a href="eventdetail?num=4">
 	                               <em class="txt-lightblue"><%=listevent.get(3).getEventType()%></em>
 	                               <p><%=listevent.get(3).getEventTit()%></p>
 	                        </a>
@@ -71,12 +71,12 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=2">
-	                           <img src="img/15120083782940.jpg" alt=""></a>
+	                           <a href="eventdetail?num=3">
+	                           <img src="img/event.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=2">
+	                        <a href="eventdetail?num=3">
 	                               <em class="txt-lightblue"><%=listevent.get(2).getEventType()%></em>
 	                               <p><%=listevent.get(2).getEventTit()%></p>
 	                        </a>
@@ -94,12 +94,12 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                      	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=3">
-	                           <img src="img/메리와 마녀 의 꽃.jpg" alt=""></a>
+	                           <a href="eventdetail?num=1">
+	                           <img src="img/oneplusone.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=3">
+	                        <a href="eventdetail?num=1">
 	                               <em class="txt-lightblue"><%=listevent.get(0).getEventType()%></em>
 	                               <p><%=listevent.get(0).getEventTit()%></p>
 	                        </a>
@@ -117,12 +117,12 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=4">
-	                           <img src="img/15120165577600.jpg" alt=""></a>
+	                           <a href="eventdetail?num=2">
+	                           <img src="img/oneplusone1.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
-	                        <a href="eventdetail?num=4">
+	                        <a href="eventdetail?num=2">
 	                               <em class="txt-lightblue"><%=listevent.get(1).getEventType()%></em>
 	                               <p><%=listevent.get(1).getEventTit()%></p>
 	                        </a>
@@ -143,73 +143,85 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
     						<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="./img/15117589467490.jpg" alt=""></a>
-								</div>
-								
-								<div class="caption">
-								<a href="#">
-                            	<em class="txt-lightblue">스페셜이벤트</em>
-                          	    <p>2018 CGV CALENDAR</p>
-                       			</a>
-			                        <em class="date">
-			                            <span>기간: </span>
-			                            2017.11.16 ~ 2017.12.31
-			                        </em>
-								</div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail">
 									<a href="#"><img src="./img/15120083782940.jpg" alt=""></a>
 								</div>
 								
 								<div class="caption">
-								<a href="#">
-                            	<em class="txt-lightblue">스페셜이벤트</em>
-                          	    <p>[야심찬 연말마무리 이벤트]  2017 작년의 나를 이겨라!</p>
-                       			</a>
-			                        <em class="date">
-			                            <span>기간: </span>
-			                            2017.11.28 ~ 2017.12.31
-			                        </em>
-								</div>
+	                        <a href="eventdetail?num=3">
+	                               <em class="txt-lightblue"><%=listevent.get(2).getEventType()%></em>
+	                               <p><%=listevent.get(2).getEventTit()%></p>
+	                        </a>
+	                               <em class="date">
+	                               <span>기간: </span>
+	                               <fmt:formatDate value="<%=listevent.get(2).getEventStt()%>"
+                           		   pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="<%=listevent.get(2).getEventEnd()%>"
+                           		   pattern="yyyy.MM.dd" />
+                           		
+	                               </em>
+	                        </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="./img/메리와 마녀 의 꽃.jpg" alt=""></a>
+									<a href="#"><img src="./img/event.jpg" alt=""></a>
 								</div>
 								
 								<div class="caption">
-								<a href="#">
-                            	<em class="txt-lightblue">스페셜이벤트</em>
-                          	    <p>1+1 예매권 이벤트</p>
-                       			</a>
-			                        <em class="date">
-			                            <span>기간: </span>
-			                            2017.12.06 ~ 2017.12.13
-			                        </em>
-								</div>
+	                        <a href="eventdetail?num=4">
+	                               <em class="txt-lightblue"><%=listevent.get(3).getEventType()%></em>
+	                               <p><%=listevent.get(3).getEventTit()%></p>
+	                        </a>
+	                               <em class="date">
+	                               <span>기간: </span>
+	                               <fmt:formatDate value="<%=listevent.get(3).getEventStt()%>"
+                           		   pattern="yyyy/MM/dd" /> ~ <fmt:formatDate value="<%=listevent.get(3).getEventEnd()%>"
+                           		   pattern="yyyy.MM.dd" />
+                           		
+	                               </em>
+	                        </div>
                             </div>
                         </li>
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="./img/15120165577600.jpg" alt=""></a>
+									<a href="#"><img src="./img/oneplusone.jpg" alt=""></a>
 								</div>
 								
 								<div class="caption">
-								<a href="#">
-                            	<em class="txt-lightblue">스페셜이벤트</em>
-                          	    <p>이달의CGV_12월</p>
-                       			</a>
-			                        <em class="date">
-			                            <span>기간: </span>
-			                            2017.11.30 ~ 2017.12.31
-			                        </em>
+	                        <a href="eventdetail?num1=1">
+	                               <em class="txt-lightblue"><%=listevent.get(0).getEventType()%></em>
+	                               <p><%=listevent.get(0).getEventTit()%></p>
+	                        </a>
+	                               <em class="date">
+	                               <span>기간: </span>
+	                               <fmt:formatDate value="<%=listevent.get(0).getEventStt()%>"
+                           		   pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="<%=listevent.get(0).getEventEnd()%>"
+                           		   pattern="yyyy.MM.dd" />
+                           		
+	                               </em>
+	                        </div>
+                            </div>
+                        </li>
+                        <li class="col-sm-3">
+							<div class="fff">
+								<div class="thumbnail">
+									<a href="#"><img src="./img/oneplusone1.jpg" alt=""></a>
 								</div>
+								
+								<div class="caption">
+	                        <a href="eventdetail?num=2">
+	                               <em class="txt-lightblue"><%=listevent.get(1).getEventType()%></em>
+	                               <p><%=listevent.get(1).getEventTit()%></p>
+	                        </a>
+	                               <em class="date">
+	                               <span>기간: </span>
+	                               <fmt:formatDate value="<%=listevent.get(1).getEventStt()%>"
+                           		   pattern="yyyy.MM.dd" /> ~ <fmt:formatDate value="<%=listevent.get(1).getEventEnd()%>"
+                           		   pattern="yyyy.MM.dd" />
+                           		
+	                               </em>
+	                        </div>
                             </div>
                         </li>
                     </ul>

@@ -48,6 +48,7 @@ ul{
                 <li>
                 	<form:form method="post" action="gradeWrite">
 						<input type="hidden" name="movieNum" value="<%= movie %>">
+						<input type="hidden" name="memberNum" value="<%= session.getAttribute("idnum") %>">
 						<input type="submit" value="평점작성">
 					</form:form>
 				</li>

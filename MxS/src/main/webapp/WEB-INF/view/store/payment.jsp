@@ -240,7 +240,7 @@ function getSelectValue2(frm)
 							</div>
 
 							<div class="col-md-12" align="right">
-								<strong><font color="red" size=80px>30000</font> 원</strong>
+								<strong><font color="red" size=80px><%=sum %></font> 원</strong>
 								<hr />
 							</div>
 						</div>						

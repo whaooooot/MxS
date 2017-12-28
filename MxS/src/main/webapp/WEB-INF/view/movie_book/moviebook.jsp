@@ -531,7 +531,7 @@
 						</tr>
 						<tr>
 							<td><p>
-									<input type="button" class="btn btn-app-store" value="예매율순" onclick = "regana('1')" />
+									<input type="button" class="btn btn-app-store" value="영화선택" onclick = "regana('1')" />
 									
 								</p>
 							</td>

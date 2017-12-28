@@ -56,7 +56,7 @@
 
 	<tr>
 		<td>
-                    <img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image">
+                    
                              
           &nbsp;&nbsp;&nbsp;
            
