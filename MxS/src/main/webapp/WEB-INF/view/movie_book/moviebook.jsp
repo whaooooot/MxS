@@ -408,7 +408,7 @@
 		document.frm1.theaterAdd2.value = theaterAdd2;
 		}
 		$.ajax({
-			url : "movieteater",
+			url : "movietheater",
 			dataType : "html",
 			type : "post",
 			data : "theaterAdd1="+theaterAdd1 + "&theaterAdd2="+theaterAdd2,

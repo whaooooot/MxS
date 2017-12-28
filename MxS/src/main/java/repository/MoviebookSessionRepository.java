@@ -30,10 +30,10 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 			sqlSession.close();
 		}
 	}
-	public List<Theater> selectTeater(Theater theater){
+	public List<Theater> selectTheater(Theater theater){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
-			String statement = namespace + ".teater";
+			String statement = namespace + ".theater";
 			System.out.println(sqlSession.selectList(statement, theater));
 			return sqlSession.selectList(statement, theater);
 		}finally {
@@ -43,7 +43,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	public List<TimeTable> theaterDate(Screen screen){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
-			String statement = namespace + ".teaterDate";
+			String statement = namespace + ".theaterDate";
 			System.out.println(sqlSession.selectList(statement, screen));
 			return sqlSession.selectList(statement, screen);
 		}finally {
@@ -53,7 +53,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	public List<TimeTable> getTime(TimeTable timeTable){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 /*		System.out.println(timeTable.getTimeStart());
-		System.out.println(timeTable.getTeaterNum());
+		System.out.println(timeTable.getTheaterNum());
 		System.out.println(timeTable.getMovieNum());
 		System.out.println(timeTable.getScreenName());*/
 		try {
@@ -66,7 +66,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	}
 	public Screen getScreen(TimeTable timeTable){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-/*		System.out.println(timeTable.getTeaterNum());
+/*		System.out.println(timeTable.getTheaterNum());
 		System.out.println(timeTable.getScreenName());
 		System.out.println(timeTable.getMovieNum());*/
 		try {
@@ -84,31 +84,4 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		return sqlSession.selectList(statement,booklist);
 	}
 
-/*	public List<TimeTable> moviefooter1(TimeTable timeTable){
-		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		System.out.println(timeTable.getTimeStart());
-		System.out.println(timeTable.getTeaterNum());
-		System.out.println(timeTable.getMovieNum());
-		System.out.println(timeTable.getScreenName());
-		try {
-			String statement = namespace + ".getTime";
-			System.out.println(sqlSession.selectList(statement, timeTable));
-			return sqlSession.selectList(statement, timeTable);
-		}finally {
-			sqlSession.close();
-		}
-	}
-	public List<Screen> moviefooter2(TimeTable timeTable){
-		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		System.out.println(timeTable.getTeaterNum());
-		System.out.println(timeTable.getScreenName());
-		System.out.println(timeTable.getMovieNum());
-		try {
-			String statement = namespace + ".getScreen";
-			System.out.println(sqlSession.selectList(statement, timeTable));
-			return sqlSession.selectList(statement, timeTable);
-		}finally {
-			sqlSession.close();
-		}
-	}*/
 }

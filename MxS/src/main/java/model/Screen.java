@@ -7,7 +7,6 @@ public class Screen  implements Serializable{
 	String screenName;
 	int theaterNum;
 	int movieNum;
-	int screenSeat;
 	String seatRow;
 	int seatCol;
 	String aisle; 
@@ -36,12 +35,6 @@ public class Screen  implements Serializable{
 	}
 	public void setMovieNum(int movieNum) {
 		this.movieNum = movieNum;
-	}
-	public int getScreenSeat() {
-		return screenSeat;
-	}
-	public void setScreenSeat(int screenSeat) {
-		this.screenSeat = screenSeat;
 	}
 	public String getSeatRow() {
 		return seatRow;

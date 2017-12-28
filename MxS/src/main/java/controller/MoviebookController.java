@@ -50,14 +50,14 @@ public class MoviebookController {
 		return "movie_book/movieregana";
 	}
 	
-	@RequestMapping(value = "/movieteater", method = {RequestMethod.GET, RequestMethod.POST})
-	public String movieteater(Model model,HttpServletRequest request, Theater theater) {
+	@RequestMapping(value = "/movietheater", method = {RequestMethod.GET, RequestMethod.POST})
+	public String movietheater(Model model,HttpServletRequest request, Theater theater) {
 		System.out.println(theater.getTheaterAdd1());
 		System.out.println(theater.getTheaterAdd2());
-		List<Theater> result = moviebookSessionRepository.selectTeater(theater);
+		List<Theater> result = moviebookSessionRepository.selectTheater(theater);
 		model.addAttribute("result", result);
 		System.out.println(result);
-		return "movie_book/movieteater";
+		return "movie_book/movietheater";
 	}
 	
 	@RequestMapping(value = "/movietheaterDate", method = {RequestMethod.GET, RequestMethod.POST})
@@ -74,7 +74,6 @@ public class MoviebookController {
 		timeTable.setScreenName(aaaa[0]);
 		List<TimeTable> result = moviebookSessionRepository.getTime(timeTable);
 		Screen result1 = moviebookSessionRepository.getScreen(timeTable);
-		System.out.println(result1.getScreenSeat());
 		model.addAttribute("result", result);
 		model.addAttribute("result1", result1);
 		//System.out.println(timeTable.getMovieNum());

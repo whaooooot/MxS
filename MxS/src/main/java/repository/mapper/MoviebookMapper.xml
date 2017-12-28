@@ -14,7 +14,7 @@
   
     <resultMap id="screenBaseResultMap" type="Screen">
 	  	<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />
-	  	<id column="teater_num"  jdbcType="BIGINT" property="theaterNum" />
+	  	<id column="theater_num"  jdbcType="BIGINT" property="theaterNum" />
 	  	<id column="movie_num"  jdbcType="BIGINT" property="movieNum" />
 	  	<result column="seat_row" jdbcType="VARCHAR" property="seatRow" />
 	  	<result column="seat_col" jdbcType="BIGINT" property="seatCol" />
@@ -37,34 +37,34 @@
    		from movie
    		order by movie_title ASC
    	</select>
-   	<select id = "teater" parameterType="Theater" resultType="HashMap">
-   		select TEATER_NUM,
+   	<select id = "theater" parameterType="Theater" resultType="HashMap">
+   		select THEATER_NUM,
 			MOVIE_NUM,
-			TEATER_NAME,
-			TEATER_AREA,
-			TEATER_ADD1,
-			TEATER_ADD2
-   		from TEATER
+			THEATER_NAME,
+			THEATER_AREA,
+			THEATER_ADD1,
+			THEATER_ADD2
+   		from THEATER
    		<if test = 'theaterAdd1 != "-1" and theaterAdd2 != "-1"'>
-   			where teater_add1 = #{theaterAdd1} and teater_add2 = #{theaterAdd2}
+   			where theater_add1 = #{theaterAdd1} and theater_add2 = #{theaterAdd2}
    		</if>
    	</select>
-   	<select id="teaterDate" parameterType="Screen" resultMap="timetableResultMap">
+   	<select id="theaterDate" parameterType="Screen" resultMap="timetableResultMap">
    		select *
    		from TIME_TABLE
-   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{movieNum} 
+   		where THEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{movieNum} 
    	</select>
    	
    	<select id="getScreen" parameterType="TimeTable" resultMap="screenBaseResultMap">
    		select *
    		from Screen
-   		where SCREEN_NAME = #{screenName}  and  TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} 
+   		where SCREEN_NAME = #{screenName}  and  THEATER_NUM = #{theaterNum} and MOVIE_NUM = #{movieNum} 
    	</select>
    	
    	<select id="getTime" parameterType="TimeTable" resultType="Map">
    		select *
    		from TIME_TABLE
-   		where TIME_START = #{timeStart} and TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}
+   		where TIME_START = #{timeStart} and THEATER_NUM = #{theaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}
    	</select>
    	
      
