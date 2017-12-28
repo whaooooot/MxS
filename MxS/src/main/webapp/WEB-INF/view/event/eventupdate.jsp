@@ -160,7 +160,7 @@
                  
           		 <div class="form-group">
                    <label>이미지 첨부</label>
-                   <input name="eventFile" type="file" id="exampleInputFile" value="<%=eventFile %>" />
+                   <input name="eventFile" type="text" id="exampleInputFile" value="<%=eventFile %>" />
                  </div> 
            <!--  <div class="form-group">
                    <label>이벤트 첨부url</label>
@@ -178,7 +178,8 @@
                </div>
                
                <div class="btn-group">
-                  <input type="reset" value="취소" class="btn btn-default" >
+                  <input type="button" value="취소" class="btn btn-default" onclick="history.back()">
+                
                </div> 
             </div>
          </div>

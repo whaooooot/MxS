@@ -49,13 +49,6 @@ public class EventController {
 	}
 	
 	
-	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET) //이벤트 상세보기
-	public String eventdetail(Model model, HttpServletRequest req) {				
-		model.addAttribute("detail", eventSessionRepository.eventdetail(Integer.parseInt(req.getParameter("num")))); //수에맞게상품불러오기
-		return "event/eventdetail";
-	}  
-
-	
 	@RequestMapping(value = "/eventupdate", method = RequestMethod.GET) //이벤트 수정
 	public String eventupdate(Model model) {	
 		model.addAttribute("eventdto", new EventDTO());
@@ -63,12 +56,18 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/eventupdatefinish", method = RequestMethod.POST)	//이벤트 수정 완료
-	public String eventupdatefinish(@ModelAttribute("eventdto")EventDTO eventdto, Model model) {		
+	public String eventupdatefinish(Model model, @ModelAttribute("eventdto")EventDTO eventdto) {		
 		Integer result =  eventSessionRepository.updateEvent(eventdto);	
 		model.addAttribute("result", result);
 		return "event/eventupdatefinish";
 	}
 	
+	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET) //이벤트 상세보기
+	public String eventdetail(Model model, HttpServletRequest req) {				
+		model.addAttribute("detail", eventSessionRepository.eventdetail(Integer.parseInt(req.getParameter("num")))); //수에맞게상품불러오기
+		return "event/eventdetail";
+	}  
+
 	
 	@RequestMapping(value = "/eventprize", method = RequestMethod.GET)  // 당첨자 발표
 	public String event3(Model model) {   

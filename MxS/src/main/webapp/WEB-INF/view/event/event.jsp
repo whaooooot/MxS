@@ -71,7 +71,8 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=2"><img src="<%=listevent.get(1).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail?num=2">
+	                           <img src="img/15120083782940.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
@@ -93,7 +94,8 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                      	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=3"><img src="<%=listevent.get(2).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail?num=3">
+	                           <img src="img/메리와 마녀 의 꽃.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">
@@ -115,7 +117,8 @@ List<EventDTO> listevent = (List<EventDTO>)request.getAttribute("result");
                         <li class="col-sm-3">
                     	<div class="fff">
 	                        <div class="thumbnail">
-	                           <a href="eventdetail?num=4"><img src="<%=listevent.get(3).getEventFile()%>" alt=""></a>
+	                           <a href="eventdetail?num=4">
+	                           <img src="img/15120165577600.jpg" alt=""></a>
 	                        </div>								
 	                        
 	                        <div class="caption">

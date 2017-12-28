@@ -61,8 +61,8 @@ request.setCharacterEncoding("utf-8");
 			<input type="hidden" name="eventCon" value="${detail.eventCon}">
 			<input type="hidden" name="eventFile" value="${detail.eventFile}">	
 			<input type="hidden" name="eventType" value="${detail.eventType}">
-			<input type="hidden" name="eventStt" value="${detail.eventStt}">
-			<input type="hidden" name="eventEnd" value="${detail.eventEnd}">
+			<input type="hidden" name="eventStt" value='<fmt:formatDate value="${detail.eventStt}" pattern="yyyy.MM.dd" />'>
+			<input type="hidden" name="eventEnd" value='<fmt:formatDate value="${detail.eventEnd}" pattern="yyyy.MM.dd" />'>
 			
 			
 			<input type="submit" class="btn icon-btn btn-success" value="수정하기" /> 
