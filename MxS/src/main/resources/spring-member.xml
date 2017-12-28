@@ -13,4 +13,12 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<bean id="storeSessionRepository" class="repository.StoreSessionRepository" />
 		<bean id="memberSessionRepository" class="repository.MemberSessionRepository"/>
 		<bean id="moviebookSessionRepository" class="repository.MoviebookSessionRepository"/>
+		<bean id="MovieAdminSessionRepository" class="repository.MovieAdminSessionRepository" />
+  		
+ 		<bean id="MovieUserSessionRepository" class="repository.MovieUserSessionRepository" />
+ 		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+ <property name="maxUploadSize" value="268435456"/>
+</bean>
+ 		
+ 		
 </beans>

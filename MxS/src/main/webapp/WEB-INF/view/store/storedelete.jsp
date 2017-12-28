@@ -66,7 +66,7 @@
 		<h1>상품 삭제가 완료되었습니다.</h1>
 		<a href="storeupload"  class="btn btn-bordered-success" >추가 상품 등록</a>		
 		<a href="storeoption" class="btn btn-bordered-opt">추가 옵션 등록</a>
-		<a href="storeadmin" class="btn btn-bordered-admin">스토어 관리자페이지로</a>
+		<a href="storeadmin" class="btn btn-bordered-admin">관리자페이지로</a>
 		
 		
 		</div>

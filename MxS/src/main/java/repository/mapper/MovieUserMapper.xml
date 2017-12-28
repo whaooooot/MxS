@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- repository.mapper.MovieUserMapper.xml -->
+
+<mapper namespace="repository.mapper.MovieUserMapper">
+	<cache />
+	
+	<resultMap id="movieBaseResultMap" type="movie">
+		<id column="movie_num" jdbcType="BIGINT" property="movieNum" />
+		<result column="movie_title" jdbcType="VARCHAR" property="movieTitle" />
+		<result column="movie_genr" jdbcType="VARCHAR" property="movieGenr" />
+		<result column="movie_time" jdbcType="VARCHAR" property="movieTime" />
+		<result column="movie_dire" jdbcType="VARCHAR" property="movieDire" />
+		<result column="movie_actor" jdbcType="VARCHAR" property="movieActor" />
+		<result column="movie_grade" jdbcType="VARCHAR" property="movieGrade" />
+		<result column="movie_con" jdbcType="VARCHAR" property="movieCon" />
+		<result column="movie_date" jdbcType="TIMESTAMP" property="movieDate" />
+		<result column="member_num" jdbcType="BIGINT" property="memberNum" />
+		<result column="movie_poster" jdbcType="VARCHAR" property="moviePoster" />
+	</resultMap>
+
+	<!-- 01. 게시글 전체 목록 조회 및 검색조회까지 -->
+	<select id="movieList" resultType="model.Movie" parameterType="Long"
+		resultMap="movieBaseResultMap">
+		SELECT movie_num,
+		movie_title,
+		movie_genr,
+		movie_time,
+		movie_dire,
+		movie_actor,
+		movie_grade,
+		movie_con,
+		movie_date,
+		movie_poster
+
+		FROM movie
+		<!-- WHERE절을 include 태그로 삽입 -->
+		<include refid="search"></include>
+		ORDER BY movie_num desc
+	</select>
+	
+		<!-- sql code 조각 -->
+	<!-- 반복되는 sql의 일부를 sql태그를 이용하여 따로 빼둘수 있다. -->
+	<sql id="search">
+		<choose>
+
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				WHERE movie_title like '%'||#{keyword}||'%'
+				OR
+				movie_con like '%'||#{keyword}||'%'
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				WHERE ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
+
+	<select id="movieDetailView" parameterType="Long" resultType="Movie"
+		resultMap="movieBaseResultMap">
+		SELECT * FROM movie
+		WHERE movie_num = #{movieNum}
+	</select>
+
+
+
+</mapper>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- MovieMAppeer.xml -->
+
+<mapper namespace="repository.mapper.MovieAdminMapper">
+	<cache />
+
+
+	<resultMap id="movieBaseResultMap" type="movie">
+		<id column="movie_num" jdbcType="BIGINT" property="movieNum" />
+		<result column="movie_title" jdbcType="VARCHAR" property="movieTitle" />
+		<result column="movie_genr" jdbcType="VARCHAR" property="movieGenr" />
+		<result column="movie_time" jdbcType="VARCHAR" property="movieTime" />
+		<result column="movie_dire" jdbcType="VARCHAR" property="movieDire" />
+		<result column="movie_actor" jdbcType="VARCHAR" property="movieActor" />
+		<result column="movie_grade" jdbcType="VARCHAR" property="movieGrade" />
+		<result column="movie_con" jdbcType="VARCHAR" property="movieCon" />
+		<result column="movie_date" jdbcType="TIMESTAMP" property="movieDate" />
+		<result column="member_num" jdbcType="BIGINT" property="memberNum" />
+		<result column="movie_poster" jdbcType="VARCHAR" property="moviePoster" />
+	</resultMap>
+
+	<!-- 01_02. 게시글 레코드 갯수 -->
+	<select id="countArticle" resultType="int">
+		SELECT COUNT(*) FROM movie
+		<!-- WHERE절을 include 태그로 삽입 -->
+		<include refid="search"></include>
+	</select>
+
+	<!-- 01. 게시글 전체 목록 조회 및 검색조회까지 -->
+	<select id="movieList" resultType="model.Movie" parameterType="Long"
+		resultMap="movieBaseResultMap">
+		SELECT movie_num,
+		movie_title,
+		movie_genr,
+		movie_time,
+		movie_dire,
+		movie_actor,
+		movie_grade,
+		movie_con,
+		movie_date,
+		movie_poster
+
+		FROM movie
+		<!-- WHERE절을 include 태그로 삽입 -->
+		<include refid="search"></include>
+		ORDER BY movie_num desc
+	</select>
+
+	<!-- sql code 조각 -->
+	<!-- 반복되는 sql의 일부를 sql태그를 이용하여 따로 빼둘수 있다. -->
+	<sql id="search">
+		<choose>
+
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				WHERE movie_title like '%'||#{keyword}||'%'
+				OR
+				movie_con like '%'||#{keyword}||'%'
+			</when>
+			<!-- 전체 검색이 아닐 경우 -->
+			<otherwise>
+				WHERE ${searchOption} like '%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
+
+	<select id="movieDetailView" parameterType="Long" resultType="Movie"
+		resultMap="movieBaseResultMap">
+		SELECT * FROM movie
+		WHERE movie_num = #{movieNum}
+	</select>
+
+
+	<insert id="insertMovie" parameterType="Movie">
+
+		insert into movie(
+		movie_num,
+		movie_title,
+		movie_genr,
+		movie_time,
+		movie_dire,
+		movie_actor,
+		movie_grade,
+		movie_con,
+		movie_date,
+		movie_poster
+		)
+		values(
+		MOVIE_NUM.nextval,
+		#{movieTitle},
+		#{movieGenr},
+		#{movieTime},
+		#{movieDire},
+		#{movieActor},
+		#{movieGrade},
+		#{movieCon},
+		#{movieDate},
+		#{moviePoster}
+		)
+
+	</insert>
+
+
+	<update id="updateMovie" parameterType="Movie">
+		UPDATE movie
+		<set>
+			<if test="movieTitle != null">
+				movie_title = #{movieTitle},
+			</if>
+			<if test="movieGenr != null">
+				movie_genr = #{movieGenr},
+			</if>
+			<if test="movieTime != null">
+				movie_time = #{movieTime},
+			</if>
+			<if test="movieDire != null">
+				movie_dire = #{movieDire},
+			</if>
+			<if test="movieActor != null">
+				movie_actor = #{movieActor},
+			</if>
+			<if test="movieGrade != null">
+				movie_grade = #{movieGrade},
+			</if>
+			<if test="movieCon != null">
+				movie_con = #{movieCon},
+			</if>
+			<if test="movieDate != null">
+				movie_date = #{movieDate}
+			</if>
+			<if test="moviePoster != null">
+				movie_poster = #{moviePoster}
+			</if>
+
+		</set>
+		<where>
+			movie_num = #{movieNum}
+		</where>
+
+	</update>
+
+	<delete id="deleteMovie" parameterType="long">
+		delete from movie
+		where
+		movie_num = #{movieNum}
+	</delete>
+
+
+	<!-- :::::::::::::::::극장:::::::::::::::::::::::::: -->
+	<resultMap id="theaterBaseResultMap" type="theater">
+		<id column="theater_num" jdbcType="BIGINT" property="theaterNum" />
+		<id column="movie_num" jdbcType="BIGINT" property="movieNum" />
+		<result column="theater_name" jdbcType="VARCHAR" property="theaterName" />
+		<result column="theater_area" jdbcType="VARCHAR" property="theaterArea" />
+	</resultMap>
+
+	<select id="listTheater" resultType="model.Theater"
+		parameterType="Long" resultMap="theaterBaseResultMap">
+		SELECT *
+		FROM theater
+		WHERE
+		movie_num=#{movieNum}
+		ORDER BY theater_num
+	</select>
+
+	<select id="listMovie" resultMap="movieBaseResultMap">
+		SELECT movie_num,
+		movie_title
+
+
+		FROM movie
+		ORDER BY movie_num desc
+	</select>
+
+
+	<select id="theaterDetailView" parameterType="Long" resultType="Theater"
+		resultMap="theaterBaseResultMap">
+		SELECT * FROM theater
+		WHERE theater_num = #{theaterNum}
+	</select>
+
+	<insert id="insertTheater" parameterType="Theater">
+		INSERT INTO theater (
+		theater_num,
+		movie_num,
+		theater_name,
+		theater_area
+
+		) VALUES (
+		THEATER_NUM.NEXTVAL,
+		#{movieNum},
+		#{theaterName},
+		#{theaterArea}
+		)
+	</insert>
+
+
+	<update id="updateTheater" parameterType="Theater">
+		UPDATE theater SET
+		theater_name = #{theaterName},
+		theater_area = #{theaterArea}
+		WHERE
+		theater_num = #{theaterNum}
+	</update>
+
+
+	<delete id="deleteTheater" parameterType="Long">
+		DELETE FROM theater
+		WHERE theater_num = #{theaterNum}
+	</delete>
+
+	<!-- :::::::::::::::::상영관:::::::::::::::::::::::::: -->
+	
+		<resultMap id="screenBaseResultMap" type="screen">
+ 		<id column="screen_name" jdbcType="VARCHAR" property="screenName" />
+		<id column="theater_num" jdbcType="BIGINT" property="theaterNum" />
+	
+		<result column="seat_row" jdbcType="VARCHAR" property="seatRow" />
+		<result column="seat_col" jdbcType="BIGINT" property="seatCol" />
+		<result column="aisle" jdbcType="VARCHAR" property="aisle" />
+		<result column="movie_num" jdbcType="BIGINT" property="movieNum" />
+	</resultMap>
+
+	
+	 <select id="listScreen"
+		resultMap="screenBaseResultMap">
+		SELECT SCREEN_NAME,
+			THEATER_NUM,
+			MOVIE_NUM,
+			
+			SEAT_ROW,
+			SEAT_COL,
+			AISLE
+		FROM screen
+		WHERE movie_num=#{movieNum} and theater_num=#{theaterNum}
+	</select>
+
+	
+	<!-- 상세보기 -->
+	<select id="screenDetailView"  parameterType="String" resultType="Screen" resultMap="screenBaseResultMap">
+	SELECT * FROM screen
+	WHERE screen_name = #{screenName}
+	</select>
+
+	<insert id="insertScreen" parameterType="Screen">
+		INSERT INTO screen (
+		
+		movie_num,
+		theater_num,
+		screen_name,
+		
+		seat_row,
+		seat_col,
+		aisle
+
+		) VALUES (
+		#{movieNum},
+		#{theaterNum},
+		#{screenName},		
+		
+		#{seatRow},
+		#{seatCol},
+		#{aisle}
+		)
+	</insert>
+
+	<update id="updateScreen" parameterType="Screen">
+		UPDATE screen SET
+		
+		seat_row = #{seatRow},
+		seat_col = #{seatCol},
+		aisle = #{aisle},
+		WHERE screen_name = #{screenName}
+	</update>
+
+
+	<delete id="deleteScreen" parameterType="String">
+		DELETE FROM screen
+		WHERE screen_name = #{screenName}
+	</delete>
+	
+	
+	<!-- :::::::::::::::::시간표:::::::::::::::::::::::::: -->
+	
+	<resultMap id="TimeTableBaseResultMap" type="timetable">
+ 		<id column="time_start" jdbcType="TIMESTAMP" property="timeStart" />
+		<id column="theater_num" jdbcType="BIGINT" property="theaterNum" />
+		<id column="movie_num" jdbcType="BIGINT" property="movieNum" />
+		<id column="screen_name" jdbcType="VARCHAR" property="screenName" />
+		<result column="time_end" jdbcType="TIMESTAMP" property="timeEnd" />
+	</resultMap>
+
+	
+	 <select id="listTimetable" parameterType="TimeTable"
+		resultMap="TimeTableBaseResultMap">
+		SELECT *
+		FROM time_table
+		WHERE movie_num=#{movieNum} and theater_num=#{theaterNum} and screen_name=#{screenName}
+	</select>
+
+	
+	<!-- 상세보기 -->
+	<select id="timetableDetailView"  parameterType="String" resultType="TimeTable" resultMap="TimeTableBaseResultMap">
+	SELECT * FROM time_table
+	WHERE time_start = #{timeStart}
+	</select>
+
+	<insert id="timetableInsert" parameterType="TimeTable">
+		INSERT INTO time_table (
+		time_start,
+		theater_num,
+		movie_num,
+		screen_name,
+		time_end
+
+		) VALUES (
+		#{timeStart},
+		#{theaterNum},
+		#{movieNum},
+		#{screenName},		
+		#{timeEnd}
+		)
+	</insert>
+
+	<update id="timetableUpdate" parameterType="TimeTable">
+		UPDATE time_table SET
+		time_end = #{timeEnd},
+		WHERE time_start = #{timeStart}
+	</update>
+
+
+	<delete id="timetableDelete" parameterType="String">
+		DELETE FROM time_table
+		WHERE time_start = #{timeStart}
+	</delete>
+	
+
+
+</mapper>

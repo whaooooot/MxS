@@ -50,7 +50,15 @@
                 <li class="upper-links"><a class="links" href="login">로그인</a></li>
                 <li class="upper-links"><a class="links" href="accept">회원가입</a></li>
                 <% }else{ %>
+                
                 <li class="upper-links"><%= session.getAttribute("name") %>님 반갑습니다. <a class="links" href="logout">로그아웃</a></li>
+                
+                	<%String s=(String)session.getAttribute("id");%>
+		  <%if(s.equals("admin1")){ %>  
+						 <li class="upper-links"><a class="links" href="storeadmin">관리자페이지</a></li>			
+									<%}%>		
+                
+                
                 <% } %>
                 <% if(session.getAttribute("id") != null){ %>
                 <li class="upper-links"><a class="links" href="mypage">My MXS</a></li>
@@ -71,9 +79,7 @@
                         <li class="profile-li"><a class="profile-links" href="customer_service">고객센터</a></li>
                     </ul>
                 </li>
-                	 <% if(session.getAttribute("id") == "admin"){ %>
-               			 aaa
-                 	<% }%>
+                	
                  <% }%>
                  
                                     
@@ -95,7 +101,15 @@
 		            <li><a href="moviebook" data-nav-section=""><span>빠른예매</span></a></li>
 		            <li><a href="" data-nav-section=""><span>극장</span></a></li>		            
 		             <li><a href="store" data-nav-section=""><span>스토어</span></a></li>
-		            <li><a href="event" data-nav-section=""><span>이벤트</span></a></li>		           
+		            <li><a href="event" data-nav-section=""><span>이벤트</span></a></li>
+		            
+		            
+												
+									
+								
+		            
+		            
+		            		           
 		          </ul>
 		          
 		

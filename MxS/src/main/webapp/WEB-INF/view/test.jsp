@@ -1,122 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<% request.setCharacterEncoding("utf-8"); %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>FIxed Header Table/ Scroll Table Body - Bootsnipp.com</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+<meta charset="utf-8">
+<!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+<title>옵션등록</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+.bright {
+	float: right;
+}
+
+.button.-dark2 {
+    color: #416dea;
+  background: #161616;
+}
+.btn{transition:all 0.8s;-o-transition:all 0.8s;-moz-transition:all 0.8s;-webkit-transition:all 0.8s;border-radius:0px;margin-top:10px}
+.btn-rounded{border-radius:50px}
+.btn-round-tosquare:hover{border-radius:0px}
+.btn-square-toround:hover{border-radius:50px}
+.btn-bordered-success{color:#5CB85C;background:#FFFFFF;border:2px solid #5CB85C}
+.btn-bordered-success:hover{color:#FFFFFF;background:#5CB85C;border:2px solid #FFFFFF}
+
+.btn-bordered-opt{color:#da658e;background:#FFFFFF;border:2px solid #da658e}
+.btn-bordered-opt:hover{color:#FFFFFF;background:#da658e;border:2px solid #FFFFFF}
+
+.btn-bordered-admin{color:#58c9c7;background:#FFFFFF;border:2px solid #58c9c7}
+.btn-bordered-admin:hover{color:#FFFFFF;background:#58c9c7;border:2px solid #FFFFFF}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script
+	src="http://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+<link href="./css/storeupload.css?ver=1" rel="stylesheet"
+	type="text/css">
+<script type="text/javascript" src="./js/storeupload.js"></script>
 
 
-    </style>
-    
-    <link href="css/storeupload.css" rel="stylesheet" type="text/css">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="http://www.expertphp.in/js/jquery.form.js"></script>
+
 </head>
-<body>
-<div class="container">
-	<div class="row">
-		<h2>FIxed Header Table/ Scroll Table Body</h2>
-		  	<a class="navbar-brand" href="index"><img width="100px" height="40px"  src="http://img.tenasia.hankyung.com/webwp_kr/wp-content/uploads/2014/10/2014101310390514687.jpg"></a> 
-		<img src="">
-		<table class="points_table">
-			<thead>
-				<tr>
-					<th class="col-xs-1">#</th>
-					<th class="col-xs-3">Team</th>
-					<th class="col-xs-1">S</th>
 
-				</tr>
-			</thead>
-
-			<tbody class="points_table_scrollbar">
-				<tr class="odd">
-					<td class="col-xs-1">1</td>
-					<td class="col-xs-3">Test Points</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">2</td>
-					<td class="col-xs-3">Test Points 2</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-				
-				<tr class="odd">
-					<td class="col-xs-1">3</td>
-					<td class="col-xs-3">Test Points 3</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">4</td>
-					<td class="col-xs-3">Test Points 4</td>
-					<td class="col-xs-1">10</td>	
-				</tr>
-
-				<tr class="odd">
-					<td class="col-xs-1">5</td>
-					<td class="col-xs-3">Test Points 5</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">6</td>
-					<td class="col-xs-3">Test Points 6</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="odd">
-					<td class="col-xs-1">7</td>
-					<td class="col-xs-3">Test Points 7</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">8</td>
-					<td class="col-xs-3">Test Points 8</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="odd">
-					<td class="col-xs-1">9</td>
-					<td class="col-xs-3">Test Points 9</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">10</td>
-					<td class="col-xs-3">Test Points 10</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="odd">
-					<td class="col-xs-1">11</td>
-					<td class="col-xs-3">Test Points 11</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="even">
-					<td class="col-xs-1">12</td>
-					<td class="col-xs-3">Test Points 12</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				<tr class="odd">
-					<td class="col-xs-1">13</td>
-					<td class="col-xs-3">Test Points 13</td>
-					<td class="col-xs-1">10</td>
-				</tr>
-
-				
-			</tbody>
-		</table>
-	</div>
+<div id="header">
+	<jsp:include page="header.jsp" flush="false" />
 </div>
-<script type="text/javascript">
 
-</script>
+<body>
+
+<hr/>
+
+	<div class="container">
+		<div class="row">
+
+		<h1>옵션 등록이 완료되었습니다.</h1>
+		<a href="storeupload"  class="btn btn-bordered-success" >추가 상품 등록</a>		
+		<a href="storeoption" class="btn btn-bordered-opt">추가 옵션 등록</a>
+		<a href="storeadmin" class="btn btn-bordered-admin">스토어 관리자페이지로</a>
+		
+		
+		</div>
+	</div>
+
+
+	<div id="footer">
+		<jsp:include page="footer.jsp" flush="false" />
+	</div>
+
+
+
+
 </body>
 </html>
+
+

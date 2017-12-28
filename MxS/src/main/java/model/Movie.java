@@ -1,8 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import model.Theater;
 
-public class Movie {
+@SuppressWarnings("serial")
+public class Movie implements Serializable {
 	private Long movieNum;
 	private String movieTitle;
 	private String movieGenr;
@@ -14,8 +18,14 @@ public class Movie {
 	private Date movieDate;
 	private Long memberNum;
 	private String moviePoster;
+	private List<Theater> theaters;
 
-
+	public List<Theater> getTheaters() {
+		return theaters;
+	}
+	public void setTheaters(List<Theater> theaters) {
+		this.theaters = theaters;
+	}
 	public String getMoviePoster() {
 		return moviePoster;
 	}
@@ -83,7 +93,7 @@ public class Movie {
 		this.movieDate = movieDate;
 	}
 	
-	/*@Override
+	@Override
 	public String toString() {
 		return "Movie [movieNum=" + movieNum 
 				+ ", movieTitle=" + movieTitle 
@@ -96,7 +106,7 @@ public class Movie {
 				+ ", movieDate=" + movieDate 
 				+ ", memberNum=" + memberNum 
 				+ ", moviePoster=" + moviePoster + "]";
-	}*/
+	}
 	
 	
 	

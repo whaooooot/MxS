@@ -1,17 +1,24 @@
 package model;
 
-public class Screen {
-	String screenName;
-	int theaterNum;
-	int movieNum;
-	String aisle;
-	String seatRow;
-	int seatCol;
-	public int getTheaterNum() {
-		return theaterNum;
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Screen implements Serializable  {
+	private String screenName;
+	private Long theaterNum;
+	private Long movieNum;
+	private Long screenSeat;
+	private String seatRow;
+	private Long seatCol;
+	private String aisle;
+	
+	
+	
+	public String getAisle() {
+		return aisle;
 	}
-	public void setTheaterNum(int theaterNum) {
-		this.theaterNum = theaterNum;
+	public void setAisle(String aisle) {
+		this.aisle = aisle;
 	}
 	public String getScreenName() {
 		return screenName;
@@ -19,18 +26,23 @@ public class Screen {
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
-	
-	public int getMovieNum() {
+	public Long getTheaterNum() {
+		return theaterNum;
+	}
+	public void setTheaterNum(Long theaterNum) {
+		this.theaterNum = theaterNum;
+	}
+	public Long getMovieNum() {
 		return movieNum;
 	}
-	public void setMovieNum(int movieNum) {
+	public void setMovieNum(Long movieNum) {
 		this.movieNum = movieNum;
 	}
-	public String getAisle() {
-		return aisle;
+	public Long getScreenSeat() {
+		return screenSeat;
 	}
-	public void setAisle(String aisle) {
-		this.aisle = aisle;
+	public void setScreenSeat(Long screenSeat) {
+		this.screenSeat = screenSeat;
 	}
 	public String getSeatRow() {
 		return seatRow;
@@ -38,10 +50,10 @@ public class Screen {
 	public void setSeatRow(String seatRow) {
 		this.seatRow = seatRow;
 	}
-	public int getSeatCol() {
+	public Long getSeatCol() {
 		return seatCol;
 	}
-	public void setSeatCol(int seatCol) {
+	public void setSeatCol(Long seatCol) {
 		this.seatCol = seatCol;
 	}
 }

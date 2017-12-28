@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -9,14 +9,14 @@
 <head>
 
 <style type="text/css">
-
 </style>
 <link rel="stylesheet" href="./css/movie_common.css"  type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
 
 <title>Movie Detail Page</title>
+<%@ include file="../include/header.jsp"%>
 </head>
 
  <div id="header">
@@ -36,25 +36,24 @@
 		</div>
 		<div class="sect-base-movie">
 			<h3>
-				<strong>스타워즈: 라스트 제다이</strong>
+				<strong>${movie.movieTitle}</strong>
 			</h3>
 			<div class="box-image">
 				<a
-					href="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79893/79893_1000.jpg"
+					href="/MxS/img/upload/mxs/movie/upload/s_${movie.moviePoster}"
 					title="포스터 크게 보기 새창" target="_blank"> <span class="thumb-image">
 						<img
-						src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000079/79893/79893_185.jpg"
-						alt="스타워즈: 라스트 제다이 포스터 새창" onerror="errorImage(this)" /> <span
+						src="/MxS/img/upload/mxs/movie/upload/s_${movie.moviePoster}"
+						alt="스타워즈: 라스트 제다이 포스터 새창" /> <span
 						class="ico-posterdetail">포스터 크게 보기</span> <span
-						class="ico-grade grade-12"> 12세 이상</span>
+						class="ico-grade grade-12">${movie.movieGrade}</span>
 				</span>
 				</a>
 			</div>
 			<div class="box-contents">
 				<div class="title">
-					<strong>스타워즈: 라스트 제다이</strong>
+					<strong>${movie.movieTitle}</strong>
 
-					<p>Star Wars: The Last Jedi</p>
 				</div>
 
 
@@ -64,7 +63,7 @@
 						<dd>
 
 
-							<a href="/movies/persons/?pidx=113788">라이언 존슨</a>
+							${movie.movieDire}
 
 						</dd>
 
@@ -73,28 +72,22 @@
 						<dt>&nbsp;/ 배우 :&nbsp;</dt>
 						<dd class="on">
 
-
-							<a href="/movies/persons/?pidx=11914">마크 해밀</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=115764">아담 드라이버</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=6368">캐리 피셔</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=116032">데이지 리들리</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=116031">존 보예가</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=106692">오스카 아이삭</a> ,&nbsp; <a
-								href="/movies/persons/?pidx=116033">그웬돌린 크리스티</a>
+								${movie.movieActor}
 
 						</dd>
 
 
 
 
-						<dt>장르 :&nbsp;액션,&nbsp;SF,&nbsp;어드벤처,&nbsp;환타지</dt>
+						<dt>장르 :${movie.movieGenr}</dt>
 						<dd></dd>
 						<dt>&nbsp;/ 기본 :&nbsp;</dt>
-						<dd class="on">12세 이상,&nbsp;152분,&nbsp;미국</dd>
+						<dd class="on">${movie.movieGrade},&nbsp;${movie.movieTime}</dd>
 						<dt>개봉 :&nbsp;</dt>
-						<dd class="on">2017.12.14</dd>
-
-
+						<dd class="on"><fmt:formatDate value="${movie.movieDate}"
+				pattern="yyyy-MM-dd a HH:mm:ss" /></dd>
+						<dt>줄거리 :&nbsp;</dt>
+						<dd>${movie.movieCon}</dd>
 
 
 					</dl>
@@ -103,7 +96,7 @@
 				<span class="like">
 					<button class="btn-like" value="79893">영화 찜하기</button> <a
 					class="link-reservation"
-					href="/ticket/?MOVIE_CD=20014990&MOVIE_CD_GROUP=20013560">예매</a>
+					href="#">예매</a>
 
 				</span>
 			</div>
