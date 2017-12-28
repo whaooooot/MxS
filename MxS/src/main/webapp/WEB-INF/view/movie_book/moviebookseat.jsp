@@ -141,11 +141,13 @@ $(document).ready(function() {
                      <c:forEach var = "time" items="${result}">
                      <h3>상영시간 : ${time.TIME_START}
 					~ ${time.TIME_END}
-<%-- 					극장번호 : ${time.theaterNum}
+					극장번호 : ${time.theaterNum}
 					영화번호 : ${time.movieNum}
-					상영관이름 : ${time.screenName} --%>
+					상영관이름 : ${time.screenName} 
                      </h3>
                </c:forEach>
+               
+
                
                		선택한좌석 : <input id="seatClick" type="text" />
 							<br/>

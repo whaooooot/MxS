@@ -70,7 +70,7 @@
 
 			</td>
 
-			<td><img class="imgsize"
+<!-- 			<td><img class="imgsize"
 				src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200"
 				alt="Image"></td>
 			<td>영화: <br /> 영화정보: <br />
@@ -82,7 +82,7 @@
 
 			<td>상품: <br /> 상품금액: <br /> 상품개수: <br />
 
-
+ -->
 			</td>
 
 			<td>

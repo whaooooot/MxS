@@ -78,7 +78,7 @@ public class MoviebookController {
 		model.addAttribute("result", result);
 		model.addAttribute("result1", result1);
 		//System.out.println(timeTable.getMovieNum());
-		//System.out.println(result1);
+		//System.out.println(model.addAttribute("result", result));
 		
 		return "movie_book/moviebookseat";
 	}
