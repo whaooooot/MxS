@@ -121,6 +121,22 @@ public class StoreSessionRepository extends AbstractRepository {
 	 * 
 	 * 
 	 */
+	
+	
+	
+	public PayDTO paylist(int memberNum) {//상세보기
+		
+		PayDTO result= null;
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".paylist";		
+			try {								
+				result = sqlSession.selectOne(statement, memberNum);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		return result;
+	}
+	
 
 	public List<StoreoptDTO> selectStoreopt() { // 옵션출력
 

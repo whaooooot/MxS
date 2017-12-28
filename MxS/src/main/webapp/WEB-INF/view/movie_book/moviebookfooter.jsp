@@ -62,9 +62,9 @@
            
 		</td>
 		<td>
-		<h4>Example product</h4>
+		<h4>빠른예매하기</h4>
          
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                    Mxs 빠른예매하기  
              
              &nbsp;&nbsp;&nbsp;       
 		</td>

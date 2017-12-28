@@ -82,6 +82,14 @@
     </select>
     
     
+     <!-- 구매리스트 결과반환 -->
+	<select id="paylist"  resultMap="payResultMap"> 
+        select * from PAY
+        where
+        MEMBER_NUM =#{memberNum}
+    </select>
+    
+    
 
 	
 	<!-- 상품집어넣을때  parameter 조회결과--> 

@@ -59,20 +59,23 @@ public class MoviebookController {
 		return "movie_book/movieregana";
 	}
 	
-	@RequestMapping(value = "/movieteater", method = {RequestMethod.GET, RequestMethod.POST})
-	public String movieteater(Model model,HttpServletRequest request, Theater theater) {
+	@RequestMapping(value = "/movietheater", method = {RequestMethod.GET, RequestMethod.POST})
+	public String movietheater(Model model,HttpServletRequest request, Theater theater) {
 		System.out.println(theater.getTheaterAdd1());
 		System.out.println(theater.getTheaterAdd2());
-		List<Theater> result = moviebookSessionRepository.selectTeater(theater);
+		List<Theater> result = moviebookSessionRepository.selectTheater(theater);
 		model.addAttribute("result", result);
 		System.out.println(result);
-		return "movie_book/movieteater";
+		System.out.println("나오세요");
+		return "movie_book/movietheater";
 	}
 	
 	@RequestMapping(value = "/movietheaterDate", method = {RequestMethod.GET, RequestMethod.POST})
 	public String movietheaterDate(Model model, Screen screen) {
+		System.out.println("12345");
 		List<TimeTable> result = moviebookSessionRepository.theaterDate(screen);
 		model.addAttribute("result", result);
+		System.out.println(result);
 		return "movie_book/movietheaterDate";
 	}
 	

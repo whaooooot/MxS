@@ -406,18 +406,21 @@
 	 
 	}
 	function theaterarea(){
+		
 		if(document.getElementById("svSelect").value != ""){
 		var theaterAdd1 = document.getElementById("svSelect").value;
 		var theaterAdd2 = document.getElementById("WORK_DISTRICT_NAME2").value;
 		document.frm1.theaterAdd1.value = theaterAdd1;
 		document.frm1.theaterAdd2.value = theaterAdd2;
 		}
+		
 		$.ajax({
-			url : "movieteater",
+			url : "movietheater",
 			dataType : "html",
 			type : "post",
 			data : "theaterAdd1="+theaterAdd1 + "&theaterAdd2="+theaterAdd2,
 			success : function(result) {
+				
 		    	   $("#allarea").html(result);
 			    },
 	            error : function(request, status, error) {

@@ -9,6 +9,8 @@ public class Theater {
 	private String theaterAdd1;
 	private String theaterAdd2;
 	private String theaterDate;
+	
+	
 	public String getTheaterDate() {
 		return theaterDate;
 	}

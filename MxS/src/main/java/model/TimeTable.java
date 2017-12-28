@@ -6,7 +6,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class TimeTable implements Serializable{
 	String TimeStart;
-	int TeaterNum; 
+	int theaterNum; 
 	int movieNum;  
 	String screenName; 
 	List<TimeTableScreen> TimeStarts;
@@ -24,11 +24,11 @@ public class TimeTable implements Serializable{
 	public void setTimeStart(String timeStart) {
 		TimeStart = timeStart;
 	}
-	public int getTeaterNum() {
-		return TeaterNum;
+	public int gettheaterNum() {
+		return theaterNum;
 	}
-	public void setTeaterNum(int teaterNum) {
-		TeaterNum = teaterNum;
+	public void settheaterNum(int theaterNum) {
+		this.theaterNum = theaterNum;
 	}
 	public int getMovieNum() {
 		return movieNum;

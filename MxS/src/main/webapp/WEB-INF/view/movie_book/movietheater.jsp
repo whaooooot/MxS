@@ -16,7 +16,7 @@
 <input type="hidden" name="theaterNum">
 <dl>
 <c:forEach var="theater" items="${result}">
-	<dd><a href="javascript:theaterName('${theater.TEATER_NUM}')">${theater.TEATER_NAME}</a></dd>
+	<dd><a href="javascript:theaterName('${theater.THEATER_NUM}')">${theater.THEATER_NAME}</a></dd>
 </c:forEach>
 </dl>
 </body>

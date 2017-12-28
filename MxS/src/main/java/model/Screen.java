@@ -4,7 +4,7 @@ public class Screen {
 	String screenName;
 	int theaterNum;
 	int movieNum;
-	int screenSeat;
+	String aisle;
 	String seatRow;
 	int seatCol;
 	public int getTheaterNum() {
@@ -26,11 +26,11 @@ public class Screen {
 	public void setMovieNum(int movieNum) {
 		this.movieNum = movieNum;
 	}
-	public int getScreenSeat() {
-		return screenSeat;
+	public String getAisle() {
+		return aisle;
 	}
-	public void setScreenSeat(int screenSeat) {
-		this.screenSeat = screenSeat;
+	public void setAisle(String aisle) {
+		this.aisle = aisle;
 	}
 	public String getSeatRow() {
 		return seatRow;

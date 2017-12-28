@@ -84,7 +84,7 @@ function seat(){
 							
 							<td colspan="2">
 							<c:forEach var = "screen" items="${result1}">
-							극장 종로  | ${screen.SCREEN_NAME}  | 남은좌석 230/${screen.SCREEN_SEAT}
+							극장 종로  | ${screen.SCREEN_NAME}  | 남은좌석 230/
 							</c:forEach><br/>
 							
 							<c:forEach var = "time" items="${result}">

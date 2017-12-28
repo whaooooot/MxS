@@ -166,7 +166,10 @@ $(function(){
 	 <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
+   
+ 
 <body>
+
 <br/>
 
 	<div class="container">
@@ -230,11 +233,11 @@ $(function(){
                     <a title="현재 선택">MY MxS HOME <i></i></a>
                 </li>
                <li>
-                    <a>나의 예매내역 <i></i></a>
+                    <a>나의 예매/상품구매 내역 <i></i></a>
            		  <div class="mypagemenu">
                     <ul>
                        <li>
-                            <a href = "mypage">예매내역</a>
+                            <a href ="paylist?num=<%=session.getAttribute("idnum")%>">예매내역</a>
                         </li>
                     </ul>
                     </div>
@@ -331,7 +334,7 @@ $(function(){
     </div>
 </div>
 <div class="tit-mycgv">
-   <h3>MY 예매내역</h3>
+   <h3>MY 예매/상품구매 내역</h3>
    <p><em>0건</em> <a href="/user/mycgv/reserve/">예매내역 더보기</a></p>
    <span>예매번호로만 티켓을 찾을 수 있으니 반드시 확인 부탁드립니다.</span>
 </div>
@@ -357,7 +360,9 @@ $(function(){
                 
                     
                     <div class="lst-item">
-                     고객님의 최근 예매내역이 존재하지 않습니다.
+                   		  <h3>상품 결제번호: ${paylist.payNum} /  구매번호:  ${paylist.gpayNum}  /  카드번호: ${paylist.payCard} / 할인수단: ${paylist.payDcpoint}  / 구매총금액: ${paylist.payPrice}   </h3>
+                   		 
+                   		  
                   </div>
                     
            </div>

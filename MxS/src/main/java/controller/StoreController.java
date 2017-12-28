@@ -163,6 +163,17 @@ public class StoreController {
 		return "store/storeoptupdatefinish";
 	}
 	
+	@RequestMapping(value = "/paylist", method = RequestMethod.GET) //결제상세보기
+	public String paylist(Model model, HttpServletRequest req) {
+		//System.out.println(req.getParameter("num"));				
+			model.addAttribute("paylist", storeSessionRepository.paylist(Integer.parseInt(req.getParameter("num")))); //수에맞게상품불러오기
+			model.addAttribute("paydto", new PayDTO());
+			model.addAttribute("gpaylistdto", new GpaylistDTO());
+			return "member/mypage";
+	}
+	
+
+
 	
 
 		

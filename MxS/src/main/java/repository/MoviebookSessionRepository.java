@@ -15,7 +15,6 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	private final String namespace = "repository.mapper.MoviebookMapper";
 	
 	public List<Movie> selectReserve() {
-		System.out.println("????");
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		try {
 			
@@ -35,10 +34,13 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 			sqlSession.close();
 		}
 	}
-	public List<Theater> selectTeater(Theater theater){
+	public List<Theater> selectTheater(Theater theater){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		
+		
 		try {
-			String statement = namespace + ".teater";
+			String statement = namespace + ".theater";
+			
 			return sqlSession.selectList(statement, theater);
 		}finally {
 			sqlSession.close();
@@ -46,8 +48,9 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	}
 	public List<TimeTable> theaterDate(Screen screen){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		System.out.println("sdfsdf");
 		try {
-			String statement = namespace + ".teaterDate";
+			String statement = namespace + ".theaterDate";
 			System.out.println(sqlSession.selectList(statement, screen));
 			return sqlSession.selectList(statement, screen);
 		}finally {
@@ -57,7 +60,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	public List<TimeTable> getTime(TimeTable timeTable){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 /*		System.out.println(timeTable.getTimeStart());
-		System.out.println(timeTable.getTeaterNum());
+		System.out.println(timeTable.gettheaterNum());
 		System.out.println(timeTable.getMovieNum());
 		System.out.println(timeTable.getScreenName());*/
 		try {
@@ -70,7 +73,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	}
 	public List<Screen> getScreen(TimeTable timeTable){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-/*		System.out.println(timeTable.getTeaterNum());
+/*		System.out.println(timeTable.gettheaterNum());
 		System.out.println(timeTable.getScreenName());
 		System.out.println(timeTable.getMovieNum());*/
 		try {

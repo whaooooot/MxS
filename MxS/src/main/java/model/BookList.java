@@ -3,7 +3,7 @@ package model;
 public class BookList { // BookList
 	String bookNum;
 	int memberNum;
-	int teaterNum;
+	int theaterNum;
 	String movieNum;
 	String screanNum;
 	String timeStart;
@@ -22,11 +22,11 @@ public class BookList { // BookList
 	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
 	}
-	public int getTeaterNum() {
-		return teaterNum;
+	public int gettheaterNum() {
+		return theaterNum;
 	}
-	public void setTeaterNum(int teaterNum) {
-		this.teaterNum = teaterNum;
+	public void settheaterNum(int theaterNum) {
+		this.theaterNum = theaterNum;
 	}
 	public String getMovieNum() {
 		return movieNum;
