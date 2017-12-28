@@ -121,7 +121,7 @@
 
 
 							<div class="box-contents">
-								<a href="${path}/movieDetail?movieNum=${movie.movieNum}"> <strong
+								<a href="${path}/MovieDetail?movieNum=${movie.movieNum}"> <strong
 									class="title">${movie.movieTitle}</strong> <br />
 								</a> <span class="txt-info"> <strong> <fmt:formatDate value="${movie.movieDate}"
                            pattern="yyyy년MM월dd일" /> <span>개봉</span>

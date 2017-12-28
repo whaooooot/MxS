@@ -9,7 +9,7 @@
       
       
 	<bean class="controller.MoviebookController"/>
-
+	<bean class="controller.MovieController"/>
 	<bean class="controller.StoreController"/>
 	<bean class="controller.CustomerServiceController"/>
 	<bean class="controller.EventController"/>
