@@ -83,6 +83,7 @@ li{
 .search_order li {
    font-size: 18px; 
    font-weight: bold;
+   padding: 33px;
    }
    
 .tabbable{

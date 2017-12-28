@@ -5,11 +5,15 @@
 .col-md-4{margin-left:35px; vertical-align: middle; width: 370px;}
 
 .title_heading h1{display: inline-block; margin:10px; padding: 10px;}
-.submenu{display: inline-block; width: 160px; float:right; padding-top: 40px; margin-right: 10px;}
+.submenu{display: inline-block; width: 100px; float:right; padding-top: 40px;}
 .submenu ul{list-style:none; magin:0px; padding:0px;}
 .submenu ul li{display:inline;}
 .submenu ul li a{color:#5d5757; text-decoration:none;}
 .submenu ul li a:hover{color:#ff0000;}
+
+form#command {
+    padding-top: 25px;
+}
 
 /* ===========================================
     heading 평점 설명 라벨
@@ -29,7 +33,7 @@
 .percentBox{display: inline-block; width: 500px; margin:30px; padding: 10px 10px 10px 150px;}
 .percent{font-size:30px;}
 .percent strong{font-size:40px;}
-.personBox{display: inline-block; width: 400px;}
+.personBox{display: inline-block; width: 300px;}
 .personBox p{font-size:12px; color:#808080; text-align:center;}
 .personBox p em{font-style:normal; color:#c74848;}
 .personNum{font-size:20px; font-weight:bold; color:#000; display: block;}
@@ -73,5 +77,50 @@ span.play-icon{position: absolute; left: 31%; top: 32%; display: none;}
 
 
  /* ===========================================
-    carousel 영화 포스터
+ 		평점 작성
 ============================================ */
+.mygrade-cont{
+	vertical-align: center;
+	text-align: center;
+}
+.box-image img{
+	border-radius: 100px;
+	width: 80px;
+}
+
+.popwrap h1 {
+    margin: 0px;
+    padding: 15px 0 15px 10px;
+    background-color: rgba(56, 56, 56, 1);
+    color: #ececea;
+    font-size: 25px;
+}
+
+.movietit, .likebox-inner{
+	padding: 20px;
+}
+
+.rbox{
+	width: 600px;
+}
+span.count{
+	float: right;
+}
+
+.btn-close{
+	width: 16px;
+	height: 16px;
+	float: right;
+    margin-top: -300px;
+    margin-right: -120px;
+    border: none;
+    background: none;
+    background-image: url(./img/392517-16.png);
+    background-repeat: no-repeat;
+}
+
+button#regBtn{
+	float: right;
+    margin-right: -120px;
+    margin-top: 70px;
+}

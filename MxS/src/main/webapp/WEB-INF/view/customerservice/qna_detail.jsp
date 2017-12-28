@@ -10,9 +10,16 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
-<link href="./css/customer.detail.css" rel="stylesheet">
+<title>자주 찾는 질문 | 고객센터</title>
 <link href="./css/customerDetail.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.col-aside{display: inline-block; vertical-align:top; margin: 25px 30px 0 365px; height: 500px;}
+.col-aside li{padding: 10px ; border-top: solid 1px #ccc; display: block;}
+.col-aside a{color:#000;}
+.col-aside a:hover{color: #fff; text-decoration: none; background-color: #f7ca55;}
+.on{background-color: #f7ca55;}
+.on a{color: #fff;}
+</style>
 </head>
 <div id="header">
 	<jsp:include page="../header.jsp" flush="false" />
@@ -46,7 +53,7 @@
 					<em class="txt-lightblue">${qna.boardTitle}</em>
 				</h3>
 				<em class="date"> <span>등록일 </span> ${qna.boardDate} 
-					<span class="count">조회수 </span> ${qna.readCount}
+					<%-- <span class="count">조회수 </span> ${count} --%>
 				</em>
 			</div>
 			<div class="tbl-viw-content">

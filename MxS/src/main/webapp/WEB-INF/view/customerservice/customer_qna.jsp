@@ -43,7 +43,7 @@
               txt += "<td>"+obj.BOARD_NUM+"</td>"
               txt += "<td>"+obj.BOARD_HEAD+"</td>"
               txt += "<td class='txt'><a href='${path}/MxS/qna_detail?boardNum="+obj.BOARD_NUM+"'>"+obj.BOARD_TITLE+"</a></td>"
-			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
+			/*   txt += "<td class='num'>"+obj.READCOUNT+"</td>" */
               txt += "</tr>"
 	        });
 	        $("#tbody").html(txt);
@@ -107,7 +107,7 @@
 											<th scope="col">번호</th>
 											<th scope="col">구분</th>
 											<th scope="col" class="tit">제목</th>
-											<th scope="col">조회수</th>
+											<!-- <th scope="col">조회수</th> -->
 										</tr>
 									</thead>
 									<tbody id="tbody">
@@ -122,7 +122,7 @@
 					<ol>
 						<li><span class="ico_oder find_q">01 자주찾는 질문 검색</span></li>
 						<li><span class="ico_oder email_i">02 이메일 문의</span><a
-							href="/support/qna/default.aspx"><img
+							href="customer_email"><img
 								src="http://img.cgv.co.kr/support/faq/btn_inquiry.png" alt="문의"></a></li>
 						<li><span class="ico_oder tel_i">03 고객센터 전화문의</span><span
 							class="num">2222-2222</span></li>

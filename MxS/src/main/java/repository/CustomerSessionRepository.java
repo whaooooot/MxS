@@ -3,6 +3,8 @@ package repository;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -79,8 +81,6 @@ public class CustomerSessionRepository extends AbstractRepository {
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 		/*String statement = namespace + ".insertEmail";*/
 		try {
-			System.out.println("1");
-			
 			String statement = namespace + ".insertEmail";
 			int result = sqlSession.insert(statement, custmoerdto);
 			
@@ -111,5 +111,12 @@ public class CustomerSessionRepository extends AbstractRepository {
 	      
 	      return sqlSession.selectOne(statement, boardNum);
 	   }
-
+/*
+	public int readCount(int boardNum) {
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+	    String statement = namespace + ".updateCnt";
+	      
+	      return sqlSession.update(statement, boardNum);
+	}
+*/
 }

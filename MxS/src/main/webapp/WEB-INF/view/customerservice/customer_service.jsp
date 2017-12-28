@@ -96,7 +96,7 @@
  </div>
  </div>
       <!-- //Contents Area -->
-      <script type="text/javascript">
+<!--       <script type="text/javascript">
               $(function () {
                   $('#btn_search').on('click', function () {
                       if ($('#searchtext').val() == "") {
@@ -146,7 +146,7 @@
                   });
       
               });
-      </script>
+      </script> -->
 </body>
 
  <div id="footer">

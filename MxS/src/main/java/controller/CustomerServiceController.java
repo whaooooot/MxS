@@ -1,7 +1,6 @@
 package controller;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -49,8 +47,10 @@ public class CustomerServiceController {
 		List<CustomerDTO> result = customerSessionRepository.selectQna(custmoerdto);
 		model.addAttribute("qna", result);
 		
-		Integer count = customerSessionRepository.selectCount(custmoerdto);
-		model.addAttribute("count", count);
+		/*Integer count = customerSessionRepository.selectCount(custmoerdto);
+		model.addAttribute("count", count);*/
+		
+		model.addAttribute("email", result);
 
 		return "customerservice/customer_qna";
 	}
@@ -69,16 +69,21 @@ public class CustomerServiceController {
 		
 		model.addAttribute("json", json);
 		
+		System.out.println(model);
+		
 		return json;
 	}
 	// -- 상세 보기
 	@RequestMapping(value = "/qna_detail", method = RequestMethod.GET)
 	public ModelAndView qnaDetailView(@RequestParam int boardNum, HttpSession session) throws Exception {
-
+		// @RequestParam : get/post방식으로 전달된 변수 1개
+	    // HttpSession 세션객체
+	
 		ModelAndView model = new ModelAndView(); // 모델(데이터)+뷰(화면)를 함께 전달하는 객체
+	
+		model.addObject("qna", customerSessionRepository.qnaDetail(boardNum)); // 뷰에 전달할 데이터
 		
 		model.setViewName("customerservice/qna_detail"); // 뷰의 이름
-		model.addObject("qna", customerSessionRepository.qnaDetail(boardNum)); // 뷰에 전달할 데이터
 		
 		return model;
 	   }

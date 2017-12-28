@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-
-
-
 <head>
 
 <style type="text/css">
@@ -13,9 +10,13 @@
 </style>
 <link rel="stylesheet" href="./css/movie_common.css"  type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-
-
+<style type="text/css">
+input.goorade {
+    color: #fff;
+    background-color: #e71a0f;
+    border: none;
+    padding: 10px;
+</style>
 <title>Movie Detail Page</title>
 </head>
 
@@ -116,6 +117,12 @@
 				<!-- 메뉴가 선택되면 a 에 title="선택" 이라고 넣는다 -->
 				<!-- 리본메뉴 -->
 				<ul class="tab-menu">
+					<li class="grade">
+						<form:form method="post" action="grade">
+							<input type="hidden" name="movieNum" value="1">
+							<input type="submit" value=" 평점 " class="goorade">
+						</form:form> 
+					</li>
 					<li class="on"><a title="현재 선택됨" 
 						href="Trailer">트레일러 </a></li>
 					<li class="last"><a

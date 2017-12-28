@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>이메일 문의 고객센터</title>
+<title>이메일 문의 | 고객센터</title>
 <link href="./css/customer.detail.css" rel="stylesheet">
 <script type="text/javascript">
 	function checkByte(inp_textbox, maxByte, sp_ad_content_size_1, sp_ad_content_size_2) {
@@ -76,15 +76,16 @@
     	        type: "post",     
     			dataType : 'json',
     			cache : false,    
-    	        data: { 
+    	        data: { 	
     				p_board_title : form.boardTitle.value,
     	        	p_board_con: form.boardCon.value,
-    	        	p_board_type: form.boardType.value,
+    	        	p_board_type: $(":input:radio[name=boardType]:checked").val(),
     	        	p_board_file: form.boardFile.value,
     	        	p_member_num: form.memberNum.value
     	        },
     	    	success: function(data){
-    	    		 alert(data);
+    	    		 alert("이메일 문의 등록이 완료되었습니다.");
+    	    		 location.href="customer_service";
     			},
     			error : function(request, status, error) {
     				alert("code:" + request.status + "\n" + "error:" + error);

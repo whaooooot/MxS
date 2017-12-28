@@ -9,6 +9,12 @@
    width: 980px;
 }
 
+.row{
+	margin-left: 200px;
+	padding-left: 15px;
+    padding-right: 15px;
+}
+
 .tbl-viw-head {
     height: 42px;
     margin-top: 25px;

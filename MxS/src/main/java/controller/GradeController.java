@@ -39,29 +39,10 @@ public class GradeController {
 		List<MovieDTO> mlist = gradeSessionRepository.selectMovie(moviedto);
 		model.addAttribute("mlist", mlist);
 		
+		
 		return "grade/grade";
 	}
-/*	@RequestMapping(value="/gradelist", method = {RequestMethod.GET, RequestMethod.POST})
-	public String Select(GradeDTO grade, Model model) {
-		List<GradeDTO> result = gradeSessionRepository.selectMylist(grade);
-		model.addAttribute("result", result);
-		
-		return "grade/gradeList";
-	}
-*/
-	// -- 상세 보기
-/*	@RequestMapping(value = "/customer_detail", method = RequestMethod.GET)
-	public ModelAndView movieDetailView(@RequestParam int boardNum, HttpSession session) throws Exception {
 
-		ModelAndView model = new ModelAndView(); // 모델(데이터)+뷰(화면)를 함께 전달하는 객체
-		
-		model.setViewName("customerservice/customer_detail"); // 뷰의 이름
-		model.addObject("movie", customerSessionRepository.customerDetail(boardNum)); // 뷰에 전달할 데이터
-		
-		return model;
-	   }
-	*/
-	
 	/* 평점 작성 */
 	@RequestMapping(value="/gradeWrite", method = {RequestMethod.GET, RequestMethod.POST})
 	public String gradeWrite(GradeDTO gradedto, Model model) {
@@ -74,6 +55,6 @@ public class GradeController {
 		
 		gradeSessionRepository.insertGradeWrite(gradedto);
 		
-		return "grade/gradeWriteComplete";
+		return "movie_view/MovieChartPage";
 	}
 }

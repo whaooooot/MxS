@@ -15,18 +15,22 @@
   	</resultMap>
 	
 	<select id="selectGradeByCondition" parameterType="int" resultType="HashMap">
-		select s.score_con, s.score_quan, c.member_id
+		<!-- select s.score_con, s.score_quan, s.SCORE_DATE, c.member_id
 		from score s, member c
 		where c.member_num = s.member_num and movie_num = 1
-		ORDER BY s.SCORE_DATE DESC
+		ORDER BY s.SCORE_DATE DESC -->
+		select s.movie_num, s.score_con, s.score_quan, c.member_id
+		from score s, member c
+		where c.member_num = s.member_num
+		and movie_num = #{movieNum}
 	</select>
 	<select id="gradeCountByCondition" parameterType="int" resultType="int">
 		SELECT count(*)
 		FROM score
-		WHERE movie_num = 1
+		WHERE movie_num = #{movieNum}
 	</select>
 	
-	<select id="selectMovieByCondition" resultType="HashMap">
+	<select id="selectMovieByCondition" parameterType="int" resultType="HashMap">
 		SELECT
 			MOVIE_NUM, MOVIE_TITLE
 		FROM MOVIE
@@ -39,6 +43,6 @@
 		VALUES (SCORE_NUM.nextval, #{MOVIE_NUM}, #{SCORE_CON}, #{SCORE_QUAN}, #{SCORE_DATE}, #{MEMBER_NUM}) -->
 		INSERT INTO
 			SCORE(SCORE_NUM, MOVIE_NUM, SCORE_CON, SCORE_QUAN, MEMBER_NUM)
-		VALUES (SCORE_NUM.nextval, 2, #{scoreCon}, #{scoreQuan}, 2)
+		VALUES (SCORE_NUM.nextval, #{movieNum}, #{scoreCon}, #{scoreQuan}, #{memberNum})
 	</insert>
 </mapper>

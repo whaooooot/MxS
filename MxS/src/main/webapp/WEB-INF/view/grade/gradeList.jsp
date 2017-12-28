@@ -12,7 +12,6 @@
 <body>
 <div class="container">
 <c:set var="grade" value="${grade.scoreNum}" />
-<c:when test="">
 <!-- NULL 일 때 -->
 	<div class="contents">         
 		<!-- Contents Start -->	
@@ -40,7 +39,6 @@
 		    </div>
 		</div>
 	</div><!-- // NULL 일 때 -->
-	</c:when>
 	<!-- NULL이 아닐 때 -->
 	<div class="cols-content">
 		<div class="col-detail">

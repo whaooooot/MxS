@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지/뉴스 고객센터</title>
+<title>공지/뉴스 | 고객센터</title>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="./css/customer.detail.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -50,7 +50,7 @@ function tab(val){
               txt += "<td>"+obj.BOARD_NUM+"</td>"
               txt += "<td>"+obj.BOARD_HEAD+"</td>"
               txt += "<td class='txt'><a href='${path}/MxS/notice_detail?boardNum="+obj.BOARD_NUM+"'>"+obj.BOARD_TITLE+"</a></td>"
-              txt += "<td>"+obj.BOARD_DATE+"</td>"
+             /*  txt += "<td>"+obj.BOARD_DATE+"</td>" */
 			  txt += "<td class='num'>"+obj.READCOUNT+"</td>"
               txt += "</tr>"
 	        });
@@ -117,7 +117,7 @@ function tab(val){
                                 <th scope="col">구분</th>
                            <th scope="col" class="tit">제목</th>
                            <th scope="col">등록일</th>
-                           <th scope="col">조회수</th>
+                         <!--   <th scope="col">조회수</th> -->
                         </tr>
                      </thead>
                      <tbody id="tbody">

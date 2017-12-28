@@ -4,7 +4,7 @@
 <!-- CommentMAppeer.xml -->
 <mapper namespace="repository.mapper.CustomerMapper">
 	<cache />
-
+	
 	<resultMap id="customerResultMap" type="customerdto">
 	  	<id column="board_num" jdbcType="INTEGER" property="boardNum" />
 	  	<result  column="board_con" jdbcType="VARCHAR" property="boardCon" />
@@ -17,7 +17,6 @@
 		<result column="board_level" jdbcType="INTEGER" property="boardLevel"/>
 		<result column="member_num" jdbcType="INTEGER" property="memberNum"/>
   	</resultMap>
-  	
   	
 	<!-- 메인: 최신 공지 5 개 출력 -->
 	<select id="selectCustomerByCondition" parameterType="int" resultMap="customerResultMap">
@@ -39,6 +38,15 @@
 		FROM BOARD
 		WHERE (BOARD_HEAD = '시스템점검' OR BOARD_HEAD = '극장' OR BOARD_HEAD = '기타'  OR BOARD_HEAD = '제휴이벤트'  OR BOARD_HEAD = '행사/이벤트')
 	</select>
+	 <!-- 조회수 갱신 -->
+<!--    <update id="updateCnt" parameterType="int">
+         UPDATE BOARD 
+         SET
+			readcount = (readcount + 1)
+		 WHERE
+			BOARD_NUM = #{boardNum}
+	</update> -->
+
 	
 	<!-- 자주 찾는 질문 -->
  	<select id="selectQnaByCondition" parameterType="int" resultMap="customerResultMap">
@@ -130,7 +138,7 @@
 			BOARD_TITLE, 
 			BOARD_DATE, 
 			BOARD_FILE, 
-			BOARD_HEAD, 
+			BOARD_HEAD,
 			BOARD_TYPE, 
 			MEMBER_NUM
 		)
@@ -143,7 +151,7 @@
  		 	#{boardFile, jdbcType=VARCHAR}, 
  		 	'이메일문의', 
  		 	#{boardType, jdbcType=VARCHAR}, 
- 		 	#{MEMBER_NUM, jdbcType=INTEGER}
+ 		 	#{memberNum, jdbcType=INTEGER}
  		 )
  	</insert>
 	

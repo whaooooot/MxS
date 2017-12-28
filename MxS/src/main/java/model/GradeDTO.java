@@ -10,6 +10,7 @@ public class GradeDTO extends MovieDTO{
 	private Date scoreDate; // 등록일
 	private int memberNum; // 회원 번호 (FK)
 
+	private String pType; // 탭타입
 	
 	public int getScoreNum() {
 		return scoreNum;
@@ -48,4 +49,12 @@ public class GradeDTO extends MovieDTO{
 		this.memberNum = memberNum;
 	}
 
+	
+	
+	public String getpType() {
+		return pType;
+	}
+	public void setpType(String pType) {
+		this.pType = pType;
+	}
 }
