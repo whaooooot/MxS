@@ -42,7 +42,15 @@ li{
    display: inline;
 }
 
+.col-aside{display: inline-block; vertical-align:top; margin: 25px 30px 0 0; height: 500px;}
+.col-aside li{padding: 10px ; border-top: solid 1px #ccc; display: block;}
+.col-aside a{color:#000;}
+.col-aside a:hover{color: #fff; text-decoration: none; background-color: #f7ca55;}
+.on{background-color: #f7ca55;}
+.on a{color: #fff;}
+
 .col-detail {
+   display: inline-block;
    font-style: normal; 
    font-size: 14px; 
    color: #666;
@@ -68,10 +76,14 @@ li{
    border-right: solid 1px #000;
    border-spacing: 10px;
 }
+.qu_txt sapn a{
+	color: #666;
+}
 
 .search_order li {
    font-size: 18px; 
    font-weight: bold;
+   padding: 33px;
    }
    
 .tabbable{
@@ -138,7 +150,46 @@ legend{
    border-top: solid 1px #bbb;
    border-bottom: solid 1px #bbb;
 }
+.tbl_area_e table{
+	border-collapse:collapse
+}
+.tbl_area_e tr{
+	border-bottom: solid 1px #bbb;
+}
+.tbl_area_e tr:nth-child(3), .tbl_area_e tr:nth-child(4){
+	border: none;
+}
+.tbl_area_e tr:nth-child(5){
+	border-top: solid 1px #bbb;
+}
+.tbl_area_e tr:last-child{
+	border: none;
+}
+
+.tbl_info_txt{
+	padding-top: 10px;
+}
+
+.email_list_area{
+	font-size: 13px;
+	text-align: left;
+}
+.email_list_area th{
+	padding: 0px;
+}
+
+.check_info td{
+	padding-left: 0px;
+	padding-bottom: 70px;
+}
+.check_info .on{
+	background-color: transparent;
+}
 
 .tbl_info_txt{
    float: right;
+}
+
+.type_list .on{
+	background-color: transparent;
 }

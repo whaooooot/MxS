@@ -16,7 +16,7 @@
 	<bean class="controller.MemberController"/>
 	<bean class="controller.MovieAdminController" />
 	<bean class="controller.UploadController" />
-	
+	<bean class="controller.GradeController"/>
 	
 	
 </beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="repository.mapper.GradeMapper">
+	<cache />
+	
+	<resultMap id="gradeResultMap" type="gradedto">
+	  	<id column="SCORE_NUM" jdbcType="INTEGER" property="scoreNum" />
+	  	<id  column="MOVIE_NUM" jdbcType="INTEGER" property="movieNum" />
+	  	<result column="SCORE_CON" jdbcType="VARCHAR" property="scoreCon" />
+		<result column="SCORE_QUAN" jdbcType="INTEGER" property="scoreQuan" />
+		<!-- <result column="SCORE_DATE" jdbcType="DATE" property="scoreDate" /> -->
+		<result column="MEMBER_NUM" jdbcType="INTEGER" property="memberNum"/>
+  	</resultMap>
+	
+	<select id="selectGradeByCondition" parameterType="int" resultType="HashMap">
+		<!-- select s.score_con, s.score_quan, s.SCORE_DATE, c.member_id
+		from score s, member c
+		where c.member_num = s.member_num and movie_num = 1
+		ORDER BY s.SCORE_DATE DESC -->
+		select s.movie_num, s.score_con, s.score_quan, c.member_id
+		from score s, member c
+		where c.member_num = s.member_num
+		and movie_num = #{movieNum}
+	</select>
+	<select id="gradeCountByCondition" parameterType="int" resultType="int">
+		SELECT count(*)
+		FROM score
+		WHERE movie_num = #{movieNum}
+	</select>
+	
+	<select id="selectMovieByCondition" parameterType="int" resultType="HashMap">
+		SELECT
+			MOVIE_NUM, MOVIE_TITLE
+		FROM MOVIE
+		ORDER BY MOVIE_TITLE ASC
+	</select>
+	
+	<insert id="insertGradeWrite" parameterType="gradedto" > 
+		<!-- INSERT INTO
+			SCORE(SCORE_NUM, MOVIE_NUM, SCORE_CON, SCORE_QUAN, SCORE_DATE, MEMBER_NUM)
+		VALUES (SCORE_NUM.nextval, #{MOVIE_NUM}, #{SCORE_CON}, #{SCORE_QUAN}, #{SCORE_DATE}, #{MEMBER_NUM}) -->
+		INSERT INTO
+			SCORE(SCORE_NUM, MOVIE_NUM, SCORE_CON, SCORE_QUAN, MEMBER_NUM)
+		VALUES (SCORE_NUM.nextval, #{movieNum}, #{scoreCon}, #{scoreQuan}, #{memberNum})
+	</insert>
+</mapper>

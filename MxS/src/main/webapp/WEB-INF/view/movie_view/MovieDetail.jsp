@@ -9,7 +9,15 @@
 <head>
 
 <style type="text/css">
-</style>
+
+input.goorade {
+ 		     color: #fff;
+     background-color: #e71a0f;
+     border: none;
+     padding: 10px;
+     }
+ </style>
+
 <link rel="stylesheet" href="./css/movie_common.css"  type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -109,6 +117,12 @@
 				<!-- 메뉴가 선택되면 a 에 title="선택" 이라고 넣는다 -->
 				<!-- 리본메뉴 -->
 				<ul class="tab-menu">
+				<li class="grade">
+						<form:form method="post" action="grade">
+							<input type="hidden" name="movieNum" value="1">
+							<input type="submit" value=" 평점 " class="goorade">
+						</form:form> 
+					</li>
 					<li class="on"><a title="현재 선택됨" 
 						href="Trailer">트레일러 </a></li>
 					<li class="last"><a
