@@ -83,26 +83,21 @@ public class EventSessionRepository extends AbstractRepository{
 	}  
 
 	
-	/*	
-	public Integer deleteComment(Long commentNo) {
+	public Integer deleteEvent(Long eventNo) { // 상품삭제
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		
-		Integer result = sqlSession.delete(namespace + ".deleteComment", commentNo);
-		if(result>0) {
-			
-			sqlSession.commit();//트랜젝션 관리가 가능함
-		}else {
-			
+
+		Integer result = sqlSession.delete(namespace + ".deleteEvent", eventNo);
+		if (result > 0) {
+
+			sqlSession.commit();
+		} else {
 			sqlSession.rollback();
-			
 		}
 		return result;
 	}
-	
-	
-	*/
-	
-	
+
+
+
 	
 }
 

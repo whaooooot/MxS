@@ -4,7 +4,6 @@ package controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import model.EventDTO;
 import repository.EventSessionRepository;
@@ -68,6 +65,14 @@ public class EventController {
 		return "event/eventdetail";
 	}  
 
+	@RequestMapping(value = "/eventdelete", method = RequestMethod.POST)  //상품삭제
+	public String eventdelete(EventDTO eventdto, Model model) {				
+		Integer result =  eventSessionRepository.deleteEvent(eventdto.getEventNo());		
+		model.addAttribute("result", result);
+		System.out.println("aaaa");
+		return "event/eventdelete";
+	}
+	
 	
 	@RequestMapping(value = "/eventprize", method = RequestMethod.GET)  // 당첨자 발표
 	public String event3(Model model) {   

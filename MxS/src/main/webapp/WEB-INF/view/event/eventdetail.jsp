@@ -17,13 +17,17 @@ request.setCharacterEncoding("utf-8");
 <head>
  <meta charset="utf-8">   
  <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>상세 보기</title>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+
 
 <link href="./css/EventDetail.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
-   </div>
+</div>
 <body>
 <div class="container" >
 <!-- Contents Area -->
@@ -53,22 +57,25 @@ request.setCharacterEncoding("utf-8");
 	</div>
 	
 	    <div class="dir-prev">
-	    	<strong><input type="button" value="☜ 목록" onclick="history.back()"></strong>
+	    	<strong><input type="button" class="btn icon-btn btn-danger" value="☜ 목록" onclick="history.back()"></strong>
 	   		<form:form method="get" action="eventupdate" accept-charset="utf-8" modelAttribute="eventdto">
-			<input type="hidden" name="eventNo" value="${detail.eventNo}">									
-			<input type="hidden" name="movieNo" value="${detail.movieNo}">										
-			<input type="hidden" name="eventTit" value="${detail.eventTit}">
-			<input type="hidden" name="eventCon" value="${detail.eventCon}">
-			<input type="hidden" name="eventFile" value="${detail.eventFile}">	
-			<input type="hidden" name="eventType" value="${detail.eventType}">
-			<input type="hidden" name="eventStt" value='<fmt:formatDate value="${detail.eventStt}" pattern="yyyy.MM.dd" />'>
-			<input type="hidden" name="eventEnd" value='<fmt:formatDate value="${detail.eventEnd}" pattern="yyyy.MM.dd" />'>
+				<input type="hidden" name="eventNo" value="${detail.eventNo}">									
+				<input type="hidden" name="movieNo" value="${detail.movieNo}">										
+				<input type="hidden" name="eventTit" value="${detail.eventTit}">
+				<input type="hidden" name="eventCon" value="${detail.eventCon}">
+				<input type="hidden" name="eventFile" value="${detail.eventFile}">	
+				<input type="hidden" name="eventType" value="${detail.eventType}">
+				<input type="hidden" name="eventStt" value='<fmt:formatDate value="${detail.eventStt}" pattern="yyyy.MM.dd" />'>
+				<input type="hidden" name="eventEnd" value='<fmt:formatDate value="${detail.eventEnd}" pattern="yyyy.MM.dd" />'>
+				<input type="submit" class="btn icon-btn btn-success" value="수정하기" /> 
+			</form:form>
 			
-			
-			<input type="submit" class="btn icon-btn btn-success" value="수정하기" /> 
+			<form:form method="post" action="eventdelete" accept-charset="utf-8" modelAttribute="eventdto">
+				<input type="hidden" name="eventNo" value="${detail.eventNo}">			
+				<input type="submit"  class="btn icon-btn btn-danger" value="삭제하기" /><br /><br />								
 			</form:form>
 	    </div>
-	    
+	 
 	    
 
 		</div>

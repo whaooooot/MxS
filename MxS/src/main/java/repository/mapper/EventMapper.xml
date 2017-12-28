@@ -75,7 +75,11 @@
         EVENT_NUM = #{eventNo} 
     </select>
  
-
+	<!-- 상품삭제 -->
+	<delete id="deleteEvent" parameterType="long">
+		delete from EVENT
+		where EVENT_NUM = #{eventNo}
+	</delete>
 
 
 

@@ -46,18 +46,22 @@
 }
 
 .dir-prev {
-    height: 30px;
-    margin: 0;
-    padding: 15px;
-    float:right;
-    font-size: 15px;
-    color: #333;
+	padding: 15px;
+	margin: 0;
+	float:right;
 }
 
 
+.btn-glyphicon { 
+	padding:8px;
+	background:#fff;
+	margin-right:4px;
+}
 
-
-
+.icon-btn {
+	padding: 1px 15px 3px 2px;
+	border-radius:50px;
+}
 
 
 
