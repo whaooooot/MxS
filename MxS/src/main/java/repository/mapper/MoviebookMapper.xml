@@ -11,6 +11,19 @@
   		</collection>
 		
   </resultMap>
+  
+    <resultMap id="screenBaseResultMap" type="Screen">
+	  	<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />
+	  	<id column="teater_num"  jdbcType="BIGINT" property="theaterNum" />
+	  	<id column="movie_num"  jdbcType="BIGINT" property="movieNum" />
+	  	<result column="seat_row" jdbcType="VARCHAR" property="seatRow" />
+	  	<result column="seat_col" jdbcType="BIGINT" property="seatCol" />
+	  	<result column="aisle" jdbcType="VARCHAR" property="aisle" />
+
+  </resultMap>
+  
+
+  
 	<select id="reserve" resultType="Movie">
       select b.cnt ,  m.movie_num, b.movie_num
       from (select count(movie_num) cnt , movie_num
@@ -39,17 +52,48 @@
    	<select id="teaterDate" parameterType="Screen" resultMap="timetableResultMap">
    		select *
    		from TIME_TABLE
-   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{theaterNum} 
+   		where TEATER_NUM = #{theaterNum} and  MOVIE_NUM = #{movieNum} 
    	</select>
    	
-   	<select id="getScreen" parameterType="TimeTable" resultType="Map">
+   	<select id="getScreen" parameterType="TimeTable" resultMap="screenBaseResultMap">
    		select *
    		from Screen
    		where SCREEN_NAME = #{screenName}  and  TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} 
    	</select>
+   	
    	<select id="getTime" parameterType="TimeTable" resultType="Map">
    		select *
    		from TIME_TABLE
    		where TIME_START = #{timeStart} and TEATER_NUM = #{teaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}
    	</select>
+   	
+     
+    <resultMap id="bookListBaseResultMap" type="BookList">
+    
+    	<id column="book_num"  jdbcType="BIGINT" property="bookNum" />
+    	<id column="member_num"  jdbcType="BIGINT" property="memberNum" />
+    	<id column="theater_num"  jdbcType="BIGINT" property="theaterNum" />
+    	<id column="movie_num"  jdbcType="BIGINT" property="movieNum" />
+	  	<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />	  	
+	  	<id column="time_start"  jdbcType="TIMESTAMP" property="timeStart" />	 
+	  	<result column="seat_num" jdbcType="VARCHAR" property="seatNum" />
+	  	<result column="book_day" jdbcType="TIMESTAMP" property="bookDay" />
+	  	<result column="book_sell" jdbcType="BIGINT" property="book_sell" />
+
+  </resultMap>  	
+
+   	<select id="selectBooklist" parameterType="long" resultMap="bookListBaseResultMap">
+		Select *
+		FROM booklist
+
+		where  member_num = #{memberNum} and  
+		theater_num = #{theaterNum} and 
+		movie_num = #{movieNum} and 
+		screen_name = #{screenName} and 
+		time_start = #{timeStart}
+
+	</select>
+
+   	
+   	
 </mapper>

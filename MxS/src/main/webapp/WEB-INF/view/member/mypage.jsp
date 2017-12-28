@@ -89,6 +89,7 @@ margin-right: 30px;
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
+
 // 관람권
 $(function(){	
 		$("#myticket").bind('click', function() {
@@ -161,12 +162,30 @@ $(function(){
 				return false;
 	});
 });
+$(function(){	
+	$("#memberchange").bind('click', function() {
+		$.ajax({
+	       url : "memberchange",
+	       dataType : "html",
+	       type : "post",
+	       data : session.getAttribute("idnum"),
+	       success : function(data) {
+	    	   $("#mycgv_contents").html(data);
+		    },
+            error : function(request, status, error) {
+                alert("code:" + request.status + "\n" + "error:" + error);
+             }
+	});
+			return false;
+});
+});
 </script>
 </head>
 	 <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
    </div>
 <body>
+<%= session.getAttribute("idnum") %>
 <br/>
 
 	<div class="container">

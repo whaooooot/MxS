@@ -1,12 +1,23 @@
 package model;
 
-public class Screen {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Screen  implements Serializable{
 	String screenName;
 	int theaterNum;
 	int movieNum;
 	int screenSeat;
 	String seatRow;
 	int seatCol;
+	String aisle; 
+	
+	public String getAisle() {
+		return aisle;
+	}
+	public void setAisle(String aisle) {
+		this.aisle = aisle;
+	}
 	public int getTheaterNum() {
 		return theaterNum;
 	}

@@ -5,6 +5,10 @@
 <head>
 <link href="./css/myticket.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+
+</script>
 <title>Insert title here</title>
 </head>
 <body>

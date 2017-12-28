@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page import="java.util.*, java.text.*;"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,26 +66,32 @@
 						
 						<tr>	<td align="center"><img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image"></td>
 						<td rowspan="2" align="center">
-									
-									<br/><br/><br/><br/>
+	<%
+		Date date = new Date();
+		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+		String sysdate = simpleDate.format(date);
+	%>
+	
+											<br/><br/><br/><br/>
+									<c:forEach var="booklist" items="${list}">
 										<table>
 											
-											<tr><th>예배번호</th> <td>&nbsp;&nbsp;1234-1234</td></tr>
-											<tr><th>영화</th> <td>&nbsp;&nbsp;헝거게임</td></tr>
-											<tr><th>극장</th> <td>&nbsp;&nbsp;KH종로/5층2관</td></tr>
-											<tr><th>일시</th> <td>&nbsp;&nbsp;2017년12월11일(월)19:00~21:00</td></tr>
-											<tr><th>인원</th> <td>&nbsp;&nbsp;일반 2명</td></tr>
-											<tr><th>좌석</th> <td>&nbsp;&nbsp;G11, G10</td></tr>
+											<tr><th>예배번호</th> <td>&nbsp;&nbsp;${booklist.bookNum}</td></tr>
+											<tr><th>영화</th> <td>&nbsp;&nbsp;${booklist.movieNum}</td></tr>
+											<tr><th>극장</th> <td>&nbsp;&nbsp;${booklist.theaterNum}</td></tr>
+											<tr><th>일시</th> <td>&nbsp;&nbsp;<%=sysdate%></td></tr>
+											<tr><th>인원</th> <td>&nbsp;&nbsp;totalperson</td></tr>
+											<tr><th>좌석</th> <td>&nbsp;&nbsp;${booklist.seatNum}</td></tr>
 											<tr><th></th> <td>&nbsp;&nbsp;</td></tr>
 											<tr><th>상품번호</th> <td>&nbsp;&nbsp;9854-4321</td></tr>
 											<tr><th>상품</th> <td>&nbsp;&nbsp;캣니스피규어</td></tr>
 											<tr><th>총 결제금액</th> <td>&nbsp;&nbsp;50,000원</td></tr>
 											
 										</table>
+									</c:forEach>
 										
 											<div class="bright">
-					<input class="button -c center" type="button"
-						value="예매확인/취소" />
+					<input class="button -c center" type="button" value="예매확인/취소" />
 				</div>
 							</td>
 						

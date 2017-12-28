@@ -2,6 +2,7 @@ package controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.BookList;
 import model.Member;
 import repository.MemberSessionRepository;
 
@@ -40,6 +43,7 @@ public class MemberController {
 			System.out.println(result.getMemberName());
 			session.setAttribute("id", result.getMemberId());
 			session.setAttribute("name", result.getMemberName());
+			session.setAttribute("idnum", result.getMemberNum());
 			System.out.println("yyyyyyyyy");
 			mav.setViewName("redirect:index");
 		}else {
@@ -89,7 +93,11 @@ public class MemberController {
 	      //System.out.println(hashmap);
 	      return resultYn;
 	   }
-	
+	@RequestMapping(value = "/memberchange", method = {RequestMethod.GET, RequestMethod.POST})
+	public String memberchange(Member member, Model model) {
+		
+		return "member/join";
+	}
 	@RequestMapping(value="success", method = {RequestMethod.GET, RequestMethod.POST})
 	public String memberInsert(Member member, Model model) {
 		member.setMemberBirth(member.getMemberBirthYear()+ "/" + member.getMemberBirthMonth() + "/" + member.getMemberBirthDay());
@@ -102,6 +110,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/mypage", method = {RequestMethod.GET, RequestMethod.POST})
 	public String member3(Model model) {
+		
 		return "member/mypage";
 	}
 	
