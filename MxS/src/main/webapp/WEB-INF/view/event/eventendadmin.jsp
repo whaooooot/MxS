@@ -6,7 +6,6 @@
  <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 
-    <title>Responsive Moving Box Carousel - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">  
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -40,14 +39,14 @@
 	<ul>
 	   	<li>
 	   		<div class="box-image">
-	   			<a href="eventdetail">
+	   			<a href="#">
 	   				<span class="image">
 	   				<img src="./img/메리와 마녀 의 꽃.jpg" onerror="errorImage(this)">
 	   				</span>
 	   			</a>
 	   		</div>
 	   		<div class="box-contents">
-	   			<a href="eventdetail">
+	   			<a href="#">
 	   			<em class="txt-lightblue">영화/예매</em>
 	   			<strong>[메리와 마녀의 꽃] 1+1 예매권 이벤트</strong>
 	   			</a>
@@ -59,14 +58,14 @@
 	   	</li>
 	   	<li>
              <div class="box-image">
-                  <a href="eventdetail">
+                  <a href="#">
                  	 <span class="image">
                      <img src="./img/대구 월성.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="eventdetail">
+                  <a href="#">
                   <em class="txt-lightblue">CGV극장별</em>
                   <strong>[대구월성,대구스타디움]나만의 뽀로로를 그려주세요!</strong>
                   </a>
@@ -78,14 +77,14 @@
         </li>
         <li>
              <div class="box-image">
-                  <a href="eventdetail">
+                  <a href="#">
                  	 <span class="image">
                      <img src="./img/세 번째 살인.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="eventdetail">
+                  <a href="#">
                   <em class="txt-lightblue">아트하우스</em>
                   <strong>[세 번째 살인] 프리미어 DAY</strong>
                   </a>
@@ -97,14 +96,14 @@
         </li>
 	   	<li>
              <div class="box-image">
-                  <a href="eventdetail">
+                  <a href="#">
                  	 <span class="image">
                      <img src="./img/라라랜드.jpg" onerror="errorImage(this)">
                      </span>
                   </a>
              </div>
              <div class="box-contents">
-                  <a href="eventdetail">
+                  <a href="#">
                   <em class="txt-lightblue">영화/예매</em>
                   <strong>[라라랜드] 2018달력 증정 특별상영 이벤트</strong>
                   </a>
@@ -117,19 +116,24 @@
 	   	
 	</ul>
 	</div>
-	 	<ul class="pagination">
-	              <li class="disabled"><a href="#">«</a></li>
-	              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-	              <li><a href="#">2</a></li>
-	              <li><a href="#">3</a></li>
-	              <li><a href="#">4</a></li>
-	              <li><a href="#">5</a></li>
-	              <li><a href="#">»</a></li>
-	    </ul>
-	
+		 	<div class="bottom-button">
+		 	<ul class="pagination">
+		              <li class="disabled"><a href="#">«</a></li>
+		              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+		              <li><a href="#">2</a></li>
+		              <li><a href="#">3</a></li>
+		              <li><a href="#">4</a></li>
+		              <li><a href="#">5</a></li>
+		              <li><a href="#">»</a></li>
+		    </ul>
 		
- 		</div>
-		
+			<ul class="pagination1">
+				<li><a href="#">수 정</a></li>
+				<li><a href="#">삭 제</a></li>
+				
+			</ul>
+			</div>
+		</div>
 	</div>
 </div>
 

@@ -4,13 +4,22 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<% request.setCharacterEncoding("utf-8"); %>    
+<% request.setCharacterEncoding("utf-8"); 
+	String eventNo = request.getParameter("eventNo");
+	String movieNo = request.getParameter("movieNo");
+	String eventTit = request.getParameter("eventTit");
+	String eventCon = request.getParameter("eventCon");
+	String eventFile = request.getParameter("eventFile");
+	String eventType = request.getParameter("eventType");
+	String eventStt = request.getParameter("eventStt");
+	String eventEnd = request.getParameter("eventEnd");
+%>    
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
-    <title>이벤트 등록</title>
+    <title>이벤트 수정</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     
@@ -57,7 +66,7 @@
 		
 		var radio1 = $('#radio1');
 		 
-		if($(':radio[name="eventType"]:checked').length < 1){
+		if( $(':radio[name="eventType"]:checked').length < 1){
 		    alert('유형을 선택해주세요');                        
 		    radio1.focus();
 		    return false;
@@ -89,46 +98,69 @@
       
       <div class="modal-content">
 	         <div class="modal-header">
-	            <h4 class="modal-title" id="lineModalLabel">이벤트 만들기</h4>
+	            <h4 class="modal-title" id="lineModalLabel">이벤트 수정</h4>
 	         </div>
 	         
          <div class="modal-body">
 
             <!-- content goes here -->
-            <form:form name="eventupload" action="eventuploadfinish" modelAttribute="eventdto"
+            <form:form name="eventupload" action="eventupdatefinish" modelAttribute="eventdto"
             method="POST" accept-charset="utf-8">
+            	 <input type="hidden" name="eventNo" class="form-control" value="<%="eventNo"%>" />
+            	 <br />
+            	 
             	 <div class="form-group">
                    <label>영화</label>
-                   <input name="movieNo" type="text" class="form-control" id="exampleInputMovie" placeholder="영화 번호">
+                   <input name="movieNo" type="text" class="form-control" id="exampleInputMovie"
+                   placeholder="영화 번호" value="<%=movieNo %>" />
                  </div>
             
                  <div class="form-group">
                    <label>이벤트 제목</label>
-                   <input name="eventTit" type="text" class="form-control" id="exampleInputName1" placeholder="이벤트 제목">
+                   <input name="eventTit" type="text" class="form-control" id="exampleInputName1"
+                   placeholder="이벤트 제목" value="<%=eventTit %>" />
                  </div>
                  
                  <div class="form-group">
                    <label>이벤트 설명</label>                
-                   <textarea name="eventCon" rows="10" cols="20" placeholder="이벤트 정보"></textarea>
+                   <textarea name="eventCon" rows="10" cols="20"
+                   placeholder="이벤트 정보"><%=eventCon %></textarea>
                  </div>                 
                 
                  <div class="form-group">
 	                <label>진행 기간</label>
-	                <input name="eventStt" type="text" placeholder="시작 날짜" /> ~ <input name="eventEnd" type="text" placeholder="끝나는 날짜"/>
+	                <input name="eventStt" type="text" value="<%=eventStt %>" /> ~ <input name="eventEnd" type="text" value="<%=eventEnd %>" />
               	 </div>
                  
                  <div class="form-group">
                    <label>이벤트 항목 </label>
-         	       <input name="eventType" id="radio1" type="radio" value="영화/예매">영화/예매
-				   <input name="eventType" id="radio2" type="radio" value="극장별">극장별
-				   <input name="eventType" id="radio3" type="radio" value="스페셜이벤트">스페셜이벤트
-<!--  			   <input name="eventType" type="text" class="form-control" id="exampleInputMovie" placeholder="이벤트 항목">    
- -->
+<%
+					if(eventType.equals("영화/예매")){
+%>
+					   <input name="eventType" id="radio1" type="radio" value="영화/예매" checked>영화/예매
+					   <input name="eventType" id="radio2" type="radio" value="극장별">극장별 
+					   <input name="eventType" id="radio3" type="radio" value="스페셜이벤트">스페셜이벤트 
+<%						
+					} else if(eventType.equals("극장별")){
+%>
+					   <input name="eventType" id="radio1" type="radio" value="영화/예매">영화/예매
+					   <input name="eventType" id="radio2" type="radio" value="극장별" checked>극장별 
+					   <input name="eventType" id="radio3" type="radio" value="스페셜이벤트">스페셜이벤트 
+<%						
+					}else{
+%>
+					   <input name="eventType" id="radio1" type="radio" value="영화/예매" >영화/예매
+					   <input name="eventType" id="radio2" type="radio" value="극장별">극장별 
+					   <input name="eventType" id="radio3" type="radio" value="스페셜이벤트" checked>스페셜이벤트 
+<%						
+					}
+%>
+					   	       
                  </div>
                  
           		 <div class="form-group">
                    <label>이미지 첨부</label>
-                   <input name="eventFile" type="file" id="exampleInputFile">
+                   <input name="eventFile" type="text" id="exampleInputFile" value="<%=eventFile %>" />
                  </div> 
            <!--  <div class="form-group">
                    <label>이벤트 첨부url</label>
@@ -142,11 +174,12 @@
          <div class="modal-footer">
             <div class="btn-group">
                <div class="btn-group" >
-                  <input type="button" value="등록" class="btn btn-default btn-hover-green" Onclick="javascript:writeCheck();">
+                  <input type="button" value="저장" class="btn btn-default" Onclick="javascript:writeCheck();">
                </div>
                
                <div class="btn-group">
-                  <input type="reset" value="취소" class="btn btn-default">
+                  <input type="button" value="취소" class="btn btn-default" onclick="history.back()">
+                
                </div> 
             </div>
          </div>
@@ -161,12 +194,7 @@
 <script type="text/javascript">
 !function ($) {
     
-    // Le left-menu sign
-    /* for older jquery version
-    $('#left ul.nav li.parent > a > span.sign').click(function () {
-        $(this).find('i:first').toggleClass("icon-minus");
-    }); */
-    
+    // Le left-menu sign  
     $(document).on("click","#left ul.nav li.parent > a > span.sign", function(){          
         $(this).find('i:first').toggleClass("icon-minus");      
     }); 

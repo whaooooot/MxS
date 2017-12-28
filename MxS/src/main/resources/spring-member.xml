@@ -16,6 +16,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<bean id="MovieAdminSessionRepository" class="repository.MovieAdminSessionRepository" />
 		<bean id="customerSessionRepository" class="repository.CustomerSessionRepository" />
 		<bean id="gradeSessionRepository" class="repository.GradeSessionRepository" />
+		<bean id="eventSessionRepository" class="repository.EventSessionRepository" />
 		<bean id="MovieUserSessionRepository" class="repository.MovieUserSessionRepository" />
  		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
  <property name="maxUploadSize" value="268435456"/>

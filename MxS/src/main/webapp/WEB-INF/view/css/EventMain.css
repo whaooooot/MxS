@@ -158,12 +158,18 @@ li { list-style-type:none;}
 .btn-glyphicon { padding:8px; background:#ffffff;
  margin-right:4px; }
 
-.icon-btn { padding: 1px 15px 3px 2px;
+.icon-btn { padding: 5px 10px 5px 10px;
  border-radius:50px;}   
 
 
-
-
-
+/* 이벤트 관리자 버튼 */
+.eventadminbtn {
+	margin-top:20px; 
+	float: right;
+	
+}
+.eventadminbtn a {
+	padding:3px;
+}
 
 

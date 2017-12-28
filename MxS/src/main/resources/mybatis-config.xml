@@ -17,6 +17,7 @@
       <typeAlias type="model.TimeTableScreen" alias="TimeTableScreen" />
         <typeAlias type="model.CustomerDTO" alias="customerdto" />
       <typeAlias type="model.GradeDTO" alias="gradedto" />
+       <typeAlias type="model.EventDTO" alias="eventdto" />
       
       
    </typeAliases>
@@ -40,6 +41,6 @@
  	<mapper resource="repository/mapper/MovieUserMapper.xml" />
  	  <mapper resource="repository/mapper/CustomerMapper.xml"/>
       <mapper resource="repository/mapper/GradeMapper.xml"/>
-     
+<mapper resource="repository/mapper/EventMapper.xml" />
    </mappers>
 </configuration>

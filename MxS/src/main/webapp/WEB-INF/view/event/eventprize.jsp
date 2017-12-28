@@ -8,48 +8,44 @@
 <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
 <title>Responsive Moving Box Carousel - Bootsnipp.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-   
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
     
-        <link href="./css/EventEnd.css" rel="stylesheet" type="text/css">
-        <!-- 웹 스타일 css --> 
+    <link href="./css/EventPrize.css" rel="stylesheet" type="text/css">
+    <!-- 웹 스타일 css --> 
         
 </head>
- <div id="header">
+
+	<div id="header">
       <jsp:include page="../header.jsp" flush="false" />
-   </div>
+	</div>
 
 <body>
+
 <div class="container">
-<div class="col-xs-12">
+	<div class="row">
+      <div class="col-xs-12">
 
-
-       
-       
-       <div class="title-event">
+	<div class="title-event">
       <h1>EVENT</h1>
-   </div>   
+    </div>   
    
-   <div class="title-header">
-      <h5 class="modal-title" id="lineModalLabel">이벤트 당첨자 발표</h5>
-      <div class="btn-toolbar">
-       <a href="eventend" class="btn btn-primary">종료된 이벤트</a>   
-      </div>
-   </div>
+	   <div class="title-header">
+	      <h5 class="modal-title" id="lineModalLabel">이벤트 당첨자 발표</h5>
+	      <div class="btn-toolbar">
+	       <a href="eventend" class="btn btn-primary">종료된 이벤트</a>   
+	      </div>
+	   </div>
 
 
    
 
-   <div class="well">
+    <div class="well">
        <table class="table">
          <thead>
            <tr>
              <th>이벤트 타입</th>
              <th>제목</th>
              <th>기간</th>
-             <th style="width: 36px;"></th>
            </tr>
          </thead>
          <tbody>
@@ -92,33 +88,25 @@
          </tbody>
        </table>
    </div>
-   <div class="pagination">
-       <ul>
-           <li><a href="#">이전</a></li>
-           <li><a href="#">1</a></li>
-           <li><a href="#">2</a></li>
-           <li><a href="#">3</a></li>
-           <li><a href="#">4</a></li>
-           <li><a href="#">다음</a></li>
-       </ul>
-   </div>
+   			<ul class="pagination">
+	              <li class="disabled"><a href="#">«</a></li>
+	              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+	              <li><a href="#">2</a></li>
+	              <li><a href="#">3</a></li>
+	              <li><a href="#">4</a></li>
+	              <li><a href="#">5</a></li>
+	              <li><a href="#">»</a></li>
+            </ul>
        
-   </div>
-    
-
-         
-       
-       
-                              
- 
-</div><!-- /.col-xs-12 -->          
-
-</div><!-- /.container -->
+  	 	</div>	<!-- /.col-xs-12 --> 
+	</div>  <!--  /.row -->
+</div> 	<!-- /.container -->  
+</body>
 
 
  <div id="footer">
       <jsp:include page="../footer.jsp" flush="false" />
-   </div>
+ </div>
 
 <script type="text/javascript">
 // Carousel Auto-Cycle
@@ -129,5 +117,4 @@
   });
 
 </script>
-</body>
 </html>
