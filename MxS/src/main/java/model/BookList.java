@@ -2,30 +2,37 @@ package model;
 
 public class BookList { // BookList
 	String bookNum;
-	int memberNum;
-	int theaterNum;
+	Long memberNum;
+	Long theaterNum;
 	String movieNum;
 	String screanNum;
 	String timeStart;
-	String satNum;
+	String seatNum;
+	String screenName;
+	public String getScreenName() {
+		return screenName;
+	}
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
 	String bookDay;
-	int bookSel;
+	Long bookSel;
 	public String getBookNum() {
 		return bookNum;
 	}
 	public void setBookNum(String bookNum) {
 		this.bookNum = bookNum;
 	}
-	public int getMemberNum() {
+	public Long getMemberNum() {
 		return memberNum;
 	}
-	public void setMemberNum(int memberNum) {
+	public void setMemberNum(Long memberNum) {
 		this.memberNum = memberNum;
 	}
-	public int gettheaterNum() {
+	public Long getTheaterNum() {
 		return theaterNum;
 	}
-	public void settheaterNum(int theaterNum) {
+	public void setTheaterNum(Long theaterNum) {
 		this.theaterNum = theaterNum;
 	}
 	public String getMovieNum() {
@@ -46,11 +53,11 @@ public class BookList { // BookList
 	public void setTimeStart(String timeStart) {
 		this.timeStart = timeStart;
 	}
-	public String getSatNum() {
-		return satNum;
+	public String getSeatNum() {
+		return seatNum;
 	}
-	public void setSatNum(String satNum) {
-		this.satNum = satNum;
+	public void setSeatNum(String seatNum) {
+		this.seatNum = seatNum;
 	}
 	public String getBookDay() {
 		return bookDay;
@@ -58,11 +65,13 @@ public class BookList { // BookList
 	public void setBookDay(String bookDay) {
 		this.bookDay = bookDay;
 	}
-	public int getBookSel() {
+	public Long getBookSel() {
 		return bookSel;
 	}
-	public void setBookSel(int bookSel) {
+	public void setBookSel(Long bookSel) {
 		this.bookSel = bookSel;
 	}
+
+	
 	
 }

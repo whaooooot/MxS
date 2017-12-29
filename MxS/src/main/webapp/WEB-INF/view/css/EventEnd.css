@@ -97,7 +97,11 @@
     
      .endevent-list li em{
         display: inline-block;
+        text-style:none;
      }
+     
+  
+    
     
     
     .pagination{

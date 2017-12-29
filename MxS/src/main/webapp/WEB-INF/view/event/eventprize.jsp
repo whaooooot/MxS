@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
     
-    <link href="./css/EventPrize.css" rel="stylesheet" type="text/css">
+    <link href="./css/EventEnd.css" rel="stylesheet" type="text/css">
     <!-- 웹 스타일 css --> 
         
 </head>

@@ -13,11 +13,11 @@
 </script>
 </head>
 <body>
-<input type="hidden" name="timeeTable1">
+<input type="text" name="timeeTable1">
 <c:forEach  var="timeeTable" items="${result}"> 
 	${timeeTable.getScreenName()}
 	<c:forEach var="timeeTable1" items="${timeeTable.getTimeStarts()}"><br/>
-		<a href="javascript:timeeTable1('${timeeTable.getScreenName()}/${timeeTable1.getTimeStart()}')">${timeeTable1.getTimeStart()}</a>
+		<a href="javascript:timeeTable1('${timeeTable.getScreenName()}-${timeeTable1.getTimeStart()}')">${timeeTable1.getTimeStart()}</a>
 	</c:forEach>
 </c:forEach>
 

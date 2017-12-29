@@ -268,8 +268,8 @@ public class MovieAdminController {
     	String movieNum = request.getParameter("movieNum");
     	String theaterNum = request.getParameter("theaterNum");
     	String screenName = request.getParameter("screenName");
-    	timetable.setMovieNum(Long.parseLong(movieNum));
-    	timetable.setTheaterNum(Long.parseLong(theaterNum));
+    	timetable.setMovieNum(Integer.parseInt(movieNum));
+    	timetable.setTheaterNum(Integer.parseInt(theaterNum));
     	timetable.setScreenName(screenName);
     	System.out.println(timetable.getScreenName());
     	List<Screen> list = movieAdminSessionRepository.listTimetable(timetable);
