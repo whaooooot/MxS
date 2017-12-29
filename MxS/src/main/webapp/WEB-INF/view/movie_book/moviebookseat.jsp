@@ -39,7 +39,7 @@ $(document).ready(function() {
 	  var aisle= "${result1.aisle}";
 	  //alert(aisle);
 	  
-	  var tag = "<table border='1' align='center'>";
+	  var tag = "<table border='0' align='center'>";
 	  var row = ${result1.seatRow};
 	  var col = ${result1.seatCol};
 	  var z= 1;
@@ -81,17 +81,20 @@ function chk(val, z) {//클릭한 값 input에 출력
 	var theaterNum = ' ${result.theaterNum}';
 	
 	//자석, 회원, 영화번호, 상영관 이름, 시작시간 , 극장번호 
-	
+	 var zz= 0;
 	if(idx == -1){
 		document.getElementById("seatClick").value += "/" +val;
 		$("#chk"+z).css("background-color", "gray");
+		
+	   
+		
 		$.ajax({
 			type : "POST",
 			url : "/MxS/seatinsert",
 			dataType : "html",
 			data : "seatNum="+seatNum+"&memberNum="+memberNum+"&movieNum="+movieNum+"&screenName="+screenName+"&timeStart="+timeStart+"&theaterNum="+theaterNum,
 			success : function(data){
-				alert(data);
+				/* alert(data); */
 				//if(data.trim() == "1") alert("이미선택되어 있습니다.");
 			},
 			error : function(result) {
@@ -125,8 +128,9 @@ function chk(val, z) {//클릭한 값 input에 출력
 </head>
 <body>
 
-<form  name="frm" method="post"   action="#">
+<form  name="frm" method="post"   action="moviebookresult">
 <input type ="text" name="memberNum" value="0" >
+<input type="hidden" name="cnt" >
 
  <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
@@ -151,7 +155,6 @@ function chk(val, z) {//클릭한 값 input에 출력
 		        to give the body a percentage width -->
 
 				</table>
-				
 				
 				
 				<table class="table table-bordered">
@@ -196,8 +199,13 @@ function chk(val, z) {//클릭한 값 input에 출력
 							영화번호 : ${result.movieNum}
 							상영관이름 : ${result.screenName} 
                      </h3>
+                     
                
-
+					 <input id="timeStart" type="text" value=" ${result.timeStart}"/>
+					 <input id="timeEnd" type="text" value=" ${result.timeEnd}"/>
+					 <input id="movieNum" type="text" value=" ${result.movieNum}"/>
+					 <input id="screenName" type="text" value=" ${result.screenName}"/>
+               
                
                		선택한좌석 : <input id="seatClick" type="text" />
 							<br/>
@@ -224,6 +232,7 @@ function chk(val, z) {//클릭한 값 input에 출력
 						<tfoot>
 						<jsp:include page="moviebookseatfooter.jsp" flush="false" />
 						</tfoot>
+						
 												
 					</table>
 		</div>

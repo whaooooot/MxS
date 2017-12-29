@@ -123,11 +123,12 @@ public class MoviebookController {
 	
 	//예매결과
 	@RequestMapping(value = "/moviebookresult", method = RequestMethod.POST)
-	public String moviebookresult(BookList booklist, Model model) {
-
-		List<BookList> result = moviebookSessionRepository.selectBooklist(booklist);
-		model.addAttribute("result",result);
+	public String moviebookresult(BookList booklist, Model model, HttpServletRequest request) {
+		System.out.println(booklist.getMemberNum());
 		
+		List<BookList> result = moviebookSessionRepository.selectBookCartList(booklist);
+		model.addAttribute("result",result);
+		System.out.println(booklist.getMemberNum());
 		return "movie_book/moviebookresult";
 		
 	}

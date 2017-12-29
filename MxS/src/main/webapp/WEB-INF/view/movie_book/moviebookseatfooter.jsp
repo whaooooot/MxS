@@ -59,14 +59,13 @@
 
 		<tr>
 			<td>
-				<form action="moviebook" method="get">
 				
-						<button type="submit" class="btn btn-sq btn-danger">◀<br />	<h4>
+						<button  class="btn btn-sq btn-danger">◀<br />	<h4>
 								<strong>영화선택</strong>
 							</h4>
 						</button>
 					
-				</form>
+
 
 			</td>
 
@@ -87,16 +86,15 @@
 
 			<td>
 
-				<form action="moviebookpay" method="post">
-					<div class="bright">
-						<button type="submit" class="btn btn-sq btn-danger">
+				<div class="bright">
+						<button type="submit"  class="btn btn-sq btn-danger">
 							▶ <br />
 							<h4>
 								<strong>결제선택</strong>
 							</h4>
 						</button>
 					</div>
-				</form>
+
 			</td>
 		</tr>
 

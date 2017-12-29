@@ -79,9 +79,9 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 	}
 	
 
-	public List<BookList> selectBooklist(BookList booklist){
+	public List<BookList> selectBookCartList(BookList booklist){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
-		String statement = namespace + ".selectBooklist";
+		String statement = namespace + ".selectBookCartList";
 		return sqlSession.selectList(statement,booklist);
 	}
 

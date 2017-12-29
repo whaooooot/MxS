@@ -135,6 +135,22 @@
 		
 		
 	</select>
+	
+	
+	
+	
+	
+   	<select id="selectBookCartList" parameterType="BookList" resultMap="bookListBaseResultMap">
+   	
+		Select *
+		FROM bookcart1
+
+		where 
+		 member_num=#{memberNum}
+		
+		
+	</select>
+	
 
   
    	

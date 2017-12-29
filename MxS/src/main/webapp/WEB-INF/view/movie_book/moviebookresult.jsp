@@ -2,9 +2,6 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@page import="java.util.*, java.text.*;"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,13 +70,13 @@
 	%>
 	 --%>
 											<br/><br/><br/><br/>
-									<c:forEach var="booklist" items="${list}">
+									<c:forEach var="booklist" items="${result}">
 										<table>
 											
 											<tr><th>예배번호</th> <td>&nbsp;&nbsp;${booklist.bookNum}</td></tr>
 											<tr><th>영화</th> <td>&nbsp;&nbsp;${booklist.movieNum}</td></tr>
 											<tr><th>극장</th> <td>&nbsp;&nbsp;${booklist.theaterNum}</td></tr>
-										<%-- 	<tr><th>일시</th> <td>&nbsp;&nbsp;<%=sysdate%></td></tr> --%>
+										<%-- <tr><th>일시</th> <td>&nbsp;&nbsp;<%=sysdate%></td></tr> --%>
 											<tr><th>인원</th> <td>&nbsp;&nbsp;totalperson</td></tr>
 											<tr><th>좌석</th> <td>&nbsp;&nbsp;${booklist.seatNum}</td></tr>
 											<tr><th></th> <td>&nbsp;&nbsp;</td></tr>
