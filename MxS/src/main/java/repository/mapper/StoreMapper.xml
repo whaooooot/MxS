@@ -89,8 +89,8 @@
         MEMBER_NUM =#{memberNum}
     </select>
     
-    
-
+     
+  
 	
 	<!-- 상품집어넣을때  parameter 조회결과--> 
 	<insert id="insertStore" parameterType="storedto" > 
