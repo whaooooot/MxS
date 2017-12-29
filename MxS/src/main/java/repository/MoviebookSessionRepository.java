@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import model.*;
 
+
 @Repository
 public class MoviebookSessionRepository extends AbstractRepository  {
 	private final String namespace = "repository.mapper.MoviebookMapper";
@@ -50,7 +51,7 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 			sqlSession.close();
 		}
 	}
-	public List<TimeTable> getTime(TimeTable timeTable){
+	public TimeTable getTime(TimeTable timeTable){
 		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
 /*		System.out.println(timeTable.getTimeStart());
 		System.out.println(timeTable.getTheaterNum());
@@ -58,8 +59,8 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		System.out.println(timeTable.getScreenName());*/
 		try {
 			String statement = namespace + ".getTime";
-			System.out.println(sqlSession.selectList(statement, timeTable));
-			return sqlSession.selectList(statement, timeTable);
+			//System.out.println(sqlSession.selectList(statement, timeTable));
+			return (TimeTable) sqlSession.selectOne(statement, timeTable);
 		}finally {
 			sqlSession.close();
 		}
@@ -84,4 +85,52 @@ public class MoviebookSessionRepository extends AbstractRepository  {
 		return sqlSession.selectList(statement,booklist);
 	}
 
+	public int seatinsert(BookList booklist){
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		String statement = namespace + ".seatinsert";
+		System.out.println("sessionseatinsert" + booklist.getSeatNum());
+		
+		int result = sqlSession.insert(statement,booklist);
+		//System.out.println("seatinsert");
+		if(result > 0) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return result;		
+		
+	}
+	
+	public int seatdelete(BookList booklist){
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		
+		String statement = namespace + ".seatdelete";
+		
+		int result = sqlSession.delete(statement,booklist);
+		System.out.println("seatdelete");
+		if(result > 0) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return result;	
+		
+	}
+	
+	
+	public BookList seatSelect(BookList booklist){
+		SqlSession sqlSession = this.getSqlSessionFactory().openSession();
+		
+		String statement = namespace + ".seatSelect";
+		BookList result = sqlSession.selectOne(statement,booklist);
+		return result;	
+	}
+	
+	
+	
+	
+	
+	
 }

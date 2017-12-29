@@ -22,24 +22,6 @@
 <script type="text/javascript">
 
 //생성된좌석클릭해서 좌석 값 받기
-function chk(val, z) {//클릭한 값 input에 출력
-	var seatClick = document.getElementById("seatClick").value;
-	var idx = seatClick.indexOf(val);
-	var z = parseInt(z);
-	
-	
-	if(idx == -1){
-		document.getElementById("seatClick").value += "/" +val;
-		$("#chk"+z).css("background-color", "gray");
-		$("#chk"+z).attr('disabled',true);
-	}else{
-		seatClick = seatClick.replace("/"+val, "");
-			document.getElementById("seatClick").value = seatClick;
-			$("#chk"+z).css("background-color", "gray");
-	}
-}
-
- 
 function seatSel(val) {
 		 //인원ㅇ클릭한 값 input에 출력
 		document.frm.adult.value=val;
@@ -53,28 +35,98 @@ function kidSel(val) {
 
 
 
-
 $(document).ready(function() {
-	
-	$.ajax({
-		type : "POST",
-		url : "${path}/moviebookseat",
-		dataType : "html",
-		
+	  var aisle= "${result1.aisle}";
+	  //alert(aisle);
+	  
+	  var tag = "<table border='1' align='center'>";
+	  var row = ${result1.seatRow};
+	  var col = ${result1.seatCol};
+	  var z= 1;
 
-		success : function(result) {
-			$('#listTheater').html(result);
-		}
-	});
-	return false;
+	  
+	  for(var r =1; r<=row; r++){
+	      tag += "<tr>";
+		  for(var c=1; c<=col; c++){
+			  var rc = c + "." + r;
+			  if(aisle.indexOf(rc) == -1 ){
+				  tag += "<td><td><input onClick='chk(this.value,"+z+");' class='chk' id='chk"+z+"' name='chk[]' type='button' type='button' id='seaterer' value="+r+"."+c+"></td>";
+				  z++;
+			  }else{			
+				  //alert(rc);
+			  	  tag += "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+			  	
+			  }
+			  
+		  }tag += "</tr>";
+	  }
+	  tag += "</table>";
+	  $("#area").html(tag);
+	  
+
 });
 	
 	
+function chk(val, z) {//클릭한 값 input에 출력
+	var seatClick = document.getElementById("seatClick").value;
+	var idx = seatClick.indexOf(val);
+	var z = parseInt(z);
+	
+
+	var seatNum = val;//좌석번호
+	var memberNum = document.frm.memberNum.value;//회원
+	var movieNum = '${result.movieNum}';//영화
+	var screenName = '${result.screenName}';//상영관이름
+	var timeStart = '${result.timeStart}';//시작시간
+	var theaterNum = ' ${result.theaterNum}';
+	
+	//자석, 회원, 영화번호, 상영관 이름, 시작시간 , 극장번호 
+	
+	if(idx == -1){
+		document.getElementById("seatClick").value += "/" +val;
+		$("#chk"+z).css("background-color", "gray");
+		$.ajax({
+			type : "POST",
+			url : "/MxS/seatinsert",
+			dataType : "html",
+			data : "seatNum="+seatNum+"&memberNum="+memberNum+"&movieNum="+movieNum+"&screenName="+screenName+"&timeStart="+timeStart+"&theaterNum="+theaterNum,
+			success : function(data){
+				alert(data);
+				//if(data.trim() == "1") alert("이미선택되어 있습니다.");
+			},
+			error : function(result) {
+				alert("오류");
+			}
+			
+		});
+		
+	}else{
+		seatClick = seatClick.replace("/"+val, "");
+			document.getElementById("seatClick").value = seatClick;
+			$("#chk"+z).css("background-color", "gray");
+			
+			$.ajax({
+				type : "POST",
+				url : "/MxS/seatdelete",
+				dataType : "html",
+				data : "seatNum="+seatNum+"&memberNum="+memberNum+"&movieNum="+movieNum+"&screenName="+screenName+"&timeStart="+timeStart+"&theaterNum="+theaterNum,
+				success : function(data){
+					
+				},
+				error : function(result) {
+					alert("오류");
+				}
+				
+				
+			});
+	}
+}
 </script>
 </head>
 <body>
 
 <form  name="frm" method="post"   action="#">
+<input type ="text" name="memberNum" value="0" >
 
  <div id="header">
       <jsp:include page="../header.jsp" flush="false" />
@@ -137,15 +189,13 @@ $(document).ready(function() {
 								</td>
 							
 							<td colspan="2">
-                     
-                     <c:forEach var = "time" items="${result}">
-                     <h3>상영시간 : ${time.TIME_START}
-					~ ${time.TIME_END}
-					극장번호 : ${time.theaterNum}
-					영화번호 : ${time.movieNum}
-					상영관이름 : ${time.screenName} 
+
+                    
+		                     <h3>상영시간 : ${result.timeStart}~ ${result.timeEnd}
+							극장번호 : ${result.theaterNum}
+							영화번호 : ${result.movieNum}
+							상영관이름 : ${result.screenName} 
                      </h3>
-               </c:forEach>
                
 
                
@@ -188,55 +238,9 @@ $(document).ready(function() {
 </body>
 
 <script type="text/javascript">
-function rowCol1(){//통로반영
-	  var aisle= "${result1.aisle}";
-	  //alert(aisle);
-	  
-	  var tag = "<table border='1' align='center'>";
-	  var row = ${result1.seatRow};
-	  var col = ${result1.seatCol};
-	  var z= 1;
 
-	  
- 	  for(var r =1; r<=row; r++){
- 	      tag += "<tr>";
-		  for(var c=1; c<=col; c++){
-			  var rc = c + "." + r;
-			  if(aisle.indexOf(rc) == -1 ){
-				  tag += "<td><td><input onClick='chk(this.value,"+z+");button_onclick();' class='chk' id='chk"+z+"' name='chk[]' type='button' type='button' id='seaterer' value="+r+"."+c+"></td>";
-				  z++;
-			  }else{			
-				  //alert(rc);
-			  	  tag += "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-			  	
-			  }
-			  
-		  }tag += "</tr>";
-	  }
-	  tag += "</table>";
-	  $("#area").html(tag);
-	  
 
-}
-
-rowCol1();
-
-	//버튼 클릭 카운트
-	var count = 0;
-    var totalperson = document.getElementById("totalperson").value;
-	function button_onclick() {
-		count = ++count;
-		alert(count + "회 클릭하셨습니다.");
-		
-/* 		if(count>=totalperson){//totalperson와 같으면 중지
-			alert("stop");
-			
-		}  */
-	}
 	
-
-
-
 </script>
 </body>
 </html>

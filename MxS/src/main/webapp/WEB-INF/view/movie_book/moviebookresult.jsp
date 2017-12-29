@@ -66,12 +66,12 @@
 						
 						<tr>	<td align="center"><img class="imgsize" src="http://movie.phinf.naver.net/20131105_185/1383644515842maJk5_JPEG/movie_image.jpg?width=200" alt="Image"></td>
 						<td rowspan="2" align="center">
-	<%
+<%-- 	<%
 		Date date = new Date();
 		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
 		String sysdate = simpleDate.format(date);
 	%>
-	
+	 --%>
 											<br/><br/><br/><br/>
 									<c:forEach var="booklist" items="${list}">
 										<table>
@@ -79,7 +79,7 @@
 											<tr><th>예배번호</th> <td>&nbsp;&nbsp;${booklist.bookNum}</td></tr>
 											<tr><th>영화</th> <td>&nbsp;&nbsp;${booklist.movieNum}</td></tr>
 											<tr><th>극장</th> <td>&nbsp;&nbsp;${booklist.theaterNum}</td></tr>
-											<tr><th>일시</th> <td>&nbsp;&nbsp;<%=sysdate%></td></tr>
+										<%-- 	<tr><th>일시</th> <td>&nbsp;&nbsp;<%=sysdate%></td></tr> --%>
 											<tr><th>인원</th> <td>&nbsp;&nbsp;totalperson</td></tr>
 											<tr><th>좌석</th> <td>&nbsp;&nbsp;${booklist.seatNum}</td></tr>
 											<tr><th></th> <td>&nbsp;&nbsp;</td></tr>

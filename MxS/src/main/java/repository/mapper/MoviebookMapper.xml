@@ -9,8 +9,10 @@
   		<collection property="TimeStarts" ofType="TimeTableScreen">
   			<id property="timeStart" column="time_start"></id>
   		</collection>
+  		
 		
   </resultMap>
+  
   
     <resultMap id="screenBaseResultMap" type="Screen">
 	  	<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />
@@ -21,8 +23,6 @@
 	  	<result column="aisle" jdbcType="VARCHAR" property="aisle" />
 
   </resultMap>
-  
-
   
 	<select id="reserve" resultType="Movie">
       select b.cnt ,  m.movie_num, b.movie_num
@@ -61,7 +61,20 @@
    		where SCREEN_NAME = #{screenName}  and  THEATER_NUM = #{theaterNum} and MOVIE_NUM = #{movieNum} 
    	</select>
    	
-   	<select id="getTime" parameterType="TimeTable" resultType="Map">
+  <resultMap id="timetableBaseResultMap" type="TimeTable">
+
+	  	<id column="TIME_START"  jdbcType="VARCHAR" property="timeStart" />	
+    	<id column="THEATER_NUM"  jdbcType="BIGINT" property="theaterNum" />
+    	<id column="MOVIE_NUM"  jdbcType="BIGINT" property="movieNum" />
+	  	<id column="SCREEN_NAME"  jdbcType="VARCHAR" property="screenName" />
+	  		
+	   <result column="TIME_END"  jdbcType="VARCHAR" property="timeEnd" />  
+	   	
+  </resultMap>
+  
+  
+   	
+   	<select id="getTime" parameterType="TimeTable" resultMap="timetableBaseResultMap">
    		select *
    		from TIME_TABLE
    		where TIME_START = #{timeStart} and THEATER_NUM = #{theaterNum} and MOVIE_NUM = #{movieNum} and SCREEN_NAME = #{screenName}
@@ -75,9 +88,9 @@
     	<id column="theater_num"  jdbcType="BIGINT" property="theaterNum" />
     	<id column="movie_num"  jdbcType="BIGINT" property="movieNum" />
 	  	<id column="screen_name"  jdbcType="VARCHAR" property="screenName" />	  	
-	  	<id column="time_start"  jdbcType="TIMESTAMP" property="timeStart" />	 
+	  	<id column="time_start"  jdbcType="VARCHAR" property="timeStart" />	 
 	  	<result column="seat_num" jdbcType="VARCHAR" property="seatNum" />
-	  	<result column="book_day" jdbcType="TIMESTAMP" property="bookDay" />
+	  	<result column="book_day" jdbcType="VARCHAR" property="bookDay" />
 	  	<result column="book_sell" jdbcType="BIGINT" property="book_sell" />
 
   </resultMap>  	
@@ -93,7 +106,37 @@
 		time_start = #{timeStart}
 
 	</select>
+	
 
+
+  <insert id="seatinsert" parameterType="BookList">
+		INSERT INTO BOOKCART1(member_num, theater_num, movie_num, screen_name, time_start, seat_num)
+		values(#{memberNum}, #{theaterNum},  #{movieNum}, #{screenName}, #{timeStart}, #{seatNum} )
+	</insert>
+	
+	  <delete id="seatdelete" parameterType="BookList">
+		delete from BOOKCART1
+		where member_num=#{memberNum} and theater_num= #{theaterNum} 
+		and movie_num = #{movieNum} and screen_name = #{screenName} 
+		and time_start = #{timeStart} and seat_num = #{seatNum}
+	</delete>
+
+
+   	<select id="seatSelect" parameterType="long" resultMap="bookListBaseResultMap">
+   	
+		Select seat_num
+		FROM bookcart1
+
+		where 
+		<!-- member_num=#{memberNum} and  -->
+		theater_num= #{theaterNum} 
+		and movie_num = #{movieNum} and screen_name = #{screenName} 
+		and time_start = #{timeStart} and seat_num = #{seatNum}
+		
+		
+	</select>
+
+  
    	
    	
 </mapper>

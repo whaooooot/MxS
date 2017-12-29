@@ -1,6 +1,7 @@
 package controller;
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import model.*;
+import model.BookList;
+import model.Movie;
+import model.Screen;
+import model.Theater;
+import model.TimeTable;
 import repository.MoviebookSessionRepository;
 
 
@@ -70,16 +74,28 @@ public class MoviebookController {
 	
 	@RequestMapping(value = "/moviebookseat", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mxs2(Model model,Theater theater, TimeTable timeTable, HttpServletRequest request) {
-		String aaaa[] = request.getParameter("timeeTable1").split("/");
-		timeTable.setTimeStart(aaaa[1]);
-		timeTable.setScreenName(aaaa[0]);
-		List<TimeTable> result = moviebookSessionRepository.getTime(timeTable);
-		Screen result1 = moviebookSessionRepository.getScreen(timeTable);
-		model.addAttribute("result", result);
-		model.addAttribute("result1", result1);
-		//System.out.println(timeTable.getMovieNum());
-		//System.out.println(model.addAttribute("result", result));
-		
+		String aaaa[] = request.getParameter("timeeTable1").split("-");
+		//System.out.println(aaaa[0]);
+		//System.out.println(aaaa[1]);
+
+
+		 
+		 	timeTable.setTimeStart(aaaa[1]);
+			timeTable.setScreenName(aaaa[0]);
+			
+			
+			//System.out.println("aaaa" + timeTable.getTimeStart());
+			
+			
+			
+			TimeTable result = moviebookSessionRepository.getTime(timeTable);
+			//System.out.println(result.getMovieNum());
+			Screen result1 = moviebookSessionRepository.getScreen(timeTable);
+			model.addAttribute("result", result);
+			model.addAttribute("result1", result1);
+			//System.out.println(timeTable.getMovieNum());
+			//System.out.println(model.addAttribute("result", result));
+	
 		return "movie_book/moviebookseat";
 	}
 	@ResponseBody
@@ -116,7 +132,39 @@ public class MoviebookController {
 		
 	}
 	
-
+	@RequestMapping(value = "/seatinsert", method = {RequestMethod.GET, RequestMethod.POST})
+	public String  seatinsert(BookList booklist, Model model,HttpServletRequest request) {
+		
+		System.out.println("ctrollerseatinsertbbbb" + request.getParameter("seatNum"));
+		String seatNum = request.getParameter("seatNum");
+		
+		//BookList resultseat = moviebookSessionRepository.seatSelect(booklist);
+		int result = moviebookSessionRepository.seatinsert(booklist);
+		//System.out.println(resultseat.getSeatNum());
+/*		
+		if(resultseat.getSeatNum().equals(seatNum)){
+			System.out.println("aaaaaaa");
+			model.addAttribute("aaa","1");
+			
+		}else {
+			System.out.println(booklist.getSeatNum());
+			int result = moviebookSessionRepository.seatinsert(booklist);
+		}*/
+		
+		//System.out.println(result);
+		return "movie_book/seattest";
+		
+	}
+	
+	
+	@RequestMapping(value = "/seatdelete", method = {RequestMethod.GET, RequestMethod.POST})
+	public String seatdelete(BookList booklist, Model model,HttpServletRequest request) {
+		//System.out.println("bbbb" + request.getParameter("seatNum"));
+		int result = moviebookSessionRepository.seatdelete(booklist);
+		//System.out.println(result);
+		return "movie_book/seattest";
+		
+	}
 	
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
@@ -124,6 +172,10 @@ public class MoviebookController {
 
 		return "test";
 	}
+	
+	
+	
+	
 }
 		
 	

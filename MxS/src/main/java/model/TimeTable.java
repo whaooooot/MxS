@@ -5,30 +5,23 @@ import java.util.List;
 
 @SuppressWarnings("serial")
 public class TimeTable implements Serializable{
-	String TimeStart;
-	int TheaterNum; 
+	String timeStart;
+	int theaterNum; 
 	int movieNum;  
 	String screenName; 
 	List<TimeTableScreen> TimeStarts;
 	String timeEnd;
-
-	public List<TimeTableScreen> getTimeStarts() {
-		return TimeStarts;
-	}
-	public void setTimeStarts(List<TimeTableScreen> timeStarts) {
-		TimeStarts = timeStarts;
-	}
 	public String getTimeStart() {
-		return TimeStart;
+		return timeStart;
 	}
 	public void setTimeStart(String timeStart) {
-		TimeStart = timeStart;
+		this.timeStart = timeStart;
 	}
 	public int getTheaterNum() {
-		return TheaterNum;
+		return theaterNum;
 	}
 	public void setTheaterNum(int theaterNum) {
-		TheaterNum = theaterNum;
+		this.theaterNum = theaterNum;
 	}
 	public int getMovieNum() {
 		return movieNum;
@@ -42,10 +35,18 @@ public class TimeTable implements Serializable{
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
+	public List<TimeTableScreen> getTimeStarts() {
+		return TimeStarts;
+	}
+	public void setTimeStarts(List<TimeTableScreen> timeStarts) {
+		TimeStarts = timeStarts;
+	}
 	public String getTimeEnd() {
 		return timeEnd;
 	}
 	public void setTimeEnd(String timeEnd) {
 		this.timeEnd = timeEnd;
-	} 
+	}
+	
+
 }

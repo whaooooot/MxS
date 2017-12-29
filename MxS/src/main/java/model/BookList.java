@@ -7,10 +7,16 @@ public class BookList { // BookList
 	String movieNum;
 	String screanNum;
 	String timeStart;
-	String satNum;
+	String seatNum;
+	String screenName;
+	public String getScreenName() {
+		return screenName;
+	}
+	public void setScreenName(String screenName) {
+		this.screenName = screenName;
+	}
 	String bookDay;
 	Long bookSel;
-	
 	public String getBookNum() {
 		return bookNum;
 	}
@@ -47,11 +53,11 @@ public class BookList { // BookList
 	public void setTimeStart(String timeStart) {
 		this.timeStart = timeStart;
 	}
-	public String getSatNum() {
-		return satNum;
+	public String getSeatNum() {
+		return seatNum;
 	}
-	public void setSatNum(String satNum) {
-		this.satNum = satNum;
+	public void setSeatNum(String seatNum) {
+		this.seatNum = seatNum;
 	}
 	public String getBookDay() {
 		return bookDay;
@@ -66,5 +72,6 @@ public class BookList { // BookList
 		this.bookSel = bookSel;
 	}
 
+	
 	
 }
